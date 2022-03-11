@@ -31,43 +31,45 @@ pool.on('connect', () => {
 });
 
 /*first solution: https://dev.to/ogwurujohnson/-persisting-a-node-api-with-postgresql-without-the-help-of-orms-like-sequelize-5dc5 */
-const createTables = () => {
+const createTables = async () => {
   const testTable1 = `CREATE TABLE IF NOT EXISTS
-      students(
+      users(
         id SERIAL PRIMARY KEY,
-        student_name VARCHAR(128) NOT NULL,
-        student_age INT NOT NULL,
-        student_class VARCHAR(128) NOT NULL,
-        parent_contact VARCHAR(128) NOT NULL,
-        admission_date VARCHAR(128) NOT NULL
+        user_name VARCHAR(128) NOT NULL,
+        first_name VARCHAR(128) NOT NULL,
+        last_name VARCHAR(128) NOT NULL,
+        email VARCHAR(128) NOT NULL,
+        password VARCHAR NOT NULL,
+        birth_date DATE NOT NULL,
+        location VARCHAR(128) NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT now(),
+        last_login TIMESTAMP NOT NULL DEFAULT now()
       )`;
-  pool.query(testTable1)
-    .then((res) => {
-      console.log(res);
-      pool.end();
-    })
-    .catch((err) => {
-      console.log(err);
-      pool.end();
-    });
+  try {
+    const res = await pool.query(testTable1);
+    if (res) console.log('USERRRRSSSSS', res)
+    else throw new Error;
+  } catch (error) {
+    console.log(error)
+  }
+
   const testTable2 = `CREATE TABLE IF NOT EXISTS
       posts(
         id SERIAL PRIMARY KEY,
-        post_name VARCHAR(128) NOT NULL,
-        post_age INT NOT NULL,
-        post_class VARCHAR(128) NOT NULL,
-        parent_contact VARCHAR(128) NOT NULL,
-        admission_date VARCHAR(128) NOT NULL
+        title VARCHAR(350),
+        image_url TEXT,
+        content TEXT,
+        category VARCHAR(128) NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT now(),
+        user_id INT FOREIGN KEY REFERENCES users(id)
       )`;
-  pool.query(testTable2)
-    .then((res) => {
-      console.log(res);
-      pool.end();
-    })
-    .catch((err) => {
-      console.log(err);
-      pool.end();
-    });
+  try {
+    const res = await pool.query(testTable2);
+    if (res) console.log('POOOOSSSTTSSS', res)
+    else throw new Error;
+  } catch (error) {
+    console.log(error)
+  }
 
 };
 
