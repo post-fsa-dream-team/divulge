@@ -18,7 +18,6 @@
 const pg = require('pg');
 
 const config = {
-  user: 'postgres', //this is the db user credential
   database: 'divulge',
   port: 5432,
   max: 10, // max number of clients in the pool
@@ -43,6 +42,24 @@ const createTables = () => {
         admission_date VARCHAR(128) NOT NULL
       )`;
   pool.query(testTable1)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+  const testTable2 = `CREATE TABLE IF NOT EXISTS
+      posts(
+        id SERIAL PRIMARY KEY,
+        post_name VARCHAR(128) NOT NULL,
+        post_age INT NOT NULL,
+        post_class VARCHAR(128) NOT NULL,
+        parent_contact VARCHAR(128) NOT NULL,
+        admission_date VARCHAR(128) NOT NULL
+      )`;
+  pool.query(testTable2)
     .then((res) => {
       console.log(res);
       pool.end();
