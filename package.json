@@ -8,7 +8,7 @@
     "server": "nodemon server",
     "start": "node index.js",
     "seed": "node seed.js",
-    "create": "node ./server/db.js createTables createFk",
+    "create": "node ./server/db.js createTables",
     "test": "NODE_ENV = 'test' mocha"
   },
   "author": "",
