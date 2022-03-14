@@ -52,7 +52,6 @@ const createTables = async () => {
   } catch (error) {
     console.log(error)
   }
-
   const testTable2 = `CREATE TABLE IF NOT EXISTS
       posts(
         id SERIAL PRIMARY KEY,
@@ -61,7 +60,8 @@ const createTables = async () => {
         content TEXT,
         category VARCHAR(128) NOT NULL,
         created_at TIMESTAMP NOT NULL DEFAULT now(),
-        user_id INT FOREIGN KEY REFERENCES users(id)
+        user_id SERIAL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
       )`;
   try {
     const res = await pool.query(testTable2);
@@ -70,7 +70,6 @@ const createTables = async () => {
   } catch (error) {
     console.log(error)
   }
-
 };
 
 /*second solution https://stackoverflow.com/questions/58645460/how-to-create-a-table-with-postgresql-in-nodejs-without-an-orm */
