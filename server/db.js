@@ -72,12 +72,17 @@ const createTables = async () => {
   }
 };
 
-/*second solution https://stackoverflow.com/questions/58645460/how-to-create-a-table-with-postgresql-in-nodejs-without-an-orm */
-// db.query(“CREATE TABLE TABLE_NAME(id SERIAL PRIMARY KEY, xzy VARCHAR(40) NOT NULL,
-// abc VARCHAR(40) NOT NULL)”, (err, res) => {
-// console.log(err, res);
-// db.end();
-// });
+const createFk = () => {
+  pool.query(`ALTER TABLE posts ADD CONSTRAINT constraint_fk FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE`)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+}
 
 pool.on('remove', () => {
   console.log('client removed');
@@ -88,6 +93,7 @@ pool.on('remove', () => {
 //export pool and createTables to be accessible  from an where within the application
 module.exports = {
   createTables,
+  createFk,
   pool,
 };
 
