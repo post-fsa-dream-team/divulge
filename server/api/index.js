@@ -2,10 +2,8 @@
 const router = require("express").Router();
 
 //routers go after this line
-
-
-
-
+router.use('/posts', require('./posts'));
+router.use('/users', require('./users'));
 
 //routers go before this line
 
