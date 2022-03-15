@@ -7,10 +7,12 @@ const router = async () => {
     { path: "/404", view: () => console.log("viewing 404 not found") },
     { path: "/", view: () => console.log("viewing home") },
     { path: "/posts", view: () => console.log("viewing posts") },
+    { path: "/profile", view: () => console.log("viewing profile") },
     //HOW TO ADD VARIABLES?
     { path: "/posts/USERID", view: () => console.log("viewing single post") },
   ]
 
+  //test each route for potential match
   const potentialMatches = routes.map(route => {
     return {
       route: route,
@@ -19,17 +21,17 @@ const router = async () => {
     }
   })
 
-  let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
+  let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch);
 
   if (!match) {
       match = {
           route: routes[0],
-          result: [location.pathname]
+          isMatch: true
+          // result: [location.pathname]
       };
   }
 
-  console.log(potentialMatches)
-  console.log(match)
+  console.log(match.route.view())
 }
 
 document.addEventListener("DOMContentLoaded", () => {
