@@ -1,5 +1,5 @@
 //main entry point
-console.log("Welcome to the JS file!")
+console.log("WHY WON'T YOU PRINT???")
 
 // const router = async () => {
 

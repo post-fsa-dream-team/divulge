@@ -10,12 +10,12 @@ app.use(express.json())
 
 //static middleware
 // app.use(express.static(path.join(__dirname, '../public')))
-app.use(express.static(path.join(__dirname, '../app/index.js')))
+app.use('/app', express.static(path.join(__dirname, '../app/index.js')))
 
 app.use('/api', require('./api')) // ----> include our routes
 
 //send index.html for any other requests
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
