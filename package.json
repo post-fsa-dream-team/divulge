@@ -2,11 +2,11 @@
   "name": "divulge",
   "version": "1.0.0",
   "description": "",
-  "main": "app/index.js",
+  "main": "./app/index.js",
   "scripts": {
     "start-dev": "npm run server & npm run start",
     "server": "nodemon server",
-    "start": "node index.js",
+    "start": "node ./app/index.js",
     "seed": "node seed.js",
     "create": "node ./server/db.js createTables",
     "test": "NODE_ENV = 'test' mocha"
