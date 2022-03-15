@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "npm run server",
     "server": "nodemon server",
-    "start": "node app",
+    "start": "node server",
     "seed": "node seed.js",
     "create": "node ./server/db.js createTables",
     "test": "NODE_ENV = 'test' mocha"
