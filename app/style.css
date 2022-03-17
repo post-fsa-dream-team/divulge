@@ -8,7 +8,7 @@ body {
 
 .nav-bar {
   justify-content: space-between;
-  align-items: flex-end
+  align-items: flex-end;
 }
 
 #site-title {
@@ -26,7 +26,9 @@ nav {
   justify-content: flex-end;
   margin: 0;
   padding: 0;
+  background-color: #0b5b6d;
   /* border-bottom: 1px solid #000 */
+  color: white;
 }
 
 .nav-link ul{
@@ -43,7 +45,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: black;
+  color: white
 }
 
 nav ul li:hover {
@@ -54,6 +56,7 @@ nav ul li:hover {
 
 /* Home Styles */
 #home-title {
+  font-family: 'Merriweather', serif;
   padding: 10px
 }
 
@@ -74,16 +77,35 @@ nav ul li:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: -22px;
+  padding-top: 20px;
+  padding-left: 5px;
   position: fixed;
   height: 100vh;
 
   width: 20vh;
-  background: #0b5b6d;
+  /* background: #0b5b6d; */
+  background-color: rgb(255, 153, 0)
+}
+
+#categories-title {
+  font-family: 'Merriweather', serif;
+  margin-left: 2px
 }
 
 .home-nav-link {
   display: block;
   padding: 12px 18px;
   text-decoration: none;
+  color: white;
+}
+
+.home-content {
+  margin-left: 25vh;
+}
+
+nav a:hover {
+  padding: 10px;
   color: #eeeeee;
+  border-bottom: 1px solid white;
 }

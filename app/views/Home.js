@@ -31,20 +31,24 @@ export default class extends AbstractView {
 
     return `
       <nav class="home-nav">
-        <a href="/" class="home-nav-link" data-link>Dashboard</a>
-        <a href="/posts" class="home-nav-link" data-link>Posts</a>
-        <a href="/settings" class="home-nav-link" data-link>Settings</a>
+        <div id="categories-title">Categories</div>
+        <a href="" class="home-nav-link" data-link>Technology</a>
+        <a href="" class="home-nav-link" data-link>Politics</a>
+        <a href="" class="home-nav-link" data-link>Fashion</a>
       </nav>
-      <h1 id="home-title">Welcome to Divulge</h1>
-        <table id="all-posts-table">
-            ${myPosts.map(post =>
-              `<tr>
-                <td class="image-cell"><img class="post-image" src=${post.imageUrl}/></td>
-                <td>${post.title}</td>
-                <td>${post.content}</td>
-              </tr>`
-                ).join('')}
-        </table>
+
+      <div class="home-content">
+        <h1 id="home-title">Welcome to Divulge</h1>
+          <table id="all-posts-table">
+              ${myPosts.map(post =>
+                `<tr>
+                  <td class="image-cell"><img class="post-image" src=${post.imageUrl}/></td>
+                  <td>${post.title}</td>
+                  <td>${post.content}</td>
+                </tr>`
+                  ).join('')}
+          </table>
+        <div>
       `
   }
 }
