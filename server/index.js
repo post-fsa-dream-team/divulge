@@ -8,7 +8,7 @@ const client = require("./db.js")
 
 app.use(express.json())
 
-//static middleware
+// static middleware
 // app.use(express.static(path.join(__dirname, '../public')))
 app.use('/app', express.static(path.join(__dirname, "../app")))
 

@@ -1,6 +1,7 @@
 //main entry point
 console.log("Entered the index.js file")
-import LandingPage from "./views/LandingPage.js"
+
+import Home from "./views/Home.js"
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -19,12 +20,10 @@ const navigateTo = url => {
   router();
 };
 
-
 const router = async () => {
-console.log();
   const routes = [
     { path: "/404", view: () => console.log("viewing 404 not found") },
-    { path: "/", view: LandingPage },
+    { path: "/home", view: Home },
     { path: "/posts", view: () => console.log("viewing posts") },
     { path: "/profile", view: () => console.log("viewing profile") },
     { path: "/signin", view: SignIn },
@@ -49,21 +48,19 @@ console.log();
       result: [location.pathname]
     };
   }
-  // Create a new instance at the match route
-  const view = new match.route.view(getParams(match));
+  const view = new match.route.view()
+  document.querySelector("#app").innerHTML = await view.getHtml()
+}
 
-  document.querySelector("#app").innerHTML = await view.getHtml();
-};
-
-window.addEventListener("popstate", router);
+//run the router when client navigates through history (e.g. clicks back button)
+window.addEventListener("popstate", router)
 
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
-      e.preventDefault();
-      navigateTo(e.target.href);
+      e.preventDefault()
+      navigateTo(e.target.href)
     }
-  });
-
+  })
   router();
 });
