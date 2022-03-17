@@ -1,7 +1,8 @@
 //main entry point
 console.log("Entered the index.js file")
 import LandingPage from "./views/LandingPage.js"
-
+import SignUp from "./views/SignUp.js";
+import SignIn from "./views/SignIn.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
@@ -26,6 +27,8 @@ const router = async () => {
     { path: "/", view: LandingPage },
     { path: "/posts", view: () => console.log("viewing posts") },
     { path: "/profile", view: () => console.log("viewing profile") },
+    { path: "/signin", view: SignIn },
+    { path: "/signup", view: SignUp },
     //HOW TO ADD VARIABLES?
     { path: "/posts/USERID", view: () => console.log("viewing single post") },
   ]
