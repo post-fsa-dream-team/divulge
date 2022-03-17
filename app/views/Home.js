@@ -27,14 +27,19 @@ export default class extends AbstractView {
     //  }
     // }
 
-    let myPosts = [{title: "post1", imageUrl: " https://cf.ltkcdn.net/dogs/images/orig/235430-2000x1332-australian-shepherd-puppy.jpg", content:"This is fake content"}, {title: "post2", imageUrl: "https://cf.ltkcdn.net/dogs/images/orig/235430-2000x1332-australian-shepherd-puppy.jpg", content:"This is fake content"}, {title: "post3", imageUrl: "https://cf.ltkcdn.net/dogs/images/orig/235430-2000x1332-australian-shepherd-puppy.jpg", content:"This is fake content"}]
+    let myPosts = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
 
     return `
+      <nav class="home-nav">
+        <a href="/" class="home-nav-link" data-link>Dashboard</a>
+        <a href="/posts" class="home-nav-link" data-link>Posts</a>
+        <a href="/settings" class="home-nav-link" data-link>Settings</a>
+      </nav>
       <h1 id="home-title">Welcome to Divulge</h1>
         <table id="all-posts-table">
             ${myPosts.map(post =>
               `<tr>
-                <td class="image-cell"><img src=${post.imageUrl}/></td>
+                <td class="image-cell"><img class="post-image" src=${post.imageUrl}/></td>
                 <td>${post.title}</td>
                 <td>${post.content}</td>
               </tr>`

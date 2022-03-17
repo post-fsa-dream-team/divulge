@@ -65,3 +65,25 @@ nav ul li:hover {
 .image-cell {
   width: 10vh
 }
+
+.post-image {
+  width: 20vh
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  height: 100vh;
+
+  width: 20vh;
+  background: #0b5b6d;
+}
+
+.home-nav-link {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #eeeeee;
+}
