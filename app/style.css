@@ -61,7 +61,7 @@ nav ul li:hover {
 }
 
 #all-posts-table, td {
-  margin-left: 10px;
+  margin-left: 30px;
   border: black solid 1px;
 }
 
@@ -101,7 +101,7 @@ nav ul li:hover {
 }
 
 .home-content {
-  margin-left: 25vh;
+  margin-left: 22vh;
 }
 
 nav a:hover {
