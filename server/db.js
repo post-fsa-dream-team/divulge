@@ -70,6 +70,7 @@ const createTables = async () => {
   } catch (error) {
     console.log(error)
   }
+  pool.end();
 };
 
 const createFk = () => {

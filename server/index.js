@@ -9,6 +9,7 @@ const client = require("./db.js")
 app.use(express.json())
 
 //static middleware
+app.use('/app', express.static(path.join(__dirname, '../app')))
 app.use(express.static(path.join(__dirname, '../public')))
 app.use('/api', require('./api')) // ----> include our routes
 
