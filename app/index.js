@@ -1,4 +1,13 @@
 //main entry point
+const navigateTo = url => {
+  //pushState takes three parameters:
+  //1) state;
+  //2) unused (exists for historical reasons and cannot be omitted, can pass in empty string, null, etc);
+  //3. url, can be relative to current URL
+  history.pushState(null, null, url)
+  router();
+}
+
 console.log("Entered the index.js file")
 
 const router = async () => {
@@ -34,6 +43,15 @@ const router = async () => {
   console.log(match.route.view())
 }
 
+//run the router when client navigates through history (e.g. clicks back button)
+window.addEventListener("popstate", router)
+
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", e => {
+    if (e.target.matches("[data-link]")) {
+      e.preventDefault()
+      navigateTo(e.target.href)
+    }
+  })
   router();
 })
