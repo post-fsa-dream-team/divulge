@@ -56,3 +56,12 @@ nav ul li:hover {
 #home-title {
   padding: 10px
 }
+
+#all-posts-table, td {
+  margin-left: 10px;
+  border: black solid 1px;
+}
+
+.image-cell {
+  width: 10vh
+}
