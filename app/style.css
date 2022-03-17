@@ -51,3 +51,8 @@ nav ul li:hover {
   color: rgb(2, 99, 99);
   border-bottom: 1px solid #000;
 }
+
+/* Home Styles */
+#home-title {
+  padding: 10px
+}

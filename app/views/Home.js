@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import AllPostNavigation from "./AllPostNavigation"
+import AllPostNavigation from "./AllPostNavigation.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,10 +8,6 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    return `
-    <h1>THIS IS THE HOME VIEW</h1>
-    <p>
-      Welcome to the home view.
-    </p>`;
+    return `<h1 id="home-title">Welcome to Divulge</h1>`
   }
 }
