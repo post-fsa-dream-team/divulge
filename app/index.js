@@ -21,7 +21,7 @@ const navigateTo = url => {
 
 
 const router = async () => {
-
+console.log();
   const routes = [
     { path: "/404", view: () => console.log("viewing 404 not found") },
     { path: "/", view: LandingPage },
@@ -30,7 +30,7 @@ const router = async () => {
     { path: "/signin", view: SignIn },
     { path: "/signup", view: SignUp },
     //HOW TO ADD VARIABLES?
-    { path: "/posts/USERID", view: () => console.log("viewing single post") },
+    { path: "/posts/:id", view: () => console.log("viewing single post") },
   ]
 
   // Test each route for potential match
