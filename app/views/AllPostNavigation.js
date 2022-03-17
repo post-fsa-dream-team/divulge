@@ -1,5 +1,4 @@
 import AbstractView from "./AbstractView.js";
-import AllPostNavigation from "./AllPostNavigation"
 
 export default class extends AbstractView {
   constructor(params) {

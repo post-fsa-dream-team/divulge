@@ -1,4 +1,6 @@
 //main entry point
+import Home from "./views/Home.js"
+
 const navigateTo = url => {
   //pushState takes three parameters:
   //1) state;
@@ -11,10 +13,9 @@ const navigateTo = url => {
 console.log("Entered the index.js file")
 
 const router = async () => {
-
   const routes = [
     { path: "/404", view: () => console.log("viewing 404 not found") },
-    { path: "/", view: () => console.log("viewing home") },
+    { path: "/home", view: Home },
     { path: "/posts", view: () => console.log("viewing posts") },
     { path: "/profile", view: () => console.log("viewing profile") },
     //HOW TO ADD VARIABLES?
@@ -39,7 +40,8 @@ const router = async () => {
           // result: [location.pathname]
       };
   }
-
+  const view = new match.route.view()
+  document.querySelector("#app").innerHTML = await view.getHtml()
   console.log(match.route.view())
 }
 
