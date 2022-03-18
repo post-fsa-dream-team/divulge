@@ -14,4 +14,14 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+router.get('/', async (req, res, next) => {
+  try {
+    const response = await pool.query('SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p LEFT JOIN users u on p.user_id = u.id')
+    res.status(200).json(response.rows)
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+ })
+
 module.exports = router;
