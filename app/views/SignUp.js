@@ -9,17 +9,15 @@ export default class extends AbstractView {
     async getHtml() {
         return `
         <div class='signup'>
-
-        <div class='signup__left'>
-            <h1>Read the most exclusive information from others</h1>
-            <p>See how people solve problems in real-life. </p>
-        </div>
-
-        <div class='signup__right'>
-            <div class='signup__box box-blue'>
+        <div class='signup__container'>
+            <div class='signup__left'>
+                <h1>Read the most exclusive information from others</h1>
+                <p>See how people solve problems in real-life. </p>
+            </div>
+        <div class="signup__right">
+            <div class='signup__box-blue'>
                 <p> <strong>Try it free 7 days</strong> then $20/mo. thereafter </p>
             </div>
-        </div>
 
         <form class='signup__form'>
         <div class='signup__form-control'>
@@ -42,6 +40,8 @@ export default class extends AbstractView {
         <button>Claim your free trial</button>
         <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
     </form>
+    </div>
+    </div>
     </div>
     `;
     }
