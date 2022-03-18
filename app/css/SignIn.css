@@ -1,0 +1,72 @@
+.signin {
+    background-color: hsl(214, 61%, 74%);
+    padding: 20px;
+    /* height: 960px; */
+    /* for all boxes */
+    color: white;
+    box-sizing: border-box;
+}
+
+.signin__container {
+    /* to make the box side by side */
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    /* to center */
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: aquamarine; */
+    /* center signin__container in signin */
+    margin: 0 auto;
+}
+
+
+/* apply for only the direct children from .signin__container */
+
+.signin__container>div {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.signin__left {
+    padding: 20px;
+    /* background-color: slategrey; */
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 50px;
+}
+
+p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.signin__right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signin__form {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 6px;
+    color: black;
+}
+
+.signin__form input {
+    border-radius: 5px;
+    border: 1.3px solid hsl(246, 25%, 77%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px 0px 15px 0px;
+    display: block;
+    width: 100%;
+}

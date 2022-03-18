@@ -1,0 +1,47 @@
+.nav-bar {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#site-title {
+  font-family: 'Merriweather', serif;
+  padding: 10px;
+  font-size: 6vh;
+  margin: 0px;
+  padding-top: 25px;
+  padding-left: 10px
+}
+
+nav {
+  display: flex;
+  align-self: right;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  background-color: #0b5b6d;
+  /* border-bottom: 1px solid #000 */
+  color: white;
+}
+
+.nav-link ul{
+  display: flex;
+  text-align: right;
+  padding-right: 30px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white
+}
+
+nav ul li:hover {
+  padding: 10px;
+  color: rgb(2, 99, 99);
+  border-bottom: 1px solid #000;
+}
