@@ -1,6 +1,6 @@
-@import '/app/views/SignUp.css';
-@import '/app/views/SignIn.css';
-@import '/app/components/Navbar.css';
+@import '/app/css/SignIn.css';
+@import '/app/css/SignUp.css';
+@import '/app/css/Navbar.css';
 body {
     font-family: 'Mulish', sans-serif;
     color: black;
