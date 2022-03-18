@@ -1,0 +1,11 @@
+.signup {
+  background-color: hsl(0, 100%, 74%);
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  /* for all boxes */
+  color: white;
+  box-sizing: border-box;
+}

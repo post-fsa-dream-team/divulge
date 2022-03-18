@@ -8,8 +8,41 @@ export default class extends AbstractView {
 
     async getHtml() {
         return `
-            <h1>This is a Sign Up page</h1>
+        <div class='signup'>
 
-        `;
+        <div class='signup__left'>
+            <h1>Read the most exclusive information from others</h1>
+            <p>See how people solve problems in real-life. </p>
+        </div>
+
+        <div class='signup__right'>
+            <div class='signup__box box-blue'>
+                <p> <strong>Try it free 7 days</strong> then $20/mo. thereafter </p>
+            </div>
+        </div>
+
+        <form class='signup__form'>
+        <div class='signup__form-control'>
+            <input type="text" id="firstname" placeholder="First Name"/>
+            <small>First Name cannot be empty</small>
+        </div>
+        <div class='signup__form-control'>
+            <input type="text" id="lastname" placeholder="Last Name"/>
+            <small>Last Name cannot be empty</small>
+        </div>
+        <div class='signup__form-control'>
+            <input type="email" id="email" placeholder="Email"/>
+            <small>Email is not valid</small>
+        </div>
+        <div class='signup__form-control'>
+            <input type="password" id="password" placeholder="Password"/>
+            <small>Password cannot be empty</small>
+        </div>
+
+        <button>Claim your free trial</button>
+        <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
+    </form>
+    </div>
+    `;
     }
 }
