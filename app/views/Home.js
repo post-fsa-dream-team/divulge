@@ -30,12 +30,12 @@ export default class extends AbstractView {
           <table id="all-posts-table">
             <tbody>
               ${posts.map((item) =>
-                <tr>
-                  <td>{item.image_url}</td>
-                  <td>{item.title}</td>
-                  <td>{item.content}</td>
-                </tr>
-              )}
+                `<tr>
+                  <td><img class="post-image" src="${item.image_url}"/></td>
+                  <td>${item.title}</td>
+                  <td>${item.content}</td>
+                </tr>`
+              ).join('')}
             </tbody>
           </table>
         <div>`
