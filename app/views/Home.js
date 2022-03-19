@@ -1,30 +1,31 @@
 import AbstractView from "./AbstractView.js";
 import AllPostNavigation from "./AllPostNavigation.js";
 
-
-
 export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("Home");
   }
 
+ async loadTableData (url, table) {
+    const tableBody = table.querySelector("tbody")
+    const response = await fetch(url)
+    const { rows } = await response.json()
+
+    //clear the table
+    tableBody.innerHTML = "<tr></tr>"
+
+    //populate the rows
+    for (const rowText of rows) {
+      const rowElement = document.createElement("tr")
+
+      rowElement.textConent = rowText;
+      tableBody.querySelector("tr").appendChild(rowElement)
+    }
+  }
+
   async getHtml() {
 
-    let posts =[]
-
-    fetch(`http://localhost:3000/api/posts`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      }).then((response) => {
-        response.map(item => posts.push(item))
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
 
     let myPosts = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
 
@@ -39,17 +40,10 @@ export default class extends AbstractView {
       <div class="home-content">
         <h1 id="home-title">Welcome to Divulge</h1>
           <table id="all-posts-table">
-          ${myPosts}
+            <tbody>
+            ${this.loadTableData("/api/posts", document.querySelector("table"))}
+            </tbody>
           </table>
-        <div>
-      `
+        <div>`
   }
 }
-
-// ${allPosts.map(post =>
-//   `<tr>
-//     <td class="image-cell"><img class="post-image" src=${post.image_url}/></td>
-//     <td>${post.title}</td>
-//     <td>${post.content}</td>
-//   </tr>`
-//     ).join('')}
