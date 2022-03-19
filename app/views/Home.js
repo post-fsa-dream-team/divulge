@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
-import AllPostNavigation from "./AllPostNavigation.js";
+
+let dummyData = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
 
 export default class extends AbstractView {
   constructor(params) {
@@ -7,27 +8,14 @@ export default class extends AbstractView {
     this.setTitle("Home");
   }
 
- async loadTableData (url, table) {
-    const tableBody = table.querySelector("tbody")
-    const response = await fetch(url)
-    const { rows } = await response.json()
-
-    //clear the table
-    tableBody.innerHTML = "<tr></tr>"
-
-    //populate the rows
-    for (const rowText of rows) {
-      const rowElement = document.createElement("tr")
-
-      rowElement.textConent = rowText;
-      tableBody.querySelector("tr").appendChild(rowElement)
-    }
+  async getData () {
+    const response = await fetch("/api/posts")
+    const data = await response.json()
+    return data
   }
 
   async getHtml() {
-
-
-    let myPosts = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
+    let posts = await this.getData()
 
     return `
       <nav class="home-nav">
@@ -41,7 +29,13 @@ export default class extends AbstractView {
         <h1 id="home-title">Welcome to Divulge</h1>
           <table id="all-posts-table">
             <tbody>
-            ${this.loadTableData("/api/posts", document.querySelector("table"))}
+              ${posts.map((item) =>
+                <tr>
+                  <td>{item.image_url}</td>
+                  <td>{item.title}</td>
+                  <td>{item.content}</td>
+                </tr>
+              )}
             </tbody>
           </table>
         <div>`
