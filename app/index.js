@@ -4,6 +4,7 @@ console.log("Entered the index.js file")
 import Home from "./views/Home.js"
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
+import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -24,16 +25,17 @@ const navigateTo = url => {
 
 const router = async() => {
     const routes = [
-        { path: "/404", view: () => console.log("viewing 404 not found") },
+        { path: "/404", view: Home },
         { path: "/home", view: Home },
-        { path: "/posts", view: () => console.log("viewing posts") },
-        { path: "/profile", view: () => console.log("viewing profile") },
+        { path: "/posts", view: Home },
+        { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/posts/:id", view: MySinglePost },
+        { path: "/:userId/posts/:id", view: MySinglePost },
         { path: "/:userId/posts", view: MyPosts },
-        { path: "/:userId/posts/:postid", view: () => console.log("my single post") },
+        { path: "/:userId/posts/:postid", view: Home },
+        { path: "/createpost", view: CreatePost },
     ]
 
     // Test each route for potential match
