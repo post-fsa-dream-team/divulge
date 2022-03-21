@@ -29,6 +29,7 @@ export default class extends AbstractView {
             <input type="password" id="password" placeholder="Password"/>
             <small>Password cannot be empty</small>
         </div>
+        <button>Sign In</button>
     </form>
     </div>
 
