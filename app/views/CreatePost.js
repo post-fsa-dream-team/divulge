@@ -4,11 +4,27 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("CreatePost");
+    this.postResponse;
+  }
+
+  async createPost(post) {
+    try {
+      const response = await fetch('http://localhost:3000/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+      });
+      if (!response.ok) throw new Error('Something wen wrong with post create request.');
+      const resData = await response.json();
+      this.postResponse = resData;
+    } catch (error) {
+      console.log('!!!Create post error!!!',  error);
+    }
   }
 
   async getHtml() {
-
-
 
     let post;
     // console.log(document.getElementById("post-title"));
@@ -26,23 +42,22 @@ export default class extends AbstractView {
     //   }
     // });
 
-    let postResponse;
-    const createPost = async (post) => {
-      try {
-        const response = await fetch('http://localhost:3000/api/posts', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(post)
-        });
-        if (!response.ok) throw new Error('Something wen wrong with post create request.');
-        const resData = await response.json();
-        postResponse = resData;
-      } catch (error) {
-        console.log('!!!Create post error!!!',  error);
-      }
-    }
+    // const createPost = async (post) => {
+    //   try {
+    //     const response = await fetch('http://localhost:3000/api/posts', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(post)
+    //     });
+    //     if (!response.ok) throw new Error('Something went wrong with post create request.');
+    //     const resData = await response.json();
+    //     postResponse = resData;
+    //   } catch (error) {
+    //     console.log('!!!Create post error!!!',  error);
+    //   }
+    // }
 
     // This is dummy data to test the post from front end to back end.
     // const post = {
@@ -53,8 +68,8 @@ export default class extends AbstractView {
     //   user_id: '3'
     // }
 
-    // await createPost(post);
-    const finalPost = postResponse ? postResponse : post;
+    // await this.createPost(post);
+    const finalPost = this.postResponse ? this.postResponse : post;
 
     return (`
       <div>
