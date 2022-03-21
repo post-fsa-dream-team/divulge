@@ -25,7 +25,7 @@ export default class extends AbstractView {
         console.log('!!!Create post error!!!',  error);
       }
     }
-    // This is to test the post from front end to back end.
+    // This is dummy data to test the post from front end to back end.
     const post = {
       title: 'Front end test',
       content: 'This is an attempt to reach the backend from the front end.',
