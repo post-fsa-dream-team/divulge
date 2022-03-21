@@ -25,6 +25,8 @@ router.get('/:userId', async (req, res) => {
     next(error);
   }
 })
+
+
 /*****************ATTEMPT********** */
 //My Posts
 router.get('/:userId/posts', async (req, res) => {
