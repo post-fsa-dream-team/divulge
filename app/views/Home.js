@@ -1,7 +1,6 @@
 import AbstractView from "./AbstractView.js";
-import AllPostNavigation from "./AllPostNavigation.js";
 
-
+let dummyData = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
 
 export default class extends AbstractView {
   constructor(params) {
@@ -9,24 +8,14 @@ export default class extends AbstractView {
     this.setTitle("Home");
   }
 
+  async getData () {
+    const response = await fetch("/api/posts")
+    const data = await response.json()
+    return data
+  }
+
   async getHtml() {
-
-    let posts =[]
-
-    fetch(`http://localhost:3000/api/posts`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      }).then((response) => {
-        response.map(item => posts.push(item))
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
-
-    let myPosts = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
+    let posts = await this.getData()
 
     return `
       <nav class="home-nav">
@@ -39,17 +28,21 @@ export default class extends AbstractView {
       <div class="home-content">
         <h1 id="home-title">Welcome to Divulge</h1>
           <table id="all-posts-table">
-          ${myPosts}
+            <tbody>
+              ${posts.map((item) =>
+                `<tr>
+                  <td>
+                  <div class="article-title">${item.title}</div>
+                  <div class="author">by ${item.user_name}</div>
+                  <div>${item.content.slice(0, 200).split(" ").join(" ") + "..."}</div>
+                  </td>
+                  <td>
+                  <img class="post-image" src="${item.image_url}"/>
+                  </td>
+                </tr>`
+              ).join('')}
+            </tbody>
           </table>
-        <div>
-      `
+        <div>`
   }
 }
-
-// ${allPosts.map(post =>
-//   `<tr>
-//     <td class="image-cell"><img class="post-image" src=${post.image_url}/></td>
-//     <td>${post.title}</td>
-//     <td>${post.content}</td>
-//   </tr>`
-//     ).join('')}

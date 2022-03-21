@@ -1,0 +1,66 @@
+/* Home Styles */
+#home-title {
+  font-family: 'Libre Franklin', sans-serif;
+  padding: 10px
+}
+
+#all-posts-table,
+td {
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* border: black solid 1px; */
+  border-bottom: solid rgb(216, 216, 216) 1px;
+}
+
+.image-cell {
+  width: 10vh
+}
+
+.post-image {
+  width: 20vh
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 100px;
+  padding-top: 20px;
+  padding-left: 10px;
+  position: fixed;
+  height: 100vh;
+  width: 20vh;
+  /* background: #0b5b6d; */
+  background-color: rgb(255, 153, 0)
+}
+
+#categories-title {
+  font-family: 'Libre Franklin', sans-serif;
+  margin-left: 2px
+}
+
+.home-nav-link {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: white;
+}
+
+.home-content {
+  margin-left: 22vh;
+  margin-top: 15vh
+}
+
+nav a:hover {
+  padding: 10px;
+  color: #eeeeee;
+  border-bottom: 1px solid white;
+}
+
+.article-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
