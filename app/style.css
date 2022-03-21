@@ -1,6 +1,8 @@
 @import '/app/css/SignIn.css';
 @import '/app/css/SignUp.css';
 @import '/app/css/Navbar.css';
+@import '/app/css/Home.css';
+
 body {
     font-family: 'Mulish', sans-serif;
     color: black;
@@ -10,59 +12,4 @@ body {
 }
 
 
-/* Home Styles */
 
-#home-title {
-    font-family: 'Merriweather', serif;
-    padding: 10px
-}
-
-#all-posts-table,
-td {
-    margin-left: 30px;
-    border: black solid 1px;
-}
-
-.image-cell {
-    width: 10vh
-}
-
-.post-image {
-    width: 20vh
-}
-
-.home-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: -22px;
-    padding-top: 20px;
-    padding-left: 5px;
-    position: fixed;
-    height: 100vh;
-    width: 20vh;
-    /* background: #0b5b6d; */
-    background-color: rgb(255, 153, 0)
-}
-
-#categories-title {
-    font-family: 'Merriweather', serif;
-    margin-left: 2px
-}
-
-.home-nav-link {
-    display: block;
-    padding: 12px 18px;
-    text-decoration: none;
-    color: white;
-}
-
-.home-content {
-    margin-left: 22vh;
-}
-
-nav a:hover {
-    padding: 10px;
-    color: #eeeeee;
-    border-bottom: 1px solid white;
-}
