@@ -42,22 +42,6 @@ export default class extends AbstractView {
     //   }
     // });
 
-    // const createPost = async (post) => {
-    //   try {
-    //     const response = await fetch('http://localhost:3000/api/posts', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(post)
-    //     });
-    //     if (!response.ok) throw new Error('Something went wrong with post create request.');
-    //     const resData = await response.json();
-    //     postResponse = resData;
-    //   } catch (error) {
-    //     console.log('!!!Create post error!!!',  error);
-    //   }
-    // }
 
     // This is dummy data to test the post from front end to back end.
     // const post = {
