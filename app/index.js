@@ -25,16 +25,16 @@ const navigateTo = url => {
 
 const router = async() => {
     const routes = [
-        { path: "/404", view: () => console.log("viewing 404 not found") },
+        { path: "/404", view: Home },
         { path: "/home", view: Home },
-        { path: "/posts", view: () => console.log("viewing posts") },
-        { path: "/profile", view: () => console.log("viewing profile") },
+        { path: "/posts", view: Home },
+        { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/posts/:id", view: MySinglePost },
+        { path: "/:userId/posts/:id", view: MySinglePost },
         { path: "/:userId/posts", view: MyPosts },
-        { path: "/:userId/posts/:postid", view: () => console.log("my single post") },
+        { path: "/:userId/posts/:postid", view: Home },
         { path: "/createpost", view: CreatePost },
     ]
 
