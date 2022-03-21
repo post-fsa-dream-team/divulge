@@ -1,5 +1,4 @@
-TRUNCATE TABLE users, posts;
-
+TRUNCATE TABLE users, posts RESTART IDENTITY;
 
 INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('james01', 'James', 'Smith', 'james@fs.com', 'test123', '2000-05-21', 'New York');
 INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('lizfriz39', 'Liz', 'Friz', 'friz@fs.com', 'test2143', '1995-08-03', 'Chicago');
