@@ -5,6 +5,8 @@ import Home from "./views/Home.js"
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
 import CreatePost from "./views/CreatePost.js";
+import MyPosts from "./views/MyPosts.js";
+import MySinglePost from "./views/MySinglePost.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
@@ -30,8 +32,8 @@ const router = async() => {
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/posts/:id", view: () => console.log("viewing single post") },
-        { path: "/:userId/posts", view: () => console.log("viewing all my posts") },
+        { path: "/posts/:id", view: MySinglePost },
+        { path: "/:userId/posts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: () => console.log("my single post") },
         { path: "/createpost", view: CreatePost },
     ]

@@ -13,6 +13,7 @@ app.use(express.json())
 app.use('/app', express.static(path.join(__dirname, "../app")))
 
 app.use('/api', require('./api')) // ----> include our routes
+app.use('/auth', require('./api/auth')) // ------> for sign up and sign in
 
 //send index.html for any other requests
 app.get('/*', (req, res) => {
