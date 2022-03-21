@@ -26,7 +26,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 88px;
+  margin-top: 86px;
   padding-top: 20px;
   padding-left: 10px;
   position: fixed;
@@ -61,6 +61,6 @@ nav a:hover {
 
 .article-title {
   font-family: 'Libre Franklin', sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 20px;
 }

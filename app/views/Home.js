@@ -32,6 +32,7 @@ export default class extends AbstractView {
               ${posts.map((item) =>
                 `<tr>
                   <td>
+                  <div class="author">by ${item.user_name}</div>
                   <div class="article-title">${item.title}</div>
                   <div>${item.content.slice(0, 200).split(" ").join(" ") + "..."}</div>
                   </td>
