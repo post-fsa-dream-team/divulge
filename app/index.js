@@ -4,6 +4,7 @@ console.log("Entered the index.js file")
 import Home from "./views/Home.js"
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
+import CreatePost from "./views/CreatePost.js";
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
@@ -32,6 +33,7 @@ const router = async() => {
         { path: "/posts/:id", view: () => console.log("viewing single post") },
         { path: "/:userId/posts", view: () => console.log("viewing all my posts") },
         { path: "/:userId/posts/:postid", view: () => console.log("my single post") },
+        { path: "/createpost", view: CreatePost },
     ]
 
     // Test each route for potential match
