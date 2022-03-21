@@ -18,7 +18,7 @@ export default class extends AbstractView {
           },
           body: JSON.stringify(post)
         });
-        if (!response.ok) throw new Error('Something wen wrong with post create request.');
+        if (!response.ok) throw new Error('Something went wrong with post create request.');
         const resData = await response.json();
         postResponse = resData;
       } catch (error) {
