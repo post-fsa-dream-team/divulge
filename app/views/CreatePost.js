@@ -8,6 +8,24 @@ export default class extends AbstractView {
 
   async getHtml() {
 
+
+
+    let post;
+    // console.log(document.getElementById("post-title"));
+    // document.getElementById("postForm").addEventListener("submit", function(e) {
+    //   const title = document.getElementById('title');
+    //   console.log(title.value);
+    //   post = {
+    //     title: title.value,
+    //     content:
+    //   }
+    //   if (input.value.trim() === "") {
+    //     alert('Please fill in user name');
+    //     input.focus();
+    //     e.preventDefault(); // stop form submission
+    //   }
+    // });
+
     let postResponse;
     const createPost = async (post) => {
       try {
@@ -25,19 +43,22 @@ export default class extends AbstractView {
         console.log('!!!Create post error!!!',  error);
       }
     }
+
     // This is dummy data to test the post from front end to back end.
-    const post = {
-      title: 'Front end test',
-      content: 'This is an attempt to reach the backend from the front end.',
-      image_url: 'https://www.cookingclassy.com/wp-content/uploads/2018/07/salsa-17.jpg',
-      category: 'food',
-      user_id: '3'
-    }
+    // const post = {
+    //   title: 'Front end test',
+    //   content: 'This is an attempt to reach the backend from the front end.',
+    //   image_url: 'https://www.cookingclassy.com/wp-content/uploads/2018/07/salsa-17.jpg',
+    //   category: 'food',
+    //   user_id: '3'
+    // }
+
     // await createPost(post);
     const finalPost = postResponse ? postResponse : post;
 
     return (`
-      <nav class="home-nav">
+      <div>
+        <nav class="home-nav">
         <div id="categories-title">Categories</div>
         <a href="" class="home-nav-link" data-link>Technology</a>
         <a href="" class="home-nav-link" data-link>Politics</a>
@@ -46,10 +67,28 @@ export default class extends AbstractView {
 
       <div class="home-content">
         <h1 id="home-title">Welcome to Divulge</h1>
-          <table id="all-posts-table">
-          ${JSON.stringify(finalPost)}
-          </table>
-      <div>
+        <form id="postForm">
+          <div>
+            <label for="postTitle">Title: </label>
+            <input id="post-title" type="text" name="postTitle" placeholder="Enter a title" value="" />
+          </div>
+          <div>
+            <label for="postContent">Content: </label>
+            <input id="post-content" type="text" name="postContent" placeholder="Enter content" value="" />
+          </div>
+          <div>
+            <label for="postCategory">Category: </label>
+            <input id="post-category" type="text" name="postCategory" placeholder="ie. technology, entertainment, etc." value="" />
+          </div>
+          <div>
+            <label for="postImage">Image URL: </label>
+            <input id="post-imageURL" type="text" name="postImage" placeholder="Enter Image URL" value="" />
+          </div>
+          <button type="submit">Submit Post</button>
+        </form>
+      </div>
+      </div>
+
     `);
   }
 }
