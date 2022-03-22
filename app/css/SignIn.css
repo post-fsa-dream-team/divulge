@@ -1,10 +1,10 @@
 .signin {
     background-color: hsl(214, 61%, 74%);
-    padding: 20px;
-    /* height: 960px; */
+    height: auto;
     /* for all boxes */
     color: white;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
+    padding-top: 6rem;
 }
 
 .signin__container {
@@ -17,9 +17,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background-color: aquamarine; */
+    background-color: hsl(214, 61%, 74%);
     /* center signin__container in signin */
     margin: 0 auto;
+    flex-direction: row;
 }
 
 
@@ -66,7 +67,7 @@ p {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    padding: 15px 0px 15px 0px;
+    padding: 15px 25px;
     display: block;
     width: 100%;
 }

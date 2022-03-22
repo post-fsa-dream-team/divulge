@@ -37,7 +37,7 @@ export default class extends AbstractView {
             <small>Password cannot be empty</small>
         </div>
 
-        <button>Claim your free trial</button>
+        <button style="text-transform:uppercase">Sign up and claim your free trial</button>
         <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
     </form>
     </div>

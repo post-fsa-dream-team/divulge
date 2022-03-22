@@ -70,7 +70,7 @@ router.post('/signup', async (req, res) => {
   - User found:  req.login(user, err => (err ? next(err) : res.json(user)))
  */
 
-/**NEED TO FIX FROM HERE 😥 */
+/**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
     // console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
@@ -100,7 +100,9 @@ router.post('/signin', async (req, res, next) => {
     next(error)
   }
 })
-/**This part is 🌟fine🌟. But I comment out cause sign in is not working*/
+/**NEED TO FIX BEFORE THIS LINE 👆👆👆 */
+
+/**This part is 🌟fine🌟. But I comment out because "signin" is not working*/
 // router.get('/home', function(req, res) {
 //   // If the user is loggedin
 //   if (req.session.loggedin) {
