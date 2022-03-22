@@ -12,8 +12,8 @@ npm run start-dev
 # Authentication and Authorization
 
 ### Authenticate and authorize users in a server-side application
-* [ ] Users can sign up for to the app with a unique email
-* [ ] Users cannot sign up for to the app with a duplicate email
+* [X] Users can sign up for to the app with a unique email
+* [X] Users cannot sign up for to the app with a duplicate email
 * [ ] Users can login to the app with valid email/password
 * [ ] Users cannot login to the app with a blank or missing email
 * [ ] Users cannot login to the app with a blank or incorrect password
