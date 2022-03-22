@@ -3,17 +3,22 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const client = require("./db.js")
+// const session = require('express-session');
 
 //bodyparsing middleware
 
 app.use(express.json())
-
+// app.use(session({
+// 	secret: 'secret',
+// 	resave: true,
+// 	saveUninitialized: true
+// }));
 // static middleware
 // app.use(express.static(path.join(__dirname, '../public')))
 app.use('/app', express.static(path.join(__dirname, "../app")))
 
 app.use('/api', require('./api')) // ----> include our routes
-app.use('/auth', require('./api/auth')) // ------> for sign up and sign in
+app.use('/', require('./api/auth')) // ------> for sign up and sign in and home
 
 //send index.html for any other requests
 app.get('/*', (req, res) => {

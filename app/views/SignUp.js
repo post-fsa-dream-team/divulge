@@ -19,7 +19,7 @@ export default class extends AbstractView {
                 <p> <strong>Try it free 7 days</strong> then $20/mo. thereafter </p>
             </div>
 
-        <form class='signup__form'>
+        <form class='signup__form' id='form'>
         <div class='signup__form-control'>
             <input type="text" id="firstname" placeholder="First Name"/>
             <small>First Name cannot be empty</small>
@@ -37,12 +37,18 @@ export default class extends AbstractView {
             <small>Password cannot be empty</small>
         </div>
 
-        <button>Claim your free trial</button>
+        <button style="text-transform:uppercase">Sign up and claim your free trial</button>
         <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
     </form>
     </div>
     </div>
     </div>
+    <script>
+        const form = document.getElementById('form')
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+        })
+    </script>
     `;
     }
 }
