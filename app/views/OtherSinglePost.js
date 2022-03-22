@@ -18,20 +18,21 @@ export default class extends AbstractView {
     this.postId = params.id;
   }
 
-  // async getData () {
-  //   const response = await fetch(`http://localhost:3000/api/posts/${this.postId}`)
-  //   const data = await response.json()
-  //   return data
-  // }
+  async getData (id) {
+    const response = await fetch(`http://localhost:3000/api/posts/${id}`)
+    const data = await response.json()
+    return data
+  }
 
   async getHtml() {
-    console.log("OtherSinglePost")
+    const postArr = await this.getData(this.postId)
+    let post = postArr[0]
     return `
       <div class='body-content'>
-      <h1 class="single-other-post-title">${dummyData.title}</h1>
-      <h4>By: ${dummyData.user_name}<h4>
-      <img class="single-post-img" src=${dummyData.image_url}/>
-      <p>${dummyData.content}</p>
+      <h1 class="single-other-post-title">${post.title}</h1>
+      <h4>By: ${post.user_name}<h4>
+      <img class="single-post-img" src="${post.image_url}"/>
+      <p>${post.content}</p>
       </div>
     `
   }

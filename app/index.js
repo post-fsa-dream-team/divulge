@@ -23,8 +23,6 @@ const getParams = match => {
     //grab the keys (e.g. 'id'), match all will grab all individual paramaters (anything after a colon),
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
 
-    console.log(Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]))
-
     //loop through each of the keys; return the key in an array and then the values at the index of the key
     //Object.fromEntries takes multidimensional array and converts to object
     return Object.fromEntries(keys.map((key, i) => {
@@ -47,7 +45,7 @@ const router = async() => {
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/posts", view: OtherSinglePost },
+        { path: "/posts/:id", view: OtherSinglePost },
         { path: "/mysinglepost", view: MySinglePost },
         { path: "/myposts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },
