@@ -9,30 +9,28 @@ export default class extends AbstractView {
     async getHtml() {
         return `
         <div class='signin'>
-
-        <div class='signin__left'>
-            <h1>Hey!</h1>
-        </div>
-
-        <div class='signin__right'>
-            <div class='signin__box box-blue'>
+        <div class='signin__container'>
+            <div class='signin__left'>
+                <h1>Hey!</h1>
                 <p><strong>Check new articles today.</strong></p>
             </div>
-        </div>
 
-        <form class='signin__form'>
-        <div class='signin__form-control'>
-            <input type="email" id="email" placeholder="Email"/>
-            <small>Email is not valid</small>
+            <div class='signin__right'>
+
+                <form class='signin__form'>
+                    <div class='signin__form-control'>
+                        <input type="email" id="email" placeholder="Email" />
+                        <small>Email is not valid</small>
+                    </div>
+                    <div class='signin__form-control'>
+                        <input type="password" id="password" placeholder="Password" />
+                        <small>Password cannot be empty</small>
+                    </div>
+                    <button>Sign In</button>
+                </form>
+            </div>
         </div>
-        <div class='signin__form-control'>
-            <input type="password" id="password" placeholder="Password"/>
-            <small>Password cannot be empty</small>
-        </div>
-        <button>Sign In</button>
-    </form>
     </div>
-
         `;
     }
 }
