@@ -36,7 +36,7 @@ const router = async() => {
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/posts/:id", view: OtherSinglePost },
+        { path: "/posts", view: OtherSinglePost }, //UPDATE WITH PARAMETER
         { path: "/:userId/posts/:id", view: MySinglePost },
         { path: "/:userId/posts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },

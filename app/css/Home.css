@@ -1,7 +1,9 @@
 /* Home Styles */
-#home-title {
+#site-title {
   font-family: 'Libre Franklin', sans-serif;
-  padding: 10px
+  padding: 10px;
+  text-decoration: none;
+  color: white;
 }
 
 #all-posts-table,
@@ -26,7 +28,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 100px;
+  margin-top: 10vh;
   padding-top: 20px;
   padding-left: 10px;
   position: fixed;
