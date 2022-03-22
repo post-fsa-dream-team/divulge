@@ -28,12 +28,12 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 10vh;
+  margin-top: 90px;
   padding-top: 20px;
   padding-left: 10px;
   position: fixed;
   height: 100vh;
-  width: 20vh;
+  width: 150px;
   /* background: #0b5b6d; */
   background-color: rgb(255, 153, 0)
 }
@@ -51,8 +51,8 @@ td {
 }
 
 .home-content {
-  margin-left: 22vh;
-  margin-top: 15vh
+  margin-left: 180px;
+  margin-top: 120px;
 }
 
 nav a:hover {

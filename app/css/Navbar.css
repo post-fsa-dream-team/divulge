@@ -12,7 +12,7 @@
 #site-title {
   font-family: 'Libre Franklin', sans-serif;
   padding: 10px;
-  font-size: 6vh;
+  font-size: 50px;
   margin: 0px;
   padding-top: 25px;
   padding-left: 10px
@@ -31,7 +31,7 @@ nav {
   color: white;
 }
 
-.nav-link ul{
+.nav-links ul{
   display: flex;
   text-align: right;
   padding-right: 30px;
@@ -52,4 +52,39 @@ nav ul li:hover {
   padding: 10px;
   color: rgb(2, 99, 99);
   border-bottom: 1px solid #000;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 6.5rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 400px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none
+  }
+
+  .nav-items {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%
+  }
 }
