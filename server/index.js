@@ -3,16 +3,16 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const client = require("./db.js")
-const session = require('express-session');
+// const session = require('express-session');
 
 //bodyparsing middleware
 
 app.use(express.json())
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
+// app.use(session({
+// 	secret: 'secret',
+// 	resave: true,
+// 	saveUninitialized: true
+// }));
 // static middleware
 // app.use(express.static(path.join(__dirname, '../public')))
 app.use('/app', express.static(path.join(__dirname, "../app")))
