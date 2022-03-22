@@ -16,6 +16,8 @@ export default class extends AbstractView {
 
   async getHtml() {
     let posts = await this.getData()
+    console.log(posts)
+
     return `
       <nav class="home-nav">
         <div id="categories-title">Categories</div>
