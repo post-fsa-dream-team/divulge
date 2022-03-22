@@ -2,11 +2,15 @@
 console.log("Entered the index.js file")
 
 import Home from "./views/Home.js"
+import OtherSinglePost from "./views/OtherSinglePost.js";
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
 import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
+
+//match the first character of the string -> replace all forward slashes inside the path with the regular expression equivalent for a slash
+//then replace each colon with a word
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
@@ -27,11 +31,12 @@ const router = async() => {
     const routes = [
         { path: "/404", view: Home },
         { path: "/home", view: Home },
-        { path: "/posts", view: Home },
+        // { path: "/posts", view: Home },
         { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
+        { path: "/posts/:id", view: OtherSinglePost },
         { path: "/:userId/posts/:id", view: MySinglePost },
         { path: "/:userId/posts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },
@@ -54,7 +59,7 @@ const router = async() => {
             result: [location.pathname]
         };
     }
-    const view = new match.route.view()
+    const view = new match.route.view(getParams(match))
     document.querySelector("#app").innerHTML = await view.getHtml()
 }
 
