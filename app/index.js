@@ -17,7 +17,8 @@ const pathToRegex = path => new RegExp("^" + path
 .replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
-    //values are the parameters passed in through path; slicing index 1 returns all parameters
+    //values are the parameters passed in through path; slicing at index 1 returns all parameters
+    console.log(match.result)
     const values = match.result.slice(1);
 
     //grab the keys (e.g. 'id'), match all will grab all individual paramaters (anything after a colon),
@@ -44,7 +45,6 @@ const router = async() => {
         { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
-        //HOW TO ADD VARIABLES?
         { path: "/posts/:id", view: OtherSinglePost },
         { path: "/mysinglepost", view: MySinglePost },
         { path: "/myposts", view: MyPosts },
@@ -52,18 +52,19 @@ const router = async() => {
         { path: "/createpost", view: CreatePost },
     ]
 
-    // Test each route for potential match
+    // Test each route to see if the pathname in the URL matches the regex version of the paths as noted above above
     const potentialMatches = routes.map(route => {
-        // console.log(pathToRegex(route.path))
-        console.log("/posts/1".match(pathToRegex(route.path)))
+        console.log(pathToRegex(route.path))
         return {
             route: route,
             result: location.pathname.match(pathToRegex(route.path))
         };
     });
 
+    //let match equal the response from above where the "result" does not equal null
     let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
+    //if there is no match, match to 404 route
     if (!match) {
         match = {
             route: routes[0],
@@ -71,6 +72,9 @@ const router = async() => {
         };
     }
 
+    //Render the view by calling the class for that view
+    //e.g. of the path is "/home", new match.route.view() === new Home()
+    //use "getParams" to access the params and send them in as parameters to the class
     const view = new match.route.view(getParams(match))
 
     document.querySelector("#app").innerHTML = await view.getHtml()

@@ -6,9 +6,9 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("Home");
-    this.state = {
-      selectedPosts: "news"
-    }
+    // this.state = {
+    //   selectedPosts: "all"
+    // }
   }
 
   async getData () {
@@ -30,10 +30,10 @@ export default class extends AbstractView {
   async getHtml() {
     let posts = await this.getData()
 
-    if (this.state.selectedPosts !== "all") {
-      posts = this.filterPosts(posts, this.state.selectedPosts)
-      // return AllPostsView(posts)
-    }
+    // if (this.state.selectedPosts !== "all") {
+    //   posts = this.filterPosts(posts, this.state.selectedPosts)
+    //   // return AllPostsView(posts)
+    // }
 
     return `
       <nav class="home-nav">
