@@ -37,30 +37,34 @@
     /* background-color: slategrey; */
 }
 
-h1 {
+.signup h1 {
     font-size: 40px;
     line-height: 50px;
 }
 
-p {
+.signup p {
     font-size: 16px;
     opacity: 0.8;
 }
+.signup small {
+    color: #aaa;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 15px;
+}
 
+.signup small a {
+    color: hsl(0, 100%, 74%);
+    font-weight: 600;
+    text-decoration: none;
+}
 .signup__right {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.signup__form {
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 6px;
-    color: black;
-}
 
 .signup__box-blue {
     background-color: hsl(248, 32%, 49%);
@@ -72,6 +76,29 @@ p {
 .signup__box-blue p {
     text-align: center;
     margin: 0;
+}
+.signup__form {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 6px;
+    color: black;
+}
+
+.signup__form-control {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.signup__form-control small {
+    /* hidden by default */
+    /* display: none; */
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    text-align: right;
+    opacity: 0;
 }
 
 .signup__form input {
@@ -104,6 +131,7 @@ p {
     font-weight: 500;
     padding: 15px 25px;
     width: 100%;
+    letter-spacing: 1px;
 }
 
 .signup__form button:focus {
@@ -112,4 +140,13 @@ p {
 .signup__form button:active {
     box-shadow: 0 2px hsl(154, 59%, 40%);
     transform: translateY(2px)
+}
+
+@media screen and (max-width: 768px) {
+    .signup__container {
+        flex-direction: column;
+    }
+    .signup h1, p {
+    text-align: center;
+    }
 }

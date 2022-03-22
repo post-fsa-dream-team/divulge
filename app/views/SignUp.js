@@ -44,10 +44,10 @@ export default class extends AbstractView {
     </div>
     </div>
     <script>
-const form = document.getElementById('form')
-form.addEventListener('submit', e => {
-    e.preventDefault();
-})
+        const form = document.getElementById('form')
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+        })
     </script>
     `;
     }
