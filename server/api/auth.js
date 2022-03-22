@@ -100,25 +100,25 @@ router.post('/signin', async (req, res, next) => {
     next(error)
   }
 })
+/**This part is 🌟fine🌟. But I comment out cause sign in is not working*/
+// router.get('/home', function(req, res) {
+//   // If the user is loggedin
+//   if (req.session.loggedin) {
+//     // Output username
+//     res.send('Welcome back, ' + req.session.username + '!');
+//   } else {
+//     // Not logged in
+//     res.send('Please login to view this page!');
+//   }
+//   res.end();
+// });
 
-router.get('/home', function(req, res) {
-  // If the user is loggedin
-  if (req.session.loggedin) {
-    // Output username
-    res.send('Welcome back, ' + req.session.username + '!');
-  } else {
-    // Not logged in
-    res.send('Please login to view this page!');
-  }
-  res.end();
-});
-
-router.get('/logout', (req, res) => {
-  req.logout()
-  req.session.destroy()
-  console.log('You have logged out successfully');
-  res.redirect('/')
-})
+// router.get('/logout', (req, res) => {
+//   req.logout()
+//   req.session.destroy()
+//   console.log('You have logged out successfully');
+//   res.redirect('/')
+// })
 
 
 module.exports = router;
