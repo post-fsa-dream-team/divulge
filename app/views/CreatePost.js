@@ -4,7 +4,8 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("CreatePost");
-    this.postResponse;
+    this.postResponse = 'test';
+    this.createPost = this.createPost.bind(this);
   }
 
   async createPost(post) {
@@ -16,44 +17,17 @@ export default class extends AbstractView {
         },
         body: JSON.stringify(post)
       });
-      if (!response.ok) throw new Error('Something wen wrong with post create request.');
+      if (!response.ok) throw new Error('Something went wrong with post create request.');
       const resData = await response.json();
       this.postResponse = resData;
+      console.log('Create Successful');
+      // console.log(this.postResponse);
     } catch (error) {
       console.log('!!!Create post error!!!',  error);
     }
   }
 
   async getHtml() {
-
-    let post;
-    // console.log(document.getElementById("post-title"));
-    // document.getElementById("postForm").addEventListener("submit", function(e) {
-    //   const title = document.getElementById('title');
-    //   console.log(title.value);
-    //   post = {
-    //     title: title.value,
-    //     content:
-    //   }
-    //   if (input.value.trim() === "") {
-    //     alert('Please fill in user name');
-    //     input.focus();
-    //     e.preventDefault(); // stop form submission
-    //   }
-    // });
-
-
-    // This is dummy data to test the post from front end to back end.
-    // const post = {
-    //   title: 'Front end test',
-    //   content: 'This is an attempt to reach the backend from the front end.',
-    //   image_url: 'https://www.cookingclassy.com/wp-content/uploads/2018/07/salsa-17.jpg',
-    //   category: 'food',
-    //   user_id: '3'
-    // }
-
-    // await this.createPost(post);
-    const finalPost = this.postResponse ? this.postResponse : post;
 
     return (`
       <div>
@@ -89,5 +63,29 @@ export default class extends AbstractView {
       </div>
 
     `);
+  }
+
+  async postRender() {
+    const createPost = this.createPost;
+    document.getElementById("postForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const title = document.getElementById('post-title');
+      const content = document.getElementById('post-content');
+      const category = document.getElementById('post-category');
+      const image_url = document.getElementById('post-imageURL');
+      const post = {
+        title: title.value,
+        content: content.value,
+        category: category.value,
+        image_url: image_url.value,
+        user_id: 2
+      }
+      if (category.value.trim() === "") {
+        alert('Please fill in category');
+        category.focus();
+        return;
+      }
+      createPost(post);
+    });
   }
 }
