@@ -19,12 +19,10 @@ export default class extends AbstractView {
 
   filterPosts(posts, category) {
     return posts.filter(post => {
-
       for (let key in post) {
         if (post[key] === category) {
           return post
         }
-
       }
     })
   }
