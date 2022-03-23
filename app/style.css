@@ -2,14 +2,15 @@
 @import '/app/css/SignUp.css';
 @import '/app/css/Navbar.css';
 @import '/app/css/Home.css';
+@import '/app/css/OtherSinglePost.css';
 
 body {
     font-family: 'Mulish', sans-serif;
     color: black;
     box-sizing: border-box;
     margin: 0;
-
-
+    background-color: hsl(180, 29%, 73%);
+    /* background-color: hsl(180, 53%, 93%); */
 }
 
 
