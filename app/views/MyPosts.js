@@ -1,6 +1,6 @@
 // import Navbar from "../components/Navbar.js";
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
-
 // console.log(process.env.MEDIUM_API_KEY);
 export default class extends AbstractView {
     constructor(params) {
@@ -37,6 +37,7 @@ export default class extends AbstractView {
         // }
         // ${Navbar()}
         return `
+        ${Navbar()}
         <div class='myposts'>
         <div class='myposts__leftsidebar'>
             <div class='myposts__leftsidebarcontent'>

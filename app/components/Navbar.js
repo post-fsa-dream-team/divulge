@@ -1,18 +1,29 @@
-// import AbstractView from "./AbstractView.js";
+const Navbar = () => {
+  return `
+  <nav class="nav-bar">
+  <div class="title-container">
+    <div id="site-title">
+      <p><a href="/home">Divulge</a></p>
+    </div>
+  </div>
 
-// const Navbar = () => {
+  <a href="#" class="toggle-button">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </a>
 
-//     return `
-  //   <nav class="nav-bar">
-  //   <div id="site-title">Divulge</div>
-  //   <ul>
-  //   <li><a href="/home" class="nav-link" data-link>Home</a></li>
-  //   <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-  //   <li><a href="/createpost" class="nav-link" data-link>Create Post</a></li>
-  //   <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
-  //   <li><a href="/signup" class="nav-link" data-link>Sign Up</a></li>
-  // </ul>
-  // </nav>`
-//   }
+  <div class="nav-links">
+    <ul class="nav-items">
+      <li><a href="/posts" class="nav-link" data-link>Posts</a></li>
+      <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
+      <li><a href="/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
+      <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
+      <li><a href="/signup" class="nav-link" data-link>Sign Up</a></li>
+    </ul>
+  </div>
+</nav>
+`
+}
 
-// export default Navbar;
+export default Navbar;

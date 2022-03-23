@@ -1,5 +1,5 @@
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
-
 export default class extends AbstractView {
   constructor(params) {
     super(params)
@@ -30,6 +30,7 @@ export default class extends AbstractView {
   async getHtml() {
 
     return (`
+    ${Navbar()}
       <div>
         <nav class="home-nav">
         <div id="categories-title">Categories</div>

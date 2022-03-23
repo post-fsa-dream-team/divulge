@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
@@ -17,6 +18,7 @@ export default class extends AbstractView {
     const postArr = await this.getData(this.postId)
     let post = postArr[0]
     return `
+    ${Navbar()}
       <nav class="home-nav">
         <a id="all-posts-link" data-link>All Posts</a>
         <div id="categories">By Category</div>
