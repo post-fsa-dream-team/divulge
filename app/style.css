@@ -2,6 +2,7 @@
 @import '/app/css/SignUp.css';
 @import '/app/css/Navbar.css';
 @import '/app/css/Home.css';
+@import '/app//css/CreatePost.css';
 
 body {
     font-family: 'Mulish', sans-serif;
