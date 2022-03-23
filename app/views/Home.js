@@ -37,7 +37,8 @@ export default class extends AbstractView {
 
     return `
       <nav class="home-nav">
-        <div id="categories-title">Categories</div>
+        <a href="" id="all-posts-link" data-link>All Posts</a>
+        <div id="categories">By Category</div>
         <a href="" class="home-nav-link" data-link>News</a>
         <a href="" class="home-nav-link" data-link>Technology</a>
         <a href="" class="home-nav-link" data-link>Politics</a>
