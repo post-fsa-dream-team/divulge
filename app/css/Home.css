@@ -1,66 +1,175 @@
 /* Home Styles */
+
 #home-title {
   font-family: 'Libre Franklin', sans-serif;
-  padding: 10px
-}
-
-#all-posts-table,
-td {
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  /* border: black solid 1px; */
-  border-bottom: solid rgb(216, 216, 216) 1px;
-}
-
-.image-cell {
-  width: 10vh
-}
-
-.post-image {
-  width: 20vh
-}
-
-.home-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 100px;
-  padding-top: 20px;
-  padding-left: 10px;
-  position: fixed;
-  height: 100vh;
-  width: 20vh;
-  /* background: #0b5b6d; */
-  background-color: rgb(255, 153, 0)
-}
-
-#categories-title {
-  font-family: 'Libre Franklin', sans-serif;
-  margin-left: 2px
-}
-
-.home-nav-link {
-  display: block;
-  padding: 12px 18px;
+  padding: 10px;
   text-decoration: none;
   color: white;
+  font-size: 30px
 }
 
-.home-content {
-  margin-left: 22vh;
-  margin-top: 15vh
+/* Title Console Text */
+.container {
+  /* margin: auto; */
+  width: 695px;
+  display:flex;
+  align-items: center;
+  align-content: center;
+  padding-left: 20px;
+  margin-top: 25vh;
+  margin-bottom: 10vh;
+  background-color: black;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  margin-left: 50px;
 }
 
-nav a:hover {
+/* #title-line {
+  width: 200px;
+} */
+
+hr {
+  width: 400px;
+  align-items: left;
+  height: 2px;
+  border: none;
+  margin-left: 20px;
+  /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
+  /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
+  /* background:rgb(255, 172, 49); */
+  background: white;
+}
+
+.text-typing {
+  font-family: 'Libre Franklin', sans-serif;
+  /* text-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  /* text-shadow: 2px 2px 2px white; */
+  /* text-shadow: 2px 2px 2px rgb(255, 172, 49); */
+  color: white;
   padding: 10px;
-  color: #eeeeee;
-  border-bottom: 1px solid white;
+  font-size: 10vh;
+  margin: 0px;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  padding-left: 10px
+}
+
+.text-typing p {
+  margin: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+
+@keyframes blink {
+  0%,100% {
+    border-right: 2px solid transparent;
+  }
+  50% {
+    border-right: 2px solid black;
+  }
+}
+
+/* All Posts Cards */
+.post-card {
+  /* background-color: white; */
+  /* background-color: hsl(180, 53%, 93%); */
+  /* box-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  /* border-radius: 2px; */
+  border-bottom: hsl(180, 53%, 93%);
+  margin: 15px;
+  padding: 15px;
+  width: 800px;
+  margin-left: 50px
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .article-title {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   font-size: 20px;
+}
+
+.article-link{
+  text-decoration: none;
+  color: black;
+}
+
+.image-cell {
+  width: 8vh
+}
+
+.post-image {
+  width: 20vh;
+  margin-right: 10px;
+  /* height: 0;
+  padding-top: 56.25%;
+  margin-top: 30; */
+}
+
+.author {
+  padding-bottom: 10px;
+}
+
+/* Home Page Navigation */
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+  padding-top: 60px;
+  padding-left: 20px;
+  position: fixed;
+  height: 100vh;
+  width: 190px;
+  /* background: #0b5b6d; */
+  /* background-color: rgb(255, 153, 0); */
+  /* background: linear-gradient(rgb(255, 153, 0), rgb(255, 47, 0)); */
+  background: linear-gradient(rgb(255, 180, 69),#ffa723, rgb(252, 78, 39));
+}
+
+#categories {
+  font-family: 'Libre Franklin', sans-serif;
+  color: rgb(222, 218, 218);
+  font-size: 18px;
+  margin-left: 2px;
+  text-decoration: none;
+}
+
+#all-posts-link {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 18px;
+  padding-bottom: 20px;
+  margin-left: 2px;
+  text-decoration: none;
+  margin-left: 2px;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.home-nav-link{
+  display: block;
+  padding: 12px 25px;
+  text-decoration: none;
+  color: white;
+}
+
+#home-content {
+  margin-left: 180px;  margin-top: 120px;
+}
+
+nav a:hover {
+  padding: 10px;
+  border-bottom: 1px solid white;
 }

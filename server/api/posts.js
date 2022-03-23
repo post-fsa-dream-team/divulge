@@ -4,13 +4,29 @@ const { pool } = require('../db');
 
 router.get('/', async(req, res, next) => {
     try {
-        const response = await pool.query('SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p LEFT JOIN users u on p.user_id = u.id')
+        const response = await pool.query('SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p LEFT JOIN users u ON p.user_id = u.id')
         res.status(200).json(response.rows)
     } catch (error) {
         console.log(error)
         next(error)
     }
 })
+
+// router.get('/', async(req, res, next) => {
+//     try {
+//         const response = await pool.query('SELECT * from posts, users.user_name FROM posts INNER JOIN users ON users.id = posts.user_id')
+//         res.status(200).json(response.rows)
+//     } catch (error) {
+//         console.log(error)
+//         next(error)
+//     }
+// })
+
+// doesn't return the user information
+// 'SELECT posts.id, posts.title, posts.content, posts.category, posts.image_url users.user_name, users.id, users.first_name, users.last_name FROM posts LEFT JOIN users ON posts.user_id = users.id'
+
+// doesn't work
+// SELECT posts.*, users.user_name FROM posts INNER JOIN users ON users.id = posts.user_Id
 
 router.post('/', async(req, res, next) => {
     try {
@@ -27,8 +43,9 @@ router.post('/', async(req, res, next) => {
 
 router.get('/:id', async(req, res, next) => {
   try {
-      const response = await pool.query(`SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p WHERE id = ${req.params.id} LEFT JOIN users u on p.user_id = u.id`)
-      res.status(200).json(response.rows)
+    let id = req.params.id
+    const response = await pool.query(`SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p LEFT JOIN users u on p.user_id = u.id WHERE p.id = ${id}`)
+    res.status(200).json(response.rows)
   } catch (error) {
       console.log(error)
       next(error)
