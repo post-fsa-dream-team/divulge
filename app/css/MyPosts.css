@@ -8,7 +8,7 @@
   /* for all boxes */
   color: black;
   /* box-sizing: border-box; */
-  padding-top: 6rem;
+  /* padding-top: 6rem; */
   min-height: 100vh;
 }
 
@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 10%;
 }
 .myposts__leftsidebar > div{
@@ -71,6 +71,16 @@
 .myposts__articlebottom{
   display: flex;
   justify-content: space-between;
+}
+.myposts__articlebottom button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 2px  rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+  letter-spacing: 1px;
 }
 .myposts__rightsidebar {
   border: 1.3px solid hsl(0, 0%, 0%);

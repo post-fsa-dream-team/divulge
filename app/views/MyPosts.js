@@ -1,5 +1,5 @@
+// import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
-
 
 // console.log(process.env.MEDIUM_API_KEY);
 export default class extends AbstractView {
@@ -7,16 +7,16 @@ export default class extends AbstractView {
         super(params);
         this.setTitle("MyPosts");
     }
-    async getMyPosts() {
+    // async getMyPosts() {
 
-        try {
-            const myPosts = await fetch("http://localhost:3000/api/users/:userId/posts")
-            const data = await myPosts.json()
-            return data
-        } catch (error) {
-            console.log('CANNOT SEE MY POSTS :(', error);
-        }
-    }
+    //     try {
+    //         const myPosts = await fetch("http://localhost:3000/api/users/:userId/posts")
+    //         const data = await myPosts.json()
+    //         return data
+    //     } catch (error) {
+    //         console.log('CANNOT SEE MY POSTS :(', error);
+    //     }
+    // }
     async getHtml() {
 
         // let getPosts = async () => {
@@ -35,7 +35,7 @@ export default class extends AbstractView {
         //      console.log('Error getting documents', err)
         //  }
         // }
-        let myPosts = [{ title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy" }, { title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content: "This is fake content" }, { title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content: "This is fake content" }]
+        // ${Navbar()}
         return `
         <div class='myposts'>
         <div class='myposts__leftsidebar'>
@@ -97,7 +97,7 @@ export default class extends AbstractView {
             </div>
         </div>
         <div class='myposts__rightsidebar'>Right sidebar</div>
-        </div>
+        </div>}
         `;
     }
 }
