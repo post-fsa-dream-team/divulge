@@ -3,7 +3,7 @@
   justify-content: space-between;
   /* align-items: flex-end; */
   padding-top: 0px;
-  height: 100px;
+  height: 70px;
   width: 100%;
   z-index: 150;
   top: 0;
@@ -12,13 +12,13 @@
 
 .title-container {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 #site-title {
   font-family: 'Libre Franklin', sans-serif;
   padding: 10px;
-  font-size: 30px;
+  font-size: 40px;
   margin: 0px;
   padding-top: 25px;
   padding-bottom: 25px;

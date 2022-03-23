@@ -1,25 +1,28 @@
 /* Home Styles */
+
 #home-title {
   font-family: 'Libre Franklin', sans-serif;
   padding: 10px;
   text-decoration: none;
   color: white;
-  font-size: 400px
+  font-size: 30px
 }
 
-/* Console Text */
+/* Title Console Text */
 .container {
-  width: 300px;
-  margin-top: 20vh;
-  margin-bottom: 3vh
+  width: 690px;
+  margin-top: 25vh;
+  margin-bottom: 10vh
 }
 
 .text-typing {
   font-family: 'Libre Franklin', sans-serif;
+  text-shadow: 2px 2px 2px rgb(106, 106, 106);
+  color: white;
   padding: 10px;
-  font-size: 80px;
+  font-size: 10vh;
   margin: 0px;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-bottom: 25px;
   padding-left: 10px
 }
@@ -44,6 +47,7 @@
   }
 }
 
+/* All Posts Table */
 #all-posts-table,
 td {
   margin-left: 30px;
@@ -54,26 +58,56 @@ td {
   border-bottom: solid rgb(216, 216, 216) 1px;
 }
 
+/* All Posts Cards */
+.post-card {
+  background-color: white;
+  box-shadow: 2px 2px 2px rgb(136, 136, 136);
+  border-radius: 10px;
+  box-shadow:rgb(216, 216, 216);
+  margin: 10px;
+  padding: 15px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.article-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
 .image-cell {
-  width: 10vh
+  width: 8vh
 }
 
 .post-image {
-  width: 20vh
+  width: 20vh;
+  margin-right: 10px;
+  /* height: 0;
+  padding-top: 56.25%;
+  margin-top: 30; */
 }
 
+.author {
+  padding-bottom: 10px;
+}
+
+/* Home Page Navigation */
 .home-nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 90px;
-  padding-top: 20px;
+  margin-top: 50px;
+  padding-top: 50px;
   padding-left: 10px;
   position: fixed;
   height: 100vh;
   width: 150px;
   /* background: #0b5b6d; */
-  background-color: rgb(255, 153, 0)
+  background-color: rgb(255, 153, 0);
 }
 
 #categories-title {
@@ -97,10 +131,4 @@ nav a:hover {
   padding: 10px;
   color: #eeeeee;
   border-bottom: 1px solid white;
-}
-
-.article-title {
-  font-family: 'Libre Franklin', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
 }
