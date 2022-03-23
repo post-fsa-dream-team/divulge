@@ -23,22 +23,19 @@ export default class extends AbstractView {
     if (this.state.selectedCategory !== "all posts") {
       posts = this.filterPosts(posts, this.state.selectedCategory);
     }
+
     return `
-    ${SideNav()}
-
-  <div id="home-content">
-    <div class="container">
-    <div>
-      <div class="text-typing">
-        <p>Welcome to Divulge</p>
+      ${SideNav()}
+      <div class="console-container">
+      <div>
+        <div class="text-typing">
+          <p>Welcome to Divulge</p>
+        </div>
+        <hr id="title-line"></hr>
+        </div>
       </div>
-      <hr id="title-line"></hr>
-      </div>
-    </div>
-
-
-        ${PostsView(posts)}
-    </div>`;
+      ${PostsView(posts)}
+      `
   }
 
   async postRender() {

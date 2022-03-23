@@ -5,16 +5,20 @@ import SideNav from "../components/SideNav.js"
 export default class extends AbstractView {
   constructor(params) {
     super(params)
-    this.setTitle("All Posts");
+    this.setTitle("All Other Posts");
     this.state = {
       selectedCategory: "all posts"
     }
   }
 
   async getData() {
-    const response = await fetch("http://localhost:3000/api/posts");
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch("http://localhost:3000/api/posts");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   async getHtml() {
@@ -23,16 +27,11 @@ export default class extends AbstractView {
     if (this.state.selectedCategory !== "all posts") {
       posts = this.filterPosts(posts, this.state.selectedCategory)
     }
+
     return `
-    ${SideNav()}
-
-  <div id="home-content">
-      <div id="cards-container">
-
-        ${PostsView(posts)}
-
-      </div>
-    </div>`
+      ${SideNav()}
+      ${PostsView(posts)}
+      `
   }
 
   async postRender() {

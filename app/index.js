@@ -8,7 +8,7 @@ import SignIn from "./views/SignIn.js";
 import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
-import AllPosts from "./views/AllPosts.js";
+import OtherAllPosts from "./views/OtherAllPosts.js";
 
 //see tool: https://regexr.com/
 //match the first character of the string ->
@@ -45,7 +45,7 @@ const router = async() => {
     const routes = [
         { path: "/404", view: Home },
         { path: "/home", view: Home },
-        { path: "/posts", view: AllPosts },
+        { path: "/posts", view: OtherAllPosts },
         { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
