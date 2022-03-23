@@ -32,7 +32,7 @@ const router = async() => {
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
         //HOW TO ADD VARIABLES?
-        { path: "/mysinglepost", view: MySinglePost },
+        { path: "/:userId/posts/:postId", view: MySinglePost },
         { path: "/myposts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },
         { path: "/createpost", view: CreatePost },
@@ -56,7 +56,6 @@ const router = async() => {
     }
     const view = new match.route.view()
     document.querySelector("#app").innerHTML = await view.getHtml()
-    await view.postRender();
 }
 
 //run the router when client navigates through history (e.g. clicks back button)
