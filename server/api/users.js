@@ -32,6 +32,7 @@ router.get('/:userId', async (req, res) => {
 router.get('/:userId/posts', async (req, res, next) => {
   try {
     const { userId } = req.params
+    // const response = await pool.query(`SELECT * FROM users INNER JOIN posts ON users.id = posts.user_Id `) ---> /postId/posts
     const myPosts = await pool.query(`select * from users inner join posts on users.id = posts.user_Id where users.id = $1`, [userId])
     res.status(200).json(myPosts.rows)
   } catch (error) {
@@ -43,7 +44,9 @@ router.get('/:userId/posts', async (req, res, next) => {
 //My Single Post
 router.get('/:userId/posts/:postId', async (req, res) => {
   try {
-
+    const { userId, postId } = req.params;
+    const myPost = await pool.query(`select * from users inner join posts on users.id = posts.user_Id where users.id = $1 and posts.id = $2`, [userId, postId])
+    res.status(200).json(myPost.rows)
   } catch (error) {
     console.log(error);
     next(error);
