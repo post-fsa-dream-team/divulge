@@ -65,7 +65,7 @@ nav ul li:hover {
 
 .toggle-button {
   position: absolute;
-  top: 6.5rem;
+  top: 20px;
   right: 1rem;
   display: none;
   flex-direction: column;
@@ -82,7 +82,7 @@ nav ul li:hover {
   border-radius: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .toggle-button {
     display: flex;
   }

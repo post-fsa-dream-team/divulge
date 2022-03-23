@@ -76,17 +76,6 @@ hr {
   }
 }
 
-/* All Posts Table */
-#all-posts-table,
-td {
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  /* border: black solid 1px; */
-  border-bottom: solid rgb(216, 216, 216) 1px;
-}
-
 /* All Posts Cards */
 .post-card {
   /* background-color: white; */
@@ -109,6 +98,11 @@ td {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   font-size: 20px;
+}
+
+.article-link{
+  text-decoration: none;
+  color: black;
 }
 
 .image-cell {
@@ -171,9 +165,8 @@ td {
   color: white;
 }
 
-.home-content {
-  margin-left: 180px;
-  margin-top: 120px;
+#home-content {
+  margin-left: 180px;  margin-top: 120px;
 }
 
 nav a:hover {

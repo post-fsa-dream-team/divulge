@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import PostsView from "./HomeView/PostsView.js"
 
 let dummyData = [{title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}, {title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content:"This is fake content"}]
 
@@ -6,10 +7,11 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("Home");
-    // this.state = {
-    //   selectedPosts: "all"
-    // }
+    this.state = {
+      selectedCategory: "all posts"
+    }
   }
+
 
   async getData () {
     const response = await fetch("http://localhost:3000/api/posts")
@@ -28,84 +30,31 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
+    console.log(this.state)
     let posts = await this.getData()
-
-    // if (this.state.selectedPosts !== "all") {
-    //   posts = this.filterPosts(posts, this.state.selectedPosts)
-    //   // return AllPostsView(posts)
-    // }
-
-    return `
-      <nav class="home-nav">
-        <a href="" id="all-posts-link" data-link>All Posts</a>
-        <div id="categories">By Category</div>
-        <a href="" class="home-nav-link" data-link>News</a>
-        <a href="" class="home-nav-link" data-link>Technology</a>
-        <a href="" class="home-nav-link" data-link>Politics</a>
-        <a href="" class="home-nav-link" data-link>Fashion</a>
-        <a href="" class="home-nav-link" data-link>Sports</a>
-      </nav>
-
-      <div class="home-content">
-
-        <div class="container">
-
-        <div>
-          <div class="text-typing">
-            <p>Welcome to Divulge</p>
-          </div>
-          <hr id="title-line"></hr>
-          </div>
-        </div>
-
-              ${posts.map((item) =>
-                `<div class="post-card">
-                <div class="article-title">${item.title}</div>
-                <div class="author">by ${item.user_name}</div>
-                <div class="card-container">
-                  <img class="post-image" src="${item.image_url}"/>
-                    <div>
-                      <div>${item.content.slice(0, 200).split(" ").join(" ") + "..."}</div>
-                    </div>
-                  </div>
-                </div>`
-              ).join('')}
-        <div>`
+    if (this.state.selectedCategory !== "all posts") {
+      posts = this.filterPosts(posts, this.state.selectedCategory)
+    }
+    return PostsView(posts)
   }
 
-  async postRender() {}
+  async postRender() {
+    let elements = document.getElementsByClassName("home-nav-link")
+
+    const changeSelection = (e) => {
+      console.log(elements)
+      console.log(this.state)
+      console.log(`clicked on ${e}`)
+      this.state.selectedCategory = e.target.text.toLowerCase()
+      this.getHtml()
+    }
+
+    for (let i = 0; i < elements.length; i++){
+      elements[i].addEventListener("click", async function(e) {
+        e.preventDefault();
+        changeSelection(e)
+      }
+    )
+    }
+  }
 }
-
-
-// return `
-// <nav class="home-nav">
-//   <div id="categories-title">Categories</div>
-//   <a href="" class="home-nav-link" data-link>Technology</a>
-//   <a href="" class="home-nav-link" data-link>Politics</a>
-//   <a href="" class="home-nav-link" data-link>Fashion</a>
-// </nav>
-
-// <div class="home-content">
-//   <div class="container">
-//     <div class="text-typing">
-//       <p>Divulge</p>
-//     </div>
-//   </div>
-
-//     <table id="all-posts-table">
-//       <tbody>
-//         ${posts.map((item) =>
-//           `<tr>
-//             <td>
-//             <div class="article-title">${item.title}</div>
-//             <div class="author">by ${item.user_name}</div>
-//             <div>${item.content.slice(0, 200).split(" ").join(" ") + "..."}</div>
-//             </td>
-//             <td>
-//             <img class="post-image" src="${item.image_url}"/>
-//             </td>
-//           </tr>`
-//         ).join('')}
-//       </tbody>
-//     </table>
-//   <div>`
