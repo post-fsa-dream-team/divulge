@@ -16,7 +16,8 @@
 
 #categories {
   font-family: 'Libre Franklin', sans-serif;
-  color: rgb(222, 218, 218);
+  /* color: rgb(222, 218, 218); */
+  color: black;
   font-size: 18px;
   margin-left: 2px;
   text-decoration: none;
