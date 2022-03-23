@@ -1,16 +1,5 @@
 import AbstractView from "./AbstractView.js";
 
-// const dummyData = {
-//   title: "The Title of this Article",
-//   image_url: "https://images.unsplash.com/photo-1601979031925-424e53b6caaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVwcHl8ZW58MHx8MHx8&w=1000&q=80",
-//   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//   category: "news",
-//   user_id: 5,
-//   user_name: "cookie_monster",
-//   first_name: "Cookie",
-//   last_name: "Monster"
-// }
-
 export default class extends AbstractView {
   constructor(params) {
     super(params)
@@ -28,11 +17,20 @@ export default class extends AbstractView {
     const postArr = await this.getData(this.postId)
     let post = postArr[0]
     return `
+      <nav class="home-nav">
+        <a id="all-posts-link" data-link>All Posts</a>
+        <div id="categories">By Category</div>
+        <a value="news" class="home-nav-link" data-link>News</a>
+        <a value="technology" class="home-nav-link" data-link>Technology</a>
+        <a value="politics" class="home-nav-link" data-link>Politics</a>
+        <a value="fashion" class="home-nav-link" data-link>Fashion</a>
+        <a value="sports" class="home-nav-link" data-link>Sports</a>
+      </nav>
       <div class='body-content'>
-      <h1 class="single-other-post-title">${post.title}</h1>
-      <h4>By: ${post.user_name}<h4>
-      <img class="single-post-img" src="${post.image_url}"/>
-      <p>${post.content}</p>
+        <h1 class="single-other-post-title">${post.title}</h1>
+        <p class="user-name">By: ${post.user_name}<p>
+        <img class="single-post-img" src="${post.image_url}"/>
+        <p>${post.content}</p>
       </div>
     `
   }
