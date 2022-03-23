@@ -1,0 +1,25 @@
+.body-content {
+  /* display:flex; */
+  margin-top: 150px;
+  margin-left: 30px;
+  background-color: rgb(200, 222, 225);
+  box-shadow: 2px 2px 2px rgb(117, 166, 172);
+  border: rgb(189, 206, 208) solid 1px;
+  border-radius: 2px;
+  padding: 10px;
+  margin-right: 20px;
+  margin-left: 250px
+}
+
+.single-post-img {
+  max-width: 80vh;
+  margin: auto
+}
+
+.single-other-post-title {
+  margin: auto;
+}
+
+.user-name {
+  margin-bottom: 20px
+}
