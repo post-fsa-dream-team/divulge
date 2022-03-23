@@ -9,11 +9,14 @@ import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
 
+//see tool: https://regexr.com/
 //match the first character of the string ->
+//^ Carat, matches a term if the term appears at the beginning of a paragraph or a line.
 const pathToRegex = path => new RegExp("^" + path
-//replace all forward slashes inside the path with the regular expression equivalent for a slash
+//replace all forward slashes inside the path with escaped character (matches "/")
 .replace(/\//g, "\\/")
-//then replace each parameter with a capture group
+//then replace each parameter (any string after a colon and before a slash or the end) with a capture group
+//$ Dollar sign, matches a term if the term appears at the end of a paragraph or a line.
 .replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
@@ -52,9 +55,10 @@ const router = async() => {
         { path: "/createpost", view: CreatePost },
     ]
 
-    // Test each route to see if the pathname in the URL matches the regex version of the paths as noted above above
+    // Test each route to see if the pathname in the URL matches the regex pattern of the path
     const potentialMatches = routes.map(route => {
         console.log(pathToRegex(route.path))
+        console.log(location.pathname)
         return {
             route: route,
             result: location.pathname.match(pathToRegex(route.path))

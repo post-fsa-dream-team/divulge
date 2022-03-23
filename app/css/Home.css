@@ -1,9 +1,47 @@
 /* Home Styles */
-#site-title {
+#home-title {
   font-family: 'Libre Franklin', sans-serif;
   padding: 10px;
   text-decoration: none;
   color: white;
+  font-size: 400px
+}
+
+/* Console Text */
+.container {
+  width: 300px;
+  margin-top: 20vh;
+  margin-bottom: 3vh
+}
+
+.text-typing {
+  font-family: 'Libre Franklin', sans-serif;
+  padding: 10px;
+  font-size: 80px;
+  margin: 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 10px
+}
+.text-typing p {
+  margin: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+
+@keyframes blink {
+  0%,100% {
+    border-right: 2px solid transparent;
+  }
+  50% {
+    border-right: 2px solid black;
+  }
 }
 
 #all-posts-table,

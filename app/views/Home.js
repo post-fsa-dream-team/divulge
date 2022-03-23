@@ -44,7 +44,12 @@ export default class extends AbstractView {
       </nav>
 
       <div class="home-content">
-        <h1 id="home-title">Welcome to Divulge</h1>
+        <div class="container">
+          <div class="text-typing">
+            <p>Divulge</p>
+          </div>
+        </div>
+
           <table id="all-posts-table">
             <tbody>
               ${posts.map((item) =>
