@@ -29,10 +29,11 @@ router.get('/:userId', async (req, res) => {
 
 /*****************ATTEMPT********** */
 //My Posts
-router.get('/:userId/posts', async (req, res) => {
+router.get('/:userId/posts', async (req, res, next) => {
   try {
-    const response = await pool.query(`SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p WHERE id = ${req.params.id} LEFT JOIN users u on p.user_id = u.id`)
-    res.status(200).json(response.rows)
+    const { userId } = req.params
+    const myPosts = await pool.query(`select * from users inner join posts on users.id = posts.user_Id where users.id = $1`, [userId])
+    res.status(200).json(myPosts.rows)
   } catch (error) {
     console.log(error);
     next(error);

@@ -7,6 +7,11 @@ export default class extends AbstractView {
         super(params);
         this.setTitle("MyPosts");
     }
+    // async getData() {
+    //     const myPosts = await fetch("/api/users/:userId/posts")
+    //     const data = await myPosts.json()
+    //     return data
+    // }
     async getHtml() {
 
         // let getPosts = async () => {
@@ -27,7 +32,7 @@ export default class extends AbstractView {
         // }
         let myPosts = [{ title: "post1", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy" }, { title: "post2", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content: "This is fake content" }, { title: "post3", imageUrl: "https://www.petmd.com/sites/default/files/styles/article_image/public/petmd-shaking-puppy.jpg?itok=4_quJCAy", content: "This is fake content" }]
         return `
-<h1>ALL MY POSTS</h1>
+            <h1>ALL MY POSTS</h1>
         `;
     }
 }
