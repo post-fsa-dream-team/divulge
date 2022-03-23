@@ -22,7 +22,7 @@ const pathToRegex = path => new RegExp("^" + path
 
 const getParams = match => {
     //values are the parameters passed in through path; slicing at index 1 returns all parameters
-    console.log(match.result)
+    // console.log(match.result)
     const values = match.result.slice(1);
 
     //grab the keys (e.g. 'id'), match all will grab all individual paramaters (anything after a colon),
@@ -41,7 +41,7 @@ const navigateTo = url => {
 };
 
 const router = async() => {
-    console.log(window.location.pathname)
+    // console.log(window.location.pathname)
     const routes = [
         { path: "/404", view: Home },
         { path: "/home", view: Home },
@@ -58,7 +58,7 @@ const router = async() => {
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
     const potentialMatches = routes.map(route => {
-        console.log(pathToRegex(route.path))
+        // console.log(pathToRegex(route.path))
         console.log(location.pathname)
         return {
             route: route,
@@ -81,6 +81,7 @@ const router = async() => {
     //e.g. of the path is "/home", new match.route.view() === new Home()
     //use "getParams" to access the params and send them in as parameters to the class
     const view = new match.route.view(getParams(match))
+    console.log(getParams(match))
 
     document.querySelector("#app").innerHTML = await view.getHtml()
     await view.postRender();

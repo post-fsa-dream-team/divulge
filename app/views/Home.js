@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import PostsView from "./OtherPostViews/PostsView.js";
+import SideNav from "./OtherPostViews/SideNav.js"
 
 export default class extends AbstractView {
   constructor(params) {
@@ -22,15 +23,8 @@ export default class extends AbstractView {
     if (this.state.selectedCategory !== "all posts") {
       posts = this.filterPosts(posts, this.state.selectedCategory);
     }
-    return `<nav class="home-nav">
-    <a id="all-posts-link" data-link>All Posts</a>
-    <div id="categories">By Category</div>
-    <a value="news" class="home-nav-link" data-link>News</a>
-    <a value="technology" class="home-nav-link" data-link>Technology</a>
-    <a value="politics" class="home-nav-link" data-link>Politics</a>
-    <a value="fashion" class="home-nav-link" data-link>Fashion</a>
-    <a value="sports" class="home-nav-link" data-link>Sports</a>
-  </nav>
+    return `
+    ${SideNav()}
 
   <div id="home-content">
     <div class="container">
