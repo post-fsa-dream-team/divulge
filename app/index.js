@@ -84,7 +84,6 @@ const router = async() => {
     console.log(getParams(match))
 
     document.querySelector("#app").innerHTML = await view.getHtml()
-    await view.postRender();
 }
 
 //run the router when client navigates through history (e.g. clicks back button)
