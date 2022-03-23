@@ -10,22 +10,40 @@
 
 /* Title Console Text */
 .container {
-  width: 690px;
+  width: 695px;
   margin-top: 25vh;
   margin-bottom: 10vh
 }
 
+/* #title-line {
+  width: 200px;
+} */
+
+hr {
+  width: 400px;
+  align-items: left;
+  height: 2px;
+  border: none;
+  /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
+  /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
+  /* background:rgb(255, 172, 49); */
+  background: white;
+}
+
 .text-typing {
   font-family: 'Libre Franklin', sans-serif;
-  text-shadow: 2px 2px 2px rgb(106, 106, 106);
+  /* text-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  /* text-shadow: 2px 2px 2px white; */
+  /* text-shadow: 2px 2px 2px rgb(255, 172, 49); */
   color: white;
   padding: 10px;
   font-size: 10vh;
   margin: 0px;
-  padding-top: 15px;
-  padding-bottom: 25px;
+  padding-top: 25px;
+  padding-bottom: 20px;
   padding-left: 10px
 }
+
 .text-typing p {
   margin: 0px;
   white-space: nowrap;
@@ -61,11 +79,12 @@ td {
 /* All Posts Cards */
 .post-card {
   background-color: white;
-  box-shadow: 2px 2px 2px rgb(136, 136, 136);
+  /* box-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  box-shadow: 2px 2px 2px rgb(255, 172, 49);
   border-radius: 10px;
-  box-shadow:rgb(216, 216, 216);
-  margin: 10px;
+  margin: 15px;
   padding: 15px;
+  margin-right: 25px;
 }
 
 .card-container {
@@ -107,7 +126,9 @@ td {
   height: 100vh;
   width: 150px;
   /* background: #0b5b6d; */
-  background-color: rgb(255, 153, 0);
+  /* background-color: rgb(255, 153, 0); */
+  /* background: linear-gradient(rgb(255, 153, 0), rgb(255, 47, 0)); */
+  background: linear-gradient(rgb(255, 180, 69),#ffa723, rgb(252, 78, 39));
 }
 
 #categories-title {

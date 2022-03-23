@@ -48,6 +48,7 @@ export default class extends AbstractView {
           <div class="text-typing">
             <p>Welcome to Divulge</p>
           </div>
+          <hr id="title-line"></hr>
         </div>
 
               ${posts.map((item) =>
