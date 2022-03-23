@@ -35,11 +35,9 @@ export default class extends AbstractView {
       <hr id="title-line"></hr>
       </div>
     </div>
-      <div id="cards-container">
+
 
         ${PostsView(posts)}
-
-      </div>
     </div>`;
   }
 

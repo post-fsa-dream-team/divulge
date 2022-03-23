@@ -4,6 +4,8 @@
 @import '/app/css/Home.css';
 @import '/app/css/MyPosts.css';
 @import '/app/css/OtherSinglePost.css';
+@import '/app/css/OtherPosts.css';
+@import '/app/css/SideNav.css';
 
 body {
     font-family: 'Mulish', sans-serif;

@@ -1,6 +1,7 @@
 
 const PostsView = (posts) => {
   return `
+    <div id="cards-container">
         ${posts.map((item) =>
         `<a class="article-link" href="/posts/${item.id}"><div class="post-card">
           <div class="article-title">${item.title}</div>
@@ -13,6 +14,7 @@ const PostsView = (posts) => {
             </div>
           </div></a>`
         ).join('')}
+    </div>
   `
 }
 

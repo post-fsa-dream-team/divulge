@@ -1,0 +1,44 @@
+/* All Posts Cards */
+.post-card {
+  /* background-color: white; */
+  /* background-color: hsl(180, 53%, 93%); */
+  /* box-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  /* border-radius: 2px; */
+  border-bottom: hsl(180, 53%, 93%);
+  margin: 15px;
+  padding: 15px;
+  width: 800px;
+  margin-left: 50px
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.article-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.article-link{
+  text-decoration: none;
+  color: black;
+}
+
+.image-cell {
+  width: 8vh
+}
+
+.post-image {
+  width: 20vh;
+  margin-right: 10px;
+  /* height: 0;
+  padding-top: 56.25%;
+  margin-top: 30; */
+}
+
+.author {
+  padding-bottom: 10px;
+}
