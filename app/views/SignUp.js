@@ -43,12 +43,13 @@ export default class extends AbstractView {
     </div>
     </div>
     </div>
-    <script>
+    `;
+    }
+
+    async postRender() {
         const form = document.getElementById('form')
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
         })
-    </script>
-    `;
     }
 }

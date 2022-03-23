@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 });
 
 //My Profile
-router.get('/:userId', async (req, res) => {
+router.get('/:userId', async (req, res, next) => {
   try {
     const { userId } = req.params
     const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [userId])
@@ -26,13 +26,39 @@ router.get('/:userId', async (req, res) => {
   }
 })
 
+//Edit My Profile
+router.put('/:userId', async (req, res, next) => {
+  try {
 
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+})
+
+//delete my profile
+router.delete('/:id', async (req, res, next) => {
+  try {
+    // const { userId } = req.params
+    // pool.query('delete from users where id = $1', [userId], (error, results) => {
+    //   if (error) {
+    //     throw error
+    //   }
+    //   res.status(200).send(`User deleted with ID: ${userId}`)
+    // })
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+})
 /*****************ATTEMPT********** */
 //My Posts
-router.get('/:userId/posts', async (req, res) => {
+router.get('/:userId/posts', async (req, res, next) => {
   try {
-    const response = await pool.query(`SELECT p.id, p.title, p.image_url, p.content, p.category, p.created_at, p.user_id, u.user_name, u.id, u.first_name, u.last_name from POSTS p WHERE id = ${req.params.id} LEFT JOIN users u on p.user_id = u.id`)
-    res.status(200).json(response.rows)
+    const { userId } = req.params
+    // const response = await pool.query(`SELECT * FROM users INNER JOIN posts ON users.id = posts.user_Id `) ---> /postId/posts
+    const myPosts = await pool.query(`select * from users inner join posts on users.id = posts.user_Id where users.id = $1`, [userId])
+    res.status(200).json(myPosts.rows)
   } catch (error) {
     console.log(error);
     next(error);
@@ -40,9 +66,11 @@ router.get('/:userId/posts', async (req, res) => {
 })
 
 //My Single Post
-router.get('/:userId/posts/:postId', async (req, res) => {
+router.get('/:userId/posts/:postId', async (req, res, next) => {
   try {
-
+    const { userId, postId } = req.params;
+    const myPost = await pool.query(`select * from users inner join posts on users.id = posts.user_Id where users.id = $1 and posts.id = $2`, [userId, postId])
+    res.status(200).json(myPost.rows)
   } catch (error) {
     console.log(error);
     next(error);

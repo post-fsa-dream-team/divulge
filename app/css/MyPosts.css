@@ -1,0 +1,91 @@
+.myposts {
+  background-color: hsl(0, 0%, 100%);
+  display: grid;
+  /* grid-template-columns: 10% auto 20%; */
+  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
+  grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
+  height: auto;
+  /* for all boxes */
+  color: black;
+  /* box-sizing: border-box; */
+  /* padding-top: 6rem; */
+  min-height: 100vh;
+}
+
+
+.myposts__leftsidebar {
+  border: 1.3px solid hsl(0, 0%, 0%);
+  background-color: grey;
+  /* grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: row1-start;
+  grid-row-end: end; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  height: 100%;
+  width: 10%;
+}
+.myposts__leftsidebar > div{
+  border: 1.3px solid hsl(0, 0%, 0%);
+
+}
+.myposts__maincontent {
+  border: 1.3px solid hsl(0, 0%, 0%);
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: last-line;
+  padding: 0 10% 0 10%;
+}
+
+.myposts__maincontentnav {
+  border-bottom: 1.3px solid hsl(0, 0%, 0%);
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 10%);
+  padding: 0 20px 0 20px;
+}
+.myposts__maincontentnav h3:active {
+  transform: translateY(2px)
+}
+
+.myposts__maincontentposts {
+  /* border: 1.3px solid hsl(0, 0%, 0%); */
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: 3;
+  grid-row-end: last-line;
+}
+
+.myposts__article{
+ display: flex;
+ flex-direction: column;
+ padding: 20px;
+ border-bottom: 1.3px solid hsl(246, 25%, 77%);
+}
+.myposts__articlebottom{
+  display: flex;
+  justify-content: space-between;
+}
+.myposts__articlebottom button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 2px  rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+.myposts__rightsidebar {
+  border: 1.3px solid hsl(0, 0%, 0%);
+  grid-column-start: 5;
+  grid-column-end: last-line;
+  grid-row-start: row1-start;
+  grid-row-end: last-line;
+}

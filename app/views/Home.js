@@ -1,6 +1,6 @@
 import AbstractView from "./AbstractView.js";
-import PostsView from "./OtherPostViews/PostsView.js";
-import SideNav from "./OtherPostViews/SideNav.js"
+import PostsView from "../components/PostsView.js";
+import SideNav from "../components/SideNav.js"
 
 export default class extends AbstractView {
   constructor(params) {
