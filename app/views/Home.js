@@ -38,17 +38,23 @@ export default class extends AbstractView {
     return `
       <nav class="home-nav">
         <div id="categories-title">Categories</div>
+        <a href="" class="home-nav-link" data-link>News</a>
         <a href="" class="home-nav-link" data-link>Technology</a>
         <a href="" class="home-nav-link" data-link>Politics</a>
         <a href="" class="home-nav-link" data-link>Fashion</a>
+        <a href="" class="home-nav-link" data-link>Sports</a>
       </nav>
 
       <div class="home-content">
+
         <div class="container">
+
+        <div>
           <div class="text-typing">
             <p>Welcome to Divulge</p>
           </div>
           <hr id="title-line"></hr>
+          </div>
         </div>
 
               ${posts.map((item) =>

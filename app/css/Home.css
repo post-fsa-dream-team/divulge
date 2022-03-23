@@ -10,9 +10,18 @@
 
 /* Title Console Text */
 .container {
+  /* margin: auto; */
   width: 695px;
+  display:flex;
+  align-items: center;
+  align-content: center;
+  padding-left: 20px;
   margin-top: 25vh;
-  margin-bottom: 10vh
+  margin-bottom: 10vh;
+  background-color: black;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 /* #title-line {
@@ -24,6 +33,7 @@ hr {
   align-items: left;
   height: 2px;
   border: none;
+  margin-left: 20px;
   /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
   /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
   /* background:rgb(255, 172, 49); */
