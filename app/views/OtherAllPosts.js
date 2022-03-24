@@ -36,9 +36,14 @@ export default class extends AbstractView {
       posts = this.filterPosts(posts, this.category)
     }
 
+    let categoryArr = this.category.split("")
+    let firstLetter = categoryArr[0].toUpperCase()
+    let restOfWord = categoryArr.slice(1).join("")
+    let capitalCase = firstLetter + restOfWord
 
     return `
       ${SideNav()}
+      <h1>${this.category}</h1>
       ${PostsView(posts)}
       `
   }
