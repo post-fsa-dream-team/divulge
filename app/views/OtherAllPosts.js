@@ -44,7 +44,7 @@ export default class extends AbstractView {
     return `
       ${SideNav()}
 
-      <h1>THIS IS THE POSTS PAGE</h1>
+      <h1>${capitalCase} Posts </h1>
 
       ${PostsView(posts)}
       `

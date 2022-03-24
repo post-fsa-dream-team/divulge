@@ -1,7 +1,7 @@
 /* All Posts Cards */
 #posts-content {
   margin-left: 180px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 .post-card {
@@ -46,4 +46,9 @@
 
 .author {
   padding-bottom: 10px;
+}
+
+h1 {
+  margin-top: 100px;
+  margin-left: 230px
 }
