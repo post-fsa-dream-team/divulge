@@ -53,7 +53,7 @@ const router = async() => {
         { path: "/users/:userId/posts/:postId", view: MySinglePost },
         { path: "/users/:userId/posts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },
-        { path: "/createpost", view: CreatePost },
+        { path: "/:userId/createpost", view: CreatePost },
     ]
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
@@ -83,7 +83,8 @@ const router = async() => {
     const view = new match.route.view(getParams(match))
     console.log(getParams(match))
 
-    document.querySelector("#app").innerHTML = await view.getHtml()
+    document.querySelector("#app").innerHTML = await view.getHtml();
+    await view.postRender();
 }
 
 //run the router when client navigates through history (e.g. clicks back button)
