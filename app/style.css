@@ -13,7 +13,7 @@ body {
     color: black;
     box-sizing: border-box;
     margin: 0;
-    background-color: hsl(180, 29%, 73%);
+    /* background-color: hsl(180, 29%, 73%); */
     /* background-color: hsl(180, 53%, 93%); */
 }
 

@@ -16,7 +16,7 @@ const Navbar = () => {
 
   <div class="nav-links">
     <ul class="nav-items">
-      <li><a href="/posts" class="nav-link" data-link>Posts</a></li>
+      <li><a href="/posts/all/${"all"}" class="nav-link" data-link>Posts</a></li>
       <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
       <li><a href="/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
       <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
