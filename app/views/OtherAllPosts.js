@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js"
+import NoPostsView from "../components/NoPostsView.js"
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
 
@@ -46,7 +47,8 @@ export default class extends AbstractView {
       ${Navbar}
       ${SideNav()}
       <h2 class="other-posts-title">Posts > ${capitalCase}</h2>
-      ${PostsView(posts, capitalCase)}
+      ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
+
       `
   }
 

@@ -7,6 +7,7 @@
 @import '/app/css/OtherSinglePost.css';
 @import '/app/css/OtherPosts.css';
 @import '/app/css/SideNav.css';
+@import '/app/css/NoPosts.css';
 
 body {
     font-family: 'Mulish', sans-serif;
