@@ -17,7 +17,7 @@ const PostsView = (posts) => {
         ${posts.map((item) =>
         `
         <div class="each-box">
-        <a class="article-link" href="/posts/${item.id}">
+        <a class="article-link" href="/posts/${item.post_id}">
         <div id="cards-container">
 
           <div class="author-and-created">

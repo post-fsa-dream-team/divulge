@@ -7,6 +7,7 @@ const SideNav = () => {
     <a href="/posts/all/${"crime"}" class="home-nav-link" data-link>Crime</a>
     <a href="/posts/all/${"technology"}" class="home-nav-link" data-link>Technology</a>
     <a href="/posts/all/${"entertainment"}" class="home-nav-link" data-link>Entertainment</a>
+    <a href="/posts/all/${"fashion"}" class="home-nav-link" data-link>Fashion</a>
     <a href="/posts/all/${"sports"}" class="home-nav-link" data-link>Sports</a>
   </nav>`
 }
