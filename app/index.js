@@ -53,7 +53,7 @@ const router = async() => {
         { path: "/mysinglepost", view: MySinglePost },
         { path: "/myposts", view: MyPosts },
         { path: "/:userId/posts/:postid", view: Home },
-        { path: "/createpost", view: CreatePost },
+        { path: "/:userId/createpost", view: CreatePost },
     ]
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path

@@ -43,3 +43,10 @@ form {
   border-radius: 5px;
   font-size: 15px;
 }
+
+#submit-button {
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+}
