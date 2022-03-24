@@ -81,7 +81,6 @@ const router = async() => {
     //e.g. of the path is "/home", new match.route.view() === new Home()
     //use "getParams" to access the params and send them in as parameters to the class
     const view = new match.route.view(getParams(match))
-    console.log(getParams(match))
 
     document.querySelector("#app").innerHTML = await view.getHtml();
     await view.postRender();

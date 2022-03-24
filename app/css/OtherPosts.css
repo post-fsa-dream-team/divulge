@@ -4,6 +4,10 @@
   /* margin-top: 100px; */
 }
 
+.each-box {
+  margin-bottom: 50px;
+}
+
 .post-card {
   /* background-color: white; */
   /* background-color: hsl(180, 53%, 93%); */
@@ -16,37 +20,62 @@
   margin-left: 50px
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
+#cards-container {
+  display: grid;
+  grid-template-columns: [first] 25% [second] 25% [third] 40% [last] 20%;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "image authorAndCreated . . . "
+    "image title title title ."
+    "image main main main main";
+
+}
+
+.author-and-created {
+  grid-area: authorAndCreated;
+}
+
+.article-date {
+  color: rgb(121, 118, 118);
+  font-size: 12px;
 }
 
 .article-title {
+  grid-area: title;
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.article-link{
+.article-link {
   text-decoration: none;
   color: black;
 }
 
-.image-cell {
-  width: 8vh
-}
-
 .post-image {
+  grid-area: image;
+  grid-column: 1;
+  grid-row: 1 / 5;
   width: 20vh;
   margin-right: 10px;
   border-radius: 2px;
+  place-self: center;
   /* height: 0;
   padding-top: 56.25%;
   margin-top: 30; */
 }
 
+.article-content {
+  grid-area: main;
+}
+
 .author {
   padding-bottom: 10px;
+  color: rgb(121, 118, 118);
+  font-size: 12px;
 }
 
 h1 {
