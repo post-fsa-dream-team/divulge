@@ -1,3 +1,8 @@
+#post-content {
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
 form {
   margin: 10px 0;
 }
@@ -14,6 +19,7 @@ form {
   width: 700px;
   height: 400px;
   border: 1px solid, #111;
+  background-color: white;
 }
 
 .inputField {
@@ -33,6 +39,7 @@ form {
 
 #post-category {
   width: 200px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
+  font-size: 15px;
 }

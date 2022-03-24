@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import SideNav from "../components/SideNav.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -31,16 +32,10 @@ export default class extends AbstractView {
 
     return (`
       <div id="create-post-container">
-        <nav class="home-nav">
-          <div id="categories-title">Categories</div>
-          <a href="" class="home-nav-link" data-link>Technology</a>
-          <a href="" class="home-nav-link" data-link>Politics</a>
-          <a href="" class="home-nav-link" data-link>Fashion</a>
-        </nav>
-
-        <div class="home-content">
+        ${SideNav}
+        <div id="post-content">
           <h1 id="createPost-title">Create Your Content</h1>
-          <div>
+          <form id="post-form">
             <div>
               <!--<label id="label-title">Title: </label>-->
               <input id="input-title" class="inputField" type="text" name="title" placeholder="Title" value="" />
@@ -48,7 +43,6 @@ export default class extends AbstractView {
             <div>
               <!--<label id="label-imageUrl">Title Image URL: </label>-->
               <input id="input-imageUrl" class="inputField" type="text" name="imageUrl" placeholder="Thumbnail URL" value="" />
-              <!-- <iframe id="input-imageUrl" class="inputField" name="imageURL-field" placeholder="Enter the image url for the title" value=""></iframe> -->
             </div><br />
             <form id="text-editor-form">
               <button type="button" data-cmd="justifyLeft">
@@ -102,9 +96,14 @@ export default class extends AbstractView {
                 <option value="technology">Technology</option>
                 <option value="politics">Politics</option>
                 <option value="fashion">Fashion</option>
+                <option value="news">News</option>
+                <option value="sports">Sports</option>
               </select>
             </div>
-          </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -112,27 +111,30 @@ export default class extends AbstractView {
   }
 
   async postRender() {
-    // const createPost = this.createPost;
-    // document.getElementById("postForm").addEventListener("submit", async function(e) {
-    //   e.preventDefault();
-    //   const title = document.getElementById('post-title');
-    //   const content = document.getElementById('post-content');
-    //   const category = document.getElementById('post-category');
-    //   const image_url = document.getElementById('post-imageURL');
-    //   const post = {
-    //     title: title.value,
-    //     content: content.value,
-    //     category: category.value,
-    //     image_url: image_url.value,
-    //     user_id: 2
-    //   }
-    //   if (category.value.trim() === "") {
-    //     alert('Please fill in category');
-    //     category.focus();
-    //     return;
-    //   }
-    //   createPost(post);
-    // });
+    const createPost = this.createPost;
+    document.getElementById("post-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const title = document.getElementById('input-title');
+      console.log(title);
+      const content = document.getElementById('output');
+      const category = document.getElementById('post-category');
+      const image_url = document.getElementById('input-imageURL');
+      const post = {
+        title: title.value,
+        content: content.value,
+        category: category.value,
+        image_url: image_url.value,
+        user_id: 2
+      }
+      if (category.value.trim() === "") {
+        alert('Please fill in category');
+        category.focus();
+        return;
+      }
+      console.log(post);
+      // createPost(post);
+    });
+
     const buttons = document.querySelectorAll('button');
     textField.document.designMode = 'On';
 
