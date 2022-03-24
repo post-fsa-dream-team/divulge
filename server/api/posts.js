@@ -14,7 +14,7 @@ router.get('/', async(req, res, next) => {
 
 // router.get('/', async(req, res, next) => {
 //     try {
-//         const response = await pool.query('SELECT * from posts, users.user_name FROM posts INNER JOIN users ON users.id = posts.user_id')
+//         const response = await pool.query('SELECT p.*, users.user_name FROM posts INNER JOIN users ON users.id = posts.user_id')
 //         res.status(200).json(response.rows)
 //     } catch (error) {
 //         console.log(error)

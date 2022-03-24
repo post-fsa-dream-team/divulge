@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js";
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
+
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -23,24 +24,20 @@ export default class extends AbstractView {
     if (this.state.selectedCategory !== "all posts") {
       posts = this.filterPosts(posts, this.state.selectedCategory);
     }
+
     return `
-    ${Navbar()}
-    ${SideNav()}
-  <div id="home-content">
-    <div class="container">
-    <div>
-      <div class="text-typing">
-        <p>Welcome to Divulge</p>
+      ${Navbar()}
+      ${SideNav()}
+      <div class="console-container">
+      <div>
+        <div class="text-typing">
+          <p>Welcome to Divulge</p>
+        </div>
+        <hr id="title-line"></hr>
+        </div>
       </div>
-      <hr id="title-line"></hr>
-      </div>
-    </div>
-      <div id="cards-container">
-
-        ${PostsView(posts)}
-
-      </div>
-    </div>`;
+      ${PostsView(posts)}
+      `
   }
 
   async postRender() {

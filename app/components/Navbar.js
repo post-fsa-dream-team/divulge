@@ -1,4 +1,5 @@
 const Navbar = () => {
+
   return `
   <nav class="nav-bar">
   <div class="title-container">
