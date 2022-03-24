@@ -85,10 +85,10 @@ const createFk = () => {
     });
 }
 
-pool.on('remove', () => {
-  console.log('client removed');
-  process.exit(0);
-});
+// pool.on('remove', () => {
+//   console.log('client removed');
+//   process.exit(0);
+// });
 
 
 //export pool and createTables to be accessible  from an where within the application

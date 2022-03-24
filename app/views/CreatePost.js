@@ -97,6 +97,7 @@ export default class extends AbstractView {
                 <option value="technology">Technology</option>
                 <option value="politics">Politics</option>
                 <option value="fashion">Fashion</option>
+                <option value="sports">Entertainment</option>
                 <option value="news">News</option>
                 <option value="sports">Sports</option>
               </select>

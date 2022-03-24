@@ -1,7 +1,7 @@
 const SideNav = () => {
   return `
   <nav class="home-nav">
-    <a href="/posts/all/${"all"}" id="all-posts-link" data-link>All Posts</a>
+    <a href="/posts/all/${"all"}" id="all-posts-link" data-link><span>All Posts</span></a>
     <div id="categories">Posts By Category</div>
     <a href="/posts/all/${"news"}" class="home-nav-link" data-link>News</a>
     <a href="/posts/all/${"crime"}" class="home-nav-link" data-link>Crime</a>
