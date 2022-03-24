@@ -1,7 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js"
 import SideNav from "../components/SideNav.js"
-
+import Navbar from "../components/Navbar.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params)
@@ -24,6 +24,7 @@ export default class extends AbstractView {
       posts = this.filterPosts(posts, this.state.selectedCategory)
     }
     return `
+    ${Navbar()}
     ${SideNav()}
 
   <div id="home-content">

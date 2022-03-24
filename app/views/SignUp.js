@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
@@ -8,6 +9,7 @@ export default class extends AbstractView {
 
     async getHtml() {
         return `
+        ${Navbar()}
         <div class='signup'>
         <div class='signup__container'>
             <div class='signup__left'>

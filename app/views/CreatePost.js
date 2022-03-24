@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
 import SideNav from "../components/SideNav.js";
 
@@ -31,10 +32,29 @@ export default class extends AbstractView {
   async getHtml() {
 
     return (`
+<<<<<<< HEAD
+    ${Navbar()}
+      <div>
+        <nav class="home-nav">
+        <div id="categories-title">Categories</div>
+        <a href="" class="home-nav-link" data-link>Technology</a>
+        <a href="" class="home-nav-link" data-link>Politics</a>
+        <a href="" class="home-nav-link" data-link>Fashion</a>
+      </nav>
+
+      <div class="home-content">
+        <h1 id="home-title">Welcome to Divulge</h1>
+        <form id="postForm">
+          <div>
+            <label for="postTitle">Title: </label>
+            <input id="post-title" type="text" name="postTitle" placeholder="Enter a title" value="" />
+          </div>
+=======
       <div id="create-post-container">
         ${SideNav}
         <div id="post-content">
           <h1 id="createPost-title">Create Your Content</h1>
+>>>>>>> 762f04deb3a4c2f94921691580612c130a10739b
           <div>
             <div>
               <input id="input-title" class="inputField" type="text" name="title" placeholder="Title" value="" />
