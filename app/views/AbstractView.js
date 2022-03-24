@@ -14,6 +14,5 @@ export default class {
       return "";
   }
 
-  async postRender() {
-  }
+  async postRender() {}
 }

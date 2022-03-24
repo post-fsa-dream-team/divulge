@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
 import SideNav from "../components/SideNav.js";
 
@@ -22,7 +23,8 @@ export default class extends AbstractView {
     const postArr = await this.getData(this.postId)
     let post = postArr[0]
     return `
-      ${SideNav()}
+    ${Navbar()}
+    ${SideNav()}
       <div class='body-content'>
         <h1 class="single-other-post-title">${post.title}</h1>
         <p class="user-name">By: ${post.user_name}<p>

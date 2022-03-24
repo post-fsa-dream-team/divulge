@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js"
 import SideNav from "../components/SideNav.js"
+import Navbar from "../components/Navbar.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -42,6 +43,7 @@ export default class extends AbstractView {
     let capitalCase = firstLetter + restOfWord
 
     return `
+      ${Navbar}
       ${SideNav()}
 
       <h1>${capitalCase} Posts </h1>
