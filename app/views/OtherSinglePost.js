@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import SideNav from "../components/SideNav.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,24 +9,20 @@ export default class extends AbstractView {
   }
 
   async getData (id) {
-    const response = await fetch(`http://localhost:3000/api/posts/${id}`)
-    const data = await response.json()
-    return data
+    try {
+      const response = await fetch(`http://localhost:3000/api/posts/${id}`)
+      const data = await response.json()
+      return data
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   async getHtml() {
     const postArr = await this.getData(this.postId)
     let post = postArr[0]
     return `
-      <nav class="home-nav">
-        <a id="all-posts-link" data-link>All Posts</a>
-        <div id="categories">By Category</div>
-        <a value="news" class="home-nav-link" data-link>News</a>
-        <a value="technology" class="home-nav-link" data-link>Technology</a>
-        <a value="politics" class="home-nav-link" data-link>Politics</a>
-        <a value="fashion" class="home-nav-link" data-link>Fashion</a>
-        <a value="sports" class="home-nav-link" data-link>Sports</a>
-      </nav>
+      ${SideNav()}
       <div class='body-content'>
         <h1 class="single-other-post-title">${post.title}</h1>
         <p class="user-name">By: ${post.user_name}<p>

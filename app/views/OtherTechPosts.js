@@ -22,7 +22,6 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    console.log(this.state)
     let posts = await this.getData()
     if (this.state.selectedCategory !== "all posts") {
       posts = this.filterPosts(posts, this.state.selectedCategory)
@@ -36,10 +35,10 @@ export default class extends AbstractView {
 
   async postRender() {
     let elements = document.getElementsByClassName("home-nav-link")
-    console.log(elements)
 
     const changeSelection = (e) => {
       console.log(elements)
+      console.log(this.state)
       console.log(`clicked on ${e}`)
       this.state.selectedCategory = e.target.text.toLowerCase()
       this.getHtml()
@@ -50,7 +49,7 @@ export default class extends AbstractView {
         e.preventDefault();
         changeSelection(e)
       }
-    )}
-
+    )
+    }
   }
 }
