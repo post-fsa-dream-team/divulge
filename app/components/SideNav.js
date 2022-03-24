@@ -1,13 +1,13 @@
 const SideNav = () => {
   return `
   <nav class="home-nav">
-    <a href="/posts/${"all"}" id="all-posts-link" data-link>All Posts</a>
+    <a href="/posts/all/${"all"}" id="all-posts-link" data-link>All Posts</a>
     <div id="categories">By Category</div>
-    <a href="/posts/${"news"}" class="home-nav-link" data-link>News</a>
-    <a href="/posts/${"crime"}" class="home-nav-link" data-link>Crime</a>
-    <a href="/posts/${"technology"}" class="home-nav-link" data-link>Technology</a>
-    <a href="/posts/${"entertainment"}" class="home-nav-link" data-link>Entertainment</a>
-    <a href="/posts/${"sports"}" class="home-nav-link" data-link>Sports</a>
+    <a href="/posts/all/${"news"}" class="home-nav-link" data-link>News</a>
+    <a href="/posts/all/${"crime"}" class="home-nav-link" data-link>Crime</a>
+    <a href="/posts/all/${"technology"}" class="home-nav-link" data-link>Technology</a>
+    <a href="/posts/all/${"entertainment"}" class="home-nav-link" data-link>Entertainment</a>
+    <a href="/posts/all/${"sports"}" class="home-nav-link" data-link>Sports</a>
   </nav>`
 }
 

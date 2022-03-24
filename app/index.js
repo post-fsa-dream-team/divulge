@@ -45,7 +45,7 @@ const router = async() => {
     const routes = [
         { path: "/404", view: Home },
         { path: "/home", view: Home },
-        { path: "/posts/:category", view: OtherAllPosts },
+        { path: "/posts/all/:category", view: OtherAllPosts },
         { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
