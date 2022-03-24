@@ -6,9 +6,17 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("All Other Posts");
-    this.state = {
-      selectedCategory: "all posts"
-    }
+    this.category = params.category
+  }
+
+  filterPosts (posts, category) {
+    return posts.filter((post) => {
+      for (let key in post) {
+        if (key === "category") {
+          return post[key] === category
+        }
+      }
+    })
   }
 
   async getData() {
@@ -22,11 +30,12 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    console.log(this.state)
     let posts = await this.getData()
-    if (this.state.selectedCategory !== "all posts") {
-      posts = this.filterPosts(posts, this.state.selectedCategory)
+    console.log(this.category)
+    if (this.category !== "all") {
+      posts = this.filterPosts(posts, this.category)
     }
+
 
     return `
       ${SideNav()}
@@ -35,22 +44,5 @@ export default class extends AbstractView {
   }
 
   async postRender() {
-    let elements = document.getElementsByClassName("home-nav-link")
-    console.log(elements)
-
-    const changeSelection = (e) => {
-      console.log(elements)
-      console.log(`clicked on ${e}`)
-      this.state.selectedCategory = e.target.text.toLowerCase()
-      this.getHtml()
-    }
-
-    for (let i = 0; i < elements.length; i++){
-      elements[i].addEventListener("click", async function(e) {
-        e.preventDefault();
-        changeSelection(e)
-      }
-    )}
-
   }
 }
