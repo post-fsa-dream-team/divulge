@@ -97,14 +97,14 @@ export default class extends AbstractView {
                 <option value="technology">Technology</option>
                 <option value="politics">Politics</option>
                 <option value="fashion">Fashion</option>
-                <option value="sports">Entertainment</option>
                 <option value="news">News</option>
                 <option value="sports">Sports</option>
                 <option value="entertainment">Entertainment</option>
+                <option value="crime">Crime</option>
               </select>
             </div><br />
             <input id="submit-button" type="submit" value="Submit Post"></input>
-          </div>
+          </div><br />
         </div>
       </div>
 
@@ -127,13 +127,18 @@ export default class extends AbstractView {
         image_url: image_url.value,
         user_id: this.params.userId
       }
-      if (category.value.trim() === "") {
+      if (category.value === "none") {
         alert('Please fill in category');
         category.focus();
         return;
       }
-      console.log(post);
-      createPost(post);
+      await createPost(post);
+      title.value = '';
+      image_url.value = '';
+      contentObj.contentWindow.document.open();
+      contentObj.contentWindow.document.write('');
+      contentObj.contentWindow.document.close();
+      category.value = 'none';
     });
 
     const buttons = document.querySelectorAll('button');
