@@ -10,6 +10,7 @@
 @import '/app/css/NoPosts.css';
 @import '/app/css/AdminSideNav.css';
 @import '/app/css/AdminPortalUsers.css';
+@import '/app/css/AdminPortalPosts.css';
 
 body {
     font-family: 'Mulish', sans-serif;

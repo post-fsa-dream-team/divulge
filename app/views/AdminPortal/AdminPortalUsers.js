@@ -27,6 +27,7 @@ export default class extends AbstractView {
       let justDate = new Date(dayOnly).toString()
       return justDate.split(" ").slice(1, 4).join(" ")
     }
+
     return `
       ${AdminSideNav}
       ${Navbar}
