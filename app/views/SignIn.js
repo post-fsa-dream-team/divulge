@@ -9,7 +9,7 @@ export default class extends AbstractView {
 
     async getHtml() {
         return `
-        ${Navbar()}
+        ${Navbar}
         <div class='signin'>
         <div class='signin__container'>
             <div class='signin__left'>

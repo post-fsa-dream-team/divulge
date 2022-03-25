@@ -96,9 +96,11 @@ export default class extends AbstractView {
                 <option value="none" selected disabled hidden>Select a Category</option>
                 <option value="technology">Technology</option>
                 <option value="politics">Politics</option>
-                <option value="entertainment">Entertainment</option>
+                <option value="fashion">Fashion</option>
                 <option value="news">News</option>
                 <option value="sports">Sports</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="crime">Crime</option>
               </select>
             </div><br />
             <input id="submit-button" type="submit" value="Submit Post"></input>

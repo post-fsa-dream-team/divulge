@@ -7,13 +7,17 @@
 @import '/app/css/OtherSinglePost.css';
 @import '/app/css/OtherPosts.css';
 @import '/app/css/SideNav.css';
+@import '/app/css/NoPosts.css';
+@import '/app/css/AdminSideNav.css';
+@import '/app/css/AdminPortalUsers.css';
+@import '/app/css/AdminPortalPosts.css';
 
 body {
     font-family: 'Mulish', sans-serif;
     color: black;
     box-sizing: border-box;
     margin: 0;
-    background-color: hsl(180, 29%, 73%);
+    /* background-color: hsl(180, 29%, 73%); */
     /* background-color: hsl(180, 53%, 93%); */
 }
 

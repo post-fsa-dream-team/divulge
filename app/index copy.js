@@ -9,9 +9,6 @@ import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
 import OtherAllPosts from "./views/OtherAllPosts.js";
-import AdminPortal from "./views/AdminPortal/AdminPortal.js"
-import AdminPortalUsers from "./views/AdminPortal/AdminPortalUsers.js"
-import AdminPortalPosts from "./views/AdminPortal/AdminPortalPosts.js"
 
 //see tool: https://regexr.com/
 //match the first character of the string ->
@@ -45,48 +42,19 @@ const navigateTo = url => {
 
 const router = async() => {
     // console.log(window.location.pathname)
-
-    //https://javascript.plainenglish.io/implementing-login-case-using-localstorage-and-sessionstorage-bfddce5d2198
-
-    //TESTING AUTHENTICATION/ADMIN ROUTES
-    sessionStorage.setItem("auth", 3);
-    //sessionStorage.setItem("admin", true);
-
-    //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
-    let auth = sessionStorage.getItem("auth")
-    let admin = sessionStorage.getItem("admin")
-
-    //ROUTES AVAILABLE IF NOT LOGGED IN
-    let routes = [
+    const routes = [
+        { path: "/404", view: Home },
+        { path: "/home", view: Home },
+        { path: "/posts/all/:category", view: OtherAllPosts },
+        { path: "/profile", view: Home },
         { path: "/signin", view: SignIn },
-        { path: "/signup", view: SignUp }
+        { path: "/signup", view: SignUp },
+        { path: "/users/:userId/myposts", view: MyPosts},
+        { path: "/posts/:id", view: OtherSinglePost },
+        { path: "/users/:userId/posts/:postId", view: MySinglePost },
+        { path: "/:userId/posts/:postid", view: Home },
+        { path: "/:userId/createpost", view: CreatePost },
     ]
-
-    //ROUTES AVAILABLE IF LOGGED IN
-    if (auth) {
-        routes = routes.concat([
-            { path: "/404", view: Home },
-            { path: "/home", view: Home },
-            { path: "/posts/all/:category", view: OtherAllPosts },
-            { path: "/profile", view: Home },
-            { path: "/signin", view: SignIn },
-            { path: "/signup", view: SignUp },
-            { path: "/users/:userId/myposts", view: MyPosts},
-            { path: "/posts/:id", view: OtherSinglePost },
-            { path: "/users/:userId/posts/:postId", view: MySinglePost },
-            { path: "/:userId/posts/:postid", view: Home },
-            { path: "/:userId/createpost", view: CreatePost },
-        ])
-
-        //ROUTES ALSO AVAILABLE IF LOGGED IN && ADMIN
-        if (admin) {
-            routes = routes.concat([
-                { path: "/adminportal", view: AdminPortal },
-                { path: "/adminportal/users", view: AdminPortalUsers },
-                { path: "/adminportal/posts", view: AdminPortalPosts },
-            ])
-        }
-    }
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
     const potentialMatches = routes.map(route => {
