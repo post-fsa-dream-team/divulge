@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { pool } = require('../db');
+const { userPostRelationship } = require('./gatekeeper');
 
 
 router.get('/', async(req, res, next) => {
@@ -28,7 +29,7 @@ router.get('/', async(req, res, next) => {
 // doesn't work
 // SELECT posts.*, users.user_name FROM posts INNER JOIN users ON users.id = posts.user_Id
 
-router.post('/', async(req, res, next) => {
+router.post('/', userPostRelationship, async(req, res, next) => {
     try {
         const { title, content, image_url, category, user_id } = req.body;
         const response = await pool.query('INSERT INTO posts (title, content, image_url, category, user_id) VALUES ($1, $2, $3, $4, $5)', [title, content, image_url, category, user_id]);
@@ -50,6 +51,30 @@ router.get('/:id', async(req, res, next) => {
       console.log(error)
       next(error)
   }
+})
+
+router.put('/:id', userPostRelationship, async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { title, image_url, content, category } = req.body;
+        const response = await pool.query('UPDATE posts SET title = $1, image_url = $2, content = $3, category = $4 WHERE ID = $5', [title, image_url, content, category, id]);
+        if(!response) throw new Error('Something went wrong with PUT route!');
+        res.status(201).json(req.body);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+})
+
+router.delete('/:id', userPostRelationship, async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        await pool.query('DELETE FROM posts WHERE ID = $1', [id]);
+        res.status(200).send('Post Successfully Deleted.');
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
 })
 
 module.exports = router;
