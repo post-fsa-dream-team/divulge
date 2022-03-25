@@ -50,7 +50,7 @@ const router = async() => {
 
     //TESTING AUTHENTICATION/ADMIN ROUTES
     sessionStorage.setItem("auth", 3);
-    sessionStorage.setItem("admin", true);
+    //sessionStorage.setItem("admin", true);
 
     //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
     let auth = sessionStorage.getItem("auth")

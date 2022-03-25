@@ -2,6 +2,8 @@ const Navbar = () => {
 
   //SOME KIND OF ADMIN AUTHORIZATION
   let admin = sessionStorage.getItem("admin")
+  console.log(!admin)
+  console.log("this is navbar")
 
   !admin ? `<nav class="nav-bar">
   <div class="title-container">

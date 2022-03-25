@@ -100,6 +100,7 @@ export default class extends AbstractView {
                 <option value="sports">Entertainment</option>
                 <option value="news">News</option>
                 <option value="sports">Sports</option>
+                <option value="entertainment">Entertainment</option>
               </select>
             </div><br />
             <input id="submit-button" type="submit" value="Submit Post"></input>
