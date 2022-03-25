@@ -1,12 +1,16 @@
 .no-posts {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
   margin-left: 100px;
   margin-top: 80px;
-  font-size: 30px
+  font-size: 22px;
+  color: rgb(2, 99, 99);
 }
 
 button {
-  background-color: #def7fc;
+  /* background-color: #def7fc; */
   border-radius: 5px;
+  margin-top: 20px;
   padding: 5px;
   padding-left: 8px;
   padding-right: 8px;

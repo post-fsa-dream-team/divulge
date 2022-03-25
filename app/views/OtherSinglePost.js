@@ -25,11 +25,11 @@ export default class extends AbstractView {
     return `
     ${Navbar()}
     ${SideNav()}
-      <div class='body-content'>
-        <h1 class="single-other-post-title">${post.title}</h1>
-        <p class="user-name">By: ${post.user_name}<p>
-        <img class="single-post-img" src="${post.image_url}"/>
-        <p>${post.content}</p>
+      <div class='single-other-post-container'>
+        <div class="single-other-post-title">${post.title}</div>
+        <div class="single-other-post-username">${post.user_name}</div>
+        <img class="single-other-post-img" src="${post.image_url}"/>
+        <div class="single-other-post-content">${post.content}</div>
       </div>
     `
   }

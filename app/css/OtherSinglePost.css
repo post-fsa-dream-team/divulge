@@ -1,25 +1,50 @@
-.body-content {
-  /* display:flex; */
-  margin-top: 150px;
+.single-other-post-container {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
   margin-left: 30px;
-  background-color: rgb(200, 222, 225);
+  padding: 10px;
+  margin-left: 280px;
+
+  grid-template-columns: [first] 10px [second] 20px [third] 50% [fourth] 50% [fifth] 10px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "username username username . ."
+    "title title title title title"
+    ". image image image ."
+    "content content content content content"
+
+  /* background-color: rgb(200, 222, 225);
   box-shadow: 2px 2px 2px rgb(117, 166, 172);
   border: rgb(189, 206, 208) solid 1px;
-  border-radius: 2px;
-  padding: 10px;
-  margin-right: 20px;
-  margin-left: 250px
+  border-radius: 2px; */
 }
 
-.single-post-img {
+.single-other-post-img {
+  grid-area: image;
   max-width: 80vh;
+  padding-bottom: 30px;
   margin: auto
 }
 
 .single-other-post-title {
-  margin: auto;
+  grid-area: title;
+  font-family: 'Libre Franklin', sans-serif;
+  place-self: center;
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 40px;
 }
 
-.user-name {
-  margin-bottom: 20px
+.single-other-post-username {
+  grid-area: username;
+  margin-bottom: 20px;
+  color: rgb(121, 118, 118);
+  font-size: 14px;
+}
+
+.single-other-post-content {
+  grid-area: content;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
