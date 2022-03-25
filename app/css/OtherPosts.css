@@ -108,6 +108,7 @@
 
 .other-posts-title {
   font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
   margin-top: 80px;
   margin-left: 230px
 }
@@ -131,7 +132,6 @@
 }
 
 @media (max-width: 400px) {
-
   .article-title {
     grid-area: title;
     font-family: 'Libre Franklin', sans-serif;

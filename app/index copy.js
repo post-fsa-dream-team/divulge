@@ -42,35 +42,19 @@ const navigateTo = url => {
 
 const router = async() => {
     // console.log(window.location.pathname)
-    //TESTING AUTHENTICATION ROUTE
-    //localStorage.setItem("authentication", 1)
-
-    let authenticated = localStorage.getItem("authentication")
-
-    let routes
-
-    if (!authenticated) {
-        routes = [
-            { path: "/signin", view: SignIn },
-            { path: "/signup", view: SignUp }
-        ]
-    }
-
-    else {
-        routes = [
-            { path: "/404", view: Home },
-            { path: "/home", view: Home },
-            { path: "/posts/all/:category", view: OtherAllPosts },
-            { path: "/profile", view: Home },
-            { path: "/signin", view: SignIn },
-            { path: "/signup", view: SignUp },
-            { path: "/users/:userId/myposts", view: MyPosts},
-            { path: "/posts/:id", view: OtherSinglePost },
-            { path: "/users/:userId/posts/:postId", view: MySinglePost },
-            { path: "/:userId/posts/:postid", view: Home },
-            { path: "/:userId/createpost", view: CreatePost },
-        ]
-    }
+    const routes = [
+        { path: "/404", view: Home },
+        { path: "/home", view: Home },
+        { path: "/posts/all/:category", view: OtherAllPosts },
+        { path: "/profile", view: Home },
+        { path: "/signin", view: SignIn },
+        { path: "/signup", view: SignUp },
+        { path: "/users/:userId/myposts", view: MyPosts},
+        { path: "/posts/:id", view: OtherSinglePost },
+        { path: "/users/:userId/posts/:postId", view: MySinglePost },
+        { path: "/:userId/posts/:postid", view: Home },
+        { path: "/:userId/createpost", view: CreatePost },
+    ]
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
     const potentialMatches = routes.map(route => {
