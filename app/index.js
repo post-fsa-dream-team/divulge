@@ -9,7 +9,9 @@ import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
 import OtherAllPosts from "./views/OtherAllPosts.js";
-import AdminPortal from "./views/AdminPortal.js"
+import AdminPortal from "./views/AdminPortal/AdminPortal.js"
+import AdminPortalUsers from "./views/AdminPortal/AdminPortalUsers.js"
+import AdminPortalPosts from "./views/AdminPortal/AdminPortalPosts.js"
 
 //see tool: https://regexr.com/
 //match the first character of the string ->
@@ -79,7 +81,9 @@ const router = async() => {
         //ROUTES ALSO AVAILABLE IF LOGGED IN && ADMIN
         if (admin) {
             routes = routes.concat([
-                { path: "/adminportal", view: AdminPortal }
+                { path: "/adminportal", view: AdminPortal },
+                { path: "/adminportal/users", view: AdminPortalUsers },
+                { path: "/adminportal/posts", view: AdminPortalPosts },
             ])
         }
     }

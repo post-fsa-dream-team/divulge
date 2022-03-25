@@ -8,6 +8,8 @@
 @import '/app/css/OtherPosts.css';
 @import '/app/css/SideNav.css';
 @import '/app/css/NoPosts.css';
+@import '/app/css/AdminSideNav.css';
+@import '/app/css/AdminPortalUsers.css';
 
 body {
     font-family: 'Mulish', sans-serif;
