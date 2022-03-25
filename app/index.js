@@ -9,6 +9,7 @@ import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
 import OtherAllPosts from "./views/OtherAllPosts.js";
+import AdminPortal from "./views/AdminPortal.js"
 
 //see tool: https://regexr.com/
 //match the first character of the string ->
@@ -43,21 +44,19 @@ const navigateTo = url => {
 const router = async() => {
     // console.log(window.location.pathname)
     //TESTING AUTHENTICATION ROUTE
-    //localStorage.setItem("authentication", 1)
+    localStorage.setItem("auth", 1)
+    localStorage.setItem("admin", 1)
 
-    let authenticated = localStorage.getItem("authentication")
+    let auth = localStorage.getItem("auth")
+    let admin = localStorage.getItem("admin")
 
-    let routes
+    let routes = [
+        { path: "/signin", view: SignIn },
+        { path: "/signup", view: SignUp }
+    ]
 
-    if (!authenticated) {
-        routes = [
-            { path: "/signin", view: SignIn },
-            { path: "/signup", view: SignUp }
-        ]
-    }
-
-    else {
-        routes = [
+    if (auth) {
+        routes = routes.concat([
             { path: "/404", view: Home },
             { path: "/home", view: Home },
             { path: "/posts/all/:category", view: OtherAllPosts },
@@ -69,7 +68,13 @@ const router = async() => {
             { path: "/users/:userId/posts/:postId", view: MySinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
-        ]
+        ])
+
+        if (admin) {
+            routes = routes.concat([
+                { path: "/adminportal", view: AdminPortal }
+            ])
+        }
     }
 
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
