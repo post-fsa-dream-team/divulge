@@ -21,7 +21,7 @@ export default class extends AbstractView {
 
 
     return `
-      ${Navbar}
+      ${Navbar()}
       ${SideNav}
       <div class="console-container">
       <div>

@@ -35,7 +35,7 @@ export default class extends AbstractView {
     }
 
     return `
-    ${Navbar}
+    ${Navbar()}
     ${SideNav}
       <div class='single-other-post-container'>
         <div class="single-other-date-and-read">
