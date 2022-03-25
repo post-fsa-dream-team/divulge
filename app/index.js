@@ -43,18 +43,24 @@ const navigateTo = url => {
 
 const router = async() => {
     // console.log(window.location.pathname)
-    //TESTING AUTHENTICATION ROUTE
-    localStorage.setItem("auth", 1)
-    localStorage.setItem("admin", 1)
 
-    let auth = localStorage.getItem("auth")
-    let admin = localStorage.getItem("admin")
+    //https://javascript.plainenglish.io/implementing-login-case-using-localstorage-and-sessionstorage-bfddce5d2198
 
+    //TESTING AUTHENTICATION/ADMIN ROUTES
+    sessionStorage.setItem("auth", 3);
+    sessionStorage.setItem("admin", true);
+
+    //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
+    let auth = sessionStorage.getItem("auth")
+    let admin = sessionStorage.getItem("admin")
+
+    //ROUTES AVAILABLE IF NOT LOGGED IN
     let routes = [
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp }
     ]
 
+    //ROUTES AVAILABLE IF LOGGED IN
     if (auth) {
         routes = routes.concat([
             { path: "/404", view: Home },
@@ -70,6 +76,7 @@ const router = async() => {
             { path: "/:userId/createpost", view: CreatePost },
         ])
 
+        //ROUTES ALSO AVAILABLE IF LOGGED IN && ADMIN
         if (admin) {
             routes = routes.concat([
                 { path: "/adminportal", view: AdminPortal }

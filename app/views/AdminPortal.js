@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import Navbar from "../components/Navbar.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -9,7 +10,8 @@ export default class extends AbstractView {
   async getHtml() {
 
     return `
-      <h2 class="other-posts-title">Posts >THIS IS THE ADMIN PORTAL</h2>
+      ${Navbar}
+      <h2 class="other-posts-title">THIS IS THE ADMIN PORTAL</h2>
       `
   }
 
