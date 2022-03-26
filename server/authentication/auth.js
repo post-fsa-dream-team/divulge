@@ -35,6 +35,7 @@ router.post('/signup', async (req, res, next) => {
     next(error)
   }
 })
+
 /**For Sign In, we need to:
   - Find the user email
   - No users:
@@ -46,6 +47,7 @@ router.post('/signup', async (req, res, next) => {
   - User found:  req.login(user, err => (err ? next(err) : res.json(user)))
  */
 
+//WORKS//
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
@@ -53,22 +55,21 @@ router.post('/signin', async (req, res, next) => {
     const { email, password } = req.body
     if (email && password) {
       // Execute SQL query that'll select the account from the database based on the specified username and password
-      pool.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], function (error, results, fields) {
-        // If there is an issue with the query, output the error
-        if (error) throw error;
-        // If the account exists
-        if (results.length > 0) {
+      let result= await pool.query('select * from users where email = $1 and password = $2', [email, password])
+        //If there us a user match in DB, do something
+        if (result.rows.length) {
           // Authenticate the user
-          req.session.loggedin = true;
-          req.session.email = email;
-          // Redirect to home page
+          if (result.rows[0].is_admin === true)  sessionStorage.setItem("admin", true);
+          sessionStorage.setItem("auth", result.rows[0].id)
           console.log('Yayy!! Logged in 🙌🙌🙌');
           res.redirect('/home');
+          //If no match, send message
         } else {
           res.send('Incorrect Email and/or Password!');
         }
-      });
-    } else {
+      }
+      //If input is missing email or password, send message
+      else {
       res.send('Please enter Email and Password!');
     }
   } catch (error) {
