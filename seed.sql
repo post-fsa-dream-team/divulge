@@ -1,7 +1,7 @@
 TRUNCATE TABLE users, posts RESTART IDENTITY;
 
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('james01', 'James', 'Smith', 'james@fs.com', 'test123', '2000-05-21', 'New York');
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('lizfriz39', 'Liz', 'Friz', 'friz@fs.com', 'test2143', '1995-08-03', 'Chicago');
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('james01', 'James', 'Smith', 'james@fs.com', 'test123', '2000-05-21', 'New York', true);
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('lizfriz39', 'Liz', 'Friz', 'friz@fs.com', 'test2143', '1995-08-03', 'Chicago', true);
 INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('henrydacoolguy55', 'Henry', 'David', 'hdavid@fs.com', 'test9876', '1975-01-13', 'New York');
 INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('francescafrey38', 'Francesca', 'Frey', 'frannyfrey@fs.com', 'test54523', '2002-09-18', 'Los Angeles');
 INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('jackimmature69', 'Jack', 'Johnson', 'jackattack@fs.com', '345test', '2005-07-30', 'Georgia');
