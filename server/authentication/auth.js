@@ -7,52 +7,29 @@ const { pool } = require('../db');
    - Found existing email: login
    - Hashing & Salting (bcrypt)
  */
-router.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res, next) => {
   try {
-    // console.log('req.body', req.body);
-    const { user_name, first_name, last_name, email, password, birth_date, location } = req.body
+    const { user_name, first_name, last_name, email, password, birth_date, location } = req.body;
+    /* error handler */
+    if (!user_name || !first_name || !last_name || !email || !password || !birth_date || !location) {
+      throw new Error("More information required")
+    }
 
-    /**Errors handler */
-    let errors = [];
-    if (!user_name || !first_name || !last_name || !email || !password || !birth_date || !location) errors.push({ message: "Please enter all fields" })
+    if (password.length < 3) {
+      throw new Error("Password should be at least 3 characters")
+    }
 
-    if (password.length < 3) errors.push({ message: "Password should be at least 3 characters" })
+    /**Check if user exists */
+    let userCheck = await pool.query('select * from users where email = $1 or user_name = $2', [email, user_name])
+    if (userCheck.rows.length) {
+      /**if duplicate user is found */
+      res.status(401).send("Email/Username already existed")
+    } else {
+      /*if no duplicate user is found, create new user*/
+      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7)', [user_name, first_name, last_name, email, password, birth_date, location])
+      res.status(200).send(req.body)
+    }
 
-    /**Query all users */
-    await pool.query(
-      `SELECT * FROM users
-      WHERE email = $1`,
-      [email],
-      (err, results) => {
-        /**Check for errors */
-        if (err) {
-          console.log(err);
-        }
-        // console.log('results.rows', results.rows);
-        /**Check for duplicate users */
-        if (results.rows.length > 0) {
-          console.log('User already existed!');
-          res.status(401).send('User already existed!')
-          /**Automatically restart pg server to write new user */
-        } else {
-          /**If no errors found, insert new user into the db */
-          pool.query(
-            `INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
-            RETURNING id, password`,
-            [user_name, first_name, last_name, email, password, birth_date, location],
-            (err, results) => {
-              if (err) {
-                throw err;
-              }
-              // console.log(results.rows);
-              console.log("success_msg", "You are now registered. Please sign in");
-              res.redirect("/signin");
-            }
-          )
-        }
-      }
-    )
   } catch (error) {
     console.log(error);
     next(error)
