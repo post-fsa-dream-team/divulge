@@ -4,7 +4,7 @@ const { pool } = require('../db');
 //All users
 router.get('/', async (req, res, next) => {
   try {
-    let userData = await pool.query('SELECT * FROM users');
+    let userData = await pool.query('SELECT id, user_name, first_name, last_name, email, birth_date, location, created_at, last_login, is_admin FROM users');
     // console.log('req.body', req.body);
     // console.log('userData', userData);
     res.status(200).json(userData.rows)
