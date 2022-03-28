@@ -67,7 +67,7 @@ function checkNotAuthenticated(req, res, next) {
 router.post('/signin', checkAuthenticated, async (req, res, next) => {
   try {
     console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
-   const { email, password } = req.body
+  /* const { email, password } = req.body
     if (email && password) {
       // Execute SQL query that'll select the account from the database based on the specified username and password
       pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [email, password], function (error, results, fields) {
@@ -77,20 +77,25 @@ router.post('/signin', checkAuthenticated, async (req, res, next) => {
         // If the account exists
         if (results.length > 0) {
           // Authenticate the user
+          // console.log("result", results);
           req.session.loggedin = true;
           req.session.email = email;
+          // console.log("req.session", req.session);
           // Redirect to home page
           console.log('Yayy!! Logged in 🙌🙌🙌');
           res.redirect('/home');
         } else {
+          // console.log("req.session", req.session);
           // console.log("result", results);
           // console.log("dbPassword", password);
           res.status(401).send('Incorrect Email and/or Password!');
         }
       });
+
     } else {
       res.send('Please enter Email and Password!');
-    }
+    }*/
+    res.redirect(200, '/home')
   } catch (error) {
     console.log(error);
     next(error)
