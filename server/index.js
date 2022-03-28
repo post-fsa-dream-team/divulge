@@ -18,9 +18,10 @@ app.use(express.json())
 app.use(session({
   // Key we want to keep secret which will encrypt all of our information
 	secret: 'secret',
+
   // Should we resave our session variables if nothing has changes which we dont
 	resave: true,
-  // Save empty value if there is no vaue which we do not want to do
+  // Save empty value if there is no value which we do not want to do
 	saveUninitialized: true
 }));
 
@@ -53,10 +54,10 @@ app.get("/", async (req, res, next) => {
 })
 
 app.post(
-  "/auth/signin",
+  "/signin",
   passport.authenticate("local", {
     successRedirect: "/home",
-    failureRedirect: "/auth/signin",
+    failureRedirect: "/signin",
     failureFlash: true
   })
 );

@@ -64,38 +64,35 @@ function checkNotAuthenticated(req, res, next) {
   res.redirect("/auth/signin");
 }
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
-router.post('/signin', checkAuthenticated, async (req, res, next) => {
+router.post('/signin', async (req, res, next) => {
   try {
     console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
-  /* const { email, password } = req.body
+    const { email, password } = req.body
     if (email && password) {
-      // Execute SQL query that'll select the account from the database based on the specified username and password
-      pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [email, password], function (error, results, fields) {
-        // If there is an issue with the query, output the error
-        if (error) throw error;
-        console.log('result', results);
-        // If the account exists
-        if (results.length > 0) {
-          // Authenticate the user
-          // console.log("result", results);
-          req.session.loggedin = true;
-          req.session.email = email;
-          // console.log("req.session", req.session);
-          // Redirect to home page
-          console.log('Yayy!! Logged in 🙌🙌🙌');
-          res.redirect('/home');
-        } else {
-          // console.log("req.session", req.session);
-          // console.log("result", results);
-          // console.log("dbPassword", password);
-          res.status(401).send('Incorrect Email and/or Password!');
+      pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
+        if (err) throw err;
+        // console.log("results", results);
+        // console.log("results.rows[0].password", results.rows[0].password);
+        if (results.rows[0]) {
+          bcrypt.compare(password, results.rows[0].password, (err, found) => {
+            if (err) {
+              console.log(err);
+            }
+            if (found) {
+              // return found(null, user)
+              console.log("req.session", req.session);
+              req.session.email = email
+              // req.session.password = password
+              // req.session.id = results.rows[0].id
+              req.session.save()
+              res.status(200).send(req.session)
+            } else {
+              return res.status(400).send('Password is incorrect')
+            }
+          })
         }
-      });
-
-    } else {
-      res.send('Please enter Email and Password!');
-    }*/
-    res.redirect(200, '/home')
+      })
+    }
   } catch (error) {
     console.log(error);
     next(error)
