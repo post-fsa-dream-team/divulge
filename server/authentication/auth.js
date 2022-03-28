@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { pool } = require('../db');
-
+const bcrypt = require('bcrypt')
 /*********SIGN IN, SIGN UP. Tutorial: https://www.youtube.com/watch?v=vxu1RrR0vbw ************/
 /**For signup, we need to check if the user exists
    - No users found: create new user
@@ -26,7 +26,10 @@ router.post('/signup', async (req, res, next) => {
       res.status(401).send("Email/Username already existed")
     } else {
       /*if no duplicate user is found, create new user*/
-      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7)', [user_name, first_name, last_name, email, password, birth_date, location])
+      let hashedPassword = await bcrypt.hash(password, 10);
+      console.log("hashedPassword", hashedPassword);
+      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, birth_date, location])
+      res.redirect('/signin', 200)
       res.status(200).send(req.body)
     }
 
