@@ -50,19 +50,7 @@ router.post('/signup', async (req, res, next) => {
         res.status(401).send('Wrong username and/or password')
   - User found:  req.login(user, err => (err ? next(err) : res.json(user)))
  */
-function checkAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return res.redirect("/home");
-  }
-  next();
-}
 
-function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/auth/signin");
-}
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
@@ -71,8 +59,7 @@ router.post('/signin', async (req, res, next) => {
     if (email && password) {
       pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
         if (err) throw err;
-        // console.log("results", results);
-        // console.log("results.rows[0].password", results.rows[0].password);
+        console.log("results", results);
         if (results.rows[0]) {
           bcrypt.compare(password, results.rows[0].password, (err, found) => {
             if (err) {
@@ -80,12 +67,25 @@ router.post('/signin', async (req, res, next) => {
             }
             if (found) {
               // return found(null, user)
-              console.log("req.session", req.session);
-              req.session.email = email
-              // req.session.password = password
-              // req.session.id = results.rows[0].id
-              req.session.save()
-              res.status(200).send(req.session)
+              let userInfo = results.rows[0];
+              const session = {
+                ...req.session,
+                email: email,
+                user_id: `${userInfo.id}`,
+                birth_date: `${userInfo.birth_date}`,
+                location: `${userInfo.location}`,
+                user_name: `${userInfo.user_name}`,
+                first_name: `${userInfo.first_name}`,
+                last_name: `${userInfo.last_name}`
+              };
+              req.session.save((err) => {
+                if (err) {
+                  console.log(err);
+                  return next(err);
+                }
+                console.log("session", session);
+                res.redirect(200, '/home')
+              });
             } else {
               return res.status(400).send('Password is incorrect')
             }
@@ -101,17 +101,17 @@ router.post('/signin', async (req, res, next) => {
 /**NEED TO FIX BEFORE THIS LINE 👆👆👆 */
 
 /**This part is 🌟fine🌟. But I comment out because "signin" is not working*/
-router.get('/home', function (req, res) {
-  // If the user is loggedin
-  if (req.session.loggedin) {
-    // Output username
-    res.send('Welcome back, ' + req.session.user_name + '!');
-  } else {
-    // Not logged in
-    res.send('Please login to view this page!');
-  }
-  res.end();
-});
+// router.get('/home', function (req, res) {
+//   // If the user is loggedin
+//   if (req.session.loggedin) {
+//     // Output username
+//     res.send('Welcome back, ' + req.session.user_name + '!');
+//   } else {
+//     // Not logged in
+//     res.send('Please login to view this page!');
+//   }
+//   res.end();
+// });
 
 router.get('/logout', (req, res) => {
   req.logout()
