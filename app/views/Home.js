@@ -7,12 +7,18 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Home");
+
+    this.getData = this.getData.bind(this)
   }
 
   async getData() {
-    const response = await fetch("http://localhost:3000/api/posts");
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch("http://localhost:3000/api/posts");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   // async getUserData() {
