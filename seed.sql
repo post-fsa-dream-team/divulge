@@ -1,11 +1,19 @@
 TRUNCATE TABLE users, posts RESTART IDENTITY;
 
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('james01', 'James', 'Smith', 'james@fs.com', 'test123', '2000-05-21', 'New York', true);
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('lizfriz39', 'Liz', 'Friz', 'friz@fs.com', 'test2143', '1995-08-03', 'Chicago', true);
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('henrydacoolguy55', 'Henry', 'David', 'hdavid@fs.com', 'test9876', '1975-01-13', 'New York');
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('francescafrey38', 'Francesca', 'Frey', 'frannyfrey@fs.com', 'test54523', '2002-09-18', 'Los Angeles');
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('jackimmature69', 'Jack', 'Johnson', 'jackattack@fs.com', '345test', '2005-07-30', 'Georgia');
-INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('moneygurl4', 'Monica', 'Zelynski', 'mz@fs.com', 'test32462', '1999-05-05', 'Texas');
+-- ORIGINAL PASSWORDS:
+  -- ["james01", "test123"]
+  -- ["lizfriz39", "test2143"]
+  -- ["henrydacoolguy55", "test9876"]
+  -- ["francescafrey38", "test54523"]
+  -- ["jackimmature69", "345test"]
+  -- ["moneygurl4Hash", "test32462"]
+
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('james01', 'James', 'Smith', 'james@fs.com', '$2b$10$DYW8l8xouP2G6akT6mZzNuwtVbVQLXrolq1f/q5s5cxyJhloHDQcO', '2000-05-21', 'New York', true);
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location, is_admin) VALUES ('lizfriz39', 'Liz', 'Friz', 'friz@fs.com', '$2b$10$XbpzPyXwxo.KkAKVJjxjHeCNZ8.bmHzMPFqeD2KZjRZpLvteMSTrC', '1995-08-03', 'Chicago', true);
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('henrydacoolguy55', 'Henry', 'David', 'hdavid@fs.com', '$2b$10$fsix9sPuOC2OwntNWkJAMOqidcwTOkvn3OtiAoLMz683ASZksyKbG', '1975-01-13', 'New York');
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('francescafrey38', 'Francesca', 'Frey', 'frannyfrey@fs.com', '$2b$10$NpqpxTD6T4Xx/LO/VZ9Q2ewD/QuSVhvQICtgmCJJEe/j4fMCKSm7u', '2002-09-18', 'Los Angeles');
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('jackimmature69', 'Jack', 'Johnson', 'jackattack@fs.com', '$2b$10$4XCjRihndWcJJ2eWCs8iOu3VtLKs3rCvxyckyvioIOfNP4SrD2zUm', '2005-07-30', 'Georgia');
+INSERT INTO users (user_name, first_name, last_name, email, password, birth_date, location) VALUES ('moneygurl4', 'Monica', 'Zelynski', 'mz@fs.com', '$2b$10$vcvLIbnnYTNQsjSV2XRftus1Ch8GJbYPnTzNtwceHCXLENc.9YXde', '1999-05-05', 'Texas');
 
 
 INSERT INTO posts (user_id, title, content, category, image_url) VALUES ((SELECT id from users where user_name='james01'), 'Fianto Duri, the complete tutorial', 'Fianto Duri is a charm that was created to be combined with protective spells (Can be used with another person''s shield spell)(When used on something else creates a explosion). As we already knows the (i.e.) Shield Charm needs the caster to stay focused on the spell in order to continue protecting him, so Fianto Duri allows the caster to keep a charm “alive” while he does some other work or casts some other spells.', 'crime', 'https://media.istockphoto.com/photos/innovation-and-science-concept-picture-id1177116437?k=20&m=1177116437&s=612x612&w=0&h=3aeSq8Wv-6gcpFzuUz40e62Xs_zKMDuSLDz79BshuZg=');

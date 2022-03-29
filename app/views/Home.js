@@ -22,7 +22,7 @@ export default class extends AbstractView {
 
     return `
       ${Navbar()}
-      ${SideNav}
+      ${SideNav()}
       <div class="console-container">
       <div>
         <div class="text-typing">

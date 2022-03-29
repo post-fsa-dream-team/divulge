@@ -17,12 +17,7 @@ export default class extends AbstractView {
                 },
                 body: JSON.stringify(data)
             });
-            if (response.ok) {
-                console.log(response)
-
-            } else {
-                console.log("issue signing in!")
-            }
+            console.log(response)
           } catch (error) {
             console.log(error)
           }
@@ -63,14 +58,14 @@ export default class extends AbstractView {
             e.preventDefault()
             const email = document.getElementById("email").value
             // const email = emailObj.contentWindow.document.body.innerHTML;
-            console.log(email)
             const password = document.getElementById("password").value
-            console.log(password)
             // const password = passwordObj.contentWindow.document.body.innerHTML;
             const signInData = {
                 email: email,
                 password: password
             }
+
+            console.log(signInData)
            await this.signIn(signInData)
         })
     }

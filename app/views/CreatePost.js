@@ -34,7 +34,7 @@ export default class extends AbstractView {
     return (`
       <div id="create-post-container">
         ${Navbar()}
-        ${SideNav}
+        ${SideNav()}
         <div id="post-content">
           <h1 id="createPost-title">Create Your Content</h1>
           <div>

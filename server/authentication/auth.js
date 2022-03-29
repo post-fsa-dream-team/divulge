@@ -61,7 +61,7 @@ router.post('/signin', async (req, res, next) => {
     if (email && password) {
       pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
         if (err) throw err;
-        console.log("results", results);
+        //console.log("results", results);
         if (results.rows[0]) {
           bcrypt.compare(password, results.rows[0].password, (err, found) => {
             if (err) {
