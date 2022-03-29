@@ -50,8 +50,8 @@ const router = async() => {
     //https://javascript.plainenglish.io/implementing-login-case-using-localstorage-and-sessionstorage-bfddce5d2198
 
     //TESTING AUTHENTICATION/ADMIN ROUTES
-    sessionStorage.setItem("auth", 3);
-    //sessionStorage.setItem("admin", true);
+    // sessionStorage.setItem("auth", 3);
+    // sessionStorage.setItem("admin", true);
 
     //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
     let auth = sessionStorage.getItem("auth")

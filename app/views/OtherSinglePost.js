@@ -41,7 +41,7 @@ export default class extends AbstractView {
     const url = `${protocol}//${host}/editpost/${this.postId}`; // will need to change this once code is refactored
 
     return `
-    ${Navbar}
+    ${Navbar()}
     ${SideNav}
       <div class='single-other-post-container'>
         <div class="single-other-date-and-read">

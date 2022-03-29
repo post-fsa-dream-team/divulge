@@ -43,7 +43,8 @@ const createTables = async () => {
         birth_date DATE NOT NULL,
         location VARCHAR(128) NOT NULL,
         created_at TIMESTAMP NOT NULL DEFAULT now(),
-        last_login TIMESTAMP NOT NULL DEFAULT now()
+        last_login TIMESTAMP NOT NULL DEFAULT now(),
+        is_admin BOOLEAN
       )`;
   try {
     const res = await pool.query(testTable1);

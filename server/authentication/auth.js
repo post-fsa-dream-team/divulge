@@ -40,6 +40,7 @@ router.post('/signup', async (req, res, next) => {
     next(error)
   }
 })
+
 /**For Sign In, we need to:
   - Find the user email
   - No users:
@@ -51,6 +52,7 @@ router.post('/signup', async (req, res, next) => {
   - User found:  req.login(user, err => (err ? next(err) : res.json(user)))
  */
 
+//WORKS//
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
@@ -59,7 +61,7 @@ router.post('/signin', async (req, res, next) => {
     if (email && password) {
       pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
         if (err) throw err;
-        console.log("results", results);
+        //console.log("results", results);
         if (results.rows[0]) {
           bcrypt.compare(password, results.rows[0].password, (err, found) => {
             if (err) {
@@ -68,23 +70,31 @@ router.post('/signin', async (req, res, next) => {
             if (found) {
               // return found(null, user)
               let userInfo = results.rows[0];
-              const session = {
-                ...req.session,
-                email: email,
-                user_id: `${userInfo.id}`,
-                birth_date: `${userInfo.birth_date}`,
-                location: `${userInfo.location}`,
-                user_name: `${userInfo.user_name}`,
-                first_name: `${userInfo.first_name}`,
-                last_name: `${userInfo.last_name}`
-              };
+              req.session.email = email,
+              req.session.user_id =`${userInfo.id}`,
+              req.session.birth_date = `${userInfo.birth_date}`,
+              req.session.location = `${userInfo.location}`,
+              req.session.user_name = `${userInfo.user_name}`,
+              req.session.first_name = `${userInfo.first_name}`,
+              req.session.last_name=  `${userInfo.last_name}`
+              // const userData = {
+              //   ...req.session,
+              //   email: email,
+              //   user_id: `${userInfo.id}`,
+              //   birth_date: `${userInfo.birth_date}`,
+              //   location: `${userInfo.location}`,
+              //   user_name: `${userInfo.user_name}`,
+              //   first_name: `${userInfo.first_name}`,
+              //   last_name: `${userInfo.last_name}`
+              // };
+
               req.session.save((err) => {
                 if (err) {
                   console.log(err);
                   return next(err);
                 }
-                console.log("session", session);
-                res.redirect(200, '/home')
+                console.log("req.session", req.session);
+                // res.redirect(200, '/home')
               });
             } else {
               return res.status(400).send('Password is incorrect')

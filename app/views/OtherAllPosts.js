@@ -9,6 +9,9 @@ export default class extends AbstractView {
     super(params)
     this.setTitle("All Other Posts");
     this.category = params.category
+
+    this.getData = this.getData.bind(this)
+    this.filterPosts = this.filterPosts.bind(this)
   }
 
   filterPosts (posts, category) {
@@ -44,7 +47,7 @@ export default class extends AbstractView {
     let capitalCase = firstLetter + restOfWord
 
     return `
-      ${Navbar}
+      ${Navbar()}
       ${SideNav}
       <h2 class="other-posts-title">Posts > ${capitalCase}</h2>
       ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
