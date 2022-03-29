@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt")
-const { database } = require("pg/lib/defaults")
 
 const hashSeededPassword = (password) => {
   try {
@@ -10,8 +9,6 @@ const hashSeededPassword = (password) => {
     console.log(error)
   }
 }
-
-// let hashedPasswords = hashSeededPassword()
 
 const hashAllPasswords = (array) => {
   let passwords = {}
