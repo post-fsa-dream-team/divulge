@@ -5,38 +5,51 @@ import SideNav from "../components/SideNav.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params)
-    this.setTitle("CreatePost");
+    this.setTitle("EditPost");
+    this.postId = params.postid;
     this.postResponse = '';
-    this.createPost = this.createPost.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
-  async createPost(post) {
+  async getPost() {
     try {
-      const response = await fetch('http://localhost:3000/api/posts', {
-        method: 'POST',
+      const response = await fetch('http://localhost:3000/api/posts');
+      if (!response.ok) throw new Error('Something wen wrong with get post request.');
+      const resData = await response.json();
+      this.postResponse = resData;
+    } catch (error) {
+      console.log('!!!Get post error!!!', error);
+    }
+  }
+
+  async editPost(post) {
+    try {
+      const { post_id, title, content, category, image_url } = post;
+      const response = await fetch(`http://localhost:3000/api/posts/${post_id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify({title, content, category, image_url})
       });
-      if (!response.ok) throw new Error('Something went wrong with post create request.');
-      const resData = await response.json();
-      this.postResponse = resData;
-      console.log('Create Successful');
+      if (!response.ok) throw new Error('Something went wrong with put edit post request.');
+      // const resData = await response.json();
+      // this.postResponse = resData;
+      // console.log('Edit Successful');
       // console.log(this.postResponse);
     } catch (error) {
-      console.log('!!!Create post error!!!',  error);
+      console.log('!!!Edit post error!!!',  error);
     }
   }
 
   async getHtml() {
 
     return (`
-      <div id="create-post-container">
+      <div id="edit-post-container">
         ${Navbar}
         ${SideNav}
         <div id="post-content">
-          <h1 id="createPost-title">Create Your Content</h1>
+          <h1 id="editPost-title">Edit Your Content</h1>
           <div>
             <div>
               <input id="input-title" class="inputField" type="text" name="title" placeholder="Title" value="" />
@@ -112,7 +125,19 @@ export default class extends AbstractView {
   }
 
   async postRender() {
-    const createPost = this.createPost;
+    const editPost = this.editPost;
+    await this.getPost();
+    const post = this.postResponse.find(element => element.post_id === parseInt(this.postId));
+    document.getElementById('input-title').value = post.title;
+    const contentObj = document.getElementById('output');
+    contentObj.contentWindow.document.open();
+    contentObj.contentWindow.document.write(post.content);
+    contentObj.contentWindow.document.close();
+    document.getElementById('post-category').value = post.category;
+    document.getElementById('input-imageUrl').value = post.image_url;
+
+
+    // The following executes upon hitting the submit button.
     document.getElementById("submit-button").addEventListener('click', async (e) => {
       e.preventDefault();
       const title = document.getElementById('input-title');
@@ -120,7 +145,8 @@ export default class extends AbstractView {
       const content = contentObj.contentWindow.document.body.innerHTML;
       const category = document.getElementById('post-category');
       const image_url = document.getElementById('input-imageUrl');
-      const post = {
+      const editedPost = {
+        post_id: post.post_id,
         title: title.value,
         content: content,
         category: category.value,
@@ -132,15 +158,19 @@ export default class extends AbstractView {
         category.focus();
         return;
       }
-      await createPost(post);
-      title.value = '';
-      image_url.value = '';
-      contentObj.contentWindow.document.open();
-      contentObj.contentWindow.document.write('');
-      contentObj.contentWindow.document.close();
-      category.value = 'none';
+      await editPost(editedPost);
+      // title.value = '';
+      // image_url.value = '';
+      // contentObj.contentWindow.document.open();
+      // contentObj.contentWindow.document.write('');
+      // contentObj.contentWindow.document.close();
+      // category.value = 'none';
+      const protocol = document.location.protocol;
+      const host = document.location.host
+      window.location.replace(`${protocol}//${host}/home`);
     });
 
+    // Text Editor Bar Code
     const buttons = document.querySelectorAll('button');
     textField.document.designMode = 'On';
 
@@ -154,7 +184,7 @@ export default class extends AbstractView {
         } else {
           textField.document.execCommand(cmd, false, null);
         }
-      })
+      });
     }
   }
 }

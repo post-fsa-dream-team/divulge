@@ -12,6 +12,7 @@ import OtherAllPosts from "./views/OtherAllPosts.js";
 import AdminPortal from "./views/AdminPortal/AdminPortal.js"
 import AdminPortalUsers from "./views/AdminPortal/AdminPortalUsers.js"
 import AdminPortalPosts from "./views/AdminPortal/AdminPortalPosts.js"
+import EditPost from "./views/EditPost.js";
 
 //see tool: https://regexr.com/
 //match the first character of the string ->
@@ -76,6 +77,7 @@ const router = async() => {
             { path: "/users/:userId/posts/:postId", view: MySinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
+            { path: "/editpost/:postid", view: EditPost}, // this will need to be "/:userId/editpost/:postid"
         ])
 
         //ROUTES ALSO AVAILABLE IF LOGGED IN && ADMIN
