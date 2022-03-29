@@ -3,16 +3,33 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const client = require("./db.js")
-// const session = require('express-session');
+const session = require('express-session');
+const passport = require('passport')
+
+const initializePassport = require("../passportConfig");
+
+initializePassport(passport);
+
 
 //bodyparsing middleware
-
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-// app.use(session({
-// 	secret: 'secret',
-// 	resave: true,
-// 	saveUninitialized: true
-// }));
+
+app.use(session({
+  // Key we want to keep secret which will encrypt all of our information
+	secret: 'secret',
+
+  // Should we resave our session variables if nothing has changes which we dont
+	resave: true,
+  // Save empty value if there is no value which we do not want to do
+	saveUninitialized: true
+}));
+
+// Funtion inside passport which initializes passport
+app.use(passport.initialize());
+// Store our variables to be persisted across the whole session. Works with app.use(Session) above
+app.use(passport.session());
+
 // static middleware
 // app.use(express.static(path.join(__dirname, '../public')))
 app.use('/app', express.static(path.join(__dirname, "../app")))
@@ -36,6 +53,14 @@ app.get("/", async (req, res, next) => {
   }
 })
 
+app.post(
+  "/signin",
+  passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/signin",
+    failureFlash: true
+  })
+);
 const PORT = 3000 || process.env.PORT;
 
 app.listen(PORT, function () {

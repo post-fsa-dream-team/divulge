@@ -4,4 +4,5 @@ const userPostRelationship = (req, res, next) => {
   next();
 };
 
+
 module.exports = { userPostRelationship };

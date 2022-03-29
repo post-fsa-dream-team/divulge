@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { pool } = require('../db');
+const bcrypt = require('bcrypt')
+const session = require("express-session");
 
 /*********SIGN IN, SIGN UP. Tutorial: https://www.youtube.com/watch?v=vxu1RrR0vbw ************/
 /**For signup, we need to check if the user exists
@@ -26,8 +28,11 @@ router.post('/signup', async (req, res, next) => {
       res.status(401).send("Email/Username already existed")
     } else {
       /*if no duplicate user is found, create new user*/
-      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7)', [user_name, first_name, last_name, email, password, birth_date, location])
-      res.status(200).send(req.body)
+      let hashedPassword = await bcrypt.hash(password, 10);
+      console.log("hashedPassword", hashedPassword);
+      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, birth_date, location])
+      res.redirect(200, '/signin')
+      // res.status(200).send(req.body)
     }
 
   } catch (error) {
@@ -51,26 +56,44 @@ router.post('/signup', async (req, res, next) => {
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
-    // console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
+    console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
     const { email, password } = req.body
     if (email && password) {
-      // Execute SQL query that'll select the account from the database based on the specified username and password
-      let result= await pool.query('select * from users where email = $1 and password = $2', [email, password])
-        //If there us a user match in DB, do something
-        if (result.rows.length) {
-          // Authenticate the user
-          if (result.rows[0].is_admin === true)  sessionStorage.setItem("admin", true);
-          sessionStorage.setItem("auth", result.rows[0].id)
-          console.log('Yayy!! Logged in 🙌🙌🙌');
-          res.redirect('/home');
-          //If no match, send message
-        } else {
-          res.send('Incorrect Email and/or Password!');
+      pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
+        if (err) throw err;
+        console.log("results", results);
+        if (results.rows[0]) {
+          bcrypt.compare(password, results.rows[0].password, (err, found) => {
+            if (err) {
+              console.log(err);
+            }
+            if (found) {
+              // return found(null, user)
+              let userInfo = results.rows[0];
+              const session = {
+                ...req.session,
+                email: email,
+                user_id: `${userInfo.id}`,
+                birth_date: `${userInfo.birth_date}`,
+                location: `${userInfo.location}`,
+                user_name: `${userInfo.user_name}`,
+                first_name: `${userInfo.first_name}`,
+                last_name: `${userInfo.last_name}`
+              };
+              req.session.save((err) => {
+                if (err) {
+                  console.log(err);
+                  return next(err);
+                }
+                console.log("session", session);
+                res.redirect(200, '/home')
+              });
+            } else {
+              return res.status(400).send('Password is incorrect')
+            }
+          })
         }
-      }
-      //If input is missing email or password, send message
-      else {
-      res.send('Please enter Email and Password!');
+      })
     }
   } catch (error) {
     console.log(error);
@@ -80,11 +103,11 @@ router.post('/signin', async (req, res, next) => {
 /**NEED TO FIX BEFORE THIS LINE 👆👆👆 */
 
 /**This part is 🌟fine🌟. But I comment out because "signin" is not working*/
-// router.get('/home', function(req, res) {
+// router.get('/home', function (req, res) {
 //   // If the user is loggedin
 //   if (req.session.loggedin) {
 //     // Output username
-//     res.send('Welcome back, ' + req.session.username + '!');
+//     res.send('Welcome back, ' + req.session.user_name + '!');
 //   } else {
 //     // Not logged in
 //     res.send('Please login to view this page!');
@@ -92,12 +115,12 @@ router.post('/signin', async (req, res, next) => {
 //   res.end();
 // });
 
-// router.get('/logout', (req, res) => {
-//   req.logout()
-//   req.session.destroy()
-//   console.log('You have logged out successfully');
-//   res.redirect('/')
-// })
+router.get('/logout', (req, res) => {
+  req.logout()
+  req.session.destroy()
+  console.log('You have logged out successfully');
+  res.redirect('/')
+})
 
 
 module.exports = router;
