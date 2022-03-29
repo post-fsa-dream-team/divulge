@@ -1,12 +1,14 @@
 import Navbar from "../components/Navbar.js";
 import AbstractView from "./AbstractView.js";
 import SideNav from "../components/SideNav.js";
+import DeletePost from "../components/DeletePost.js";
 
 export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle("OtherSinglePost");
     this.postId = params.id;
+    this.deletePost = new DeletePost(params.id);
   }
 
   async getData (id) {
@@ -34,6 +36,10 @@ export default class extends AbstractView {
       return Math.ceil(content.length / 500)
     }
 
+    const protocol = document.location.protocol;
+    const host = document.location.host;
+    const url = `${protocol}//${host}/editpost/${this.postId}`; // will need to change this once code is refactored
+
     return `
     ${Navbar}
     ${SideNav}
@@ -46,7 +52,13 @@ export default class extends AbstractView {
         <div class="single-other-post-username">${post.user_name}</div>
         <img class="single-other-post-img" src="${post.image_url}"/>
         <div class="single-other-post-content">${post.content}</div>
+        ${this.deletePost.render()}
+        <a href="${url}">Edit</a>
       </div>
+
     `
+  }
+  async postRender() {
+    this.deletePost.script();
   }
 }

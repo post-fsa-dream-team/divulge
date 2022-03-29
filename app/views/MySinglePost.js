@@ -1,11 +1,10 @@
 import AbstractView from "./AbstractView.js";
-
 export default class extends AbstractView {
     constructor(params) {
         super(params);
         this.setTitle("MySinglePost");
         this.userId = params.userId;
-        this.postId = params.postId
+        this.postId = params.postId;
     }
     async getMyPost(userId, postId) {
         try {
@@ -17,7 +16,7 @@ export default class extends AbstractView {
         }
     }
     async getHtml() {
-        const postData = await this.getMyPost(this.userId, this.postId)
+        const postData = await this.getMyPost(this.userId, this.postId);
         // console.log(postData);
         return `
         ${postData.map((post) => {
