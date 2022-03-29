@@ -70,23 +70,31 @@ router.post('/signin', async (req, res, next) => {
             if (found) {
               // return found(null, user)
               let userInfo = results.rows[0];
-              const session = {
-                ...req.session,
-                email: email,
-                user_id: `${userInfo.id}`,
-                birth_date: `${userInfo.birth_date}`,
-                location: `${userInfo.location}`,
-                user_name: `${userInfo.user_name}`,
-                first_name: `${userInfo.first_name}`,
-                last_name: `${userInfo.last_name}`
-              };
+              req.session.email = email,
+              req.session.user_id =`${userInfo.id}`,
+              req.session.birth_date = `${userInfo.birth_date}`,
+              req.session.location = `${userInfo.location}`,
+              req.session.user_name = `${userInfo.user_name}`,
+              req.session.first_name = `${userInfo.first_name}`,
+              req.session.last_name=  `${userInfo.last_name}`
+              // const userData = {
+              //   ...req.session,
+              //   email: email,
+              //   user_id: `${userInfo.id}`,
+              //   birth_date: `${userInfo.birth_date}`,
+              //   location: `${userInfo.location}`,
+              //   user_name: `${userInfo.user_name}`,
+              //   first_name: `${userInfo.first_name}`,
+              //   last_name: `${userInfo.last_name}`
+              // };
+
               req.session.save((err) => {
                 if (err) {
                   console.log(err);
                   return next(err);
                 }
-                console.log("session", session);
-                res.redirect(200, '/home')
+                console.log("req.session", req.session);
+                // res.redirect(200, '/home')
               });
             } else {
               return res.status(400).send('Password is incorrect')

@@ -26,6 +26,15 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+router.get("/loggedindata", async (req,res,next) => {
+  try {
+    const sessionData = req.session
+    console.log(sessionData)
+  } catch (error) {
+    next(error)
+  }
+})
+
 //Edit My Profile
 router.put('/:userId', async (req, res, next) => {
   try {

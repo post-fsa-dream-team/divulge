@@ -18,6 +18,9 @@ export default class extends AbstractView {
                 body: JSON.stringify(data)
             });
             console.log(response)
+            console.log(window.sessionStorage)
+            // if (response.status === 200) sessionStorage.setItem("auth", 1)
+            // window.location.replace("/home")
           } catch (error) {
             console.log(error)
           }
@@ -64,8 +67,6 @@ export default class extends AbstractView {
                 email: email,
                 password: password
             }
-
-            console.log(signInData)
            await this.signIn(signInData)
         })
     }

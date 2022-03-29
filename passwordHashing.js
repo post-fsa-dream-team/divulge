@@ -4,7 +4,6 @@ const hashSeededPassword = (password) => {
   try {
     let hashedPassword = bcrypt.hashSync(password, 10)
     return hashedPassword
-
   } catch (error) {
     console.log(error)
   }
