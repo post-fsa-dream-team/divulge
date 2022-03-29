@@ -1,6 +1,6 @@
 # Divulge
 
-A medium clone using Vanilla JS, AWS Postgres
+A medium clone built with Vanilla JavaScript, pure CSS, Express, Node, SQL, and PostgreSQL
 
 ## Starting point
 
