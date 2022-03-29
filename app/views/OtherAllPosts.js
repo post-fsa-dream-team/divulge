@@ -11,6 +11,7 @@ export default class extends AbstractView {
     this.category = params.category
 
     this.getData = this.getData.bind(this)
+    this.filterPosts = this.filterPosts.bind(this)
   }
 
   filterPosts (posts, category) {
