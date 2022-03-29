@@ -18,7 +18,6 @@ export default class extends AbstractView {
             console.log('CANNOT SEE MY POSTS :(', error);
         }
     }
-    // ${Navbar()}
     async getHtml() {
         const myPosts = await this.getMyPosts(this.userId)
         console.log('myPosts', myPosts);
