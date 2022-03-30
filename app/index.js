@@ -54,7 +54,7 @@ const router = async() => {
     // sessionStorage.setItem("admin", true);
 
     //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
-    let auth = sessionStorage.getItem("auth")
+    let auth = sessionStorage.getItem("id")
     let admin = sessionStorage.getItem("admin")
 
     //ROUTES AVAILABLE IF NOT LOGGED IN
