@@ -47,7 +47,7 @@
     opacity: 0.8;
 }
 .signup small {
-    color: #aaa;
+    color: hsl(0, 100%, 74%);
     display: block;
     font-size: 12px;
     font-weight: 500;
@@ -94,11 +94,22 @@
 .signup__form-control small {
     /* hidden by default */
     /* display: none; */
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-    text-align: right;
-    opacity: 0;
+    color: hsl(0, 100%, 74%);
+	font-weight: 600;
+	position: absolute;
+	bottom: -24px;
+	right: 0;
+	opacity: 0;
+	text-align: right;
+}
+
+.signup__form-control.error input {
+	border-color: hsl(0, 100%, 74%);
+	color: hsl(0, 100%, 74%);
+}
+
+.signup__form-control.error input::placeholder {
+	color: hsl(0, 100%, 74%);
 }
 
 .signup__form input {
@@ -118,6 +129,27 @@
     outline: none;
 }
 
+.signup__form-control small {
+	opacity: 0;
+}
+
+.signup__form-control.error small {
+	opacity: 1;
+}
+
+small {
+	display: block;
+	color: #bbb;
+	font-size: 11px;
+	font-weight: 500;
+	margin-top: 15px;
+}
+
+small a {
+	color: hsl(0, 100%, 74%);
+	font-weight: 600;
+	text-decoration: none;
+}
 .signup__form button {
     background-color: hsl(154, 59%, 51%);
     border-radius: 5px;
