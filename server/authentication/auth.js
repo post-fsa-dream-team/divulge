@@ -13,7 +13,7 @@ router.post('/signup', async (req, res, next) => {
   try {
     const { user_name, first_name, last_name, email, password, birth_date, location } = req.body;
     /* error handler */
-    if (!user_name || !first_name || !last_name || !email || !password || !birth_date || !location) {
+    if (!first_name || !last_name || !email || !password) {
       throw new Error("More information required")
     }
 
@@ -59,50 +59,73 @@ router.post('/signin', async (req, res, next) => {
     console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
     const { email, password } = req.body
     if (email && password) {
-      pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
+      await pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
         if (err) throw err;
-        //console.log("results", results);
-        if (results.rows[0]) {
-          bcrypt.compare(password, results.rows[0].password, (err, found) => {
-            if (err) {
-              console.log(err);
-            }
-            if (found) {
-              // return found(null, user)
-              let userInfo = results.rows[0];
-              req.session.email = email,
-              req.session.user_id =`${userInfo.id}`,
-              req.session.birth_date = `${userInfo.birth_date}`,
-              req.session.location = `${userInfo.location}`,
-              req.session.user_name = `${userInfo.user_name}`,
-              req.session.first_name = `${userInfo.first_name}`,
-              req.session.last_name=  `${userInfo.last_name}`
-              // const userData = {
-              //   ...req.session,
-              //   email: email,
-              //   user_id: `${userInfo.id}`,
-              //   birth_date: `${userInfo.birth_date}`,
-              //   location: `${userInfo.location}`,
-              //   user_name: `${userInfo.user_name}`,
-              //   first_name: `${userInfo.first_name}`,
-              //   last_name: `${userInfo.last_name}`
-              // };
+        // console.log("results", results)
+        if (!results.rows[0]) {
+          console.log('No such user found:', email)
+          res.status(401).send('Wrong username and/or password')
+        }
 
-              req.session.save((err) => {
-                if (err) {
-                  console.log(err);
-                  return next(err);
-                }
-                console.log("req.session", req.session);
-                // res.redirect(200, '/home')
-              });
+        if (results.rows[0]) {
+          bcrypt.compare(password, results.rows[0].password, (err, correct) => {
+            if (err) {
+              throw err
+            }
+            if (correct) {
+              req.login(results.rows[0], err => (err ? next(err) : res.json(results.rows[0])))
             } else {
-              return res.status(400).send('Password is incorrect')
+              console.log('Incorrect password for user:', email)
+              res.status(401).send('Wrong username and/or password')
             }
           })
         }
       })
     }
+
+    // pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
+    //   if (err) throw err;
+    //   console.log("results", results);
+    //   if (results.rows[0]) {
+    //     bcrypt.compare(password, results.rows[0].password, (err, found) => {
+    //       if (err) {
+    //         console.log(err);
+    //       }
+    //       if (found) {
+    //        /* // return found(null, user)
+    //         let userInfo = results.rows[0];
+    //         req.session.email = email,
+    //         req.session.user_id =`${userInfo.id}`,
+    //         req.session.birth_date = `${userInfo.birth_date}`,
+    //         req.session.location = `${userInfo.location}`,
+    //         req.session.user_name = `${userInfo.user_name}`,
+    //         req.session.first_name = `${userInfo.first_name}`,
+    //         req.session.last_name=  `${userInfo.last_name}`
+    //         // const userData = {
+    //         //   ...req.session,
+    //         //   email: email,
+    //         //   user_id: `${userInfo.id}`,
+    //         //   birth_date: `${userInfo.birth_date}`,
+    //         //   location: `${userInfo.location}`,
+    //         //   user_name: `${userInfo.user_name}`,
+    //         //   first_name: `${userInfo.first_name}`,
+    //         //   last_name: `${userInfo.last_name}`
+    //         // };
+
+    //         req.session.save((err) => {
+    //           if (err) {
+    //             console.log(err);
+    //             return next(err);
+    //           }
+    //           console.log("req.session", req.session);
+    //           // res.redirect(200, '/home')
+    //         });*/
+    //       } else {
+    //         return res.status(400).send('Password is incorrect')
+    //       }
+    //     })
+    //   }
+    // })
   } catch (error) {
     console.log(error);
     next(error)

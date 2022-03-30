@@ -5,22 +5,33 @@ const path = require('path')
 const client = require("./db.js")
 const session = require('express-session');
 const passport = require('passport')
-
 const initializePassport = require("../passportConfig");
 
 initializePassport(passport);
 
+// passport registration
+passport.serializeUser((user, done) => { console.log("user", user); done(null, user.id)})
 
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await pool.query("select * from users where id = $1", [id])
+    console.log("user from passport", user);
+    done(null, user)
+  } catch (err) {
+    done(err)
+  }
+})
 //bodyparsing middleware
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+// session middleware with passport
 app.use(session({
   // Key we want to keep secret which will encrypt all of our information
 	secret: 'secret',
 
   // Should we resave our session variables if nothing has changes which we dont
-	resave: true,
+	resave: false,
   // Save empty value if there is no value which we do not want to do
 	saveUninitialized: true
 }));
