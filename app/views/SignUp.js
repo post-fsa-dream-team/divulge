@@ -5,7 +5,7 @@ export default class extends AbstractView {
     constructor(params) {
         super(params);
         this.setTitle("SignUp");
-        this.createUser = this.createUser.bind(this);
+        this.signUp = this.signUp.bind(this);
         this.addErrorTo = this.addErrorTo.bind(this);
         this.removeErrorFrom = this.removeErrorFrom.bind(this);
         this.isValid = this.isValid.bind(this);
@@ -29,20 +29,28 @@ export default class extends AbstractView {
         return re.test(String(email).toLowerCase());
     }
 
-    async createUser(user) {
+    async signUp(firstName, lastName, username, email, password) {
         try {
+            // console.log(firstName, lastName, username, email, password);
             const response = await fetch('http://localhost:3000/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify({ "first_name": firstName, "last_name": lastName, "user_name": username, "email": email, "password": password })
             });
-            if (!response.ok) throw new Error('Something went wrong with user create request.');
-            const resData = await response.json();
-            this.userResponse = resData;
-            console.log('Create Successful');
+            console.log("response: ", response);
+            // if (!response.ok) throw new Error('Something went wrong with user create request.');
+            // const resData = await response.json();
+            // this.userResponse = resData;
+            // console.log('Create Successful');
             // console.log(this.userResponse);
+            if (response.status === 200) {
+                console.log("Sign Up successfully")
+            } else {
+                console.log("We have an error signing up");
+            };
+            return response.json(response).then(data => console.log(data))
         } catch (error) {
             console.log('!!!Create user error!!!', error);
         }
@@ -71,6 +79,10 @@ export default class extends AbstractView {
             <small></small>
         </div>
         <div class='signup__form-control'>
+            <input type="text" id="username" placeholder="User Name"/>
+            <small></small>
+        </div>
+        <div class='signup__form-control'>
             <input type="email" id="email" placeholder="Email"/>
             <small></small>
         </div>
@@ -89,7 +101,7 @@ export default class extends AbstractView {
     }
 
     async postRender() {
-        const createUser = this.createUser;
+        const signUp = this.signUp;
         const addErrorTo = this.addErrorTo;
         const removeErrorFrom = this.removeErrorFrom;
         const isValid = this.isValid;
@@ -99,11 +111,13 @@ export default class extends AbstractView {
             e.preventDefault();
             const firstName = form['firstname'].value;
             const lastName = form['lastname'].value;
+            const username = form['username'].value;
             const email = form['email'].value;
             const password = form['password'].value;
             const user = {
                 firstName: firstName,
                 lastName: lastName,
+                username: username,
                 email: email,
                 password: password
             }
@@ -120,9 +134,15 @@ export default class extends AbstractView {
                 removeErrorFrom('lastname');
             }
 
+            if (username === '') {
+                addErrorTo('username', 'User Name is required');
+            } else {
+                removeErrorFrom('username');
+            }
+
             if (email === '') {
                 addErrorTo('email', 'Email is required');
-            } else if (!this.isValid(email)) {
+            } else if (!isValid(email)) {
                 addErrorTo('email', 'Email is not valid');
             } else {
                 removeErrorFrom('email');
@@ -133,11 +153,7 @@ export default class extends AbstractView {
             } else {
                 removeErrorFrom('password');
             }
-            // await createUser(user)
-            // firstName = '';
-            // lastName = '';
-            // email = '';
-            // password = '';
+            if (firstName && lastName && username && email && password) this.signUp(firstName, lastName, username, email, password)
 
         })
 

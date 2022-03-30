@@ -13,7 +13,7 @@ router.post('/signup', async (req, res, next) => {
   try {
     const { user_name, first_name, last_name, email, password, birth_date, location } = req.body;
     /* error handler */
-    if (!first_name || !last_name || !email || !password) {
+    if (!first_name || !user_name || !email || !password) {
       throw new Error("More information required")
     }
 
@@ -30,9 +30,34 @@ router.post('/signup', async (req, res, next) => {
       /*if no duplicate user is found, create new user*/
       let hashedPassword = await bcrypt.hash(password, 10);
       // console.log("hashedPassword", hashedPassword);
-      const user = await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, birth_date, location])
+      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, birth_date, location], (err, results) => {
+        if (err) throw err;
+        console.log("results", results)
+        if (!results.rows[0]) {
+          res.status(401).send('Cannot create user')
+        }
+        if (results.rows[0]) {
+          bcrypt.compare(password, results.rows[0].password, (err, correct) => {
+            if (err) {
+              throw err
+            }
+            if (correct) {
+              // req.login(results.rows[0], err => (err ? next(err) : res.json(results.rows[0])))
+              console.log(req.body);
+              res.status(200).send(req.body)
+            } else {
+              console.log('Cannot check for password of user: ', email)
+              res.status(401).send('Still cannot create user')
+            }
+          })
+        }
+
+
+      })
+
+
       // req.login(user, err => (err ? next(err) : res.json(user)))
-      res.redirect(200, '/signin')
+      // res.redirect(200, '/signin')
       // res.status(200).send(req.body)
     }
 

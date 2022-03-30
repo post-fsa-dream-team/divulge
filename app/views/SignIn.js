@@ -45,9 +45,9 @@ export default class extends AbstractView {
             if (response.status === 200) {
                 console.log("Sign In successfully")
             } else {
-                console.log("We have an error loggin in");
+                console.log("We have an error logging in");
             };
-            return response.json(response)
+            return response.json(response).then(data => console.log(data))
         } catch (error) {
             console.log(error)
         }

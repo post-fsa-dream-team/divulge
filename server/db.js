@@ -40,10 +40,10 @@ const createTables = async () => {
         last_name VARCHAR(128) NOT NULL,
         email VARCHAR(128) NOT NULL,
         password VARCHAR NOT NULL,
-        birth_date DATE NOT NULL,
-        location VARCHAR(128) NOT NULL,
-        created_at TIMESTAMP NOT NULL DEFAULT now(),
-        last_login TIMESTAMP NOT NULL DEFAULT now(),
+        birth_date DATE,
+        location VARCHAR(128),
+        created_at TIMESTAMP DEFAULT now(),
+        last_login TIMESTAMP DEFAULT now(),
         is_admin BOOLEAN
       )`;
   try {
