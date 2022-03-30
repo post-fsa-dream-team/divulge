@@ -26,7 +26,8 @@ export default class extends AbstractView {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
-    async signIn(data) {
+    async signIn(email, password) {
+        // console.log(email, password);
         try {
             let response = await fetch("http://localhost:3000/auth/signin", {
                 method: 'POST',
@@ -34,12 +35,19 @@ export default class extends AbstractView {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({ "email": email, "password": password })
             });
-            console.log(response)
-            console.log(window.sessionStorage)
+            // console.log("response", response);
+            // const body = await response.json()
+            // console.log(window.sessionStorage)
             // if (response.status === 200) sessionStorage.setItem("auth", 1)
             // window.location.replace("/home")
+            if (response.status === 200) {
+                console.log("Sign In successfully")
+            } else {
+                console.log("We have an error loggin in");
+            };
+            return response.json(response)
         } catch (error) {
             console.log(error)
         }
@@ -75,13 +83,13 @@ export default class extends AbstractView {
     }
     async postRender() {
         const form = document.getElementById('signinform');
-
+        const button = document.getElementById("sign-in-button");
         form.addEventListener('submit', e => {
             e.preventDefault();
 
             const email = form['email'].value;
             const password = form['password'].value;
-
+            /**Frontend checking */
             if (email === '') {
                 this.addErrorTo('email', 'Email is required');
             } else if (!this.isValid(email)) {
@@ -95,6 +103,12 @@ export default class extends AbstractView {
             } else {
                 this.removeErrorFrom('password');
             }
+
+            if (email && password) {
+                const signIn = this.signIn(email, password)
+
+            }
         });
+
     }
 }
