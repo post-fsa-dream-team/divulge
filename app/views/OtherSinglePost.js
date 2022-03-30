@@ -52,8 +52,10 @@ export default class extends AbstractView {
         <div class="single-other-post-username">${post.user_name}</div>
         <img class="single-other-post-img" src="${post.image_url}"/>
         <div class="single-other-post-content">${post.content}</div>
-        ${this.deletePost.render()}
-        <a href="${url}">Edit</a>
+        <div id="button-containers">
+          <a id="edit-link" href="${url}">Edit</a>
+          ${this.deletePost.render()}
+        </div>
       </div>
 
     `

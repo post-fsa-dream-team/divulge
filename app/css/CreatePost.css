@@ -1,6 +1,19 @@
+#create-post-container {
+  background: linear-gradient(white, white, #0b5b6d);
+}
+
 #post-content {
   margin-top: 100px;
   margin-left: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 form {
@@ -17,15 +30,16 @@ form {
 
 #output {
   width: 700px;
-  height: 400px;
+  height: 600px;
   border: 1px solid, #111;
   background-color: white;
+  border-radius: 15px;
 }
 
 .inputField {
-  width: 400px;
+  width: 700px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid, #111;
 }
 

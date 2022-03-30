@@ -37,7 +37,7 @@ export default class extends AbstractView {
         ${SideNav()}
         <div id="post-content">
           <h1 id="createPost-title">Create Your Content</h1>
-          <div>
+          <div id="form-container">
             <div>
               <input id="input-title" class="inputField" type="text" name="title" placeholder="Title" value="" />
             </div><br />
