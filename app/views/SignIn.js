@@ -27,6 +27,7 @@ export default class extends AbstractView {
         }
 
     async getHtml() {
+
         return `
         ${Navbar()}
         <div class='signin'>
@@ -60,22 +61,22 @@ export default class extends AbstractView {
         form.addEventListener('submit', e => {
             e.preventDefault();
 
-            const firstName = form['firstname'].value;
-            const lastName = form['lastname'].value;
+            // const firstName = form['firstname'].value;
+            // const lastName = form['lastname'].value;
             const email = form['email'].value;
             const password = form['password'].value;
 
-            if (firstName === '') {
-                addErrorTo('firstname', 'First Name is required');
-            } else {
-                removeErrorFrom('firstname');
-            }
+            // if (firstName === '') {
+            //     addErrorTo('firstname', 'First Name is required');
+            // } else {
+            //     removeErrorFrom('firstname');
+            // }
 
-            if (lastName === '') {
-                addErrorTo('lastname', 'Last Name is required');
-            } else {
-                removeErrorFrom('lastname');
-            }
+            // if (lastName === '') {
+            //     addErrorTo('lastname', 'Last Name is required');
+            // } else {
+            //     removeErrorFrom('lastname');
+            // }
 
             if (email === '') {
                 addErrorTo('email', 'Email is required');
@@ -90,6 +91,8 @@ export default class extends AbstractView {
             } else {
                 removeErrorFrom('password');
             }
+
+            this.signIn({email: email, password: password})
         });
 
         function addErrorTo(field, message) {
@@ -110,4 +113,5 @@ export default class extends AbstractView {
             return re.test(String(email).toLowerCase());
         }
     }
+
 }

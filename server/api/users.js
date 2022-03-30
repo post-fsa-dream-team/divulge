@@ -29,7 +29,7 @@ router.get('/:userId', async (req, res, next) => {
 router.get("/loggedindata", async (req,res,next) => {
   try {
     const sessionData = req.session
-    console.log(sessionData)
+    return sessionData
   } catch (error) {
     next(error)
   }
