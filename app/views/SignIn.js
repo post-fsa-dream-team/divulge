@@ -47,7 +47,22 @@ export default class extends AbstractView {
             } else {
                 console.log("We have an error logging in");
             };
-            return response.json(response).then(data => console.log(data))
+            return response.json(response).then(data => {
+                console.log("data", data)
+                //sessionStorage.setItem(arg1, arg2) allows you to save user's information into sessionStorage https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/
+                for (let i in data) {
+                    if(`${i}` !== "password") // -------> save everything except for password
+                    window.sessionStorage.setItem(`${i}`, `${data[i]}`);
+                }
+            })
+
+            // .then(response => {
+            //     // HTTP 301 response
+            //     // HOW CAN I FOLLOW THE HTTP REDIRECT RESPONSE?
+            //     if (response.redirected) {
+            //         window.location.href = "http://localhost:3000/home";
+            //     }
+            // })
         } catch (error) {
             console.log(error)
         }
@@ -106,8 +121,8 @@ export default class extends AbstractView {
 
             if (email && password) {
                 const signIn = this.signIn(email, password)
-
             }
+
         });
 
     }

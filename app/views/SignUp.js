@@ -50,7 +50,13 @@ export default class extends AbstractView {
             } else {
                 console.log("We have an error signing up");
             };
-            return response.json(response).then(data => console.log(data))
+            return response.json(response).then(data => {
+                // console.log(data)
+                //sessionStorage.setItem(arg1, arg2) allows you to save user's information into sessionStorage https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/
+                for (let i in data) {
+
+                    window.sessionStorage.setItem(`${i}`, `${data[i]}`);}
+            })
         } catch (error) {
             console.log('!!!Create user error!!!', error);
         }

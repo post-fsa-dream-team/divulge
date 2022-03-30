@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const client = require("./db.js")
+const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const passport = require('passport')
 const initializePassport = require("../passportConfig");
@@ -25,6 +26,8 @@ passport.deserializeUser(async (id, done) => {
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+// cookie parser middleware
+app.use(cookieParser());
 // session middleware with passport
 app.use(session({
   // Key we want to keep secret which will encrypt all of our information

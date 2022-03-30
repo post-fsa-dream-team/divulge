@@ -43,7 +43,7 @@ router.post('/signup', async (req, res, next) => {
             }
             if (correct) {
               // req.login(results.rows[0], err => (err ? next(err) : res.json(results.rows[0])))
-              console.log(req.body);
+              // console.log(req.body);
               res.status(200).send(req.body)
             } else {
               console.log('Cannot check for password of user: ', email)
@@ -82,7 +82,7 @@ router.post('/signup', async (req, res, next) => {
 /**NEED TO FIX AFTER THIS LINE 👇👇👇 */
 router.post('/signin', async (req, res, next) => {
   try {
-    console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
+    // console.log('req.body', req.body); //----> { email: 'james12@fs.com', password: 'test123' }
     const { email, password } = req.body
     if (email && password) {
       await pool.query('SELECT * FROM users WHERE email = $1', [email], (err, results) => {
@@ -99,7 +99,16 @@ router.post('/signin', async (req, res, next) => {
               throw err
             }
             if (correct) {
-              req.login(results.rows[0], err => (err ? next(err) : res.json(results.rows[0])))
+              let userInfo = results.rows[0];
+              req.session.email = email,
+              req.session.user_id = `${userInfo.id}`,
+              req.session.birth_date = `${userInfo.birth_date}`,
+              req.session.location = `${userInfo.location}`,
+              req.session.user_name = `${userInfo.user_name}`,
+              req.session.first_name = `${userInfo.first_name}`,
+              req.session.last_name = `${userInfo.last_name}`
+              console.log("req.session", req.session);
+              req.login(userInfo, err => (err ? next(err) : res.json(userInfo)))
             } else {
               console.log('Incorrect password for user:', email)
               res.status(401).send('Wrong username and/or password')
