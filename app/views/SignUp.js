@@ -62,6 +62,12 @@ export default class extends AbstractView {
         }
     }
     async getHtml() {
+        let loggedIn = !!sessionStorage.getItem("id")
+
+        if (loggedIn) {
+            window.location.replace("/home")
+        }
+        else {
         return `
         ${Navbar()}
         <div class='signup'>
@@ -104,6 +110,7 @@ export default class extends AbstractView {
     </div>
     </div>
     `;
+    }
     }
 
     async postRender() {
