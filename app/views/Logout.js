@@ -9,10 +9,14 @@ export default class extends AbstractView {
   async getHtml() {
     return`
       ${Navbar()}
-      <h1>Logout<h1>
-      <p>Are you sure you'd like to logout?</p>
+      <div id="logout-container">
+
+      <h1 id="logout-title">Logout</h1>
+      <img id="logout-image" alt="stay-image" src="https://media3.giphy.com/media/DADnfSLIFxDUc/giphy.gif" />
+      <p id="main-text">Are you sure you'd like to logout?</p>
       <button id="logout-button">Yes, log me out!</button>
       <button id="back-home-button">Nah, return home.</button>
+      </div>
       `
   }
 
