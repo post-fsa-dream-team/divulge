@@ -5,6 +5,7 @@ import Home from "./views/Home.js"
 import OtherSinglePost from "./views/OtherSinglePost.js";
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
+import Logout from "./views/Logout.js";
 import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
 import MySinglePost from "./views/MySinglePost.js";
@@ -55,7 +56,7 @@ const router = async() => {
 
     //GET AUTH & ADMIN VALIDATION FROM LOCAL STORAGE
     let auth = sessionStorage.getItem("id")
-    let admin = sessionStorage.getItem("admin")
+    let admin = sessionStorage.getItem("is_admin")
 
     //ROUTES AVAILABLE IF NOT LOGGED IN
     let routes = [
@@ -72,12 +73,14 @@ const router = async() => {
             { path: "/profile", view: Home },
             { path: "/signin", view: SignIn },
             { path: "/signup", view: SignUp },
+            { path: "/logout", view: Logout},
             { path: "/users/:userId/myposts", view: MyPosts},
             { path: "/posts/:id", view: OtherSinglePost },
             { path: "/users/:userId/posts/:postId", view: MySinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
-            { path: "/editpost/:postid", view: EditPost}, // this will need to be "/:userId/editpost/:postid"
+            { path: "/editpost/:postid", view: EditPost},
+             // this will need to be "/:userId/editpost/:postid"
         ])
 
         //ROUTES ALSO AVAILABLE IF LOGGED IN && ADMIN

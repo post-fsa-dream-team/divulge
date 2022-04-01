@@ -63,7 +63,13 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: white
+  color: white;
+}
+
+nav ul li button {
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
 }
 
 nav ul li:hover {

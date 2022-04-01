@@ -53,6 +53,7 @@ export default class extends AbstractView {
                 for (let i in data) {
                     if(`${i}` !== "password") // -------> save everything except for password
                     window.sessionStorage.setItem(`${i}`, `${data[i]}`);
+                    window.location.replace("/home")
                 }
             })
 
