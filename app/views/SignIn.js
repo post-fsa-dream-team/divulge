@@ -53,24 +53,22 @@ export default class extends AbstractView {
                 for (let i in data) {
                     if(`${i}` !== "password") // -------> save everything except for password
                     window.sessionStorage.setItem(`${i}`, `${data[i]}`);
+                    window.location.replace("/home")
                 }
             })
-
-            // .then(response => {
-            //     // HTTP 301 response
-            //     // HOW CAN I FOLLOW THE HTTP REDIRECT RESPONSE?
-            //     if (response.redirected) {
-            //         window.location.href = "http://localhost:3000/home";
-            //     }
-            // })
         } catch (error) {
             console.log(error)
         }
     }
 
     async getHtml() {
-        return `
-        ${Navbar()}
+        let loggedIn = !!sessionStorage.getItem("id")
+
+        if (loggedIn) {
+            window.location.replace("/home")
+        }
+        else {
+        return `${Navbar()}
         <div class='signin'>
         <div class='signin__container'>
             <div class='signin__left'>
@@ -94,7 +92,7 @@ export default class extends AbstractView {
             </div>
         </div>
     </div>
-        `;
+        `}
     }
     async postRender() {
         const form = document.getElementById('signinform');
@@ -126,4 +124,5 @@ export default class extends AbstractView {
         });
 
     }
+
 }

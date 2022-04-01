@@ -21,17 +21,8 @@ export default class extends AbstractView {
     }
   }
 
-  // async getUserData() {
-  //   const response = await fetch("http://localhost:3000/api/loggedindata")
-  //   return response
-  // }
-
   async getHtml() {
-    console.log(this.state);
     let posts = await this.getData();
-    // let userData = await(this.getUserData())
-    // console.log(userData)
-
 
     return `
       ${Navbar()}

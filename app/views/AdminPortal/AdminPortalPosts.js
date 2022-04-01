@@ -28,8 +28,8 @@ export default class extends AbstractView {
     }
 
     return `
-    ${AdminSideNav}
-    ${Navbar}
+    ${AdminSideNav()}
+    ${Navbar()}
     <h2 class="other-posts-title">ADMIN PORTAL > USERS</h2>
     <table class="admin-portal-posts-table">
       <thead>

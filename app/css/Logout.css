@@ -1,0 +1,64 @@
+
+#logout-body {
+  height:  100vh;
+  background: linear-gradient(white, white, white, #0b5b6d);
+  background-size: cover;
+}
+
+#logout-container {
+  margin-top: 100px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: [first] 20px [second] 120px [third] 10px [fourth] 120px [last] 20px;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+
+   "title title title title title"
+   "image image image image image"
+   "main-text main-text main-text main-text main-text"
+   ". logout-button . back-home-button ."
+
+}
+
+#logout-image {
+  grid-area: image;
+  width: 400px;
+  border-radius: 5px;
+}
+
+#logout-title {
+  grid-area: title;
+  margin-bottom: 2
+}
+
+#main-text {
+  grid-area: main-text;
+  margin-top: 70px;
+  margin-bottom: 0
+}
+
+#logout-button {
+  grid-area: logout-button;
+  padding: 5px;
+  color: white;
+  background-color: #0b5b6d;
+  border: #0b5b6d 1px solid;
+}
+
+#back-home-button {
+  grid-area: back-home-button;
+  padding: 5px
+}
+
+#logout-button:hover {
+  color: #0b5b6d;
+  background-color: white;
+  border: #0b5b6d 1px solid;
+}
+
+#back-home-button:hover {
+  background-color: white;
+  border: black 1px solid;
+}

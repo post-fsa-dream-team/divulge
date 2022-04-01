@@ -10,8 +10,8 @@ export default class extends AbstractView {
 
   async getHtml() {
     return `
-      ${AdminSideNav}
-      ${Navbar}
+      ${AdminSideNav()}
+      ${Navbar()}
       <h2 class="other-posts-title">ADMIN PORTAL</h2>
       `
   }

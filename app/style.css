@@ -11,6 +11,7 @@
 @import '/app/css/AdminSideNav.css';
 @import '/app/css/AdminPortalUsers.css';
 @import '/app/css/AdminPortalPosts.css';
+@import '/app/css/Logout.css' ;
 
 body {
     font-family: 'Mulish', sans-serif;
