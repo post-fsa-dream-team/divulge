@@ -4,6 +4,7 @@ const Navbar = () => {
   let admin = sessionStorage.getItem("admin")
   console.log(!admin)
   console.log("this is navbar")
+  const userId = sessionStorage.getItem('id');
 
   if (!admin) {
     return `<nav class="nav-bar">
@@ -23,7 +24,7 @@ const Navbar = () => {
       <ul class="nav-items">
         <li><a href="/home" class="nav-link" data-link>Home</a></li>
         <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-        <li><a href="/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
+        <li><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
         <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
         <li><a href="/signup" class="nav-link" data-link>Sign Up</a></li>
       </ul>
@@ -49,7 +50,7 @@ const Navbar = () => {
         <li><a href="/adminportal" id="admin-portal-link" class="nav-link" data-link>Admin Portal</a></li>
         <li><a href="/home" class="nav-link" data-link>Home</a></li>
         <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-        <li><a href="/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
+        <li><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
         <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
         <li><a href="/signup" class="nav-link" data-link>Sign Up</a></li>
       </ul>
