@@ -56,14 +56,6 @@ export default class extends AbstractView {
                     window.location.replace("/home")
                 }
             })
-
-            // .then(response => {
-            //     // HTTP 301 response
-            //     // HOW CAN I FOLLOW THE HTTP REDIRECT RESPONSE?
-            //     if (response.redirected) {
-            //         window.location.href = "http://localhost:3000/home";
-            //     }
-            // })
         } catch (error) {
             console.log(error)
         }
