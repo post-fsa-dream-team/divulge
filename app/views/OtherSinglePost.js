@@ -9,12 +9,15 @@ export default class extends AbstractView {
     this.setTitle("OtherSinglePost");
     this.postId = params.id;
     this.deletePost = new DeletePost(params.id);
+    this.sessionId = sessionStorage.getItem('id');
+    this.postData = [];
   }
 
   async getData (id) {
     try {
       const response = await fetch(`http://localhost:3000/api/posts/${id}`)
       const data = await response.json()
+      this.postData = data[0];
       return data
     } catch (error) {
       console.log(error)
@@ -38,7 +41,10 @@ export default class extends AbstractView {
 
     const protocol = document.location.protocol;
     const host = document.location.host;
-    const url = `${protocol}//${host}/editpost/${this.postId}`; // will need to change this once code is refactored
+    const url = `${protocol}//${host}/editpost/${this.postId}`; // may need to change this once code is refactored
+    const displayDeleteEdit = parseInt(this.sessionId) === post.user_id ?
+        `<div id="button-containers"><a id="edit-link" href="${url}">Edit</a>${this.deletePost.render()}</div>` :
+        `<div></div>`;
 
     return `
     ${Navbar()}
@@ -52,13 +58,12 @@ export default class extends AbstractView {
         <div class="single-other-post-username">${post.user_name}</div>
         <img class="single-other-post-img" src="${post.image_url}"/>
         <div class="single-other-post-content">${post.content}</div>
-        ${this.deletePost.render()}
-        <a href="${url}">Edit</a>
+        ${displayDeleteEdit}
       </div>
 
     `
   }
   async postRender() {
-    this.deletePost.script();
+    parseInt(this.sessionId) === this.postData.user_id && this.deletePost.script();
   }
 }

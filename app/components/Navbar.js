@@ -5,9 +5,10 @@ const Navbar = () => {
   let admin = sessionStorage.getItem("is_admin")
   let user = sessionStorage.getItem("id")
   console.log("this is navbar")
+  const userId = sessionStorage.getItem('id');
 
 
-  if (!admin && user) {
+  if (admin !== true && user) {
     return `<nav class="nav-bar">
     <div class="title-container">
       <div id="site-title">
@@ -25,7 +26,7 @@ const Navbar = () => {
       <ul class="nav-items">
         <li><a href="/home" class="nav-link" data-link>Home</a></li>
         <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-        <li><a href="/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
+        <li><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
         <li><a href="/logout" class="nav-link">Logout</a></li>
       </ul>
     </div>
@@ -50,7 +51,7 @@ const Navbar = () => {
         <li><a href="/adminportal" id="admin-portal-link" class="nav-link" data-link>Admin Portal</a></li>
         <li><a href="/home" class="nav-link" data-link>Home</a></li>
         <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-        <li><a href="/createpost" class="nav-link" data-link>Create Post</a></li>
+        <li><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
         <li><a href="/logout" class="nav-link">Logout</a></li>
       </ul>
     </div>

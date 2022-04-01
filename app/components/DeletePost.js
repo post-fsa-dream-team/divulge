@@ -14,9 +14,7 @@ class DeletePost {
   }
 
   render() {
-    return (`
-      <button id="delete-button" type="button">Delete</button>
-    `);
+    return (`<button id="delete-button" class="edit-delete" type="button">Delete</button>`);
   }
 
   async script() {
