@@ -70,9 +70,13 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
+        let loggedIn = !!sessionStorage.getItem("id")
 
-        return `
-        ${Navbar()}
+        if (loggedIn) {
+            window.location.replace("/home")
+        }
+        else {
+        return `${Navbar()}
         <div class='signin'>
         <div class='signin__container'>
             <div class='signin__left'>
@@ -96,7 +100,7 @@ export default class extends AbstractView {
             </div>
         </div>
     </div>
-        `;
+        `}
     }
     async postRender() {
         const form = document.getElementById('signinform');
