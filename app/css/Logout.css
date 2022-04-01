@@ -1,4 +1,10 @@
 
+#logout-body {
+  height:  100vh;
+  background: linear-gradient(white, white, white, #0b5b6d);
+  background-size: cover;
+}
+
 #logout-container {
   margin-top: 100px;
   display: grid;
@@ -19,24 +25,26 @@
 #logout-image {
   grid-area: image;
   width: 400px;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
 #logout-title {
   grid-area: title;
+  margin-bottom: 2
 }
 
 #main-text {
   grid-area: main-text;
-  margin-top: 40px;
+  margin-top: 70px;
+  margin-bottom: 0
 }
 
 #logout-button {
   grid-area: logout-button;
   padding: 5px;
   color: white;
-  background-color: teal;
-  border: teal 1px solid;
+  background-color: #0b5b6d;
+  border: #0b5b6d 1px solid;
 }
 
 #back-home-button {

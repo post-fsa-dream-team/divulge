@@ -9,6 +9,7 @@ export default class extends AbstractView {
   async getHtml() {
     return`
       ${Navbar()}
+      <div id="logout-body">
       <div id="logout-container">
 
       <h1 id="logout-title">Logout</h1>
@@ -16,6 +17,7 @@ export default class extends AbstractView {
       <p id="main-text">Are you sure you'd like to logout?</p>
       <button id="logout-button">Yes, log me out!</button>
       <button id="back-home-button">Nah, return home.</button>
+      </div>
       </div>
       `
   }
