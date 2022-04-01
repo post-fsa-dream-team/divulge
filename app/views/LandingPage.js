@@ -21,8 +21,8 @@ export default class extends AbstractView {
 
 
     return `
-      ${Navbar}
-      ${SideNav}
+      ${Navbar()}
+      ${SideNav()}
       `
   }
 
