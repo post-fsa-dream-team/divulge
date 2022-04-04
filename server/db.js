@@ -40,10 +40,11 @@ const createTables = async () => {
         last_name VARCHAR(128) NOT NULL,
         email VARCHAR(128) NOT NULL,
         password VARCHAR NOT NULL,
-        birth_date DATE NOT NULL,
-        location VARCHAR(128) NOT NULL,
-        created_at TIMESTAMP NOT NULL DEFAULT now(),
-        last_login TIMESTAMP NOT NULL DEFAULT now()
+        birth_date DATE,
+        location VARCHAR(128),
+        created_at TIMESTAMP DEFAULT now(),
+        last_login TIMESTAMP DEFAULT now(),
+        is_admin BOOLEAN
       )`;
   try {
     const res = await pool.query(testTable1);
@@ -85,10 +86,10 @@ const createFk = () => {
     });
 }
 
-pool.on('remove', () => {
-  console.log('client removed');
-  process.exit(0);
-});
+// pool.on('remove', () => {
+//   console.log('client removed');
+//   process.exit(0);
+// });
 
 
 //export pool and createTables to be accessible  from an where within the application

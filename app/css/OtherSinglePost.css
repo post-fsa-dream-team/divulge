@@ -1,0 +1,118 @@
+.single-other-post-container {
+  display: grid;
+  justify-items: start;
+  justify-content: start;
+  margin-top: 100px;
+  margin-left: 30px;
+  padding: 10px;
+  margin-left: 250px;
+
+  grid-template-columns: [first] 10px [second] 20px [third] 45% [fourth] 45% [fifth] 10px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "username username username . ."
+    "dateAndRead dateAndRead dateAndRead . ."
+    "title title title title title"
+    ". image image image ."
+    "main main main main main";
+
+  /* background-color: rgb(200, 222, 225);
+  box-shadow: 2px 2px 2px rgb(117, 166, 172);
+  border: rgb(189, 206, 208) solid 1px;
+  border-radius: 2px; */
+}
+
+.single-other-post-img {
+  grid-area: image;
+  max-width: 80vh;
+  padding-bottom: 30px;
+}
+
+.single-other-post-title {
+  grid-area: title;
+  font-family: 'Libre Franklin', sans-serif;
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.single-other-post-username {
+  grid-area: username;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 16px;
+}
+
+.single-other-date-and-read {
+  grid-area: dateAndRead;
+  margin-bottom: 25px;
+}
+
+.single-other-post-date {
+  grid-area: date;
+  margin-bottom: 20px;
+  color: rgb(121, 118, 118);
+  font-size: 14px;
+}
+
+.single-other-post-min-read {
+  grid-area: minRead;
+  margin-bottom: 20px;
+  color: rgb(121, 118, 118);
+  font-size: 14px;
+}
+
+.single-other-post-content {
+  grid-area: main;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+#button-containers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+
+#delete-button {
+  color: red;
+  text-decoration: underline;
+  background-color: transparent;
+  width: 65px;
+  margin: 0px;
+}
+#delete-button:hover {
+  color: white;
+  background-color: red;
+}
+
+#edit-link {
+  text-decoration: underline;
+  color: blue;
+  width: 65px;
+  text-align: center;
+  font-size: 13px;
+  padding: 4.5px;
+}
+
+#edit-link:hover {
+  color: white;
+  background-color: blue;
+  border-radius: 6px;
+  text-align: center;
+  padding: 4.5px;
+
+}
+
+/* #edit-button {
+  text-decoration: underline;
+  background-color: transparent;
+  width: 65px;
+} */
+
+/* #edit-button:hover {
+  background-color: blue;
+} */
+

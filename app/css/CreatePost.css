@@ -1,0 +1,71 @@
+#create-post-container {
+  background: linear-gradient(white, white, #0b5b6d);
+  min-height: 100vh;
+  justify-content: center;
+}
+
+#post-content {
+  margin-top: 100px;
+  margin-left: 20%;
+  /* background-image: url('notebookpaper.png');
+  background-size: 950px 1100px; */
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  margin: 10px 0;
+}
+
+#text-editor-form button {
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#output {
+  width: 700px;
+  height: 600px;
+  border: 1px solid, #111;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.inputField {
+  width: 700px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid, #111;
+}
+
+#input-title{
+  font-size: 20px;
+}
+
+#input-imageUrl {
+  font-size: 15px;
+}
+
+#post-category {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#submit-button {
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 50px;
+}

@@ -7,8 +7,8 @@ describe ("the letterCount function", () => {
 })
 
 
-// const posts = require("../server/api/posts")
-// const router = require("../server/api/posts")
+const posts = require("../server/api/posts")
+const router = require("../server/api/posts")
 
 // describe("Users API endpoint test suite", () => {
 //   it('GET request returns an array', async () => {

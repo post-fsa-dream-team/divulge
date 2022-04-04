@@ -1,0 +1,33 @@
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+  padding-top: 60px;
+  padding-left: 30px;
+  position: fixed;
+  height: 100vh;
+  width: 190px;
+  /* background: #0b5b6d; */
+  /* background-color: rgb(255, 153, 0); */
+  /* background: linear-gradient(rgb(255, 153, 0), rgb(255, 47, 0)); */
+  /* background: linear-gradient(rgb(255, 180, 69),#ffa723, rgb(252, 78, 39)); */
+  /* background: linear-gradient(#0b5b6d, #0b5b6d, rgb(255, 180, 69),rgb(255, 180, 69)); */
+  background: linear-gradient(white, #ee9802);
+}
+
+.admin-nav-link{
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 18px;
+  padding-bottom: 20px;
+  padding-left: 2px;
+  text-decoration: none;
+  display: block;
+  text-decoration: none;
+  /* color: white; */
+  color: black;
+}
+
+nav a:hover {
+  color: rgb(245, 194, 66)
+}

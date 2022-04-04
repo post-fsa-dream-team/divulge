@@ -1,0 +1,77 @@
+/* Home Styles */
+
+#home-title {
+  font-family: 'Libre Franklin', sans-serif;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 30px
+}
+
+/* Title Console Text */
+.console-container {
+  /* margin: auto; */
+  width: 695px;
+  display:flex;
+  align-items: center;
+  align-content: center;
+  padding-left: 20px;
+  margin-top: 25vh;
+  margin-bottom: 10vh;
+  background-color: black;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  margin-left: 250px;
+}
+
+/* #title-line {
+  width: 200px;
+} */
+
+hr {
+  width: 400px;
+  align-items: left;
+  height: 2px;
+  border: none;
+  margin-left: 20px;
+  /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
+  /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
+  /* background:rgb(255, 172, 49); */
+  background: white;
+}
+
+.text-typing {
+  font-family: 'Libre Franklin', sans-serif;
+  /* text-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
+  /* text-shadow: 2px 2px 2px white; */
+  /* text-shadow: 2px 2px 2px rgb(255, 172, 49); */
+  color: white;
+  padding: 10px;
+  font-size: 10vh;
+  margin: 0px;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  padding-left: 10px
+}
+
+.text-typing p {
+  margin: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+
+@keyframes blink {
+  0%,100% {
+    border-right: 2px solid transparent;
+  }
+  50% {
+    border-right: 2px solid white;
+  }
+}
