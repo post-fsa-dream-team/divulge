@@ -16,10 +16,11 @@ const Navbar = () => {
       </div>
     </div>
 
-    <a href="#" class="toggle-button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+    <a href="#" class="hamburger-menu">
+      <input type="checkbox"/>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </a>
 
     <div class="nav-links">
@@ -40,7 +41,7 @@ const Navbar = () => {
       </div>
     </div>
 
-    <a href="#" class="toggle-button">
+    <a href="#" class="hamburger-menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -66,7 +67,7 @@ const Navbar = () => {
       </div>
     </div>
 
-    <a href="#" class="toggle-button">
+    <a href="#" class="hamburger-menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
