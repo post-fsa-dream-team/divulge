@@ -46,12 +46,7 @@ export default class extends AbstractView {
     // ${Navbar()}
     // ${SideNav()}
     let userInfo = await this.getMyProfile();
-    let myPosts = await this.getMyPosts(userInfo.id)
-    /**{
-category, content,
-image_url
-     */
-    console.log("myPosts", myPosts);
+    let myPosts = await this.getMyPosts(3)
     return `
     <div>My Profile</div>
     <div>${userInfo.user_name}</div>
@@ -63,7 +58,7 @@ image_url
     <div>${userInfo.created_at}</div>
     <div>${userInfo.last_login}</div>
     <div>My Posts
-    ${(userInfo.id === myPosts.user_id) ?
+    ${userInfo.id === myPosts.user_id ?
         `${myPosts.map(post => {
           return `
           <div>${post.title}</div>
