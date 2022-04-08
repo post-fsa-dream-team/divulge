@@ -1,0 +1,18 @@
+.landingpage__header {
+  background-color: #FFC017;
+}
+
+.landingpage__header #nav{
+display: flex;
+}
+
+.landingpage__short #highlight {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.landingpage__infinitescroll {
+  display: flex;
+}

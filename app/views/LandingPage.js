@@ -21,20 +21,30 @@ export default class extends AbstractView {
 
 
     // ${SideNav}
+    // ${ Navbar }
     return `
-    ${ Navbar }
     <div class="landingpage__header">
+      <div id="nav">
+        <h1>Divulge</h1>
+        <p>Our Story</p>
+        <p>Membership</p>
+        <p>Write</p>
+        <p>Sign In</p>
+        <p>Sign Up</p>
+      </div>
       <h1>Stay curious.</h1>
       <p>Discover stories, thinking and expertise from writers on any topic.</p>
       <button>Start reading</button>
     </div>
     <div class="landingpage__short">
       <p>Trending on Medium</p>
-      <p>Story 1</p>
-      <p>Story 2</p>
-      <p>Story 3</p>
-      <p>Story 4</p>
-      <p>Story 5</p>
+      <div id="highlight">
+        <p>Story 1</p>
+        <p>Story 2</p>
+        <p>Story 3</p>
+        <p>Story 4</p>
+        <p>Story 5</p>
+      </div>
     </div>
     <div class="landingpage__infinitescroll">
       <div class="landingpage__scrollstory>
