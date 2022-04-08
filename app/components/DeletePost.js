@@ -25,7 +25,7 @@ class DeletePost {
       await deletePost(postId);
       const protocol = document.location.protocol;
       const host = document.location.host
-      window.location.replace(`${protocol}//${host}/home`);
+      window.location.replace(`${protocol}//${host}/profile`);
     });
   }
 }
