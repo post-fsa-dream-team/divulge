@@ -167,7 +167,7 @@ export default class extends AbstractView {
       // category.value = 'none';
       const protocol = document.location.protocol;
       const host = document.location.host
-      window.location.replace(`${protocol}//${host}/home`);
+      window.location.replace(`${protocol}//${host}/profile`);
     });
 
     // Text Editor Bar Code
