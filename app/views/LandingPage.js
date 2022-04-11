@@ -11,32 +11,30 @@ export default class extends AbstractView {
 
   async getPosts() {
     try {
-      const data = await fetch("https://jsonplaceholder.typicode.com/posts").then(function (response) {
-        if(response.ok) {
-          return response.json()
-        } else {
-          return Promise.reject(response);
-        };
-      }).then(data => {
-        console.log(data);
-      }).catch(error => {
-        console.log(error);
-      });
-      return data;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'medium2.p.rapidapi.com',
+          'X-RapidAPI-Key': '536db59dfbmshc9f83e26eea07ffp15ca2ejsn6bd8fbc9fad7'
+        }
+      };
+
+     const response = await fetch('https://medium2.p.rapidapi.com/latestposts/blockchain', options)
+     const data = await response.json()
+     console.log("data", data);
+     return data;
     } catch (error) {
       console.log('CANNOT SEE DATA', error)
     }
   }
 
   async getHtml() {
-    let posts = await this.getPosts();
-    console.log(posts);
+    // let posts = await this.getPosts();
+    // console.log("posts", posts);
     let admin = sessionStorage.getItem("is_admin")
     let user = sessionStorage.getItem("id")
     console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
-    // ${SideNav}
-    // ${ Navbar }
     let navContent = ["Our Story", "Membership", "Write"]
     return `
     <div class="landingpage">
@@ -44,16 +42,16 @@ export default class extends AbstractView {
         <div id="nav">
           <h2 href="/home">Divulge</h2>
           <div id="nav__content">
-            <span>Our Story</span>
-            <span>Membership</span>
-            <span>Write</span>
-            <span><a href="/signin" class="nav-link">Sign In</a></span>
-            <span><a href="/signup" class="nav-link">Get Started</a></span>
+            <span><a>Our Story</a></span>
+            <span><a>Membership</a></span>
+            <span><a>Write</a></span>
+            <span><a href="/signin">Sign In</a></span>
+            <button onclick="location.href='/signup'">Get Started</button>
           </div>
         </div>
         <h1>Stay curious.</h1>
         <h2>Discover stories, thinking and expertise from writers on any topic.</h2>
-        <button><a href="/signin" class="nav-link">Start Reading</a></button>
+        <button onclick="location.href='/signin'">Start Reading</button>
       </div>
       <div class="landingpage__short">
         <p>Trending on Medium</p>

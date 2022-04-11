@@ -26,6 +26,7 @@
   border-color: black;
   border-width: 1px;
   display: flex;
+  flex-direction: row;
   padding: 30px 0 0 0;
 }
 
@@ -60,20 +61,47 @@
 }
 
 .landingpage button {
-  background-color: #4CAF50; /* Green */
-  border: 2px solid #555555;
-  color: black;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
+  align-items: center;
+  background-color: black;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
   cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
 }
 
-.landingpage button {
-  background-color: #555555;
-  color: white;
+.landingpage button:hover,
+.landingpage button:focus {
+  background-color: rgb(28, 36, 96);
+  color: #ffffff;
+}
+
+.landingpage button:active {
+  background: rgb(28, 36, 96);
+  color: rgb(255, 255, 255, .7);
+}
+
+.landingpage button:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
 }
