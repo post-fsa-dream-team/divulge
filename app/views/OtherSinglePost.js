@@ -48,7 +48,7 @@ export default class extends AbstractView {
 
     return `
     ${Navbar()}
-    ${SideNav}
+    ${SideNav()}
       <div class='single-other-post-container'>
         <div class="single-other-date-and-read">
           <span class="single-other-post-date">${convertDate(post.created_at)}</span>
