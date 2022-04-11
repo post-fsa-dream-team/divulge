@@ -31,7 +31,10 @@ export default class extends AbstractView {
   async getHtml() {
     let posts = await this.getPosts();
     console.log(posts);
-
+    let admin = sessionStorage.getItem("is_admin")
+    let user = sessionStorage.getItem("id")
+    console.log("this is navbar")
+    const userId = sessionStorage.getItem('id');
     // ${SideNav}
     // ${ Navbar }
     let navContent = ["Our Story", "Membership", "Write"]
@@ -39,18 +42,18 @@ export default class extends AbstractView {
     <div class="landingpage">
       <div class="landingpage__header">
         <div id="nav">
-          <h1>Divulge</h1>
+          <h2 href="/home">Divulge</h2>
           <div id="nav__content">
             <span>Our Story</span>
             <span>Membership</span>
             <span>Write</span>
-            <span>Sign In</span>
-            <span>Sign Up</span>
+            <span><a href="/signin" class="nav-link">Sign In</a></span>
+            <span><a href="/signup" class="nav-link">Get Started</a></span>
           </div>
         </div>
         <h1>Stay curious.</h1>
-        <p>Discover stories, thinking and expertise from writers on any topic.</p>
-        <button>Start reading</button>
+        <h2>Discover stories, thinking and expertise from writers on any topic.</h2>
+        <button><a href="/signin" class="nav-link">Start Reading</a></button>
       </div>
       <div class="landingpage__short">
         <p>Trending on Medium</p>
