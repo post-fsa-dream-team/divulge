@@ -64,6 +64,7 @@
 
 .single-other-post-content {
   grid-area: main;
+  font-family: 'PT Serif', serif;
   margin-bottom: 20px;
   font-size: 16px;
 }
