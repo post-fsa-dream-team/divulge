@@ -19,10 +19,10 @@ export default class extends AbstractView {
         }
       };
 
-     const response = await fetch('https://medium2.p.rapidapi.com/latestposts/blockchain', options)
-     const data = await response.json()
-     console.log("data", data);
-     return data;
+      const response = await fetch('https://medium2.p.rapidapi.com/latestposts/blockchain', options)
+      const data = await response.json()
+      console.log("data", data);
+      return data;
     } catch (error) {
       console.log('CANNOT SEE DATA', error)
     }
@@ -38,33 +38,36 @@ export default class extends AbstractView {
     let navContent = ["Our Story", "Membership", "Write"]
     return `
     <div class="landingpage">
-      <div class="landingpage__header">
-        <div id="nav">
-          <h2 href="/home">Divulge</h2>
-          <div id="nav__content">
-            <span><a>Our Story</a></span>
-            <span><a>Membership</a></span>
-            <span><a>Write</a></span>
-            <span><a href="/signin">Sign In</a></span>
-            <button onclick="location.href='/signup'">Get Started</button>
-          </div>
+    <div class="landingpage__header">
+      <div id="nav">
+        <h2><a href="/home">Divulge</a></h2>
+        <div id="nav__content">
+          <span><a>Our Story</a></span>
+          <span><a>Membership</a></span>
+          <span><a>Write</a></span>
+          <span><a href="/signin">Sign In</a></span>
+          <span><a href="/signup">Get Started</a></span>
         </div>
+      </div>
+      <div id="headline">
         <h1>Stay curious.</h1>
         <h2>Discover stories, thinking and expertise from writers on any topic.</h2>
         <button onclick="location.href='/signin'">Start Reading</button>
       </div>
-      <div class="landingpage__short">
-        <p>Trending on Medium</p>
-        <div id="highlight">
-          <p>Story 1</p>
-          <p>Story 2</p>
-          <p>Story 3</p>
-          <p>Story 4</p>
-          <p>Story 5</p>
-        </div>
+    </div>
+    <div class="landingpage__content">
+    <div class="landingpage__short">
+      <p>Trending on Medium</p>
+      <div id="highlight">
+        <p>Story 1</p>
+        <p>Story 2</p>
+        <p>Story 3</p>
+        <p>Story 4</p>
+        <p>Story 5</p>
       </div>
+    </div>
       <div class="landingpage__infinitescroll">
-        <div class="landingpage__scrollstory>
+        <div class="landingpage__scrollstory">
           <p>Writer's name</p>
           <h1>Title</h1>
           <h2>This is a summary</h2>
@@ -72,7 +75,7 @@ export default class extends AbstractView {
           <p>Reading Time</p>
           <p>tags</p>
           <p>Save</p>
-          <img/>
+          <img />
         </div>
         <div class="landingpage__stickyright">
           <h1>Discover more of what matters to you</h1>
@@ -82,7 +85,6 @@ export default class extends AbstractView {
           <p>Tag 4</p>
           <p>Tag 5</p>
           <p>Tag 6</p>
-          <br>
           <div class="landingpage__helper">
             <p>Help</p>
             <p>Status</p>
@@ -97,6 +99,7 @@ export default class extends AbstractView {
         </div>
       </div>
     </div>
+  </div>
     `
   }
 
@@ -104,3 +107,4 @@ export default class extends AbstractView {
   }
 
 }
+

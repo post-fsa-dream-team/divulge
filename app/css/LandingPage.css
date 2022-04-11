@@ -1,6 +1,5 @@
 .landingpage {
   background-color:aliceblue;
-  padding: 0 10% 0 10%;
 
 }
 .landingpage__header {
@@ -8,6 +7,7 @@
   border-style: solid;
   border-color: black;
   border-width: 1px;
+  padding: 0 10% 0 10%;
 }
 
 .landingpage__header #nav{
@@ -21,17 +21,21 @@
 }
 
 .landingpage__header #nav__content {
-  background-color: #FFC017;
+  background-color: white;
   border-style: solid;
   border-color: black;
   border-width: 1px;
   display: flex;
   flex-direction: row;
-  padding: 30px 0 0 0;
+  align-content: center;
+  justify-content: center;
+  padding: 30px 0 30px 0;
+  margin-left: 30px;
 }
 
 .landingpage__header span {
   margin-left: 30px;
+  align-self: center;
 }
 
 .landingpage__header h1 {
@@ -43,7 +47,14 @@
 .landingpage__header a:link {
   text-decoration: none;
 }
+.landingpage__header #headline {
+  margin: 10% 0 10% 0;
+}
 
+.landingpage__content {
+  margin: 0 10% 0 10%;
+
+}
 .landingpage__short #highlight {
   display: flex;
   border-style: solid;
@@ -51,6 +62,7 @@
   border-width: 1px;
   flex-direction: row;
   flex-wrap: wrap;
+
 }
 
 .landingpage__infinitescroll {
