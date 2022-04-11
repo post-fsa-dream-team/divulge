@@ -56,28 +56,30 @@ export default class extends AbstractView {
       </div>
     </div>
     <div class="landingpage__content">
-    <div class="landingpage__short">
-      <p>Trending on Medium</p>
-      <div id="highlight">
+    <div id="highlight">
+      <p>Trending on Divulge</p>
+      <div id="highlightcontent">
         <p>Story 1</p>
         <p>Story 2</p>
         <p>Story 3</p>
         <p>Story 4</p>
         <p>Story 5</p>
+        <p>Story 6</p>
       </div>
     </div>
       <div class="landingpage__infinitescroll">
-        <div class="landingpage__scrollstory">
+        <div id="scrollstory">
           <p>Writer's name</p>
           <h1>Title</h1>
           <h2>This is a summary</h2>
+          <div id="action">
           <p>MM/YYYY</p>
           <p>Reading Time</p>
           <p>tags</p>
           <p>Save</p>
-          <img />
+          </div>
         </div>
-        <div class="landingpage__stickyright">
+        <div id="stickyright">
           <h1>Discover more of what matters to you</h1>
           <p>Tag 1</p>
           <p>Tag 2</p>
@@ -85,7 +87,7 @@ export default class extends AbstractView {
           <p>Tag 4</p>
           <p>Tag 5</p>
           <p>Tag 6</p>
-          <div class="landingpage__helper">
+          <div id="helper">
             <p>Help</p>
             <p>Status</p>
             <p>Writers</p>

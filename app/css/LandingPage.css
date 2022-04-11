@@ -7,17 +7,17 @@
   border-style: solid;
   border-color: black;
   border-width: 1px;
-  padding: 0 10% 0 10%;
 }
 
 .landingpage__header #nav{
-  background-color: blanchedalmond;
+  background-color: transparent;
   border-style: solid;
   border-color: black;
   border-width: 1px;
   display: flex;
   justify-content: space-between;
   align-self: center;
+  padding: 0 10% 0 10%;
 }
 
 .landingpage__header #nav__content {
@@ -48,30 +48,55 @@
   text-decoration: none;
 }
 .landingpage__header #headline {
-  margin: 10% 0 10% 0;
+  margin: 8% 0 8% 0;
+  padding: 0 10% 0 10%;
 }
 
 .landingpage__content {
-  margin: 0 10% 0 10%;
+
 
 }
-.landingpage__short #highlight {
-  display: flex;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  flex-direction: row;
-  flex-wrap: wrap;
 
+.landingpage__content p {
+  text-transform: uppercase;
+  font-weight: bold;
 }
+
+.landingpage__content #highlight {
+  padding: 0 10% 0 10%;
+}
+.landingpage__content #highlightcontent {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: yellow;
+}
+
 
 .landingpage__infinitescroll {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-style: solid;
   border-color: black;
   border-width: 1px;
-}
+  padding: 0 10% 0 10%;
 
+}
+.landingpage__infinitescroll #scrollstory {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+}
+.landingpage__infinitescroll #scrollstory #action {
+  display: flex;
+  flex-direction: row;
+}
+.landingpage__infinitescroll #stickyright {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
 .landingpage button {
   align-items: center;
   background-color: black;
@@ -90,9 +115,7 @@
   min-height: 40px;
   min-width: 0px;
   overflow: hidden;
-  padding: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 40px 0 40px;
   text-align: center;
   touch-action: manipulation;
   transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
