@@ -11,15 +11,15 @@ export default class extends AbstractView {
 
   async getPosts() {
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Host': 'medium2.p.rapidapi.com',
-          'X-RapidAPI-Key': '536db59dfbmshc9f83e26eea07ffp15ca2ejsn6bd8fbc9fad7'
-        }
-      };
+      // const options = {
+      //   method: 'GET',
+      //   headers: {
+      //     'X-RapidAPI-Host': 'medium2.p.rapidapi.com',
+      //     'X-RapidAPI-Key': '536db59dfbmshc9f83e26eea07ffp15ca2ejsn6bd8fbc9fad7'
+      //   }
+      // };
 
-      const response = await fetch('https://medium2.p.rapidapi.com/latestposts/blockchain', options)
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
       const data = await response.json()
       console.log("data", data);
       return data;
@@ -29,13 +29,16 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    // let posts = await this.getPosts();
-    // console.log("posts", posts);
+    let posts = await this.getPosts();
+    posts.slice(0, 6).map((post) => {console.log(post.title)})
     let admin = sessionStorage.getItem("is_admin")
     let user = sessionStorage.getItem("id")
     console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
-    let navContent = ["Our Story", "Membership", "Write"]
+    // let navContent = ["Our Story", "Membership", "Write"]
+    // ${posts.map((post, idx) => idx < 6).map(post => (
+    //   `<p>${posts.title}</p>`
+    // ))}
     return `
     <div class="landingpage">
     <div class="landingpage__header">
@@ -59,12 +62,12 @@ export default class extends AbstractView {
     <div id="highlight">
       <p>Trending on Divulge</p>
       <div id="highlightcontent">
-        <p>Story 1</p>
-        <p>Story 2</p>
-        <p>Story 3</p>
-        <p>Story 4</p>
-        <p>Story 5</p>
-        <p>Story 6</p>
+        <div id="contentdetails">
+          <p id="title">${posts[0].title}</p>
+        </div>
+        <div id="contentdetails">
+          <p id="title">${posts[2].title}</p>
+        </div>
       </div>
     </div>
       <div class="landingpage__infinitescroll">
