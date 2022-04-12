@@ -1,36 +1,42 @@
 .landingpage {
-  background-color:aliceblue;
-  padding: 0 10% 0 10%;
+  background-color:white;
 
 }
 .landingpage__header {
   background-color: #FFC017;
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 0 0 .1em 0;
 }
 
 .landingpage__header #nav{
-  background-color: blanchedalmond;
+  background-color: transparent;
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 0 0 .1em 0;
   display: flex;
   justify-content: space-between;
   align-self: center;
+  padding: 0 10% 0 10%;
 }
 
 .landingpage__header #nav__content {
-  background-color: #FFC017;
+  /* background-color: white;
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 1px; */
   display: flex;
-  padding: 30px 0 0 0;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  padding: 30px 0 30px 0;
+  margin-left: 30px;
 }
 
 .landingpage__header span {
+  padding-left: 0;
   margin-left: 30px;
+  align-self: center;
 }
 
 .landingpage__header h1 {
@@ -42,38 +48,133 @@
 .landingpage__header a:link {
   text-decoration: none;
 }
-
-.landingpage__short #highlight {
-  display: flex;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  flex-direction: row;
-  flex-wrap: wrap;
+.landingpage__header #headline {
+  margin: 8% 0 8% 0;
+  padding: 0 10% 0 10%;
 }
 
+.landingpage__content #highlight {
+  padding: 0 10% 0 10%;
+}
+.landingpage__content #highlightcontent {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* background-color: yellow; */
+  counter-reset: counter-name;
+}
+
+.landingpage__content #highlightcontent #contentdetails p::before {
+  counter-increment: counter-name;
+  content: '0' counter(counter-name) ' ';
+  font-size: 2em;
+  font-weight: bold;
+  left: -1em;
+  color: rgba(0, 0, 0, .08);
+
+}
+.landingpage__content #highlightcontent #contentdetails::after {
+  font-size: 4px;
+  text-transform: ca;
+}
 .landingpage__infinitescroll {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 0 0 .1em 0;
+  padding: 0 10% 0 10%;
+
+}
+.landingpage__infinitescroll #scrollstory {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+}
+.landingpage__infinitescroll #scrollstory #action {
+  display: flex;
+  flex-direction: row;
+}
+.landingpage__infinitescroll #stickyright {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: grid;
+  grid-gap: 3px;
 }
 
-.landingpage button {
-  background-color: #4CAF50; /* Green */
-  border: 2px solid #555555;
-  color: black;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
+#tags{
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#tags span {
+  border: 1px solid rgba(230, 230, 230, 1);
+  border-radius: 10%;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 6px 16px 6px 16px;
+  font-size: 14px;
+  color: rgb(158, 153, 153);
+}
+#helper {
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+
 }
 
+#helper span {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: rgb(158, 153, 153);
+}
 .landingpage button {
-  background-color: #555555;
-  color: white;
+  align-items: center;
+  background-color: black;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0 40px 0 40px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.landingpage button:hover,
+.landingpage button:focus {
+  background-color: rgb(28, 36, 96);
+  color: #ffffff;
+}
+
+.landingpage button:active {
+  background: rgb(28, 36, 96);
+  color: rgb(255, 255, 255, .7);
+}
+
+.landingpage button:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
 }
