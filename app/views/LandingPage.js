@@ -7,6 +7,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("LandingPage");
+    this.getPosts = this.getPosts.bind(this)
   }
 
   async getPosts() {
@@ -22,24 +23,19 @@ export default class extends AbstractView {
 
   async getHtml() {
     let posts = await this.getPosts();
-    posts.slice(0, 6).map((post) => {console.log(post.title)})
     let admin = sessionStorage.getItem("is_admin")
     let user = sessionStorage.getItem("id")
     console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
-    // let navContent = ["Our Story", "Membership", "Write"]
-    // ${posts.map((post, idx) => idx < 6).map(post => (
-    //   `<p>${posts.title}</p>`
-    // ))}
     return `
     <div class="landingpage">
     <div class="landingpage__header">
       <div id="nav">
         <h2><a href="/home">Divulge</a></h2>
         <div id="nav__content">
-          <span><a>Our Story</a></span>
+          <span><a href="/">Our Story</a></span>
           <span><a>Membership</a></span>
-          <span><a>Write</a></span>
+          <span><a href="/signin">Write</a></span>
           <span><a href="/signin">Sign In</a></span>
           <span><a href="/signup">Get Started</a></span>
         </div>
@@ -54,24 +50,11 @@ export default class extends AbstractView {
     <div id="highlight">
       <p><strong>Trending on Divulge</strong></p>
       <div id="highlightcontent">
-      <div id="contentdetails">
-        <p id="title">${posts[0].title}</p>
-      </div>
-      <div id="contentdetails">
-        <p id="title">${posts[2].title}</p>
-      </div>
-      <div id="contentdetails">
-        <p id="title">${posts[3].title}</p>
-      </div>
-      <div id="contentdetails">
-        <p id="title">${posts[4].title}</p>
-      </div>
-      <div id="contentdetails">
-        <p id="title">${posts[5].title}</p>
-      </div>
-      <div id="contentdetails">
-        <p id="title">${posts[6].title}</p>
-      </div>
+      ${posts.slice(0, 3).map(post => (
+        post !== undefined && `<div id="contentdetails">
+        <p id="title">${post.title}</p>
+      </div>`
+      ))}
       </div>
     </div>
       <div class="landingpage__infinitescroll">
