@@ -27,6 +27,7 @@ export default class extends AbstractView {
     let user = sessionStorage.getItem("id")
     console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
+    const category = ["News", "Technology", "Politics", "Crime", "Entertainment", "Fashion", "Sports"]
     return `
     <div class="landingpage">
     <div class="landingpage__header">
@@ -50,11 +51,11 @@ export default class extends AbstractView {
     <div id="highlight">
       <p><strong>Trending on Divulge</strong></p>
       <div id="highlightcontent">
-      ${posts.slice(0, 3).map(post => (
+      ${posts.slice(0, 6).map(post => (
         post !== undefined && `<div id="contentdetails">
         <p id="title">${post.title}</p>
       </div>`
-      ))}
+      )).join('')}
       </div>
     </div>
       <div class="landingpage__infinitescroll">
