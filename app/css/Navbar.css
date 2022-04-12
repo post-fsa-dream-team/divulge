@@ -8,7 +8,8 @@
   z-index: 150;
   top: 0;
   position: fixed;
-  box-shadow: 2px 2px 2px 2px #0b5b6d;
+  border-bottom: rgb(237, 237, 237) 1px solid
+  /* box-shadow: 2px 2px 2px 2px #0b5b6d; */
 }
 
 .title-container {
@@ -29,7 +30,9 @@
 
 #site-title a {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  /* color: #0b5b6d; */
+  color: black;
 }
 
 .nav-links {
@@ -45,8 +48,8 @@ nav {
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   margin: 0;
-  background-color: #0b5b6d;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .nav-links ul{
@@ -63,7 +66,8 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: black;
 }
 
 nav ul li button {

@@ -49,7 +49,7 @@ export default class extends AbstractView {
     return `
       ${Navbar()}
       ${SideNav()}
-      <h2 class="other-posts-title">Posts > ${capitalCase}</h2>
+
       ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
 
       `
@@ -58,3 +58,6 @@ export default class extends AbstractView {
   async postRender() {
   }
 }
+
+
+{/* <h2 class="other-posts-title">Posts > ${capitalCase}</h2> */}

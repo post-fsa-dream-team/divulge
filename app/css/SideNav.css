@@ -8,12 +8,13 @@
   position: fixed;
   height: 100vh;
   width: 190px;
-  /* background: #0b5b6d; */
+  background: white;
+  border-right: rgb(237, 237, 237) 1px solid;
   /* background-color: rgb(255, 153, 0); */
   /* background: linear-gradient(rgb(255, 153, 0), rgb(255, 47, 0)); */
   /* background: linear-gradient(rgb(255, 180, 69),#ffa723, rgb(252, 78, 39)); */
   /* background: linear-gradient(#0b5b6d, #0b5b6d, rgb(255, 180, 69),rgb(255, 180, 69)); */
-  background: linear-gradient(white, white, #0b5b6d);
+  /* background: linear-gradient(white, white, #0b5b6d); */
 }
 
 #categories {
@@ -48,9 +49,9 @@
 
 #all-posts-link:hover{
   border-bottom: 1px solid white;
-  color: rgb(245, 194, 66)
+  color: #FFC017
 }
 
 nav a:hover {
-  color: rgb(245, 194, 66)
+  color: #FFC017
 }

@@ -64,7 +64,8 @@ const router = async() => {
     let routes = [
         { path: "/signin", view: SignIn },
         { path: "/signup", view: SignUp },
-        { path: "/home", view: LandingPage},
+
+        // { path: "/home", view: LandingPage},
     ]
 
     //ROUTES AVAILABLE IF LOGGED IN
