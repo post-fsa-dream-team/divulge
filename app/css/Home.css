@@ -1,10 +1,16 @@
 /* Home Styles */
 
+/* #home-container {
+  margin-top: 0;
+  background: linear-gradient( #0b5b6d, white, white, white);
+} */
+
 #home-title {
   font-family: 'Libre Franklin', sans-serif;
   padding: 10px;
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: black;
   font-size: 30px
 }
 
@@ -16,9 +22,9 @@
   align-items: center;
   align-content: center;
   padding-left: 20px;
-  margin-top: 25vh;
-  margin-bottom: 10vh;
-  background-color: black;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  background-color: #FFC017;
   height: 300px;
   width: 100%;
   border-radius: 5px;
@@ -38,7 +44,8 @@ hr {
   /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
   /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
   /* background:rgb(255, 172, 49); */
-  background: white;
+  /* background: white; */
+  background: black;
 }
 
 .text-typing {
@@ -46,7 +53,8 @@ hr {
   /* text-shadow: 2px 2px 2px hsl(180, 24%, 47%); */
   /* text-shadow: 2px 2px 2px white; */
   /* text-shadow: 2px 2px 2px rgb(255, 172, 49); */
-  color: white;
+  /* color: white; */
+  color: black;
   padding: 10px;
   font-size: 10vh;
   margin: 0px;
@@ -72,6 +80,7 @@ hr {
     border-right: 2px solid transparent;
   }
   50% {
-    border-right: 2px solid white;
+    /* border-right: 2px solid white; */
+    border-right: 2px solid black; */
   }
 }

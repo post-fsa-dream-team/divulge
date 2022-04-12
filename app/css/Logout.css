@@ -1,7 +1,7 @@
 
 #logout-body {
   height:  100vh;
-  background: linear-gradient(white, white, white, #0b5b6d);
+  /* background: linear-gradient(white, white, white, #0b5b6d); */
   background-size: cover;
 }
 
@@ -42,20 +42,21 @@
 #logout-button {
   grid-area: logout-button;
   padding: 5px;
-  color: white;
-  background-color: #0b5b6d;
-  border: #0b5b6d 1px solid;
+  color: black;
+  background-color: #FFC017;
+  border: black 1px solid;
 }
 
 #back-home-button {
   grid-area: back-home-button;
+  border:black 1px solid;
   padding: 5px
 }
 
 #logout-button:hover {
-  color: #0b5b6d;
+  color: #FFC017;
   background-color: white;
-  border: #0b5b6d 1px solid;
+  border: #FFC017 1px solid;
 }
 
 #back-home-button:hover {

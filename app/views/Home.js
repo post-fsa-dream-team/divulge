@@ -25,17 +25,19 @@ export default class extends AbstractView {
     let posts = await this.getData();
 
     return `
+      <div id="home-container">
       ${Navbar()}
       ${SideNav()}
-      <div class="console-container">
-      <div>
-        <div class="text-typing">
-          <p>Welcome to Divulge</p>
+        <div class="console-container">
+        <div>
+          <div class="text-typing">
+            <p>Welcome to Divulge</p>
+          </div>
+          <hr id="title-line"></hr>
+          </div>
         </div>
-        <hr id="title-line"></hr>
-        </div>
-      </div>
       ${PostsView(posts)}
+      </div>
       `
   }
 

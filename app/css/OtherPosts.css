@@ -2,6 +2,7 @@
 #posts-content {
   margin-left: 180px;
   margin-right: 20px;
+  margin-top: 80px;
   /* margin-top: 100px; */
 }
 
@@ -78,11 +79,11 @@
 
 .article-content {
   grid-area: main;
-  font-family: 'PT Serfi', serif;
-  color:rgb(91, 89, 89);
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: 0.1px;
+  font-family: 'Halant', serif;
+  /* font-weight: 300; */
+  color: rgb(55, 55, 55);
+  font-size: 16px;
+  line-height: 1.5;
   padding-bottom: 5px
 }
 
