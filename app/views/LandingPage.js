@@ -11,14 +11,6 @@ export default class extends AbstractView {
 
   async getPosts() {
     try {
-      // const options = {
-      //   method: 'GET',
-      //   headers: {
-      //     'X-RapidAPI-Host': 'medium2.p.rapidapi.com',
-      //     'X-RapidAPI-Key': '536db59dfbmshc9f83e26eea07ffp15ca2ejsn6bd8fbc9fad7'
-      //   }
-      // };
-
       const response = await fetch('https://jsonplaceholder.typicode.com/posts')
       const data = await response.json()
       console.log("data", data);
@@ -60,14 +52,26 @@ export default class extends AbstractView {
     </div>
     <div class="landingpage__content">
     <div id="highlight">
-      <p>Trending on Divulge</p>
+      <p><strong>Trending on Divulge</strong></p>
       <div id="highlightcontent">
-        <div id="contentdetails">
-          <p id="title">${posts[0].title}</p>
-        </div>
-        <div id="contentdetails">
-          <p id="title">${posts[2].title}</p>
-        </div>
+      <div id="contentdetails">
+        <p id="title">${posts[0].title}</p>
+      </div>
+      <div id="contentdetails">
+        <p id="title">${posts[2].title}</p>
+      </div>
+      <div id="contentdetails">
+        <p id="title">${posts[3].title}</p>
+      </div>
+      <div id="contentdetails">
+        <p id="title">${posts[4].title}</p>
+      </div>
+      <div id="contentdetails">
+        <p id="title">${posts[5].title}</p>
+      </div>
+      <div id="contentdetails">
+        <p id="title">${posts[6].title}</p>
+      </div>
       </div>
     </div>
       <div class="landingpage__infinitescroll">
@@ -83,23 +87,31 @@ export default class extends AbstractView {
           </div>
         </div>
         <div id="stickyright">
-          <h1>Discover more of what matters to you</h1>
-          <p>Tag 1</p>
-          <p>Tag 2</p>
-          <p>Tag 3</p>
-          <p>Tag 4</p>
-          <p>Tag 5</p>
-          <p>Tag 6</p>
+          <p style="text-transform:uppercase"><strong>Discover more of what matters to you</strong></p>
+          <div id="tags">
+          <span>Tag 1</span>
+          <span>Tag 2</span>
+          <span>Tag 3</span>
+          <span>Tag 4</span>
+          <span>Tag 5</span>
+          <span>Tag 6</span>
+          <span>Tag 1</span>
+          <span>Tag 2</span>
+          <span>Tag 3</span>
+          <span>Tag 4</span>
+          <span>Tag 5</span>
+          <span>Tag 6</span>
+          </div>
           <div id="helper">
-            <p>Help</p>
-            <p>Status</p>
-            <p>Writers</p>
-            <p>Blog</p>
-            <p>Careers</p>
-            <p>Privacy</p>
-            <p>Terms</p>
-            <p>About</p>
-            <p>Knowable</p>
+            <span>Help</span>
+            <span>Status</span>
+            <span>Writers</span>
+            <span>Blog</span>
+            <span>Careers</span>
+            <span>Privacy</span>
+            <span>Terms</span>
+            <span>About</span>
+            <span>Knowable</span>
           </div>
         </div>
       </div>
