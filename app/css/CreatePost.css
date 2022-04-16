@@ -1,71 +1,159 @@
-#create-post-container {
-  background: linear-gradient(white, white, #0b5b6d);
-  min-height: 100vh;
+.create-post-container {
+  background: burlywood;
+  display: flex;
   justify-content: center;
+  height: 100vh;
 }
 
-#post-content {
-  margin-top: 100px;
-  margin-left: 20%;
-  /* background-image: url('notebookpaper.png');
-  background-size: 950px 1100px; */
-  background-color: white;
+.post-content {
+  background-color: rgb(184, 136, 136);
   border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 900px;
+  margin-top: 72px;
+  width: 60%;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-form {
-  margin: 10px 0;
+.post-content input {
+  display: block;
+  box-sizing: border-box;
+  /* border-radius: 5px; */
+  border: 1.3px solid hsl(246, 25%, 77%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 54px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  padding: 15px 25px;
+  width: 100%;
 }
 
-#text-editor-form button {
-  border: none;
-  outline: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+.post-content input:focus {
+  font-family: 'Poppins', sans-serif;
+  font-size: 54px;
+  font-weight: 560;
 }
 
-#output {
-  width: 700px;
-  height: 600px;
-  border: 1px solid, #111;
-  background-color: white;
-  border-radius: 15px;
+#action {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: 100%;
 }
 
-.inputField {
-  width: 700px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid, #111;
-}
-
-#input-title{
-  font-size: 20px;
-}
-
-#input-imageUrl {
-  font-size: 15px;
+#action select {
+  width: 50%;
+  height: 100%;
 }
 
 #post-category {
   width: 200px;
   height: 40px;
-  border-radius: 5px;
-  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  padding: 15px 25px;
+  width: 20%;
+  letter-spacing: 1px;
 }
 
 #submit-button {
+  background-color: hsl(154, 59%, 51%);
   border-radius: 5px;
-  width: 100px;
-  height: 40px;
-  padding: 10px;
-  margin-bottom: 50px;
+  border: 1px solid hsl(154, 59%, 40%);
+  box-shadow: 0 2px hsl(154, 59%, 40%);
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 25px;
+  width: 20%;
+  letter-spacing: 1px;
+}
+
+#submit-button:focus {
+  outline: none;
+}
+
+#submit-button:active {
+  box-shadow: 0 2px hsl(154, 59%, 40%);
+  transform: translateY(2px)
+}
+
+
+.post-content #editor-control {
+  display: flex;
+  justify-items: space-around;
+  width: 100%;
+}
+
+
+.post-content #editor-control form button {
+  width: 4rem;
+  height: 4rem;
+  margin-right: .5rem;
+  box-shadow: 2px 2px 2px 1px hsl(246, 25%, 77%);
+}
+.post-content #editor-control form button:focus {
+  outline:hsl(246, 25%, 77%);
+}
+
+.post-content #editor-control form button:active {
+  box-shadow: 0 2px hsl(246, 25%, 77%);
+  transform: translateY(2px)
+}
+.post-content #output {
+  width: 100%;
+  height: 100vh;
+  border: 1px solid, #111;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 960px) {
+  .post-content {
+    width: 100%;
+  }
+
+  .post-content input {
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 5px;
+  }
+
+  .post-content input:focus {
+    font-size: 2.5rem;
+    font-weight: 240;
+  }
+
+  #action select {
+    width: 50%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: 200;
+    width: 50%;
+  }
+
+  #submit-button {
+    font-size: 1rem;
+    width: 30%;
+  }
+
+  .post-content #editor-control form button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: .2rem;
+    box-shadow: 2px 2px 2px 1px hsl(246, 25%, 77%);
+  }
+
 }
