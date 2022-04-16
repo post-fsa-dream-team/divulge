@@ -32,8 +32,8 @@ export default class extends AbstractView {
   async getHtml() {
     const category = ["Technology", "Politics", "Fashion", "News", "Sports", "Entertaiment", "Crime"]
     // <h1 id="createPost-title">Tell your story...</h1>
-    // ${Navbar()}
     return (`
+    ${Navbar()}
     <div class="create-post-container">
     <div class="post-content">
       <input type="text" name="title" placeholder="Title" value="" />
