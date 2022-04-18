@@ -23,9 +23,12 @@ export default class extends AbstractView {
   }
 
   async editPost(post) {
+    const port = /localhost/.test(window.location.href)
+    ? "http://localhost:3000/api"
+    : "https://divulge-web-app.herokuapp.com/api";
     try {
       const { post_id, title, content, category, image_url } = post;
-      const response = await fetch(`http://localhost:3000/api/posts/${post_id}`, {
+      const response = await fetch(`${port}/posts/${post_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

@@ -32,7 +32,10 @@ export default class extends AbstractView {
     async signUp(firstName, lastName, username, email, password) {
         try {
             // console.log(firstName, lastName, username, email, password);
-            const response = await fetch('http://localhost:3000/auth/signup', {
+            const port = /localhost/.test(window.location.href)
+            ? "http://localhost:3000/auth"
+            : "https://divulge-web-app.herokuapp.com/auth";
+            const response = await fetch(`${port}/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

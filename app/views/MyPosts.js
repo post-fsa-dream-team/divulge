@@ -12,8 +12,11 @@ export default class extends AbstractView {
         this.postData = {};
     }
     async getMyPosts(userId) {
+    const port = /localhost/.test(window.location.href)
+    ? "http://localhost:3000/api"
+    : "https://divulge-web-app.herokuapp.com/api";
         try {
-            const myPosts = await fetch(`http://localhost:3000/api/users/${userId}/posts`)
+            const myPosts = await fetch(`${port}/${userId}/posts`)
             const data = await myPosts.json()
             this.postData = data[0];
             return data
