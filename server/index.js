@@ -5,6 +5,7 @@ const path = require('path')
 const client = require("./db.js")
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
+const cookieSession = require('cookie-session')
 const passport = require('passport')
 const initializePassport = require("../passportConfig");
 
@@ -28,8 +29,20 @@ app.use(express.json())
 
 // cookie parser middleware
 app.use(cookieParser());
-// session middleware with passport
-app.use(session({
+
+// express-session middleware with passport
+// app.use(session({
+//   // Key we want to keep secret which will encrypt all of our information
+// 	secret: 'secret',
+
+//   // Should we resave our session variables if nothing has changes which we dont
+// 	resave: false,
+//   // Save empty value if there is no value which we do not want to do
+// 	saveUninitialized: true
+// }));
+
+// express-session middleware with passport
+app.use(cookieSession({
   // Key we want to keep secret which will encrypt all of our information
 	secret: 'secret',
 

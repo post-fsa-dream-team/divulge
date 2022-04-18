@@ -6,7 +6,7 @@
   "scripts": {
     "start-dev": "npm run server",
     "server": "nodemon server -e html,js,scss --ignore public --ignore app/",
-    "start": "node server",
+    "start": "npm run server",
     "seed": "node server/db/index.js",
     "create": "node ./server/db.js createTables",
     "test": "jest"
@@ -16,6 +16,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
@@ -28,5 +29,8 @@
   "devDependencies": {
     "jest": "^27.5.1",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
