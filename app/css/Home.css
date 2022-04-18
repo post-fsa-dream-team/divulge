@@ -17,15 +17,15 @@
 /* Title Console Text */
 .console-container {
   /* margin: auto; */
-  width: 695px;
-  display:flex;
+  width: auto;
+  display: flex;
   align-items: center;
   align-content: center;
   padding-left: 20px;
   margin-top: 15vh;
   margin-bottom: 5vh;
   background-color: #FFC017;
-  height: 300px;
+  height: auto;
   width: 100%;
   border-radius: 5px;
   margin-left: 250px;
@@ -56,7 +56,7 @@ hr {
   /* color: white; */
   color: black;
   padding: 10px;
-  font-size: 10vh;
+  font-size: 8vh;
   margin: 0px;
   padding-top: 25px;
   padding-bottom: 20px;
@@ -67,20 +67,36 @@ hr {
   margin: 0px;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 3s steps(22,end) forwards,
-            blink 1s infinite;
+  animation: typing 3s steps(22, end) forwards,
+    blink 1s infinite;
 }
+
 @keyframes typing {
-  0% { width:0% }
-  100% { width:100% }
+  0% {
+    width: 0%
+  }
+
+  100% {
+    width: 100%
+  }
 }
 
 @keyframes blink {
-  0%,100% {
+
+  0%,
+  100% {
     border-right: 2px solid transparent;
   }
+
   50% {
     /* border-right: 2px solid white; */
-    border-right: 2px solid black; */
+    border-right: 2px solid black;
+  }
+}
+
+/* Medium devices (tablets, 800px and down) */
+@media (max-width: 800px) {
+  .console-container {
+    display: none;
   }
 }
