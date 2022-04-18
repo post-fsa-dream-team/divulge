@@ -64,8 +64,8 @@
 
 .single-other-post-content {
   grid-area: main;
-  font-family: 'PT Serif', serif;
-  margin-bottom: 20px;
+  font-family: 'Halant', serif;
+  margin-bottom: 50px;
   font-size: 16px;
 }
 
@@ -83,6 +83,7 @@
   background-color: transparent;
   width: 65px;
   margin: 0px;
+  border: none;
 }
 #delete-button:hover {
   color: white;

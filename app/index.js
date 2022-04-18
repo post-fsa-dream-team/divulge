@@ -2,13 +2,13 @@
 console.log("Entered the index.js file")
 
 import Home from "./views/Home.js"
-import OtherSinglePost from "./views/OtherSinglePost.js";
+import SinglePost from "./views/SinglePost.js";
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
 import Logout from "./views/Logout.js";
 import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
-import MySinglePost from "./views/MySinglePost.js";
+// import SinglePost from "./views/SinglePost.js";
 import OtherAllPosts from "./views/OtherAllPosts.js";
 import AdminPortal from "./views/AdminPortal/AdminPortal.js"
 import AdminPortalUsers from "./views/AdminPortal/AdminPortalUsers.js"
@@ -73,13 +73,13 @@ const router = async() => {
             { path: "/404", view: Home },
             { path: "/home", view: Home},
             { path: "/posts/all/:category", view: OtherAllPosts },
-            { path: "/profile", view: MyPosts },
+            // { path: "/profile", view: MyPosts },
             { path: "/signin", view: SignIn },
             { path: "/signup", view: SignUp },
             { path: "/logout", view: Logout},
             { path: "/users/:userId/myposts", view: MyPosts},
-            { path: "/posts/:id", view: OtherSinglePost },
-            { path: "/users/:userId/posts/:postId", view: MySinglePost },
+            { path: "/posts/:id", view: SinglePost },
+            { path: "/users/:userId/posts/:postId", view: SinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
             { path: "/editpost/:postid", view: EditPost},

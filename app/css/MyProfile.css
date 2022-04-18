@@ -5,41 +5,39 @@
   grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
   grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
   height: auto;
+
   /* for all boxes */
   color: black;
-  /* box-sizing: border-box; */
-  /* padding-top: 6rem; */
   min-height: 100vh;
 }
 
 
 .myposts__leftsidebar {
-  border: 1.3px solid hsl(0, 0%, 0%);
-  background-color: grey;
-  /* grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: row1-start;
-  grid-row-end: end; */
+  border-right: 1.3px solid hsl(0, 0%, 0%);
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
+  padding: 80px 0 0 30px;
   height: 100%;
-  width: 10%;
+  width: 120px;
 }
-.myposts__leftsidebar > div{
-  border: 1.3px solid hsl(0, 0%, 0%);
 
-}
-.myposts__maincontent {
+/* .myposts__leftsidebar>div {
   border: 1.3px solid hsl(0, 0%, 0%);
+} */
+
+.myposts__maincontent {
   grid-column-start: 2;
   grid-column-end: five;
   grid-row-start: row1-start;
   grid-row-end: last-line;
-  padding: 0 10% 0 10%;
+  padding: 0 80px 0 80px;
+  margin-top: 80px;
 }
 
+/*
 .myposts__maincontentnav {
   border-bottom: 1.3px solid hsl(0, 0%, 0%);
   grid-column-start: 2;
@@ -49,10 +47,11 @@
   display: grid;
   grid-template-columns: repeat(3, 10%);
   padding: 0 20px 0 20px;
-}
-.myposts__maincontentnav h3:active {
+} */
+
+/* .myposts__maincontentnav h3:active {
   transform: translateY(2px)
-}
+} */
 
 .myposts__maincontentposts {
   /* border: 1.3px solid hsl(0, 0%, 0%); */
@@ -62,16 +61,63 @@
   grid-row-end: last-line;
 }
 
+.myposts__userinfo {
+  display: grid;
+  grid-template-columns: [first] 10px [second] 500px [third] 10px;
+  border-bottom: rgb(228, 227, 227) 1px solid;
+  grid-template-areas:
+    "username username username"
+    ". name name"
+    ". location location"
+}
+
+#myposts__username {
+  grid-area: username;
+  font-size: 18px;
+}
+
+#myposts__name {
+  grid-area: name;
+  font-size: 18px;
+}
+
+#myposts__location {
+  grid-area: location;
+  font-size: 18px;
+}
+
+.myposts__articletitle{
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  padding-top: 5px;
+}
+
+.myposts__postcontent{
+  font-family: 'Halant', serif;
+  /* font-weight: 300; */
+  color: rgb(55, 55, 55);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 5px;
+}
+
+.myposts__date {
+  margin: 0 0 0 0;
+}
+
 .myposts__article{
  display: flex;
  flex-direction: column;
- padding: 20px;
+ /* padding: 20px; */
  border-bottom: 1.3px solid hsl(246, 25%, 77%);
 }
+
 .myposts__articlebottom{
   display: flex;
   justify-content: space-between;
 }
+
 .myposts__articlebottom button {
   background-color: rgb(255, 255, 255);
   border: none;
@@ -82,10 +128,42 @@
   margin-left: 10px;
   letter-spacing: 1px;
 }
+
 .myposts__rightsidebar {
   border: 1.3px solid hsl(0, 0%, 0%);
   grid-column-start: 5;
   grid-column-end: last-line;
   grid-row-start: row1-start;
   grid-row-end: last-line;
+}
+
+
+@media (max-width: 800px) {
+  .myposts {
+    background-color: hsl(0, 0%, 100%);
+    display: grid;
+    /* grid-template-columns: 10% auto 20%; */
+    grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
+    grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
+    height: auto;
+
+    /* for all boxes */
+    color: black;
+    min-height: 100vh;
+  }
+
+  .myposts__postcontent{
+    display: none
+  }
+}
+
+@media (max-width: 400px) {
+  .article-title {
+    grid-area: title;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
 }

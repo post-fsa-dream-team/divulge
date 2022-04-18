@@ -2,12 +2,18 @@
 #posts-content {
   margin-left: 180px;
   margin-right: 20px;
-  margin-top: 80px;
+  margin-top: 50px;
+
   /* margin-top: 100px; */
 }
 
+.other-posts-container {
+  margin-top: 100px;
+}
+
 .each-box {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  align-self: center;
 }
 
 .post-card {
@@ -18,7 +24,7 @@
   margin: 15px;
   padding-left: 25px;
   max-width: 40vw;
-  margin-left: 50px
+  margin-left: 50px;
 }
 
 #cards-container {
@@ -27,6 +33,7 @@
   grid-template-columns: [first] 200px [second] 100px [third] 25% [fourth] 25% [last] 10%;
   grid-template-rows: auto;
   grid-auto-flow: row;
+  border-bottom: rgb(237, 237, 237) 1px solid;
   grid-template-areas:
     "authorAndCreated authorAndCreated authorAndCreated . . ."
     "title title title title title image"
@@ -69,9 +76,10 @@
   grid-column: 6;
   grid-row: 3;
   margin-right: 10px;
+  margin-left: 10px;
   width: 100px;
   border-radius: 2px;
-  place-self: start end;
+  place-self: start;
   /* height: 0;
   padding-top: 56.25%;
   margin-top: 30; */
@@ -90,6 +98,7 @@
 .article-category {
   grid-area: category;
   margin-top: 10px;
+  margin-bottom: 20px;
   color: rgb(121, 118, 118);
   font-size: 12px;
 }
@@ -102,7 +111,7 @@
 }
 
 .category-border {
-  /* border: rgb(121, 118, 118) solid 1px; */
+  border: rgb(121, 118, 118) solid 1px;
   background-color: rgb(235, 235, 235);
   color: black;
   padding: 3px;
@@ -130,9 +139,9 @@
     grid-template-rows: auto;
     grid-auto-flow: row;
     grid-template-areas:
-      "authorAndCreated authorAndCreated authorAndCreated ."
-      "title title title title"
-      "category minRead . .";
+      "authorAndCreated authorAndCreated authorAndCreated . ."
+      "title title title title title"
+      "category minRead . . .";
   }
 
   .article-content {
