@@ -34,17 +34,16 @@ export default class extends AbstractView {
         ${Navbar()}
         <div class='myposts'>
 
-        <div class='myposts__maincontent'>
-            <h1>@${myPosts.length && myPosts[0].user_name}</h1>
-
-
-            <div class='myposts__leftsidebar'>
-              <div class="myposts__sidebaricons">
+        <div class='myposts__leftsidebar'>
+          <div class="myposts__sidebaricons">
                 <h3>Home</h3>
                 <h3>List</h3>
                 <h3>About</h3>
-              </div>
-            </div>
+          </div>
+        </div>
+
+        <div class='myposts__maincontent'>
+            <h1>@${myPosts.length && myPosts[0].user_name}</h1>
 
 
             ${myPosts.length && myPosts.map((post) => {
@@ -70,7 +69,9 @@ export default class extends AbstractView {
 
 
         <div class='myposts__rightsidebar'>Right sidebar</div>
-        </div>}`
+
+
+        </div>`
     }
 
     async postRender() {
@@ -78,8 +79,6 @@ export default class extends AbstractView {
         this.postData?.id && deletePost.script();
     }
 }
-
-
 
 {/* <div class='myposts__leftsidebar'>
 <div class='myposts__leftsidebarcontent'>
