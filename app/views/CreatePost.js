@@ -11,8 +11,12 @@ export default class extends AbstractView {
   }
 
   async createPost(post) {
+    const port = /localhost/.test(window.location.href)
+    ? "http://localhost:3000/api"
+    : "https://divulge-web-app.herokuapp.com/api";
+
     try {
-      const response = await fetch('http://localhost:3000/api/posts', {
+      const response = await fetch(`${port}/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

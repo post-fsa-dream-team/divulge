@@ -83,7 +83,7 @@ const router = async() => {
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
             { path: "/editpost/:postid", view: EditPost},
-            // { path: "/profile", view: MyProfile},
+            { path: "/profile", view: MyProfile},
              // this will need to be "/:userId/editpost/:postid"
         ])
 
