@@ -43,12 +43,12 @@ export default class extends AbstractView {
   async getHtml() {
     // let posts = await this.getMyPost();
     // ${PostsView(posts)}
-    // ${Navbar()}
+    //
     // ${SideNav()}
     let userInfo = await this.getMyProfile();
     let myPosts = await this.getMyPosts(3)
     return `
-    <div>My Profile</div>
+    ${Navbar()}
     <div>${userInfo.user_name}</div>
     <div>${userInfo.first_name}</div>
     <div>${userInfo.last_name}</div>

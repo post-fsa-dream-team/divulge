@@ -101,7 +101,7 @@
   color: rgb(121, 118, 118);
 }
 
-/* .category-border {
+.category-border {
   border: rgb(121, 118, 118) solid 1px;
   background-color: rgb(235, 235, 235);
   color: black;
@@ -109,7 +109,7 @@
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 10px
-} */
+}
 
 .other-posts-title {
   font-family: 'Libre Franklin', sans-serif;
