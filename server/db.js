@@ -17,12 +17,29 @@
 
 const pg = require('pg');
 
+// const config = {
+//   database: 'divulge',
+//   port: process.env.DATABASE_URL || 5432,
+//   max: 10, // max number of clients in the pool
+//   idleTimeoutMillis: 30000,
+// };
+
 const config = {
-  database: 'divulge',
-  port: 5432,
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000,
+  logging: false
 };
+
+// if(process.env.LOGGING === 'true'){
+//   delete config.logging
+// }
+
+// https://stackoverflow.com/questions/61254851/heroku-postgres-sequelize-no-pg-hba-conf-entry-for-host
+if(process.env.DATABASE_URL){
+  config.dialectOptions = {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  };
+}
 
 const pool = new pg.Pool(config);
 
