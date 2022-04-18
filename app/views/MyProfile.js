@@ -77,7 +77,7 @@ export default class extends AbstractView {
         <div class='myposts__maincontent'>
             <div class="myposts__userinfo">
               <div class="myposts__userinfocontainer">
-                <h1>Welcome, @${userName}!</p>
+                <h1 class="myposts__userinfo">Welcome, @${userName}!</p>
                 <p id="myposts__name"> Name: ${firstName} ${lastName} </p>
                 <p id="myposts__location"> Location: ${location}</p>
                 <p> </p>

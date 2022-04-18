@@ -63,7 +63,17 @@
 
 .myposts__userinfo {
   display: grid;
+  grid-template-columns: [first] 10px [second] 500px [third] 10px;
   border-bottom: rgb(228, 227, 227) 1px solid;
+  grid-template-areas:
+    "username username username"
+    ". name name"
+    ". location location"
+}
+
+#myposts__username {
+  grid-area: username;
+  font-size: 18px;
 }
 
 #myposts__name {
