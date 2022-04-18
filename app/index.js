@@ -2,7 +2,7 @@
 console.log("Entered the index.js file")
 
 import Home from "./views/Home.js"
-import OtherSinglePost from "./views/OtherSinglePost.js";
+import SinglePost from "./views/SinglePost.js";
 import SignUp from "./views/SignUp.js";
 import SignIn from "./views/SignIn.js";
 import Logout from "./views/Logout.js";
@@ -78,7 +78,7 @@ const router = async() => {
             { path: "/signup", view: SignUp },
             { path: "/logout", view: Logout},
             { path: "/users/:userId/myposts", view: MyPosts},
-            { path: "/posts/:id", view: OtherSinglePost },
+            { path: "/posts/:id", view: SinglePost },
             { path: "/users/:userId/posts/:postId", view: MySinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
