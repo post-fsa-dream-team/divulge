@@ -3,8 +3,27 @@ const PostsView = (posts) => {
   function convertDate(date) {
     let splitIndex = date.split("").indexOf("T")
     let dayOnly = date.slice(0, splitIndex)
-    let justDate = new Date(dayOnly).toString()
-    return justDate.split(" ").slice(1, 4).join(" ")
+    let justDateItems = new Date(dayOnly).toString().split(" ")
+    console.log(justDateItems)
+    let month = justDateItems[1]
+    let day = justDateItems[2]
+    let year = justDateItems[3]
+
+    let months = {
+      "Jan": 'January',
+      "Feb": 'February',
+      "Mar":"March",
+      "Apr": "April",
+      "May":"May",
+      "Jun":"June",
+      "Jul":"July",
+      "Aug":"August",
+      "Sep":"September",
+      "Oct":"October",
+      "Nov":"November",
+      "Dec":"December"
+    }
+    return `${months[month]} ${day}, ${year}`
   }
 
   function getMinRead(content) {

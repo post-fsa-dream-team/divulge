@@ -21,6 +21,33 @@ export default class extends AbstractView {
             console.log('CANNOT SEE MY POSTS :(', error);
         }
     }
+
+    convertDate(date) {
+      let splitIndex = date.split("").indexOf("T")
+      let dayOnly = date.slice(0, splitIndex)
+      let justDateItems = new Date(dayOnly).toString().split(" ")
+      console.log(justDateItems)
+      let month = justDateItems[1]
+      let day = justDateItems[2]
+      let year = justDateItems[3]
+
+      let months = {
+        "Jan": 'January',
+        "Feb": 'February',
+        "Mar":"March",
+        "Apr": "April",
+        "May":"May",
+        "Jun":"June",
+        "Jul":"July",
+        "Aug":"August",
+        "Sep":"September",
+        "Oct":"October",
+        "Nov":"November",
+        "Dec":"December"
+      }
+      return `${months[month]} ${day}, ${year}`
+    }
+
     async getHtml() {
         const myPosts = await this.getMyPosts(this.userId)
         console.log('myPosts', myPosts);
@@ -45,12 +72,11 @@ export default class extends AbstractView {
         <div class='myposts__maincontent'>
             <h1>@${myPosts.length && myPosts[0].user_name}</h1>
 
-
             ${myPosts.length && myPosts.map((post) => {
                 return `
             <div class='myposts__maincontentposts'>
                 <div class='myposts__article'>
-                    <p>${post.created_at}</p>
+                    <p>${this.convertDate(post.created_at)}</p>
                     <h1>${post.title}</h1>
                     <p>${post.content.slice(0, 360)}...</p>
                     <div class='myposts__articlebottom'>
