@@ -47,17 +47,15 @@ export default class extends AbstractView {
     let capitalCase = firstLetter + restOfWord
 
     return `
+
       ${Navbar()}
       ${SideNav()}
-
+      <div class="other-posts-container">
       ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
-
+      </div>
       `
   }
 
   async postRender() {
   }
 }
-
-
-{/* <h2 class="other-posts-title">Posts > ${capitalCase}</h2> */}

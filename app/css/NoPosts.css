@@ -1,10 +1,16 @@
 .no-posts {
-  font-family: 'Libre Franklin', sans-serif;
-  font-weight: 500;
-  margin-left: 100px;
+  margin-left: 80px;
   margin-top: 80px;
   font-size: 22px;
-  color: rgb(2, 99, 99);
+  color: #FFC017;
+}
+
+.no-posts-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 button {

@@ -76,15 +76,17 @@ export default class extends AbstractView {
                 return `
             <div class='myposts__maincontentposts'>
                 <div class='myposts__article'>
-                    <p>${this.convertDate(post.created_at)}</p>
-                    <h1>${post.title}</h1>
-                    <p>${post.content.slice(0, 360)}...</p>
+                    <p class="myposts__date">${this.convertDate(post.created_at)}</p>
+                    <h1 class='myposts__articletitle'>${post.title}</h1>
+                    <p class='myposts__postcontent'>${post.content.slice(0, 360)}...</p>
                     <div class='myposts__articlebottom'>
                     <p>${Math.ceil(post.content.length / 500)} min read</p>
 
                     <div id="button-containers">
                         <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
+                        <div class="myposts__deletebutton">
                         ${deletePost.render()}
+                        </div>
                     </div>
 
                     </div>

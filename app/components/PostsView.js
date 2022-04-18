@@ -4,7 +4,6 @@ const PostsView = (posts) => {
     let splitIndex = date.split("").indexOf("T")
     let dayOnly = date.slice(0, splitIndex)
     let justDateItems = new Date(dayOnly).toString().split(" ")
-    console.log(justDateItems)
     let month = justDateItems[1]
     let day = justDateItems[2]
     let year = justDateItems[3]
@@ -64,7 +63,7 @@ const PostsView = (posts) => {
       </div>
 
     </div>
-    <hr>
+
   `
 }
 
