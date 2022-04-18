@@ -34,6 +34,7 @@
   grid-row-start: row1-start;
   grid-row-end: last-line;
   padding: 0 80px 0 80px;
+  margin-top: 80px;
 }
 
 /*
@@ -58,6 +59,21 @@
   grid-column-end: five;
   grid-row-start: 3;
   grid-row-end: last-line;
+}
+
+.myposts__userinfo {
+  display: grid;
+  border-bottom: rgb(228, 227, 227) 1px solid;
+}
+
+#myposts__name {
+  grid-area: name;
+  font-size: 18px;
+}
+
+#myposts__location {
+  grid-area: location;
+  font-size: 18px;
 }
 
 .myposts__articletitle{

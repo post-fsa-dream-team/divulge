@@ -57,6 +57,11 @@ export default class extends AbstractView {
         const protocol = document.location.protocol;
         const host = document.location.host;
 
+        const userName = sessionStorage.getItem("user_name")
+        const firstName = sessionStorage.getItem("first_name")
+        const lastName = sessionStorage.getItem("last_name")
+        const location = sessionStorage.getItem("location")
+
         return `
         ${Navbar()}
         <div class='myposts'>
@@ -70,29 +75,39 @@ export default class extends AbstractView {
         </div>
 
         <div class='myposts__maincontent'>
-            <h1>@${myPosts.length && myPosts[0].user_name}</h1>
-
-            ${myPosts.length && myPosts.map((post) => {
-                return `
-            <div class='myposts__maincontentposts'>
-                <div class='myposts__article'>
-                    <p class="myposts__date">Created: ${this.convertDate(post.created_at)}</p>
-                    <h1 class='myposts__articletitle'>${post.title}</h1>
-                    <p class='myposts__postcontent'>${post.content.slice(0, 360)}...</p>
-                    <div class='myposts__articlebottom'>
-                    <p>${Math.ceil(post.content.length / 500)} min read</p>
-
-                    <div id="button-containers">
-                        <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
-                        <div class="myposts__deletebutton">
-                        ${deletePost.render()}
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
+            <div class="myposts__userinfo">
+              <div class="myposts__userinfocontainer">
+                <h1>Welcome, @${userName}!</p>
+                <p id="myposts__name"> Name: ${firstName} ${lastName} </p>
+                <p id="myposts__location"> Location: ${location}</p>
+                <p> </p>
+              </div>
             </div>
-            `})}
+
+            <div>
+              <h1>Your Posts</h1>
+              ${myPosts.length && myPosts.map((post) => {
+                  return `
+              <div class='myposts__maincontentposts'>
+                  <div class='myposts__article'>
+                      <p class="myposts__date">Created: ${this.convertDate(post.created_at)}</p>
+                      <h1 class='myposts__articletitle'>${post.title}</h1>
+                      <p class='myposts__postcontent'>${post.content.slice(0, 360)}...</p>
+                      <div class='myposts__articlebottom'>
+                      <p>${Math.ceil(post.content.length / 500)} min read</p>
+
+                      <div id="button-containers">
+                          <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
+                          <div class="myposts__deletebutton">
+                          ${deletePost.render()}
+                          </div>
+                      </div>
+
+                      </div>
+                  </div>
+              </div>
+              `})}
+          </div>
         </div>
 
 
