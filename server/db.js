@@ -15,7 +15,11 @@
 // // make the client available as a Node module
 // module.exports = client;
 
-const pg = require('pg');
+const { Pool } = require('pg');
+const url = require('url')
+
+const params = url.parse(process.env.DATABASE_URL);
+// const auth = params.auth.split(':');
 
 // const config = {
 //   database: 'divulge',
@@ -25,23 +29,30 @@ const pg = require('pg');
 // };
 
 const config = {
-  logging: false
+  port: params.port,
+  database: params.pathname.split('/')[1],
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 30000,
 };
 
-// if(process.env.LOGGING === 'true'){
-//   delete config.logging
+// const config = {
+//   logging: false
+// };
+
+// // if(process.env.LOGGING === 'true'){
+// //   delete config.logging
+// // }
+
+// // https://stackoverflow.com/questions/61254851/heroku-postgres-sequelize-no-pg-hba-conf-entry-for-host
+// if(process.env.DATABASE_URL){
+//   config.dialectOptions = {
+//     ssl: {
+//       rejectUnauthorized: false
+//     }
+//   };
 // }
 
-// https://stackoverflow.com/questions/61254851/heroku-postgres-sequelize-no-pg-hba-conf-entry-for-host
-if(process.env.DATABASE_URL){
-  config.dialectOptions = {
-    ssl: {
-      rejectUnauthorized: false
-    }
-  };
-}
-
-const pool = new pg.Pool(config);
+const pool = new Pool(config);
 
 pool.on('connect', () => {
   console.log('connected to the Database');

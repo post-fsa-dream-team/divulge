@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { pool } = require('../db');
 const bcrypt = require('bcrypt')
-const session = require("express-session");
+// const session = require("express-session");
+const session = require("cookie-session");
 
 /*********SIGN IN, SIGN UP. Tutorial: https://www.youtube.com/watch?v=vxu1RrR0vbw ************/
 /**For signup, we need to check if the user exists
