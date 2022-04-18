@@ -33,25 +33,20 @@ export default class extends AbstractView {
         return `
         ${Navbar()}
         <div class='myposts'>
-        <div class='myposts__leftsidebar'>
-            <div class='myposts__leftsidebarcontent'>
-                <h1>Divulge</h1>
-            </div>
-            <div class="myposts__sidebaricons">
-                <h3>Home</h3>
-                <h3>Create</h3>
-            </div>
-            <div class="myposts__sidebarprofile">
-                <h2>Profile</h2>
-            </div>
-        </div>
+
         <div class='myposts__maincontent'>
             <h1>@${myPosts.length && myPosts[0].user_name}</h1>
-            <div class='myposts__maincontentnav'>
+
+
+            <div class='myposts__leftsidebar'>
+              <div class="myposts__sidebaricons">
                 <h3>Home</h3>
                 <h3>List</h3>
                 <h3>About</h3>
+              </div>
             </div>
+
+
             ${myPosts.length && myPosts.map((post) => {
                 return `
             <div class='myposts__maincontentposts'>
@@ -72,6 +67,8 @@ export default class extends AbstractView {
             </div>
             `})}
         </div>
+
+
         <div class='myposts__rightsidebar'>Right sidebar</div>
         </div>}`
     }
@@ -82,3 +79,17 @@ export default class extends AbstractView {
     }
 }
 
+
+
+{/* <div class='myposts__leftsidebar'>
+<div class='myposts__leftsidebarcontent'>
+    <h1>Divulge</h1>
+</div>
+<div class="myposts__sidebaricons">
+    <h3>Home</h3>
+    <h3>Create</h3>
+</div>
+<div class="myposts__sidebarprofile">
+    <h2>Profile</h2>
+</div>
+</div> */}
