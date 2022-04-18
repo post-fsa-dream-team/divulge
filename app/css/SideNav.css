@@ -55,3 +55,10 @@
 nav a:hover {
   color: #FFC017
 }
+
+/* Medium devices (tablets, 800px and down) */
+@media (max-width: 800px) {
+  .home-nav {
+    display: none;
+  }
+}

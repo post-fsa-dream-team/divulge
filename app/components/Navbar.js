@@ -42,9 +42,10 @@ const Navbar = () => {
     </div>
 
     <a href="#" class="hamburger-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar"><a href="/adminportal" id="admin-portal-link" class="nav-link" data-link>Admin Portal</a</span>
+      <span class="bar"><a href="/home" class="nav-link" data-link>Home</a></span>
+      <span class="bar"><a href="/profile" class="nav-link" data-link>Profile</a></span>
+      <span class="bar"><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></span>
     </a>
 
     <div class="nav-links">
@@ -68,15 +69,14 @@ const Navbar = () => {
     </div>
 
     <a href="#" class="hamburger-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="bar">Sign In</span>
+      <span class="bar">Sign Up</span>
     </a>
 
     <div class="nav-links">
       <ul class="nav-items">
-        <li><a href="/signup" class="nav-link">Signup</a></li>
-        <li><a href="/signin" class="nav-link">Sign in</a></li>
+        <li><a href="/signup" class="nav-link">Sign Up</a></li>
+        <li><a href="/signin" class="nav-link">Sign In</a></li>
       </ul>
     </div>
   </nav>
