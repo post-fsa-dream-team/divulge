@@ -76,7 +76,7 @@ export default class extends AbstractView {
                 return `
             <div class='myposts__maincontentposts'>
                 <div class='myposts__article'>
-                    <p class="myposts__date">${this.convertDate(post.created_at)}</p>
+                    <p class="myposts__date">Created: ${this.convertDate(post.created_at)}</p>
                     <h1 class='myposts__articletitle'>${post.title}</h1>
                     <p class='myposts__postcontent'>${post.content.slice(0, 360)}...</p>
                     <div class='myposts__articlebottom'>

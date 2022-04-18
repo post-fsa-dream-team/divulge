@@ -8,7 +8,7 @@ import SignIn from "./views/SignIn.js";
 import Logout from "./views/Logout.js";
 import CreatePost from "./views/CreatePost.js";
 import MyPosts from "./views/MyPosts.js";
-import MySinglePost from "./views/MySinglePost.js";
+// import SinglePost from "./views/SinglePost.js";
 import OtherAllPosts from "./views/OtherAllPosts.js";
 import AdminPortal from "./views/AdminPortal/AdminPortal.js"
 import AdminPortalUsers from "./views/AdminPortal/AdminPortalUsers.js"
@@ -79,7 +79,7 @@ const router = async() => {
             { path: "/logout", view: Logout},
             { path: "/users/:userId/myposts", view: MyPosts},
             { path: "/posts/:id", view: SinglePost },
-            { path: "/users/:userId/posts/:postId", view: MySinglePost },
+            { path: "/users/:userId/posts/:postId", view: SinglePost },
             { path: "/:userId/posts/:postid", view: Home },
             { path: "/:userId/createpost", view: CreatePost },
             { path: "/editpost/:postid", view: EditPost},

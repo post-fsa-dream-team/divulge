@@ -65,7 +65,6 @@
   font-weight: 700;
   font-size: 22px;
   padding-top: 5px;
-  padding-bottom: 10px;
 }
 
 .myposts__postcontent{
@@ -78,7 +77,7 @@
 }
 
 .myposts__date {
-  margin-left: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .myposts__article{
