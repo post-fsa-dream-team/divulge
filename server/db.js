@@ -16,28 +16,21 @@
 // module.exports = client;
 
 const { Pool } = require('pg');
-// const url = require('url')
-
-// const params = url.parse(process.env.DATABASE_URL);
-// const auth = params.auth.split(':');
-
-const config = {
-  database: 'divulge',
-  port: process.env.DATABASE_URL || 5432,
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000,
-};
 
 // const config = {
-//   port: params.port,
-//   database: params.pathname.split('/')[1],
+//   database: 'divulge',
+//   port: 5432,
 //   max: 10, // max number of clients in the pool
 //   idleTimeoutMillis: 30000,
 // };
 
-// const config = {
-//   logging: false
-// };
+const config = {
+    connectionString: process.env.DATABASE_URL || 'divulge',
+    port: 5432,
+    ssl: {
+      rejectUnauthorized: false
+  }
+}
 
 // // if(process.env.LOGGING === 'true'){
 // //   delete config.logging
