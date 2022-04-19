@@ -16,6 +16,8 @@
 // module.exports = client;
 
 const { Pool } = require('pg');
+const isProduction = process.env.NODE_ENV === "production"
+const connectionString = "postgresql://localhost/divulge"
 
 // const config = {
 //   database: 'divulge',
@@ -25,9 +27,9 @@ const { Pool } = require('pg');
 // };
 
 const config = {
-    connectionString: process.env.DATABASE_URL || 'divulge',
+    connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
     port: 5432,
-    ssl: {
+    ssl: isProduction && {
       rejectUnauthorized: false
   }
 }
