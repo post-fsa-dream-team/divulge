@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js";
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
+import RightNav from "../components/RightNav.js"
 
 export default class extends AbstractView {
   constructor(params) {
@@ -29,8 +30,14 @@ export default class extends AbstractView {
 
     return `
       <div id="home-container">
+
       ${Navbar()}
-      ${SideNav()}
+
+      <div class="home-side-nav">
+        ${SideNav()}
+      </div>
+
+      <div class="home-main-content">
         <div class="console-container">
         <div>
           <div class="text-typing">
@@ -39,7 +46,13 @@ export default class extends AbstractView {
           <hr id="title-line"></hr>
           </div>
         </div>
-      ${PostsView(posts)}
+        ${PostsView(posts)}
+      </div>
+
+      <div class="right-nav-bar">
+        ${RightNav()}
+      </div>
+
       </div>
       `
   }

@@ -1,9 +1,25 @@
 /* Home Styles */
 
-/* #home-container {
-  margin-top: 0;
-  background: linear-gradient( #0b5b6d, white, white, white);
-} */
+#home-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: [leftNav] 0px [main] 70% [rightNav] 500px;
+  grid-template-areas:
+    "leftNav main rightNav"
+}
+
+.home-main-content {
+  grid-area: main;
+  margin-right: 20px;
+}
+
+.home-side-nav {
+  grid-area: leftNav;
+}
+
+.right-nav-bar {
+  grid-area: rightNav;
+}
 
 #home-title {
   font-family: 'Libre Franklin', sans-serif;
@@ -22,11 +38,11 @@
   align-items: center;
   align-content: center;
   padding-left: 20px;
-  margin-top: 15vh;
+  margin-top: 10vh;
   margin-bottom: 5vh;
   background-color: #FFC017;
-  /* height: 250px; */
-  height: auto;
+  height: 250px;
+  /* height: auto; */
   width: 100%;
   border-radius: 5px;
   margin-left: 250px;
@@ -35,19 +51,6 @@
 /* #title-line {
   width: 200px;
 } */
-
-hr {
-  width: 400px;
-  align-items: left;
-  height: 2px;
-  border: none;
-  margin-left: 20px;
-  /* background: linear-gradient(60deg, #FFB03A, rgb(252, 78, 39)); */
-  /* background: linear-gradient(60deg,white, hsl(180, 24%, 47%), white); */
-  /* background:rgb(255, 172, 49); */
-  /* background: white; */
-  background: black;
-}
 
 .text-typing {
   font-family: 'Libre Franklin', sans-serif;
