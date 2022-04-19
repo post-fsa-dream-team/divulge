@@ -2,7 +2,7 @@
   background-color: hsl(0, 0%, 100%);
   display: grid;
   /* grid-template-columns: 10% auto 20%; */
-  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
+  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five]30% [end];
   grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
   height: auto;
 

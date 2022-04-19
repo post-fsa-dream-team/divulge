@@ -8,7 +8,18 @@
 }
 
 .other-posts-container {
-  margin-top: 100px;
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: [first] 0px [posts] 70% [rightNav] 500px;
+  grid-template-areas:
+  ". posts rightNav";
+}
+
+.other-posts-posts {
+  grid-area: posts
+}
+.other-posts-right-nav{
+  grid-area: rightNav;
 }
 
 .each-box {
