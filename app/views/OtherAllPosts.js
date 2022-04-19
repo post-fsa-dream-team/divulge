@@ -3,6 +3,7 @@ import PostsView from "../components/PostsView.js"
 import NoPostsView from "../components/NoPostsView.js"
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
+import RightNav from "../components/RightNav.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -50,11 +51,17 @@ export default class extends AbstractView {
     let capitalCase = firstLetter + restOfWord
 
     return `
-
+      <div class="other-posts-container">
       ${Navbar()}
       ${SideNav()}
-      <div class="other-posts-container">
+
+      <div class="other-posts-posts">
       ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
+      </div>
+
+      <div class="other-posts-right-nav">
+      ${RightNav()}
+      </div>
       </div>
       `
   }

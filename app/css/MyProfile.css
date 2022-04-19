@@ -1,8 +1,8 @@
-.myposts {
+.myprofile {
   background-color: hsl(0, 0%, 100%);
   display: grid;
   /* grid-template-columns: 10% auto 20%; */
-  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
+  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five]30% [end];
   grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
   height: auto;
 
@@ -12,8 +12,8 @@
 }
 
 
-.myposts__leftsidebar {
-  border-right: 1.3px solid hsl(0, 0%, 0%);
+.myprofile__leftsidebar {
+  border-right: rgb(237, 237, 237) 1px solid;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,11 @@
   width: 120px;
 }
 
-/* .myposts__leftsidebar>div {
+/* .myprofile__leftsidebar>div {
   border: 1.3px solid hsl(0, 0%, 0%);
 } */
 
-.myposts__maincontent {
+.myprofile__maincontent {
   grid-column-start: 2;
   grid-column-end: five;
   grid-row-start: row1-start;
@@ -38,7 +38,7 @@
 }
 
 /*
-.myposts__maincontentnav {
+.myprofile__maincontentnav {
   border-bottom: 1.3px solid hsl(0, 0%, 0%);
   grid-column-start: 2;
   grid-column-end: five;
@@ -49,11 +49,21 @@
   padding: 0 20px 0 20px;
 } */
 
-/* .myposts__maincontentnav h3:active {
+/* .myprofile__maincontentnav h3:active {
   transform: translateY(2px)
 } */
 
-.myposts__maincontentposts {
+.myprofile__poststitle {
+  color: #FFC017;
+}
+
+.myprofile__poststitlecontainer {
+  padding: 0 0 0 0;
+  width: 100%;
+
+}
+
+.myprofile__maincontentposts {
   /* border: 1.3px solid hsl(0, 0%, 0%); */
   grid-column-start: 2;
   grid-column-end: five;
@@ -61,39 +71,16 @@
   grid-row-end: last-line;
 }
 
-.myposts__userinfo {
-  display: grid;
-  grid-template-columns: [first] 10px [second] 500px [third] 10px;
-  border-bottom: rgb(228, 227, 227) 1px solid;
-  grid-template-areas:
-    "username username username"
-    ". name name"
-    ". location location"
-}
 
-#myposts__username {
-  grid-area: username;
-  font-size: 18px;
-}
 
-#myposts__name {
-  grid-area: name;
-  font-size: 18px;
-}
-
-#myposts__location {
-  grid-area: location;
-  font-size: 18px;
-}
-
-.myposts__articletitle{
+.myprofile__articletitle {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 700;
   font-size: 22px;
   padding-top: 5px;
 }
 
-.myposts__postcontent{
+.myprofile__postcontent{
   font-family: 'Halant', serif;
   /* font-weight: 300; */
   color: rgb(55, 55, 55);
@@ -102,23 +89,23 @@
   padding-bottom: 5px;
 }
 
-.myposts__date {
+.myprofile__date {
   margin: 0 0 0 0;
 }
 
-.myposts__article{
+.myprofile__article{
  display: flex;
  flex-direction: column;
  /* padding: 20px; */
  border-bottom: 1.3px solid hsl(246, 25%, 77%);
 }
 
-.myposts__articlebottom{
+.myprofile__articlebottom{
   display: flex;
   justify-content: space-between;
 }
 
-.myposts__articlebottom button {
+.myprofile__articlebottom button {
   background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
@@ -129,17 +116,66 @@
   letter-spacing: 1px;
 }
 
-.myposts__rightsidebar {
-  border: 1.3px solid hsl(0, 0%, 0%);
+.myprofile__rightsidebar {
+  border: rgb(237, 237, 237) 1px solid;
+
   grid-column-start: 5;
   grid-column-end: last-line;
   grid-row-start: row1-start;
   grid-row-end: last-line;
 }
 
+.myprofile__userinfocontainer {
+  padding-top: 100px;
+  padding-left: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: [first] 100px [second] 250px;
+  grid-template-areas:
+    "image username"
+    "name name"
+    "location location"
+}
+
+.myprofile__userimage {
+  grid-area: image;
+  width: 80px
+}
+
+.myprofile__username {
+  grid-area: username;
+  font-size: 22px;
+}
+
+.myprofile__name {
+  grid-area: name;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.myprofile__location {
+  grid-area: location;
+  margin-top: 0px;
+  font-size: 18px;
+}
+
+.myprofile__deletebutton {
+  color: red;
+  text-decoration: none;
+  background-color: transparent;
+  width: 65px;
+  margin: 0px;
+  border: none;
+}
+
+.myprofile__deletebutton:hover {
+  color: white;
+  background-color: red;
+}
+
 
 @media (max-width: 800px) {
-  .myposts {
+  .myprofile {
     background-color: hsl(0, 0%, 100%);
     display: grid;
     /* grid-template-columns: 10% auto 20%; */
@@ -152,7 +188,7 @@
     min-height: 100vh;
   }
 
-  .myposts__postcontent{
+  .myprofile__postcontent{
     display: none
   }
 }

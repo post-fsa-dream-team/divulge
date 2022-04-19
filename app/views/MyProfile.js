@@ -7,17 +7,17 @@ import DeletePost from "../components/DeletePost.js";
 export default class extends AbstractView {
     constructor(params) {
         super(params);
-        this.setTitle("MyPosts");
+        this.setTitle("myprofile");
         this.userId = sessionStorage.getItem('id');
         this.postData = {};
     }
-    async getMyPosts(userId) {
+    async getmyprofile(userId) {
       const port = /localhost/.test(window.location.href)
       ? "http://localhost:3000/api"
       : "https://divulge-web-app.herokuapp.com/api";
         try {
-            const myPosts = await fetch(`${port}/users/${userId}/posts`)
-            const data = await myPosts.json()
+            const myprofile = await fetch(`${port}/users/${userId}/posts`)
+            const data = await myprofile.json()
             this.postData = data[0];
             return data
         } catch (error) {
@@ -29,7 +29,6 @@ export default class extends AbstractView {
       let splitIndex = date.split("").indexOf("T")
       let dayOnly = date.slice(0, splitIndex)
       let justDateItems = new Date(dayOnly).toString().split(" ")
-      console.log(justDateItems)
       let month = justDateItems[1]
       let day = justDateItems[2]
       let year = justDateItems[3]
@@ -52,8 +51,8 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-        const myPosts = await this.getMyPosts(this.userId)
-        console.log('myPosts', myPosts);
+        const myprofile = await this.getmyprofile(this.userId)
+        console.log('myprofile', myprofile);
 
         const deletePost = new DeletePost(this.postData?.id);
 
@@ -67,41 +66,37 @@ export default class extends AbstractView {
 
         return `
         ${Navbar()}
-        <div class='myposts'>
+        <div class='myprofile'>
 
-        <div class='myposts__leftsidebar'>
-          <div class="myposts__sidebaricons">
+        <div class='myprofile__leftsidebar'>
+          <div class="myprofile__sidebaricons">
                 <h3>Home</h3>
                 <h3>List</h3>
                 <h3>About</h3>
           </div>
         </div>
 
-        <div class='myposts__maincontent'>
-            <div class="myposts__userinfo">
-              <div class="myposts__userinfocontainer">
-                <h1 class="myposts__userinfo">Welcome, @${userName}!</p>
-                <p id="myposts__name"> Name: ${firstName} ${lastName} </p>
-                <p id="myposts__location"> Location: ${location}</p>
-                <p> </p>
-              </div>
-            </div>
 
+
+        <div class='myprofile__maincontent'>
+
+        <div class='myprofile__poststitlecontainer'>
+          <h1 class="myprofile__poststitle">Your Posts</h1>
+        </div>
             <div>
-              <h1>Your Posts</h1>
-              ${myPosts.length && myPosts.map((post) => {
+              ${myprofile.length && myprofile.map((post) => {
                   return `
-              <div class='myposts__maincontentposts'>
-                  <div class='myposts__article'>
-                      <p class="myposts__date">Created: ${this.convertDate(post.created_at)}</p>
-                      <h1 class='myposts__articletitle'>${post.title}</h1>
-                      <p class='myposts__postcontent'>${post.content.slice(0, 360)}...</p>
-                      <div class='myposts__articlebottom'>
+              <div class='myprofile__maincontentposts'>
+                  <div class='myprofile__article'>
+                      <p class="myprofile__date">Created: ${this.convertDate(post.created_at)}</p>
+                      <h1 class='myprofile__articletitle'>${post.title}</h1>
+                      <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
+                      <div class='myprofile__articlebottom'>
                       <p>${Math.ceil(post.content.length / 500)} min read</p>
 
                       <div id="button-containers">
                           <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
-                          <div class="myposts__deletebutton">
+                          <div class="myprofile__deletebutton">
                           ${deletePost.render()}
                           </div>
                       </div>
@@ -114,7 +109,16 @@ export default class extends AbstractView {
         </div>
 
 
-        <div class='myposts__rightsidebar'>Right sidebar</div>
+        <div class="myprofile__rightsidebar">
+
+          <div class="myprofile__userinfocontainer">
+            <img class="myprofile__userimage" src="https://ca.slack-edge.com/T0266FRGM-U015ZPLDZKQ-gf3696467c28-512" alt="default-user-img"/>
+            <p class="myprofile__username">${userName}</p>
+            <p class="myprofile__name"> Name: ${firstName} ${lastName} </p>
+            <p class="myprofile__location"> Location: ${location}</p>
+
+          </div>
+        </div>
 
 
         </div>`
@@ -126,15 +130,15 @@ export default class extends AbstractView {
     }
 }
 
-{/* <div class='myposts__leftsidebar'>
-<div class='myposts__leftsidebarcontent'>
+{/* <div class='myprofile__leftsidebar'>
+<div class='myprofile__leftsidebarcontent'>
     <h1>Divulge</h1>
 </div>
-<div class="myposts__sidebaricons">
+<div class="myprofile__sidebaricons">
     <h3>Home</h3>
     <h3>Create</h3>
 </div>
-<div class="myposts__sidebarprofile">
+<div class="myprofile__sidebarprofile">
     <h2>Profile</h2>
 </div>
 </div> */}
