@@ -31,7 +31,7 @@ router.post('/signup', async (req, res, next) => {
       /*if no duplicate user is found, create new user*/
       let hashedPassword = await bcrypt.hash(password, 10);
       // console.log("hashedPassword", hashedPassword);
-      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, birth_date, location], (err, results) => {
+      await pool.query('insert into users (user_name, first_name, last_name, email, password, birth_date, location) values ($1, $2, $3, $4, $5, $6, $7) returning id, password', [user_name, first_name, last_name, email, hashedPassword, null, null], (err, results) => {
         if (err) throw err;
         console.log("results", results)
         if (!results.rows[0]) {
