@@ -57,8 +57,9 @@ export default class extends AbstractView {
                 // console.log(data)
                 //sessionStorage.setItem(arg1, arg2) allows you to save user's information into sessionStorage https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/
                 for (let i in data) {
-
-                    window.sessionStorage.setItem(`${i}`, `${data[i]}`);}
+                    window.sessionStorage.setItem(`${i}`, `${data[i]}`);
+                    window.location.replace("/home")
+                }
             })
         } catch (error) {
             console.log('!!!Create user error!!!', error);

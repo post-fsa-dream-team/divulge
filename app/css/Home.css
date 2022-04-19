@@ -3,9 +3,13 @@
 #home-container {
   display: grid;
   width: 100%;
-  grid-template-columns: [leftNav] 0px [main] 70% [rightNav] 500px;
+  grid-template-columns: [leftNav] 0px [main] 70% [rightNav] 200px;
   grid-template-areas:
     "leftNav main rightNav"
+}
+
+.home-all-posts {
+  margin-left: 180px;
 }
 
 .home-main-content {
@@ -19,6 +23,16 @@
 
 .right-nav-bar {
   grid-area: rightNav;
+}
+
+#title-line {
+  width: 400px;
+  align-items: left;
+  height: 2px;
+  border: none;
+  margin-left: 20px;
+  background: white;
+  background: black;
 }
 
 #home-title {
@@ -38,12 +52,12 @@
   align-items: center;
   align-content: center;
   padding-left: 20px;
-  margin-top: 10vh;
+  margin-top: 15vh;
   margin-bottom: 5vh;
   background-color: #FFC017;
   height: 250px;
   /* height: auto; */
-  width: 100%;
+  width: 100vw;
   border-radius: 5px;
   margin-left: 250px;
 }
@@ -99,8 +113,68 @@
 }
 
 /* Medium devices (tablets, 800px and down) */
-/* @media (max-width: 800px) {
-  .console-container {
+@media (max-width: 1000px) {
+  .right-nav-bar {
     display: none;
   }
-} */
+
+  .console-container {
+    /* margin: auto; */
+    height: 200px;
+  }
+
+  .text-typing {
+    font-family: 'Libre Franklin', sans-serif;
+    /* color: white; */
+    color: black;
+    padding: 10px;
+    font-size: 6vh;
+    margin: 0px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-left: 10px
+  }
+}
+
+@media (max-width: 700px) {
+  .console-container {
+    /* margin: auto; */
+    height: 150px;
+    /* height: auto; */
+    width: 100vw;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  .text-typing {
+    font-family: 'Libre Franklin', sans-serif;
+    /* color: white; */
+    color: black;
+    padding: 10px;
+    font-size: 4vh;
+    margin: 0px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    /* padding-left: 10px */
+  }
+
+  @keyframes typing {
+    0% {
+      width: 0%
+    }
+
+    100% {
+      width: 67%
+    }
+  }
+
+  .home-all-posts {
+    margin-left: -50px;
+    padding: 0;
+    width: 100vw
+  }
+
+  .home-side-nav {
+    display: none;
+  }
+}

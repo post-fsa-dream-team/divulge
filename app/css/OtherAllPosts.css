@@ -1,6 +1,6 @@
 /* All Posts Cards */
 #posts-content {
-  margin-left: 180px;
+  /* margin-left: 180px; */
   margin-right: 20px;
   margin-top: 50px;
 
@@ -16,7 +16,8 @@
 }
 
 .other-posts-posts {
-  grid-area: posts
+  grid-area: posts;
+  margin-left: 180px;
 }
 .other-posts-right-nav{
   grid-area: rightNav;

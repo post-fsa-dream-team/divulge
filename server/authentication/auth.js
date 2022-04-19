@@ -45,6 +45,9 @@ router.post('/signup', async (req, res, next) => {
             if (correct) {
               // req.login(results.rows[0], err => (err ? next(err) : res.json(results.rows[0])))
               // console.log(req.body);
+
+              // let newUser = await pool.query('SELECT * FROM users WHERE email = $1 username = $2', [email,],
+
               res.status(200).send(req.body)
             } else {
               console.log('Cannot check for password of user: ', email)
