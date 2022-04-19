@@ -16,7 +16,7 @@
   width: 500px;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-self: flex-end;
+  justify-self: flex-start;
 
   /* align-items: flex-end; */
   /* padding-top: 0px;
