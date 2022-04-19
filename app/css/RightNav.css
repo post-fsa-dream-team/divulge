@@ -10,7 +10,8 @@
   top: 0;
   position: fixed;
 }
-.right-nav {
+
+.right-nav-main {
   padding-top: 150px;
   width: 500px;
   flex-direction: row;
@@ -28,10 +29,25 @@
   /* box-shadow: 2px 2px 2px 2px #0b5b6d; */
 }
 
-.right-nav-link {
+.right-nav-main-link {
   margin-left: 20px;
   /* margin-bottom: 20px; */
   text-decoration: none;
   color: black;
 
+}
+
+.right-nav-footer {
+  padding-top: 150px;
+  width: 500px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: flex-end;
+}
+
+.right-nav-footer-link {
+  margin-left: 20px;
+  /* margin-bottom: 20px; */
+  text-decoration: none;
+  color: black;
 }

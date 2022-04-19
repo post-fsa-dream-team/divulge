@@ -4,7 +4,6 @@ const Navbar = () => {
   //SOME KIND OF ADMIN AUTHORIZATION
   let admin = sessionStorage.getItem("is_admin")
   let user = sessionStorage.getItem("id")
-  console.log("this is navbar")
   const userId = sessionStorage.getItem('id');
 
 
