@@ -13,7 +13,7 @@
 
 
 .myposts__leftsidebar {
-  border-right: 1.3px solid hsl(0, 0%, 0%);
+  border-right: rgb(237, 237, 237) 1px solid;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -61,30 +61,7 @@
   grid-row-end: last-line;
 }
 
-.myposts__userinfo {
-  display: grid;
-  grid-template-columns: [first] 10px [second] 500px [third] 10px;
-  border-bottom: rgb(228, 227, 227) 1px solid;
-  grid-template-areas:
-    "username username username"
-    ". name name"
-    ". location location"
-}
 
-#myposts__username {
-  grid-area: username;
-  font-size: 18px;
-}
-
-#myposts__name {
-  grid-area: name;
-  font-size: 18px;
-}
-
-#myposts__location {
-  grid-area: location;
-  font-size: 18px;
-}
 
 .myposts__articletitle{
   font-family: 'Libre Franklin', sans-serif;
@@ -130,11 +107,40 @@
 }
 
 .myposts__rightsidebar {
-  border: 1.3px solid hsl(0, 0%, 0%);
+  border: rgb(237, 237, 237) 1px solid;
+  padding-top: 80px;
   grid-column-start: 5;
   grid-column-end: last-line;
   grid-row-start: row1-start;
   grid-row-end: last-line;
+}
+
+.myposts__userinfo {
+  display: grid;
+  grid-template-columns: [first] 50px [second] 200px [third] 50px;
+  grid-template-areas:
+    "username username username"
+    "name name name"
+    "location location location"
+}
+
+.myposts__userinfocontainer {
+  padding-left: 20px;
+}
+
+#myposts__username {
+  grid-area: username;
+  font-size: 18px;
+}
+
+#myposts__name {
+  grid-area: name;
+  font-size: 18px;
+}
+
+#myposts__location {
+  grid-area: location;
+  font-size: 18px;
 }
 
 

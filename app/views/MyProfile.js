@@ -29,7 +29,6 @@ export default class extends AbstractView {
       let splitIndex = date.split("").indexOf("T")
       let dayOnly = date.slice(0, splitIndex)
       let justDateItems = new Date(dayOnly).toString().split(" ")
-      console.log(justDateItems)
       let month = justDateItems[1]
       let day = justDateItems[2]
       let year = justDateItems[3]
@@ -78,14 +77,6 @@ export default class extends AbstractView {
         </div>
 
         <div class='myposts__maincontent'>
-            <div class="myposts__userinfo">
-              <div class="myposts__userinfocontainer">
-                <h1 class="myposts__userinfo">Welcome, @${userName}!</p>
-                <p id="myposts__name"> Name: ${firstName} ${lastName} </p>
-                <p id="myposts__location"> Location: ${location}</p>
-                <p> </p>
-              </div>
-            </div>
 
             <div>
               <h1>Your Posts</h1>
@@ -114,7 +105,15 @@ export default class extends AbstractView {
         </div>
 
 
-        <div class='myposts__rightsidebar'>Right sidebar</div>
+        <div class='myposts__rightsidebar'>
+          <div class="myposts__userinfo">
+          <div class="myposts__userinfocontainer">
+            <p id="myposts__username">${userName}!</p>
+            <p id="myposts__name"> Name: ${firstName} ${lastName} </p>
+            <p id="myposts__location"> Location: ${location}</p>
+          </div>
+          </div>
+        </div>
 
 
         </div>`

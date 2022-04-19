@@ -41,7 +41,7 @@
 #cards-container {
   display: grid;
   justify-content: start;
-  grid-template-columns: [first] 200px [second] 100px [third] 25% [fourth] 25% [last] 10%;
+  grid-template-columns: [first] 200px [second] 80px [third] 25% [fourth] 25% [last] 10%;
   grid-template-rows: auto;
   grid-auto-flow: row;
   border-bottom: rgb(237, 237, 237) 1px solid;
@@ -142,7 +142,13 @@
   width: 50px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
+  .post-image {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
   #cards-container {
     display: grid;
     justify-content: start;
@@ -168,6 +174,10 @@
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 10px;
+  }
+
+  .article-content {
+    display: none;
   }
 
 }
