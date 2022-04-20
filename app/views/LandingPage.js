@@ -31,16 +31,8 @@ export default class extends AbstractView {
     return `
     <div class="landingpage">
     <div class="landingpage__header">
-      <div id="nav">
-        <h2><a href="/home">Divulge</a></h2>
-        <div id="nav__content">
-          <span><a href="/">Our Story</a></span>
-          <span><a>Membership</a></span>
-          <span><a href="/signin">Write</a></span>
-          <span><a href="/signin">Sign In</a></span>
-          <span><a href="/signup">Get Started</a></span>
-        </div>
-      </div>
+      ${Navbar()}
+
       <div id="headline">
         <h1>Stay curious.</h1>
         <h2>Discover stories, thinking and expertise from writers on any topic.</h2>
@@ -108,3 +100,15 @@ export default class extends AbstractView {
   }
 
 }
+
+
+{/* <div id="nav">
+<h2><a href="/home">Divulge</a></h2>
+<div id="nav__content">
+  <span><a href="/">Our Story</a></span>
+  <span><a>Membership</a></span>
+  <span><a href="/signin">Write</a></span>
+  <span><a href="/signin">Sign In</a></span>
+  <span><a href="/signup">Sign In</a></span>
+</div>
+</div> */}

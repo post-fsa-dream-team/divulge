@@ -150,11 +150,12 @@ small a {
 	text-decoration: none;
 }
 .signin__form button {
-    background-color: hsl(154, 59%, 51%);
+    /* background-color: hsl(154, 59%, 51%); */
+    background-color: #FFC017;
     border-radius: 5px;
-    border: 1px solid hsl(154, 59%, 40%);
-    box-shadow: 0 2px hsl(154, 59%, 40%);
-    color: white;
+    border: 1px solid #ce9b0f;
+    box-shadow: 0 2px #c49809;
+    color: black;
     cursor: pointer;
     display: block;
     font-family: 'Poppins', sans-serif;
@@ -169,7 +170,7 @@ small a {
     outline: none;
 }
 .signin__form button:active {
-    box-shadow: 0 2px hsl(154, 59%, 40%);
+    box-shadow: 0 2px #FFC017;
     transform: translateY(2px)
 }
 

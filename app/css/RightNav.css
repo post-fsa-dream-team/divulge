@@ -5,7 +5,7 @@
   background-color: white;
   justify-content: space-between;
   flex-direction: column;
-  max-width: 100vw;
+  max-width: 100%;
   height: 100vh;
   flex-wrap: wrap;
   border-left: rgb(237, 237, 237) 1px solid;
@@ -15,8 +15,10 @@
 }
 
 .right-nav-main {
+  display: flex;
   padding-top: 150px;
-  max-width: 100%;
+  max-width: 400px;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
@@ -33,10 +35,12 @@
 }
 
 .right-nav-footer {
+  display: flex;
   padding-top: 400px;
-  width: 500px;
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   justify-self: flex-end;
   margin-bottom: 20px;
 }

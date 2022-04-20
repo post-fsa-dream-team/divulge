@@ -12,16 +12,22 @@
   /* box-shadow: 2px 2px 2px 2px #0b5b6d; */
 }
 
+#nav-bar-signed-out {
+  background-color: #FFC017;
+  border-bottom: black 2px solid
+}
+
 .title-container {
   display: flex;
   align-items: center;
+  margin-left: 120px
 }
 
 #site-title {
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   padding: 10px;
-  font-size: 40px;
+  font-size: 30px;
   margin: 0px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -38,6 +44,8 @@
 .nav-links {
   display: flex;
   align-items: flex-end;
+  /* padding: 30px 0 30px 0; */
+  margin-right: 100px;
 }
 
 nav {
