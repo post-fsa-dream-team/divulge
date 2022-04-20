@@ -1,20 +1,22 @@
 
+
 .right-nav-container {
   display: flex;
   background-color: white;
   justify-content: space-between;
   flex-direction: column;
-  width: 300px;
+  max-width: 100vw;
   height: 100vh;
+  flex-wrap: wrap;
   border-left: rgb(237, 237, 237) 1px solid;
-  width: 100%;
+  /* width: 100%; */
   top: 0;
   position: fixed;
 }
 
 .right-nav-main {
   padding-top: 150px;
-  width: 300px;
+  max-width: 100%;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;

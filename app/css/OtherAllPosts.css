@@ -10,16 +10,16 @@
 .other-posts-container {
   margin-top: 80px;
   display: grid;
-  width: 100%;
-  grid-template-columns: [first] 0px [posts] 80% [rightNav] 40%;
+  width: 80%;
+  grid-template-columns: [first] 0px [posts] 90% [rightNav] 10%;
   grid-template-areas:
   ". posts rightNav";
 }
 
 .other-posts-posts {
   grid-area: posts;
-  margin-left: 250px;
-  margin-right: 200px;
+  margin-left: 220px;
+  margin-right: 180px;
 }
 
 .other-posts-right-nav{

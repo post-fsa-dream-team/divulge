@@ -2,14 +2,14 @@
 
 #home-container {
   display: grid;
-  width: 100%;
-  grid-template-columns: [leftNav] 0px [main] 80% [rightNav] 30%;
+  width: 80%;
+  grid-template-columns: [leftNav] 0px [main] 90% [rightNav] 10%;
   grid-template-areas:
     "leftNav main rightNav"
 }
 
 .home-all-posts {
-  margin-left: 250px;
+  margin-left: 220px;
   margin-right: 200px;
 }
 
