@@ -24,8 +24,8 @@ export default class extends AbstractView {
 
   async editPost(post) {
     const port = /localhost/.test(window.location.href)
-    ? "http://localhost:3000/api"
-    : "https://divulge-web-app.herokuapp.com/api";
+      ? "http://localhost:3000/api"
+      : "https://divulge-web-app.herokuapp.com/api";
     try {
       const { post_id, title, content, category, image_url } = post;
       const response = await fetch(`${port}/posts/${post_id}`, {
@@ -33,7 +33,7 @@ export default class extends AbstractView {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({title, content, category, image_url})
+        body: JSON.stringify({ title, content, category, image_url })
       });
       if (!response.ok) throw new Error('Something went wrong with put edit post request.');
       // const resData = await response.json();
@@ -41,7 +41,7 @@ export default class extends AbstractView {
       // console.log('Edit Successful');
       // console.log(this.postResponse);
     } catch (error) {
-      console.log('!!!Edit post error!!!',  error);
+      console.log('!!!Edit post error!!!', error);
     }
   }
 
@@ -105,9 +105,9 @@ export default class extends AbstractView {
             <i class="fa fa-code" aria-hidden="true"></i>
           </button>
         </form>
-        </div>
-        <br />
-        <iframe id="output" name="textField" value=""></iframe>
+      </div>
+      <br />
+      <iframe id="output" name="textField" value=""></iframe>
     </div><br />
   </div>
 

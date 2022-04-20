@@ -36,7 +36,6 @@
 }
 
 #action {
-  background-color: aquamarine;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -50,7 +49,7 @@
 
 #action select {
   width: 50%;
-  height: 80%;
+  height: 100%;
   border: hsl(0, 0%, 100%);
   color:rgb(99, 99, 99)
 }
@@ -135,7 +134,7 @@
   }
 
   .post-content input:focus {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 240;
   }
 
