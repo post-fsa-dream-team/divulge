@@ -46,7 +46,9 @@ export default class extends AbstractView {
           <hr id="title-line"></hr>
           </div>
         </div>
+        <div class="home-all-posts">
         ${PostsView(posts)}
+        </div>
       </div>
 
       <div class="right-nav-bar">
