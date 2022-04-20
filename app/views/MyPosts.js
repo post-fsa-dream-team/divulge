@@ -69,7 +69,6 @@ export default class extends AbstractView {
                         <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
                         ${deletePost.render()}
                     </div>
-
                     </div>
                 </div>
             </div>

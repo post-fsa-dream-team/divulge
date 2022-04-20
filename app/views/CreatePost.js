@@ -40,7 +40,7 @@ export default class extends AbstractView {
     ${Navbar()}
     <div class="create-post-container">
     <div class="post-content">
-      <input type="text" name="title" placeholder="Title" value="" />
+      <input id="input-title" type="text" name="title" placeholder="Title" value="" />
       <input id="input-imageUrl" class="inputField" type="text" name="imageUrl" placeholder="Thumbnail URL" value="" />
       <div id="action">
         <select id="post-category" name="category" form="post-form">
@@ -49,7 +49,7 @@ export default class extends AbstractView {
             return `<option value="${cat}">${cat}</option>`
           })}
         </select>
-        <input id="submit-button" type="submit" value="Publish"></input>
+        <input id="submit-button" type="submit" value="Publish" onclick="window.location='/profile'"></input>
       </div><br />
       <div id="editor-control">
         <form >

@@ -24,8 +24,8 @@ export default class extends AbstractView {
 
   async editPost(post) {
     const port = /localhost/.test(window.location.href)
-    ? "http://localhost:3000/api"
-    : "https://divulge-web-app.herokuapp.com/api";
+      ? "http://localhost:3000/api"
+      : "https://divulge-web-app.herokuapp.com/api";
     try {
       const { post_id, title, content, category, image_url } = post;
       const response = await fetch(`${port}/posts/${post_id}`, {
@@ -33,7 +33,7 @@ export default class extends AbstractView {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({title, content, category, image_url})
+        body: JSON.stringify({ title, content, category, image_url })
       });
       if (!response.ok) throw new Error('Something went wrong with put edit post request.');
       // const resData = await response.json();
@@ -41,88 +41,76 @@ export default class extends AbstractView {
       // console.log('Edit Successful');
       // console.log(this.postResponse);
     } catch (error) {
-      console.log('!!!Edit post error!!!',  error);
+      console.log('!!!Edit post error!!!', error);
     }
   }
 
+  // ${SideNav()}
   async getHtml() {
-
+    const category = ["Technology", "Politics", "Fashion", "News", "Sports", "Entertaiment", "Crime"]
     return (`
-      <div id="edit-post-container">
-        ${Navbar()}
-        ${SideNav()}
-        <div id="post-content">
-          <h1 id="editPost-title">Edit Your Content</h1>
-          <div>
-            <div>
-              <input id="input-title" class="inputField" type="text" name="title" placeholder="Title" value="" />
-            </div><br />
-            <div>
-              <input id="input-imageUrl" class="inputField" type="text" name="imageUrl" placeholder="Thumbnail URL" value="" />
-            </div><br />
-            <div>
-              <form id="text-editor-form">
-                <button type="button" data-cmd="justifyLeft">
-                  <i class="fa fa-align-left" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="justifyCenter">
-                  <i class="fa fa-align-center" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="justifyFull">
-                  <i class="fa fa-align-justify" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="justifyRight">
-                  <i class="fa fa-align-right" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="bold">
-                  <i class="fa fa-bold" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="italic">
-                  <i class="fa fa-italic" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="underline">
-                  <i class="fa fa-underline" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="textHeight">
-                  <i class="fa fa-text-height" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="insertOrderedList">
-                  <i class="fa fa-list-ol" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="insertUnorderedList">
-                  <i class="fa fa-list-ul" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="insertImage">
-                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="createLink">
-                  <i class="fa fa-link" aria-hidden="true"></i>
-                </button>
-                <button type="button" data-cmd="showCode" name="active">
-                  <i class="fa fa-code" aria-hidden="true"></i>
-                </button>
-              </form>
-            </div>
-            <div>
-              <iframe id="output" name="textField" value=""></iframe>
-            </div>
-            <br />
-            <div>
-              <select id="post-category" name="category" form="post-form">
-                <option value="none" selected disabled hidden>Select a Category</option>
-                <option value="technology">Technology</option>
-                <option value="politics">Politics</option>
-                <option value="fashion">Fashion</option>
-                <option value="news">News</option>
-                <option value="sports">Sports</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="crime">Crime</option>
-              </select>
-            </div><br />
-            <input id="submit-button" type="submit" value="Submit Post"></input>
-          </div><br />
-        </div>
+    ${Navbar()}
+    <div class="edit-post-container">
+    <div class="post-content">
+      <input id="input-title" type="text" name="title" placeholder="Title" value="" />
+      <input id="input-imageUrl" class="inputField" type="text" name="imageUrl" placeholder="Thumbnail URL" value="" />
+      <div id="action">
+        <select id="post-category" name="category" form="post-form">
+          <option value="none" selected disabled hidden>Select a Category</option>
+          ${category.map(cat => {
+            return `<option value="${cat}">${cat}</option>`
+          })}
+        </select>
+        <input id="submit-button" type="submit" value="Publish" onclick="window.location='/profile'"></input>
+      </div><br />
+      <div id="editor-control">
+        <form >
+          <button type="button" data-cmd="justifyLeft">
+            <i class="fa fa-align-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="justifyCenter">
+            <i class="fa fa-align-center" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="justifyFull">
+            <i class="fa fa-align-justify" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="justifyRight">
+            <i class="fa fa-align-right" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="bold">
+            <i class="fa fa-bold" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="italic">
+            <i class="fa fa-italic" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="underline">
+            <i class="fa fa-underline" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="textHeight">
+            <i class="fa fa-text-height" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="insertOrderedList">
+            <i class="fa fa-list-ol" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="insertUnorderedList">
+            <i class="fa fa-list-ul" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="insertImage">
+            <i class="fa fa-file-image-o" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="createLink">
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-cmd="showCode" name="active">
+            <i class="fa fa-code" aria-hidden="true"></i>
+          </button>
+        </form>
       </div>
+      <br />
+      <iframe id="output" name="textField" value=""></iframe>
+    </div><br />
+  </div>
+
 
     `);
   }

@@ -1,9 +1,7 @@
-.create-post-container {
-
+.edit-post-container {
   display: flex;
   justify-content: center;
   height: 100vh;
-  /* max-width: 80%; */
 }
 
 .post-content {
