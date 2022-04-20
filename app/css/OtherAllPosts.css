@@ -11,14 +11,15 @@
   margin-top: 80px;
   display: grid;
   width: 100%;
-  grid-template-columns: [first] 0px [posts] 80% [rightNav] 30%;
+  grid-template-columns: [first] 0px [posts] 80% [rightNav] 40%;
   grid-template-areas:
   ". posts rightNav";
 }
 
 .other-posts-posts {
   grid-area: posts;
-  margin-left: 180px;
+  margin-left: 250px;
+  margin-right: 200px;
 }
 
 .other-posts-right-nav{
