@@ -3,7 +3,7 @@
 #home-container {
   display: grid;
   width: 100%;
-  grid-template-columns: [leftNav] 0px [main] 70% [rightNav] 200px;
+  grid-template-columns: [leftNav] 0px [main] 80% [rightNav] 30%;
   grid-template-areas:
     "leftNav main rightNav"
 }
@@ -52,7 +52,7 @@
   align-items: center;
   align-content: center;
   padding-left: 20px;
-  margin-top: 15vh;
+  margin-top: 12vh;
   margin-bottom: 5vh;
   background-color: #FFC017;
   height: 250px;
@@ -113,6 +113,23 @@
 }
 
 /* Medium devices (tablets, 800px and down) */
+
+@media (max-width: 1300px) {
+
+
+  .text-typing {
+    font-family: 'Libre Franklin', sans-serif;
+    /* color: white; */
+    color: black;
+    padding: 10px;
+    font-size: 55px;
+    margin: 0px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-left: 10px
+  }
+}
+
 @media (max-width: 1000px) {
   .right-nav-bar {
     display: none;
@@ -151,7 +168,7 @@
     /* color: white; */
     color: black;
     padding: 10px;
-    font-size: 4vh;
+    font-size: 30px;
     margin: 0px;
     padding-top: 25px;
     padding-bottom: 20px;
@@ -164,7 +181,7 @@
     }
 
     100% {
-      width: 67%
+      width: 70%
     }
   }
 

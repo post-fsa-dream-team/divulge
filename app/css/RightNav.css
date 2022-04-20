@@ -6,7 +6,6 @@
   height: 100vh;
   border-left: rgb(237, 237, 237) 1px solid;
   width: 100%;
-  /* z-index: 150; */
   top: 0;
   position: fixed;
 }
