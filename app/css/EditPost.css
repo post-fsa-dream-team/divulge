@@ -1,9 +1,7 @@
-.create-post-container {
-
+.edit-post-container {
   display: flex;
   justify-content: center;
   height: 100vh;
-  /* max-width: 80%; */
 }
 
 .post-content {
@@ -38,6 +36,7 @@
 }
 
 #action {
+  background-color: aquamarine;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -51,7 +50,7 @@
 
 #action select {
   width: 50%;
-  height: 100%;
+  height: 80%;
   border: hsl(0, 0%, 100%);
   color:rgb(99, 99, 99)
 }
