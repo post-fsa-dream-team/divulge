@@ -32,7 +32,8 @@ export default class extends AbstractView {
       for (let result of data) {
         await delay(500);
         await fetch(`https://community-hacker-news-v1.p.rapidapi.com/item/${result}.json?print=pretty`, options)
-       .then(res => res.json())
+       .then(
+         res => res.json())
        .then(res => {
          results.push(res);
         })
