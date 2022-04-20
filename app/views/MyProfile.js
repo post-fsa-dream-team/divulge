@@ -88,8 +88,8 @@ export default class extends AbstractView {
                   return `
               <div class='myprofile__maincontentposts'>
                   <div class='myprofile__article'>
-                      <p class="myprofile__date">Created: ${this.convertDate(post.created_at)}</p>
-                      <h1 class='myprofile__articletitle'>${post.title}</h1>
+                  <h1 class='myprofile__articletitle'><a href="posts/${post.id}">${post.title}</a></h1>
+                  <p class="myprofile__date">${this.convertDate(post.created_at)}</p>
                       <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
                       <div class='myprofile__articlebottom'>
                       <p>${Math.ceil(post.content.length / 500)} min read</p>

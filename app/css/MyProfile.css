@@ -52,7 +52,10 @@
 /* .myprofile__maincontentnav h3:active {
   transform: translateY(2px)
 } */
-
+a {
+  text-decoration: none;
+  color: black;
+}
 .myprofile__poststitle {
   color: #FFC017;
 }
