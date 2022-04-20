@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js";
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
+import secrets from "../secrets.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -12,10 +13,35 @@ export default class extends AbstractView {
 
   async getPosts() {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-      const data = await response.json()
-      console.log("data", data);
-      return data;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host':secrets.APIHOST,
+          'X-RapidAPI-Key': secrets.APIKEY
+        }
+      };
+      const delay = (t) => {
+         new Promise(resolve => setTimeout(resolve, t));
+    }
+      const response =
+      await fetch('https://community-hacker-news-v1.p.rapidapi.com/topstories.json?print=pretty', options)
+      console.log("response", response);
+      var data = await response.json()
+      data = data.slice(0,10)
+      let results = []
+      for (let result of data) {
+        await delay(500);
+        await fetch(`https://community-hacker-news-v1.p.rapidapi.com/item/${result}.json?print=pretty`, options)
+       .then(res => res.json())
+       .then(res => {
+         results.push(res);
+        })
+        .catch(err => console.log(err))
+      }
+      console.log(results)
+
+      // console.log("data", data);
+      return results;
     } catch (error) {
       console.log('CANNOT SEE DATA', error)
     }
@@ -52,23 +78,26 @@ export default class extends AbstractView {
       <p><strong>Trending on Divulge</strong></p>
       <div id="highlightcontent">
       ${posts.slice(0, 6).map(post => (
-        post !== undefined && `<div id="contentdetails">
+        post !== undefined &&
+        `<div id="contentdetails">
         <p id="title">${post.title}</p>
       </div>`
       )).join('')}
       </div>
     </div>
       <div class="landingpage__infinitescroll">
-        <div id="scrollstory">
-          <p>Writer's name</p>
-          <h1>Title</h1>
-          <h2>This is a summary</h2>
-          <div id="action">
-          <p>MM/YYYY</p>
-          <p>Reading Time</p>
-          <p>tags</p>
-          <p>Save</p>
-          </div>
+        ${posts.map(post => (
+          post !== undefined &&
+          `<div id="scrollstory">
+            <h1>${post.title}</h1>
+            <p>${post.by}</p>
+            <p>${post.text}</p>
+            <div id="action">
+            <p>created at ${new Date(post.time)}</p>
+            <p>Tags: ${post.story}</p>
+            <p>Save</p>
+            </div>`
+            )).join('')}
         </div>
         <div id="stickyright">
           <p style="text-transform:uppercase"><strong>Discover more of what matters to you</strong></p>
