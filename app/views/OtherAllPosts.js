@@ -52,8 +52,12 @@ export default class extends AbstractView {
 
     return `
       <div class="other-posts-container">
+
       ${Navbar()}
+
+      <div class="other-posts-sidenav">
       ${SideNav()}
+      </div>
 
       <div class="other-posts-posts">
       ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}

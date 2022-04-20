@@ -52,7 +52,6 @@ export default class extends AbstractView {
 
     async getHtml() {
         const myprofile = await this.getmyprofile(this.userId)
-        console.log('myprofile', myprofile);
 
         const deletePost = new DeletePost(this.postData?.id);
 
