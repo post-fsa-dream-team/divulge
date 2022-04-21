@@ -1,5 +1,6 @@
 const RightNav = () => {
   return `
+
   <div class="right-nav-container">
     <div class="right-nav-main">
       <a href="" class="right-nav-main-link" data-link>News</a>

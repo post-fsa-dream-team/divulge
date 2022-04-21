@@ -49,7 +49,7 @@ export default class extends AbstractView {
                 console.log("Sign In successfully")
             } else {
                 console.log("We have an error logging in");
-            };
+            }
             return response.json(response).then(data => {
                 console.log("data", data)
                 //sessionStorage.setItem(arg1, arg2) allows you to save user's information into sessionStorage https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/
@@ -80,7 +80,6 @@ export default class extends AbstractView {
             </div>
 
             <div class='signin__right'>
-
                 <form class='signin__form' id='signinform'>
                     <div class='signin__form-control'>
                         <input type="email" id="email" placeholder="Email" value="" />
@@ -90,7 +89,7 @@ export default class extends AbstractView {
                         <input type="password" id="password" placeholder="Password" value="" />
                         <small></small>
                     </div>
-                    <button id="sign-in-button">Sign In</button>
+                    <button id="sign-in-button">SIGN IN</button>
                 </form>
             </div>
         </div>
