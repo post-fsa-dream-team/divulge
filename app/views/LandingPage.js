@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("LandingPage");
+    this.setTitle("Divulge | Home");
     this.getPosts = this.getPosts.bind(this)
     // this.navScroll = this.navScroll.bind(this)
   }
