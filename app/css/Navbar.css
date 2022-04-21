@@ -99,15 +99,9 @@ nav ul li :hover {
   width: 30px;
   height: 21px;
   padding-right: 30px;
+  margin-top: 5px;
 
   user-select: none;
-}
-
-.hamburger-menu .bar {
-  height: 3px;
-  width: 100%;
-  background-color: black;
-  border-radius: 10px;
 }
 
 .hamburger-menu input {
@@ -127,9 +121,76 @@ nav ul li :hover {
   -webkit-touch-callout: none;
 }
 
+.hamburger-menu .bar {
+  background: #000000;
+
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+.hamburger-menu span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+.hamburger-menu span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+.hamburger-menu input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-10px, -10px);
+  background: #232323;
+  margin-bottom: 5px;
+}
+
+/* Hide the middle bar */
+.hamburger-menu input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+/*
+ * last one should go the other direction
+ */
+.hamburger-menu input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(-9px, 9px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+
+.hamburger-menu input:checked ~ ul
+{
+  transform: none;
+}
+
 @media (max-width: 800px) {
-
-
   .hamburger-menu {
     display: flex;
     position: relative;
@@ -138,22 +199,44 @@ nav ul li :hover {
 
     -webkit-user-select: none;
     user-select: none;
-
   }
 
   .nav-links {
     display: none
   }
 
-  .nav-items {
+
+  /* .nav-items {
     flex-direction: column;
     align-items: flex-start;
     width: 100%
-  }
+  } */
 
-  #menuToggle input:checked ~ ul {
-    transform: none;
+  .nav-items {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(0, 100%);
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
+/*
+  .hamburger-menu input:checked ~ ul {
+    transform: none;
+  } */
 }
 
 #admin-portal-link {

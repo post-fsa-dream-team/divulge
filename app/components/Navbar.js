@@ -11,7 +11,7 @@ const Navbar = () => {
     return `<nav class="nav-bar">
     <div class="title-container">
       <div id="site-title">
-        <p><a href="/home">Divulge</a></p>
+        <p><a href="/home" data-link>Divulge</a></p>
       </div>
     </div>
 
@@ -52,8 +52,8 @@ const Navbar = () => {
         <li><a href="/adminportal" id="admin-portal-link" class="nav-link" data-link>Admin Portal</a></li>
         <li><a href="/home" class="nav-link" data-link>Home</a></li>
         <li><a href="/profile" class="nav-link" data-link>Profile</a></li>
-        <li><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></li>
-        <li><a href="/logout" class="nav-link">Logout</a></li>
+        <li><a href="/${userId}/createpost" class="nav-link" data-link>Create Post</a></li>
+        <li><a href="/logout" class="nav-link" data-link>Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -63,7 +63,7 @@ const Navbar = () => {
     return `<nav class="nav-bar" id="nav-bar-signed-out">
     <div class="title-container">
       <div id="site-title">
-        <p><a href="/">Divulge</a></p>
+        <p><a href="/" data-link>Divulge</a></p>
       </div>
     </div>
 
@@ -76,8 +76,8 @@ const Navbar = () => {
 
     <div class="nav-links">
       <ul class="nav-items">
-        <li><a href="/signup" class="nav-link">Sign Up</a></li>
-        <li><a href="/signin" class="nav-link">Sign In</a></li>
+        <li><a href="/signup" class="nav-link" data-link>Sign Up</a></li>
+        <li><a href="/signin" class="nav-link" data-link>Sign In</a></li>
       </ul>
     </div>
   </nav>
