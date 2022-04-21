@@ -51,7 +51,6 @@ export default class extends AbstractView {
                 console.log("We have an error logging in");
             }
             return response.json(response).then(data => {
-                console.log("data", data)
                 //sessionStorage.setItem(arg1, arg2) allows you to save user's information into sessionStorage https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/
                 for (let i in data) {
                     if(`${i}` !== "password") // -------> save everything except for password
