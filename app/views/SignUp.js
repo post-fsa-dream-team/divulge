@@ -29,7 +29,7 @@ export default class extends AbstractView {
         return re.test(String(email).toLowerCase());
     }
 
-    async signUp(firstName, lastName, username, email, password) {
+    async signUp(firstName, lastName, username, email, password, birthdate, location) {
         try {
             // console.log(firstName, lastName, username, email, password);
             const port = /localhost/.test(window.location.href)
@@ -40,7 +40,7 @@ export default class extends AbstractView {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "first_name": firstName, "last_name": lastName, "user_name": username, "email": email, "password": password })
+                body: JSON.stringify({ "first_name": firstName, "last_name": lastName, "user_name": username, "email": email, "password": password, "birth_date": birthdate, "location": location })
             });
             console.log("response: ", response);
             if (response.status === 200) {
@@ -60,6 +60,7 @@ export default class extends AbstractView {
         }
     }
     async getHtml() {
+        let datePickerIdMax = new Date().toISOString().split("T")[0];
         let loggedIn = !!sessionStorage.getItem("id")
 
         if (loggedIn) {
@@ -103,7 +104,7 @@ export default class extends AbstractView {
             </div>
 
             <div class='signup__form-control' id="birthdate">
-                <input type="date" id="birth_date" placeholder="Birthdate"/>
+                <input type="date" max=${datePickerIdMax} id="birthdate" placeholder="Birthdate"/>
                 <small></small>
             </div>
 
@@ -136,12 +137,16 @@ export default class extends AbstractView {
             const username = form['username'].value;
             const email = form['email'].value;
             const password = form['password'].value;
+            const birthdate = form['birthdate'].value;
+            const location = form['location'].value
             const user = {
                 firstName: firstName,
                 lastName: lastName,
                 username: username,
                 email: email,
-                password: password
+                password: password,
+                birthdate: birthdate,
+                location: location
             }
 
             if (firstName === '') {
@@ -175,7 +180,20 @@ export default class extends AbstractView {
             } else {
                 removeErrorFrom('password');
             }
-            if (firstName && lastName && username && email && password) this.signUp(firstName, lastName, username, email, password)
+
+            if (birthdate === '') {
+                addErrorTo('birthdate', 'Birthday is required');
+            } else {
+                removeErrorFrom('birthdate');
+            }
+
+            if (location === '') {
+                addErrorTo('location', 'Location is required');
+            } else {
+                removeErrorFrom('location');
+            }
+
+            if (firstName && lastName && username && email && password && birthdate && birthdate && location) this.signUp(firstName, lastName, username, email, password, birthdate, location)
 
         })
 
