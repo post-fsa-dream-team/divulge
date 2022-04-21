@@ -1,5 +1,5 @@
 //main entry point
-console.log("Entered the index.js file")
+// console.log("Entered the index.js file")
 
 import Home from "./views/Home.js"
 import SinglePost from "./views/SinglePost.js";
@@ -101,7 +101,7 @@ const router = async() => {
     // Test each route to see if the pathname in the URL matches the regex pattern of the path
     const potentialMatches = routes.map(route => {
         // console.log(pathToRegex(route.path))
-        console.log(location.pathname)
+        // console.log(location.pathname)
         return {
             route: route,
             result: location.pathname.match(pathToRegex(route.path))

@@ -81,7 +81,7 @@ export default class extends AbstractView {
           <h1 class="myprofile__poststitle">Your Posts</h1>
         </div>
             <div>
-              ${myprofile.length && myprofile.map((post) => {
+              ${myprofile.length === 0 ? `<p>No posts to show</p>` : myprofile.map((post) => {
                   return `
               <div class='myprofile__maincontentposts'>
                   <div class='myprofile__article'>

@@ -25,7 +25,6 @@ export default class extends AbstractView {
     try {
        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
       const data = await response.json()
-      console.log("data", data);
       return data;
     } catch (error) {
       console.log('CANNOT SEE DATA', error)
@@ -35,7 +34,6 @@ export default class extends AbstractView {
   async getHtml() {
     let posts = await this.getPosts();
     let user = sessionStorage.getItem("id")
-    console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
     const category = ["News", "Technology", "Politics", "Crime", "Entertainment", "Fashion", "Sports"]
     const helper = ["Help","Status", "Writers","Blog","Careers", "Privacy", "Terms", "About", "Knowable"]
