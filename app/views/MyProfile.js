@@ -101,7 +101,7 @@ export default class extends AbstractView {
                       </div>
                   </div>
               </div>
-              `})}
+              `}).join('')}
           </div>
         </div>
 
