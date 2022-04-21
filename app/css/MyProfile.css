@@ -1,9 +1,6 @@
 .myprofile {
   background-color: hsl(0, 0%, 100%);
   display: grid;
-  /* grid-template-columns: 10% auto 20%; */
-  /* grid-template-columns: [first] 100px [line2] auto [line3] auto [col4-start] auto [five] 30% [end]; */
-  /* grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line]; */
   height: auto;
   grid-template-columns: [first] 150px [second] auto [third] 30%;
   grid-template-areas:
@@ -27,35 +24,12 @@
   width: 120px;
 }
 
-/* .myprofile__leftsidebar>div {
-  border: 1.3px solid hsl(0, 0%, 0%);
-} */
-
 .myprofile__maincontent {
   grid-area: main;
-  /* grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: row1-start;
-  grid-row-end: last-line; */
   padding: 0 50px 0 50px;
   margin-top: 80px;
 }
 
-/*
-.myprofile__maincontentnav {
-  border-bottom: 1.3px solid hsl(0, 0%, 0%);
-  grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 10%);
-  padding: 0 20px 0 20px;
-} */
-
-/* .myprofile__maincontentnav h3:active {
-  transform: translateY(2px)
-} */
 a {
   text-decoration: none;
   color: black;
@@ -71,16 +45,19 @@ a {
 }
 
 .myprofile__maincontentposts {
-  /* border: 1.3px solid hsl(0, 0%, 0%); */
-  /* grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: 3;
-  grid-row-end: last-line; */
+  display: grid;
+  grid-template-columns: [first] 100px [second] auto [third] 80px [fourth] 10px [fifth] 80px [sixth] auto;
+  grid-template-areas:
+    "title title title title title title"
+    "date date . . . . "
+    "main main main main main image"
+    "mins mins edit . delete .";
+  border-bottom: rgb(223, 222, 222) 1px solid;
 }
 
 
-
 .myprofile__articletitle {
+  grid-area: title;
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 700;
   font-size: 22px;
@@ -88,23 +65,41 @@ a {
 }
 
 .myprofile__postcontent {
+  grid-area: main;
   font-family: 'Halant', serif;
   /* font-weight: 300; */
   color: rgb(55, 55, 55);
   font-size: 16px;
   line-height: 1.5;
-  padding-bottom: 5px;
+  padding-bottom: -5px;
 }
 
 .myprofile__date {
+  grid-area: date;
   margin: 0 0 0 0;
+  font-size: 14px;
 }
 
-.myprofile__article {
- display: flex;
- flex-direction: column;
- /* padding: 20px; */
- border-bottom: 1.3px solid hsl(246, 25%, 77%);
+.myprofile__editbutton {
+  grid-area: edit;
+  cursor: pointer;
+}
+
+.myprofile__deletebutton {
+  grid-area: delete;
+  color: red;
+  text-decoration: none;
+  background-color: transparent;
+  width: 65px;
+  margin: 0px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.myprofile__mins {
+  grid-area: mins;
+  font-size: 14px;
 }
 
 .myprofile__articlebottom {
@@ -112,25 +107,9 @@ a {
   justify-content: space-between;
 }
 
-.myprofile__articlebottom button {
-  background-color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 2px  rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  margin-left: 10px;
-  letter-spacing: 1px;
-}
-
 .myprofile__rightsidebar {
   grid-area: rightNav;
   border: rgb(237, 237, 237) 1px solid;
-
-  /* grid-column-start: 5;
-  grid-column-end: last-line;
-  grid-row-start: row1-start;
-  grid-row-end: last-line; */
 }
 
 .myprofile__userinfocontainer {
@@ -168,15 +147,6 @@ a {
   font-size: 18px;
 }
 
-.myprofile__deletebutton {
-  color: red;
-  text-decoration: none;
-  background-color: transparent;
-  width: 65px;
-  margin: 0px;
-  border: none;
-}
-
 .myprofile__deletebutton:hover {
   color: white;
   background-color: red;
@@ -184,6 +154,20 @@ a {
 
 
 @media (max-width: 800px) {
+  .myprofile__maincontentposts {
+    display: grid;
+    grid-template-columns: [first]  100px [second]  80px [fourth] 10px [fifth] 80px [sixth] auto;
+    grid-template-areas:
+      "title title title title title"
+      "date date . . . "
+      "mins mins edit . delete ";
+    border-bottom: rgb(223, 222, 222) 1px solid;
+    justify-items: left;
+  }
+
+  .myprofile__postcontent {
+    display: none
+  }
 
   .myprofile {
     display: grid;
@@ -200,12 +184,9 @@ a {
     display: none;
   }
 
-  .myprofile__postcontent {
-    display: none
-  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 525px) {
   .article-title {
     grid-area: title;
     font-family: 'Libre Franklin', sans-serif;

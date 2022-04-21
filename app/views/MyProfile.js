@@ -86,23 +86,21 @@ export default class extends AbstractView {
                : myprofile.map((post) => {
                   return `
               <div class='myprofile__maincontentposts'>
-                  <div class='myprofile__article'>
-                  <h1 class='myprofile__articletitle'><a href="posts/${post.id}">${post.title}</a></h1>
-                  <p class="myprofile__date">${this.convertDate(post.created_at)}</p>
-                      <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
-                      <div class='myprofile__articlebottom'>
-                      <p>${Math.ceil(post.content.length / 500)} min read</p>
 
-                      <div id="button-containers">
-                          <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
-                          <div class="myprofile__deletebutton">
-                          ${deletePost.render()}
-                          </div>
-                      </div>
+                <h1 class='myprofile__articletitle'><a href="posts/${post.id}">${post.title}</a></h1>
+                <p class="myprofile__date">${this.convertDate(post.created_at)}</p>
+                <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
+                <p class="myprofile__mins"> ${Math.ceil(post.content.length / 500)} min read</p>
 
-                      </div>
-                  </div>
+                <a class="myprofile__editbutton" id="edit-link" href="${protocol}//${host}/editpost/${post.id}">
+                    Edit
+                </a>
+
+                <div class="myprofile__deletebutton">
+                    ${deletePost.render()}
+                </div>
               </div>
+
               `}).join('')}
           </div>
         </div>
