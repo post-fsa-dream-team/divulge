@@ -2,10 +2,12 @@
   background-color: hsl(0, 0%, 100%);
   display: grid;
   /* grid-template-columns: 10% auto 20%; */
-  grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 30% [end];
-  grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
+  /* grid-template-columns: [first] 100px [line2] auto [line3] auto [col4-start] auto [five] 30% [end]; */
+  /* grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line]; */
   height: auto;
-
+  grid-template-columns: [first] 150px [second] auto [third] 30%;
+  grid-template-areas:
+    "leftNav main rightNav";
   /* for all boxes */
   color: black;
   min-height: 100vh;
@@ -13,7 +15,7 @@
 
 
 .myprofile__leftsidebar {
-
+  grid-area: leftNav;
   border-right: rgb(237, 237, 237) 1px solid;
   background-color: #FFC017;
   display: flex;
@@ -30,11 +32,12 @@
 } */
 
 .myprofile__maincontent {
-  grid-column-start: 2;
+  grid-area: main;
+  /* grid-column-start: 2;
   grid-column-end: five;
   grid-row-start: row1-start;
-  grid-row-end: last-line;
-  padding: 0 80px 0 80px;
+  grid-row-end: last-line; */
+  padding: 0 50px 0 50px;
   margin-top: 80px;
 }
 
@@ -69,10 +72,10 @@ a {
 
 .myprofile__maincontentposts {
   /* border: 1.3px solid hsl(0, 0%, 0%); */
-  grid-column-start: 2;
+  /* grid-column-start: 2;
   grid-column-end: five;
   grid-row-start: 3;
-  grid-row-end: last-line;
+  grid-row-end: last-line; */
 }
 
 
@@ -121,12 +124,13 @@ a {
 }
 
 .myprofile__rightsidebar {
+  grid-area: rightNav;
   border: rgb(237, 237, 237) 1px solid;
 
-  grid-column-start: 5;
+  /* grid-column-start: 5;
   grid-column-end: last-line;
   grid-row-start: row1-start;
-  grid-row-end: last-line;
+  grid-row-end: last-line; */
 }
 
 .myprofile__userinfocontainer {
@@ -180,17 +184,20 @@ a {
 
 
 @media (max-width: 800px) {
-  .myprofile {
-    background-color: hsl(0, 0%, 100%);
-    display: grid;
-    /* grid-template-columns: 10% auto 20%; */
-    grid-template-columns: [first] 10% [line2] auto [line3] auto [col4-start] auto [five] 10% [end];
-    grid-template-rows: [row1-start] 10% [row1-end] 100px [third-line] auto [last-line];
-    height: auto;
 
+  .myprofile {
+    display: grid;
+    height: auto;
+    grid-template-columns: [first] 150px [second] auto;
+    grid-template-areas:
+      "leftNav main";
     /* for all boxes */
     color: black;
     min-height: 100vh;
+  }
+
+  .myprofile__rightsidebar {
+    display: none;
   }
 
   .myprofile__postcontent {
@@ -198,7 +205,7 @@ a {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .article-title {
     grid-area: title;
     font-family: 'Libre Franklin', sans-serif;
@@ -206,5 +213,20 @@ a {
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 10px;
+  }
+
+  .myprofile {
+    display: grid;
+    height: auto;
+    grid-template-columns: [first] auto;
+    grid-template-areas:
+      "main";
+    /* for all boxes */
+    color: black;
+    min-height: 100vh;
+  }
+
+  .myprofile__leftsidebar {
+    display: none
   }
 }

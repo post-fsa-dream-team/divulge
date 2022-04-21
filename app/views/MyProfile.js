@@ -52,6 +52,7 @@ export default class extends AbstractView {
 
     async getHtml() {
         const myprofile = await this.getmyprofile(this.userId)
+        console.log(myprofile)
 
         const deletePost = new DeletePost(this.postData?.id);
 
@@ -68,9 +69,7 @@ export default class extends AbstractView {
         <div class='myprofile'>
 
         <div class='myprofile__leftsidebar'>
-          <div class="myprofile__sidebaricons">
-                <h3>Your Profile</h3>
-          </div>
+            <h3>Your Profile</h3>
         </div>
 
 
