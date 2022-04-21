@@ -1,5 +1,5 @@
 //main entry point
-console.log("Entered the index.js file")
+// console.log("Entered the index.js file")
 
 import Home from "./views/Home.js"
 import OtherSinglePost from "./views/OtherSinglePost.js";
