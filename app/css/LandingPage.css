@@ -4,10 +4,11 @@
 }
 
 .landingpage__header {
-  background-color: #FFC017;
+  background-color:#FFC017;
   border-style: solid;
   border-color: black;
   border-width: 0 0 .1em 0;
+  display: ;
 }
 
 #nav {
@@ -28,6 +29,9 @@
 
 #nav.scroll {
   background-color: white;
+}
+#headline {
+  top: 0
 }
 .landingpage__header #nav__content {
   /* background-color: white;
