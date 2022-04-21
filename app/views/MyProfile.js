@@ -69,9 +69,7 @@ export default class extends AbstractView {
 
         <div class='myprofile__leftsidebar'>
           <div class="myprofile__sidebaricons">
-                <h3>Home</h3>
-                <h3>List</h3>
-                <h3>About</h3>
+                <h3>Your Profile</h3>
           </div>
         </div>
 

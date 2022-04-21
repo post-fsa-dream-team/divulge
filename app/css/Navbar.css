@@ -20,7 +20,7 @@
 .title-container {
   display: flex;
   align-items: center;
-  margin-left: 120px
+  padding-left: 50px
 }
 
 #site-title {
@@ -45,7 +45,7 @@
   display: flex;
   align-items: flex-end;
   /* padding: 30px 0 30px 0; */
-  margin-right: 100px;
+  padding-right: 50px;
 }
 
 nav {
@@ -84,8 +84,8 @@ nav ul li button {
   background-color: transparent;
 }
 
-nav ul li:hover {
-  color: rgb(2, 99, 99);
+nav ul li :hover {
+  color: white;
 }
 
 .hamburger-menu {
@@ -98,6 +98,7 @@ nav ul li:hover {
   justify-content: space-between;
   width: 30px;
   height: 21px;
+  padding-right: 30px;
 
   user-select: none;
 }
@@ -127,6 +128,8 @@ nav ul li:hover {
 }
 
 @media (max-width: 800px) {
+
+
   .hamburger-menu {
     display: flex;
     position: relative;

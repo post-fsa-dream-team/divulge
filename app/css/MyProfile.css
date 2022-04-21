@@ -13,8 +13,9 @@
 
 
 .myprofile__leftsidebar {
+
   border-right: rgb(237, 237, 237) 1px solid;
-  background-color: white;
+  background-color: #FFC017;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -83,7 +84,7 @@ a {
   padding-top: 5px;
 }
 
-.myprofile__postcontent{
+.myprofile__postcontent {
   font-family: 'Halant', serif;
   /* font-weight: 300; */
   color: rgb(55, 55, 55);
@@ -96,14 +97,14 @@ a {
   margin: 0 0 0 0;
 }
 
-.myprofile__article{
+.myprofile__article {
  display: flex;
  flex-direction: column;
  /* padding: 20px; */
  border-bottom: 1.3px solid hsl(246, 25%, 77%);
 }
 
-.myprofile__articlebottom{
+.myprofile__articlebottom {
   display: flex;
   justify-content: space-between;
 }
@@ -142,6 +143,7 @@ a {
 
 .myprofile__userimage {
   grid-area: image;
+  border-radius: 100%;
   width: 80px
 }
 
@@ -191,7 +193,7 @@ a {
     min-height: 100vh;
   }
 
-  .myprofile__postcontent{
+  .myprofile__postcontent {
     display: none
   }
 }

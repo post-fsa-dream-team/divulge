@@ -80,13 +80,13 @@ export default class extends AbstractView {
             </div>
 
         <form class='signup__form' id='signupform'>
+        <p><small>First Name</small></p>
         <div class='signup__form-control'>
             <input type="text" id="firstname" placeholder="First Name"/>
-            <small></small>
         </div>
         <div class='signup__form-control'>
             <input type="text" id="lastname" placeholder="Last Name"/>
-            <small></small>
+            <small>Last Name</small>
         </div>
         <div class='signup__form-control'>
             <input type="text" id="username" placeholder="User Name"/>
@@ -98,6 +98,16 @@ export default class extends AbstractView {
         </div>
         <div class='signup__form-control'>
             <input type="password" id="password" placeholder="Password"/>
+            <small></small>
+        </div>
+
+        <div class='signup__form-control'>
+            <input type="date" id="birth_date" placeholder="Birthdate"/>
+            <small></small>
+        </div>
+
+        <div class='signup__form-control'>
+            <input type="location" id="location" placeholder="Location"/>
             <small></small>
         </div>
 
