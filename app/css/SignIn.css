@@ -17,11 +17,10 @@
     padding: 20px;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    max-height: 100vh;
     /* background-color: aquamarine; */
     /* center signin__container in signin */
     margin: 0 auto;
-
 }
 
 
@@ -29,7 +28,7 @@
 
 .signin__container>div {
     flex: 1;
-    padding: 0 20px;
+    padding: 18% 20px;
 }
 
 .signin__left {
@@ -150,11 +149,12 @@ small a {
 	text-decoration: none;
 }
 .signin__form button {
-    background-color: hsl(154, 59%, 51%);
+    /* background-color: hsl(154, 59%, 51%); */
+    background-color: #FFC017;
     border-radius: 5px;
-    border: 1px solid hsl(154, 59%, 40%);
-    box-shadow: 0 2px hsl(154, 59%, 40%);
-    color: white;
+    border: 1px solid #ce9b0f;
+    box-shadow: 0 2px grey;
+    color: black;
     cursor: pointer;
     display: block;
     font-family: 'Poppins', sans-serif;
@@ -169,7 +169,7 @@ small a {
     outline: none;
 }
 .signin__form button:active {
-    box-shadow: 0 2px hsl(154, 59%, 40%);
+    box-shadow: 0 2px #FFC017;
     transform: translateY(2px)
 }
 

@@ -29,7 +29,7 @@ export default class extends AbstractView {
         return re.test(String(email).toLowerCase());
     }
 
-    async signUp(firstName, lastName, username, email, password) {
+    async signUp(firstName, lastName, username, email, password, birthdate, location) {
         try {
             // console.log(firstName, lastName, username, email, password);
             const port = /localhost/.test(window.location.href)
@@ -40,7 +40,7 @@ export default class extends AbstractView {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "first_name": firstName, "last_name": lastName, "user_name": username, "email": email, "password": password })
+                body: JSON.stringify({ "first_name": firstName, "last_name": lastName, "user_name": username, "email": email, "password": password, "birth_date": birthdate, "location": location })
             });
             console.log("response: ", response);
             if (response.status === 200) {
@@ -60,6 +60,7 @@ export default class extends AbstractView {
         }
     }
     async getHtml() {
+        let datePickerIdMax = new Date().toISOString().split("T")[0];
         let loggedIn = !!sessionStorage.getItem("id")
 
         if (loggedIn) {
@@ -74,38 +75,52 @@ export default class extends AbstractView {
                 <h1>Read the most exclusive information from others</h1>
                 <p>See how people solve problems in real-life. </p>
             </div>
+
         <div class="signup__right">
             <div class='signup__box-blue'>
                 <p> <strong>Try it free 7 days</strong> then $20/mo. thereafter </p>
             </div>
 
         <form class='signup__form' id='signupform'>
-        <div class='signup__form-control'>
-            <input type="text" id="firstname" placeholder="First Name"/>
-            <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="text" id="lastname" placeholder="Last Name"/>
-            <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="text" id="username" placeholder="User Name"/>
-            <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="email" id="email" placeholder="Email"/>
-            <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="password" id="password" placeholder="Password"/>
-            <small></small>
-        </div>
 
-        <button style="text-transform:uppercase">Sign up and claim your free trial</button>
-        <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
-    </form>
-    </div>
-    </div>
+
+            <div class='signup__form-control' id="firstName">
+                <small>First Name</small>
+                <input type="text" id="firstname" placeholder="First Name"/>
+            </div>
+
+            <div class='signup__form-control' id="lastName">
+                <small>Last Name</small>
+                <input type="text" id="lastname" placeholder="Last Name"/>
+            </div>
+            <div class='signup__form-control' id="username">
+                <small>Create Username</small>
+                <input type="text" id="username" placeholder="Username"/>
+            </div>
+            <div class='signup__form-control' id="email">
+                <small>Email</small>
+                <input type="email" id="email" placeholder="Ex. example@email.com"/>
+            </div>
+            <div class='signup__form-control' id="password">
+                <small>Create Password</small>
+                <input type="password" id="password" placeholder=""/>
+            </div>
+
+            <div class='signup__form-control' id="birthdate">
+                <small>Your Birthdate</small>
+                <input type="date" max=${datePickerIdMax} id="birthdate" placeholder="Birthdate"/>
+            </div>
+
+            <div class='signup__form-control' id="location">
+                <small>Your Location</small>
+                <input type="location" id="location" placeholder="Ex. New York"/>
+            </div>
+
+            <button style="text-transform:uppercase" id="signup-button">Sign up and claim your free trial</button>
+            <small id="terms-and-services">By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
+        </form>
+        </div>
+        </div>
     </div>
     `;
     }
@@ -125,12 +140,16 @@ export default class extends AbstractView {
             const username = form['username'].value;
             const email = form['email'].value;
             const password = form['password'].value;
+            const birthdate = form['birthdate'].value;
+            const location = form['location'].value
             const user = {
                 firstName: firstName,
                 lastName: lastName,
                 username: username,
                 email: email,
-                password: password
+                password: password,
+                birthdate: birthdate,
+                location: location
             }
 
             if (firstName === '') {
@@ -164,7 +183,20 @@ export default class extends AbstractView {
             } else {
                 removeErrorFrom('password');
             }
-            if (firstName && lastName && username && email && password) this.signUp(firstName, lastName, username, email, password)
+
+            if (birthdate === '') {
+                addErrorTo('birthdate', 'Birthday is required');
+            } else {
+                removeErrorFrom('birthdate');
+            }
+
+            if (location === '') {
+                addErrorTo('location', 'Location is required');
+            } else {
+                removeErrorFrom('location');
+            }
+
+            if (firstName && lastName && username && email && password && birthdate && birthdate && location) this.signUp(firstName, lastName, username, email, password, birthdate, location)
 
         })
 
