@@ -82,42 +82,45 @@ export default class extends AbstractView {
             </div>
 
         <form class='signup__form' id='signupform'>
-            <small></small>
+
+
             <div class='signup__form-control' id="firstName">
+                <small>First Name</small>
                 <input type="text" id="firstname" placeholder="First Name"/>
             </div>
+
             <div class='signup__form-control' id="lastName">
-                <input type="text" id="lastname" placeholder="Last Name"/>
                 <small>Last Name</small>
+                <input type="text" id="lastname" placeholder="Last Name"/>
             </div>
             <div class='signup__form-control' id="username">
+                <small>Create Username</small>
                 <input type="text" id="username" placeholder="Username"/>
-                <small></small>
             </div>
             <div class='signup__form-control' id="email">
-                <input type="email" id="email" placeholder="Email"/>
-                <small></small>
+                <small>Email</small>
+                <input type="email" id="email" placeholder="Ex. example@email.com"/>
             </div>
             <div class='signup__form-control' id="password">
-                <input type="password" id="password" placeholder="Password"/>
-                <small></small>
+                <small>Create Password</small>
+                <input type="password" id="password" placeholder=""/>
             </div>
 
             <div class='signup__form-control' id="birthdate">
+                <small>Your Birthdate</small>
                 <input type="date" max=${datePickerIdMax} id="birthdate" placeholder="Birthdate"/>
-                <small></small>
             </div>
 
             <div class='signup__form-control' id="location">
-                <input type="location" id="location" placeholder="Location"/>
-                <small></small>
+                <small>Your Location</small>
+                <input type="location" id="location" placeholder="Ex. New York"/>
             </div>
 
             <button style="text-transform:uppercase" id="signup-button">Sign up and claim your free trial</button>
             <small id="terms-and-services">By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
         </form>
-    </div>
-    </div>
+        </div>
+        </div>
     </div>
     `;
     }

@@ -37,12 +37,12 @@
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
     margin-bottom: 6px;
     color: black;
-    grid-template-columns: [first] 40% [second] 10px [third] 40%;
+    grid-template-columns: [first] 45% [second] 10px [third] 45%;
     grid-template-areas:
         "firstName . lastName"
         "email email email"
-        "username . password"
         "birthdate . location"
+        "username . password"
         "signupButton signupButton signupButton"
         "termsServices termsServices termsServices";
 }
@@ -98,10 +98,11 @@
     line-height: 50px;
 }
 
-.signup p {
+/* .signup p {
     font-size: 16px;
     opacity: 0.8;
-}
+} */
+
 .signup small {
     /* color: hsl(0, 100%, 74%); */
     color: #FFC017;
@@ -117,6 +118,7 @@
     font-weight: 600;
     text-decoration: none;
 }
+
 .signup__right {
     display: flex;
     flex-direction: column;
@@ -144,15 +146,9 @@
 }
 
 .signup__form-control small {
-    /* hidden by default */
-    /* display: none; */
-    color: hsl(0, 100%, 74%);
-	font-weight: 600;
-	position: absolute;
-	bottom: -24px;
+    color: rgb(191, 191, 191);
+    margin: 0 0 2px 4px;
 	right: 0;
-	opacity: 0;
-	text-align: right;
 }
 
 .signup__form-control.error input {
@@ -179,10 +175,6 @@
 .signup__form input:focus {
     border: 1px solid hsl(248, 32%, 49%);
     outline: none;
-}
-
-.signup__form-control small {
-	opacity: 0;
 }
 
 .signup__form-control.error small {
