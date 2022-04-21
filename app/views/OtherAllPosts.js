@@ -8,7 +8,7 @@ import RightNav from "../components/RightNav.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params)
-    this.setTitle("All Other Posts");
+    this.setTitle(`Divulge | ${params.category.toUpperCase()}`)
     this.category = params.category
 
     this.getData = this.getData.bind(this)

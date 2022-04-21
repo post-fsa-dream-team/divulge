@@ -7,7 +7,7 @@ import DeletePost from "../components/DeletePost.js";
 export default class extends AbstractView {
     constructor(params) {
         super(params);
-        this.setTitle("myprofile");
+        this.setTitle("My Profile");
         this.userId = sessionStorage.getItem('id');
         this.postData = {};
     }
