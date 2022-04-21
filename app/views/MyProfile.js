@@ -92,7 +92,7 @@ export default class extends AbstractView {
                       <p>${Math.ceil(post.content.length / 500)} min read</p>
 
                       <div id="button-containers">
-                          <a id="edit-link" href="${protocol}/${host}/editpost/${post.id}">Edit</a>
+                          <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
                           <div class="myprofile__deletebutton">
                           ${deletePost.render()}
                           </div>
