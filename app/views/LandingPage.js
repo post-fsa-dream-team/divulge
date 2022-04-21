@@ -2,17 +2,29 @@ import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js";
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
-
+import secrets from "../secrets.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("LandingPage");
     this.getPosts = this.getPosts.bind(this)
+    // this.navScroll = this.navScroll.bind(this)
   }
+  // navScroll() {
+  //   var myNav = document.getElementById("nav");
 
+  //   window.onscroll = function() {
+  //     "use strict";
+  //     if (document.body.scrollTop >= 280 || document.documentElement.scrollTop >= 280) {
+  //       myNav.classList.add("scroll");
+  //     } else {
+  //       myNav.classList.remove("scroll");
+  //     }
+  //   };
+  // }
   async getPosts() {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+       const response = await fetch('https://jsonplaceholder.typicode.com/posts')
       const data = await response.json()
       console.log("data", data);
       return data;
@@ -23,16 +35,16 @@ export default class extends AbstractView {
 
   async getHtml() {
     let posts = await this.getPosts();
-    let admin = sessionStorage.getItem("is_admin")
     let user = sessionStorage.getItem("id")
     console.log("this is navbar")
     const userId = sessionStorage.getItem('id');
     const category = ["News", "Technology", "Politics", "Crime", "Entertainment", "Fashion", "Sports"]
+    const helper = ["Help","Status", "Writers","Blog","Careers", "Privacy", "Terms", "About", "Knowable"]
+    // let scroll = this.navScroll();
     return `
     <div class="landingpage">
     <div class="landingpage__header">
-      ${Navbar()}
-
+     ${Navbar()}
       <div id="headline">
         <h1>Stay curious.</h1>
         <h2>Discover stories, thinking and expertise from writers on any topic.</h2>
@@ -52,51 +64,48 @@ export default class extends AbstractView {
     </div>
       <div class="landingpage__infinitescroll">
         <div id="scrollstory">
-          <p>Writer's name</p>
-          <h1>Title</h1>
-          <h2>This is a summary</h2>
-          <div id="action">
-          <p>MM/YYYY</p>
-          <p>Reading Time</p>
-          <p>tags</p>
-          <p>Save</p>
-          </div>
+        ${posts.map(post => (
+          post !== undefined && `
+        <h1>${post.title}</h1>
+        <p>${post.body.slice(0, 100)}...</p>
+        <div id="tags">
+          <span>Story</span>
+          <span><a href="/signin">Save</a></span>
+        </div>
+
+        `
+        )).join('')}
         </div>
         <div id="stickyright">
           <p style="text-transform:uppercase"><strong>Discover more of what matters to you</strong></p>
           <div id="tags">
-          <span>Tag 1</span>
-          <span>Tag 2</span>
-          <span>Tag 3</span>
-          <span>Tag 4</span>
-          <span>Tag 5</span>
-          <span>Tag 6</span>
-          <span>Tag 1</span>
-          <span>Tag 2</span>
-          <span>Tag 3</span>
-          <span>Tag 4</span>
-          <span>Tag 5</span>
-          <span>Tag 6</span>
+          ${category.map(cat =>
+            `
+            <span>${cat}</span>
+            `
+            ).join('')}
+
           </div>
           <div id="helper">
-            <span>Help</span>
-            <span>Status</span>
-            <span>Writers</span>
-            <span>Blog</span>
-            <span>Careers</span>
-            <span>Privacy</span>
-            <span>Terms</span>
-            <span>About</span>
-            <span>Knowable</span>
+          ${helper.map(help => `
+          <span>${help}</span>
+          `).join('')}
+
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+        </div>
+        </div>
+        </div>
     `
   }
 
   async postRender() {
+    var myNav = document.getElementById("nav-bar-signed-out");
+
+    window.onscroll = function() {
+      "use strict";
+      if(this.scrollY <= 10) myNav.className = ''; else myNav.className = 'scroll';
+    };
   }
 
 }
