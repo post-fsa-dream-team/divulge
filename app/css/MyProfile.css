@@ -96,6 +96,10 @@ a {
   cursor: pointer;
 }
 
+.myprofile__deletebutton:hover {
+  color: white;
+  background-color: red;
+}
 
 .myprofile__mins {
   grid-area: mins;
@@ -120,6 +124,7 @@ a {
   grid-template-columns: [first] 100px [second] 250px;
   grid-template-areas:
     "image username"
+    "image createdAt"
     "name name"
     "location location"
 }
@@ -133,6 +138,7 @@ a {
 .myprofile__username {
   grid-area: username;
   font-size: 22px;
+  margin: 0
 }
 
 .myprofile__name {
@@ -147,11 +153,10 @@ a {
   font-size: 18px;
 }
 
-.myprofile__deletebutton:hover {
-  color: white;
-  background-color: red;
+.myprofile__accountcreated {
+  grid-area: createdAt;
+  margin: 0;
 }
-
 
 @media (max-width: 800px) {
   .myprofile__maincontentposts {

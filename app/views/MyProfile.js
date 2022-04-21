@@ -52,7 +52,6 @@ export default class extends AbstractView {
 
     async getHtml() {
         const myprofile = await this.getmyprofile(this.userId)
-        console.log(myprofile)
 
         const deletePost = new DeletePost(this.postData?.id);
 
@@ -63,6 +62,7 @@ export default class extends AbstractView {
         const firstName = sessionStorage.getItem("first_name")
         const lastName = sessionStorage.getItem("last_name")
         const location = sessionStorage.getItem("location")
+        const account_created = sessionStorage.getItem("created_at")
 
         return `
         ${Navbar()}
@@ -111,6 +111,7 @@ export default class extends AbstractView {
           <div class="myprofile__userinfocontainer">
             <img class="myprofile__userimage" src="https://ca.slack-edge.com/T0266FRGM-U015ZPLDZKQ-gf3696467c28-512" alt="default-user-img"/>
             <p class="myprofile__username">${userName}</p>
+            <p class="myprofile__accountcreated"> Member Since: ${this.convertDate(account_created)}</p>
             <p class="myprofile__name"> Name: ${firstName} ${lastName} </p>
             <p class="myprofile__location"> Location: ${location}</p>
 

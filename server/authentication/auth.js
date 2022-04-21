@@ -60,7 +60,8 @@ router.post('/signup', async (req, res, next) => {
                   req.session.location = `${userInfo.location}`,
                   req.session.user_name = `${userInfo.user_name}`,
                   req.session.first_name = `${userInfo.first_name}`,
-                  req.session.last_name = `${userInfo.last_name}`
+                  req.session.last_name = `${userInfo.last_name}`,
+                  req.session.account_created = `${userInfo.created_at}`
                   req.login(userInfo, err =>
                     (err ? next(err) : res.json(userInfo))
                   )
@@ -125,7 +126,8 @@ router.post('/signin', async (req, res, next) => {
               req.session.location = `${userInfo.location}`,
               req.session.user_name = `${userInfo.user_name}`,
               req.session.first_name = `${userInfo.first_name}`,
-              req.session.last_name = `${userInfo.last_name}`
+              req.session.last_name = `${userInfo.last_name}`,
+              req.session.account_created = `${userInfo.created_at}`
               console.log("req.session", req.session);
               req.login(userInfo, err => (err ? next(err) : res.json(userInfo)))
             } else {
