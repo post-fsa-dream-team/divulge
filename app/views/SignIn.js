@@ -4,7 +4,7 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
     constructor(params) {
         super(params);
-        this.setTitle("SignIn");
+        this.setTitle("Divulge | Sign In");
         this.addErrorTo = this.addErrorTo.bind(this);
         this.removeErrorFrom = this.removeErrorFrom.bind(this);
         this.isValid = this.isValid.bind(this);

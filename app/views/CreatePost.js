@@ -5,7 +5,7 @@ import SideNav from "../components/SideNav.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params)
-    this.setTitle("CreatePost");
+    this.setTitle("Create Post");
     this.postResponse = '';
     this.createPost = this.createPost.bind(this);
   }
