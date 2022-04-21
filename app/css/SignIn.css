@@ -45,6 +45,7 @@
     font-size: 16px;
     opacity: 0.8;
 }
+
 .signin small {
     color: hsl(0, 100%, 74%);
     display: block;
@@ -58,6 +59,7 @@
     font-weight: 600;
     text-decoration: none;
 }
+
 .signin__right {
     display: flex;
     flex-direction: column;
@@ -76,6 +78,7 @@
     text-align: center;
     margin: 0;
 }
+
 .signin__form {
     border-radius: 5px;
     padding: 30px;
@@ -93,21 +96,21 @@
     /* hidden by default */
     /* display: none; */
     color: hsl(0, 100%, 74%);
-	font-weight: 600;
-	position: absolute;
-	bottom: -24px;
-	right: 0;
-	opacity: 0;
-	text-align: right;
+    font-weight: 600;
+    position: absolute;
+    bottom: -24px;
+    right: 0;
+    opacity: 0;
+    text-align: right;
 }
 
 .signin__form-control.error input {
-	border-color: hsl(0, 100%, 74%);
-	color: hsl(0, 100%, 74%);
+    border-color: hsl(0, 100%, 74%);
+    color: hsl(0, 100%, 74%);
 }
 
 .signin__form-control.error input::placeholder {
-	color: hsl(0, 100%, 74%);
+    color: hsl(0, 100%, 74%);
 }
 
 .signin__form input {
@@ -128,26 +131,27 @@
 }
 
 .signin__form-control small {
-	opacity: 0;
+    opacity: 0;
 }
 
 .signin__form-control.error small {
-	opacity: 1;
+    opacity: 1;
 }
 
 small {
-	display: block;
-	color: #bbb;
-	font-size: 11px;
-	font-weight: 500;
-	margin-top: 15px;
+    display: block;
+    color: #bbb;
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 15px;
 }
 
 small a {
-	color: hsl(0, 100%, 74%);
-	font-weight: 600;
-	text-decoration: none;
+    color: hsl(0, 100%, 74%);
+    font-weight: 600;
+    text-decoration: none;
 }
+
 .signin__form button {
     /* background-color: hsl(154, 59%, 51%); */
     background-color: #FFC017;
@@ -168,16 +172,28 @@ small a {
 .signin__form button:focus {
     outline: none;
 }
+
 .signin__form button:active {
     box-shadow: 0 2px #FFC017;
     transform: translateY(2px)
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .signin__container {
         flex-direction: column;
     }
-    .signin h1, p {
-    text-align: center;
+
+    .signin h1,
+    p {
+        text-align: center;
+    }
+
+    .signin__container>div {
+        flex: 1;
+        padding: 0;
+    }
+
+    .signin__right {
+     width: 90%;
     }
 }
