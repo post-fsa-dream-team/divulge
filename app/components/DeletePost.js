@@ -4,8 +4,11 @@ class DeletePost {
   }
 
   async deletePost(postId) {
+    const port = /localhost/.test(window.location.href)
+    ? "http://localhost:3000/api"
+    : "https://divulge-web-app.herokuapp.com/api";
     try {
-      await fetch(`http://localhost:3000/api/posts/${postId}`, {
+      await fetch(`${port}/posts/${postId}`, {
         method: 'DELETE'
       });
     } catch (error) {
