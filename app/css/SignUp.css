@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     max-width: 1440px;
     /* to center */
-    padding: 0 20px;
+    padding: 10% 20px;
     justify-content: center;
     align-items: center;
     max-height: 100vh;
@@ -26,6 +26,62 @@
 
 
 /* apply for only the direct children from .signup__container */
+
+.signup__form {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 6px;
+    color: black;
+    grid-template-columns: [first] 40% [second] 10px [third] 40%;
+    grid-template-areas:
+        "firstName . lastName"
+        "email email email"
+        "username . password"
+        "birthdate . location"
+        "signupButton signupButton signupButton"
+        "termsServices termsServices termsServices";
+}
+
+#firstName {
+    grid-area: firstName
+}
+
+#lastName {
+    grid-area: lastName
+}
+
+#username {
+    grid-area: username
+}
+
+#email {
+    grid-area: email
+}
+
+#password {
+    grid-area: password
+}
+
+#birthdate {
+    grid-area: birthdate;
+}
+
+#location {
+    grid-area: location
+}
+
+#signup-button {
+    grid-area: signupButton
+}
+
+#terms-and-services {
+    grid-area: termsServices
+}
 
 .signup__container>div {
     flex: 1;
@@ -80,14 +136,6 @@
 .signup__box-blue p {
     text-align: center;
     margin: 0;
-}
-.signup__form {
-    background-color: white;
-    border-radius: 5px;
-    padding: 30px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    margin-bottom: 6px;
-    color: black;
 }
 
 .signup__form-control {

@@ -74,46 +74,47 @@ export default class extends AbstractView {
                 <h1>Read the most exclusive information from others</h1>
                 <p>See how people solve problems in real-life. </p>
             </div>
+
         <div class="signup__right">
             <div class='signup__box-blue'>
                 <p> <strong>Try it free 7 days</strong> then $20/mo. thereafter </p>
             </div>
 
         <form class='signup__form' id='signupform'>
-        <p><small>First Name</small></p>
-        <div class='signup__form-control'>
-            <input type="text" id="firstname" placeholder="First Name"/>
-        </div>
-        <div class='signup__form-control'>
-            <input type="text" id="lastname" placeholder="Last Name"/>
-            <small>Last Name</small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="text" id="username" placeholder="User Name"/>
             <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="email" id="email" placeholder="Email"/>
-            <small></small>
-        </div>
-        <div class='signup__form-control'>
-            <input type="password" id="password" placeholder="Password"/>
-            <small></small>
-        </div>
+            <div class='signup__form-control' id="firstName">
+                <input type="text" id="firstname" placeholder="First Name"/>
+            </div>
+            <div class='signup__form-control' id="lastName">
+                <input type="text" id="lastname" placeholder="Last Name"/>
+                <small>Last Name</small>
+            </div>
+            <div class='signup__form-control' id="username">
+                <input type="text" id="username" placeholder="Username"/>
+                <small></small>
+            </div>
+            <div class='signup__form-control' id="email">
+                <input type="email" id="email" placeholder="Email"/>
+                <small></small>
+            </div>
+            <div class='signup__form-control' id="password">
+                <input type="password" id="password" placeholder="Password"/>
+                <small></small>
+            </div>
 
-        <div class='signup__form-control'>
-            <input type="date" id="birth_date" placeholder="Birthdate"/>
-            <small></small>
-        </div>
+            <div class='signup__form-control' id="birthdate">
+                <input type="date" id="birth_date" placeholder="Birthdate"/>
+                <small></small>
+            </div>
 
-        <div class='signup__form-control'>
-            <input type="location" id="location" placeholder="Location"/>
-            <small></small>
-        </div>
+            <div class='signup__form-control' id="location">
+                <input type="location" id="location" placeholder="Location"/>
+                <small></small>
+            </div>
 
-        <button style="text-transform:uppercase">Sign up and claim your free trial</button>
-        <small>By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
-    </form>
+            <button style="text-transform:uppercase" id="signup-button">Sign up and claim your free trial</button>
+            <small id="terms-and-services">By clicking the button, you are agreeing to our <a href="href">Terms and Services</a>.</small>
+        </form>
     </div>
     </div>
     </div>
