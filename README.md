@@ -41,3 +41,21 @@ npm run start-dev
 
 ### Production Environment
 
+1, Deploy on Heroku
+```bash
+heroku login
+heroku apps:create your-app-name
+git pull origin main
+git push heroku main
+```
+
+2, Integrate PSQL to Heroku
+For heroku database
+```bash
+heroku addons:create heroku-postgresql:hobby-dev
+
+**Adds the postgres add-on and push local db data into heroku database**
+
+heroku pg:push [LOCAL DB NAME] DATABASE_URL --app [HEROKU APP NAME]
+```
+
