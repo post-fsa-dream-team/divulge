@@ -2,7 +2,6 @@ import AbstractView from "./AbstractView.js";
 import PostsView from "../components/PostsView.js";
 import SideNav from "../components/SideNav.js"
 import Navbar from "../components/Navbar.js";
-import secrets from "../secrets.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
