@@ -14,7 +14,6 @@ const RightNav = () => {
       <a class="right-nav-footer-link" href="">About Divulge</a>
       <a class="right-nav-footer-link" href="">Contact</a>
     </div>
-
   </div>`
 }
 
