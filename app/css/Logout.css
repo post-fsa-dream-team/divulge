@@ -10,7 +10,7 @@
   display: grid;
   justify-content: center;
   justify-items: center;
-  grid-template-columns: [first] 20px [second] 150px [third] 5px [fourth] 150px [last] 20px;
+  grid-template-columns: [first] 20px [second] 180px [third] 5px [fourth] 180px [last] 20px;
   grid-template-rows: auto;
   grid-auto-flow: row;
   grid-template-areas:
@@ -26,6 +26,7 @@
   grid-area: image;
   width: 400px;
   border-radius: 5px;
+  box-shadow: 3px 3px 3px grey;
 }
 
 #logout-title {
@@ -35,6 +36,7 @@
 
 #main-text {
   grid-area: main-text;
+  font-family: 'Halant', serif;
   margin-top: 70px;
   margin-bottom: 0
 }
@@ -42,17 +44,19 @@
 #logout-button {
   grid-area: logout-button;
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: black;
   background-color: #FFC017;
   border: black 1px solid;
+  box-shadow: 3px 3px 3px grey;
 }
 
 #back-home-button {
   grid-area: back-home-button;
   border:black 1px solid;
-  font-size: 14px;
-  padding: 10px
+  font-size: 16px;
+  padding: 10px;
+  box-shadow: 3px 3px 3px grey;
 }
 
 #logout-button:hover {

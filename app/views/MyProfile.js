@@ -62,45 +62,47 @@ export default class extends AbstractView {
         const firstName = sessionStorage.getItem("first_name")
         const lastName = sessionStorage.getItem("last_name")
         const location = sessionStorage.getItem("location")
+        const account_created = sessionStorage.getItem("created_at")
 
         return `
         ${Navbar()}
         <div class='myprofile'>
 
         <div class='myprofile__leftsidebar'>
-          <div class="myprofile__sidebaricons">
-                <h3>Your Profile</h3>
-          </div>
+        <div id='myprofile__poststitlecontainer'>
+            <h3 class="myprofile__sidebartext">My Profile</h3>
+            </div>
         </div>
 
 
 
         <div class='myprofile__maincontent'>
 
-        <div class='myprofile__poststitlecontainer'>
+
           <h1 class="myprofile__poststitle">Your Posts</h1>
-        </div>
+
             <div>
-              ${myprofile.length === 0 ? `<p>No posts to show</p>` : myprofile.map((post) => {
+              ${myprofile.length === 0 ? `
+              <p class="myprofile__noposts">You don't have any posts yet!</p>
+              <p> <a class="myprofile__firstpostlink" href="${this.userId}/createpost"> Create </a> your first post.</p>`
+               : myprofile.map((post) => {
                   return `
               <div class='myprofile__maincontentposts'>
-                  <div class='myprofile__article'>
-                  <h1 class='myprofile__articletitle'><a href="posts/${post.id}">${post.title}</a></h1>
-                  <p class="myprofile__date">${this.convertDate(post.created_at)}</p>
-                      <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
-                      <div class='myprofile__articlebottom'>
-                      <p>${Math.ceil(post.content.length / 500)} min read</p>
 
-                      <div id="button-containers">
-                          <a id="edit-link" href="${protocol}//${host}/editpost/${post.id}">Edit</a>
-                          <div class="myprofile__deletebutton">
-                          ${deletePost.render()}
-                          </div>
-                      </div>
+                <h1 class='myprofile__articletitle'><a href="posts/${post.id}">${post.title}</a></h1>
+                <p class="myprofile__date">${this.convertDate(post.created_at)}</p>
+                <p class='myprofile__postcontent'>${post.content.slice(0, 360)}...</p>
+                <p class="myprofile__mins"> ${Math.ceil(post.content.length / 500)} min read</p>
 
-                      </div>
-                  </div>
+                <a class="myprofile__editbutton" id="edit-link" href="${protocol}//${host}/editpost/${post.id}">
+                    Edit
+                </a>
+
+                <div class="myprofile__deletebutton">
+                    ${deletePost.render()}
+                </div>
               </div>
+
               `}).join('')}
           </div>
         </div>
@@ -111,6 +113,7 @@ export default class extends AbstractView {
           <div class="myprofile__userinfocontainer">
             <img class="myprofile__userimage" src="https://ca.slack-edge.com/T0266FRGM-U015ZPLDZKQ-gf3696467c28-512" alt="default-user-img"/>
             <p class="myprofile__username">${userName}</p>
+            <p class="myprofile__accountcreated"> Member Since: ${this.convertDate(account_created)}</p>
             <p class="myprofile__name"> Name: ${firstName} ${lastName} </p>
             <p class="myprofile__location"> Location: ${location}</p>
 
