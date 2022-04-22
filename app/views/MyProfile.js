@@ -69,20 +69,22 @@ export default class extends AbstractView {
         <div class='myprofile'>
 
         <div class='myprofile__leftsidebar'>
-            <h3>Your Profile</h3>
+        <div id='myprofile__poststitlecontainer'>
+            <h3 class="myprofile__sidebartext">My Profile</h3>
+            </div>
         </div>
 
 
 
         <div class='myprofile__maincontent'>
 
-        <div class='myprofile__poststitlecontainer'>
+
           <h1 class="myprofile__poststitle">Your Posts</h1>
-        </div>
+
             <div>
               ${myprofile.length === 0 ? `
-              <p>You haven't created any posts yet!</p>
-              <p> <a href="${this.userId}/createpost"> Create </a> your first post.</p>`
+              <p class="myprofile__noposts">You don't have any posts yet!</p>
+              <p> <a class="myprofile__firstpostlink" href="${this.userId}/createpost"> Create </a> your first post.</p>`
                : myprofile.map((post) => {
                   return `
               <div class='myprofile__maincontentposts'>
