@@ -40,7 +40,6 @@ export default class extends AbstractView {
 
   async getHtml() {
     let posts = await this.getData()
-    console.log(this.category)
     if (this.category !== "all") {
       posts = this.filterPosts(posts, this.category)
     }

@@ -7,6 +7,11 @@
   grid-template-areas:
     "leftNav main rightNav"
 }
+.home-recommended {
+  margin-left: 40px;
+  border-bottom: rgb(237, 237, 237) 1px solid;
+  max-width: 600px
+}
 
 .home-all-posts {
   margin-left: 45px;

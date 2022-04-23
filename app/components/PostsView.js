@@ -1,5 +1,5 @@
 
-const PostsView = (posts) => {
+const PostsView = (posts, capitalCase) => {
   function convertDate(date) {
     let splitIndex = date.split("").indexOf("T")
     let dayOnly = date.slice(0, splitIndex)
@@ -31,7 +31,10 @@ const PostsView = (posts) => {
 
   return `
     <div id="posts-content">
+
+      ${window.location.pathname === "/home" ? "" : `<p class="other-posts-page-title">${capitalCase} Posts<p>`}
       <div class="post-card">
+
         ${posts.map((item) =>
         `
         <div class="each-box">

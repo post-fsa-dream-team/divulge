@@ -2,9 +2,16 @@
 #posts-content {
   /* margin-left: 180px; */
   /* margin-right: 20px; */
-  margin-top: 50px;
+  margin-top: 30px;
 
   /* margin-top: 100px; */
+}
+
+.other-posts-page-title {
+  margin-left: 40px;
+  margin-bottom: 40px;
+  border-bottom: rgb(237, 237, 237) 1px solid;
+  max-width: 600px
 }
 
 .other-posts-container {

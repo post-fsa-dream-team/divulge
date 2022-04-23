@@ -26,7 +26,8 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    let posts = await this.getData();
+    let allPosts = await this.getData();
+    let posts = allPosts.sort(() => .5 - Math.random()).slice(0,3)
 
     return `
       <div id="home-container">
@@ -48,6 +49,7 @@ export default class extends AbstractView {
         </div>
 
         <div class="home-all-posts">
+          <p class="home-recommended">Recommended Posts</p>
           ${PostsView(posts)}
         </div>
 
