@@ -18,14 +18,14 @@
   margin-top: 80px;
   display: grid;
   width: 100%;
-  grid-template-columns: [leftNav] 220px [main] 900px [rightNav] 1fr;
+  grid-template-columns: [leftNav] 220px [main] 790px [rightNav] 1fr;
   grid-template-areas:
     ". posts rightNav"
 }
 
 .other-posts-posts {
   grid-area: posts;
-  margin-left: 45px;
+  margin-left: 30px;
   /* margin-right: 180px; */
 }
 
@@ -54,7 +54,7 @@
   display: grid;
   max-width: 600px;
   justify-content: start;
-  grid-template-columns: [first] 200px [second] 200px [third] 150px [fourth] auto [last] 70px;
+  grid-template-columns: [first] 200px [second] 200px [third] 100px [fourth] auto [last] 40px;
   grid-template-rows: auto;
   grid-auto-flow: row;
   border-bottom: rgb(237, 237, 237) 1px solid;
@@ -157,15 +157,10 @@
 
 
 @media (max-width: 1250px) {
-  .other-posts-container {
-    grid-template-columns: [leftNav] 220px [main] auto;
-    grid-template-areas:
-      ". posts"
-  }
 
   #cards-container {
     display: grid;
-    grid-template-columns: [first] 50% [second] 25% [third] 70%;
+    grid-template-columns: [first] 50% [second] 25% [third] 40%;
     grid-template-areas:
       "authorAndCreated authorAndCreated authorAndCreated"
       "title title title"
@@ -179,6 +174,25 @@
     /* margin-left: 2%; */
 
     /* margin-top: 100px; */
+  }
+}
+
+@media (max-width: 1170px) {
+
+  .other-posts-container {
+    grid-template-columns: [leftNav] 220px [main] auto;
+    grid-template-areas:
+      ". posts"
+  }
+
+  #cards-container {
+    display: grid;
+    grid-template-columns: [first] 50% [second] 25% [third] 60%;
+    grid-template-areas:
+      "authorAndCreated authorAndCreated authorAndCreated"
+      "title title title"
+      "main main main"
+      "category minRead .";
   }
 
   .other-posts-right-nav {

@@ -3,7 +3,7 @@
 #home-container {
   display: grid;
   width: 100%;
-  grid-template-columns: [leftNav] 220px [main] 900px [rightNav] 1fr;
+  grid-template-columns: [leftNav] 220px [main] 790px [rightNav] 2fr;
   grid-template-areas:
     "leftNav main rightNav"
 }
@@ -14,7 +14,7 @@
 }
 
 .home-all-posts {
-  margin-left: 45px;
+  margin-left: 30px;
 }
 
 .home-main-content {
@@ -120,9 +120,7 @@
 
 /* Medium devices (tablets, 800px and down) */
 
-
-
-@media (max-width: 1250px) {
+@media (max-width: 1170px) {
   #home-container {
     display: grid;
     width: 100%;
@@ -134,6 +132,7 @@
   .right-nav {
     display: none;
   }
+
   .console-container {
     /* margin: auto; */
     height: 200px;

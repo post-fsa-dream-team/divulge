@@ -8,6 +8,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Home");
+    this.RightNav = new RightNav();
 
     this.getData = this.getData.bind(this)
   }
@@ -56,7 +57,7 @@ export default class extends AbstractView {
       </div>
 
       <div class="right-nav">
-        ${RightNav()}
+        ${await this.RightNav.render()}
       </div>
 
       </div>

@@ -10,9 +10,11 @@ export default class extends AbstractView {
     super(params)
     this.setTitle(`Divulge | ${params.category.toUpperCase()}`)
     this.category = params.category
+    this.RightNav = new RightNav()
 
     this.getData = this.getData.bind(this)
     this.filterPosts = this.filterPosts.bind(this)
+
   }
 
   filterPosts (posts, category) {
@@ -63,7 +65,7 @@ export default class extends AbstractView {
       </div>
 
       <div class="other-posts-right-nav">
-      ${RightNav()}
+      ${await this.RightNav.render()}
       </div>
       </div>
       `
