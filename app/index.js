@@ -73,6 +73,7 @@ const router = async() => {
             { path: "/404", view: Home },
             { path: "/home", view: Home},
             { path: "/posts/all/:category", view: OtherAllPosts },
+            { path: "/posts/all/:category/:userid", view: OtherAllPosts },
             // { path: "/profile", view: MyPosts },
             { path: "/signin", view: SignIn },
             { path: "/signup", view: SignUp },

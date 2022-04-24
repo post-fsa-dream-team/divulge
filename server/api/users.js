@@ -42,6 +42,23 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+router.get('/:userId/limiteduser', async (req, res, next) => {
+  try {
+    const { userId } = req.params
+    const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [userId])
+
+    let response = rows[0].rows.map(user => {
+      return {
+        user_name: user.user_name,
+      }
+    })
+    res.send(response)
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+})
+
 router.get("/loggedindata", async (req,res,next) => {
   try {
     const sessionData = req.session

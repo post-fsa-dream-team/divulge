@@ -19,21 +19,20 @@ class RightNav {
 
     let allUsers = await this.getUsers()
     let users = allUsers.sort(() => .5 - Math.random()).slice(0,6)
-    console.log(users)
 
     return (`
       <div class="right-nav-container">
-      <p class="right-nav-discover-users">Discover Other Users</p>
+      <p class="right-nav-discover-users">Discover Other Authors</p>
         <div class="right-nav-main">
             ${users.map((user) => `
-              <a href="" class="right-nav-main-link" data-link>${user.user_name}</a>
+              <a href="/posts/all/all/${user.id}" class="right-nav-main-link" data-link>${user.user_name}</a>
             `).join("")}
 
         </div>
 
         <div class="right-nav-footer">
-          <a class="right-nav-footer-link" href="">About Divulge</a>
-          <a class="right-nav-footer-link" href="">Contact</a>
+          <a class="right-nav-footer-link" href="" data-link>About Divulge</a>
+          <a class="right-nav-footer-link" href="" data-link>Contact</a>
         </div>
       </div>`)
   }
