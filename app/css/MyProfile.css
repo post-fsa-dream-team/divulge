@@ -169,8 +169,8 @@ a {
     "image . ."
     "image username ."
     "image location ."
+    "image createdAt createdAt"
     "image . ."
-    "createdAt createdAt createdAt"
 }
 
 .myprofile__userimage {
@@ -206,10 +206,10 @@ a {
 
 .myprofile__accountcreated {
   grid-area: createdAt;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1400px) {
   .myprofile__userinfocontainer {
     grid-template-columns: [first] 100px [second] 250px;
     grid-template-areas:
@@ -218,9 +218,9 @@ a {
     "location location"
     "createdAt createdAt"
   }
-}
+} */
 
-@media (max-width: 1350px) {
+@media (max-width: 1400px) {
   .myprofile {
     width: 100%;
     background-color: hsl(0, 0%, 100%);
