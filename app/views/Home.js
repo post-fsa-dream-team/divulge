@@ -8,6 +8,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Home");
+    this.RightNav = new RightNav();
 
     this.getData = this.getData.bind(this)
   }
@@ -26,7 +27,8 @@ export default class extends AbstractView {
   }
 
   async getHtml() {
-    let posts = await this.getData();
+    let allPosts = await this.getData();
+    let posts = allPosts.sort(() => .5 - Math.random()).slice(0,3)
 
     return `
       <div id="home-container">
@@ -46,13 +48,16 @@ export default class extends AbstractView {
           <hr id="title-line"></hr>
           </div>
         </div>
+
         <div class="home-all-posts">
-        ${PostsView(posts)}
+          <p class="home-recommended">Recommended Posts</p>
+          ${PostsView(posts)}
         </div>
+
       </div>
 
-      <div class="right-nav-bar">
-        ${RightNav()}
+      <div class="right-nav">
+        ${await this.RightNav.render()}
       </div>
 
       </div>

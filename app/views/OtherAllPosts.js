@@ -9,20 +9,45 @@ export default class extends AbstractView {
   constructor(params) {
     super(params)
     this.setTitle(`Divulge | ${params.category.toUpperCase()}`)
-    this.category = params.category
+    this.category = params.category.split("/").slice(0,1).join('')
+    this.userid = params.category.split("/").slice(1).join('')
+    this.RightNav = new RightNav()
 
     this.getData = this.getData.bind(this)
     this.filterPosts = this.filterPosts.bind(this)
+
   }
 
-  filterPosts (posts, category) {
-    return posts.filter((post) => {
-      for (let key in post) {
-        if (key === "category") {
-          return post[key] === category
+  // filterPosts (posts, category) {
+  //   return posts.filter((post) => {
+  //     for (let key in post) {
+  //       if (key === "category") {
+  //         return post[key] === category
+  //       }
+  //     }
+  //   })
+  // }
+
+  filterPosts (posts, category, userid) {
+    if (userid === undefined) {
+      return posts.filter((post) => {
+        for (let key in post) {
+          if (key === "category") {
+            return post[key] === category
+          }
         }
-      }
-    })
+      })
+    }
+
+     else {
+      return posts.filter((post) => {
+        for (let key in post) {
+          if (key === "user_id") {
+            return post[key] === parseInt(userid)
+          }
+        }
+      })
+     }
   }
 
   async getData() {
@@ -38,11 +63,17 @@ export default class extends AbstractView {
     }
   }
 
+
   async getHtml() {
     let posts = await this.getData()
-    console.log(this.category)
-    if (this.category !== "all") {
+
+    // posts/all/sports
+    if (this.category !== "all" && !this.userid) {
       posts = this.filterPosts(posts, this.category)
+
+    // posts/all/all/3
+    } else if (this.category === "all" && this.userid) {
+      posts = this.filterPosts(posts, undefined, this.userid)
     }
 
     let categoryArr = this.category.split("")
@@ -60,11 +91,11 @@ export default class extends AbstractView {
       </div>
 
       <div class="other-posts-posts">
-      ${!posts.length ? NoPostsView(posts, capitalCase) : PostsView(posts, capitalCase)}
+      ${!posts.length ? NoPostsView(posts, capitalCase, this.userid) : PostsView(posts, capitalCase, this.userid)}
       </div>
 
       <div class="other-posts-right-nav">
-      ${RightNav()}
+      ${await this.RightNav.render()}
       </div>
       </div>
       `

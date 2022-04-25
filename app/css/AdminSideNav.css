@@ -13,7 +13,7 @@
   /* background: linear-gradient(rgb(255, 153, 0), rgb(255, 47, 0)); */
   /* background: linear-gradient(rgb(255, 180, 69),#ffa723, rgb(252, 78, 39)); */
   /* background: linear-gradient(#0b5b6d, #0b5b6d, rgb(255, 180, 69),rgb(255, 180, 69)); */
-  background: linear-gradient(white, #ee9802);
+  border-right: rgb(237, 237, 237) 1px solid;
 }
 
 .admin-nav-link{

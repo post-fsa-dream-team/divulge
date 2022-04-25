@@ -112,10 +112,10 @@ export default class extends AbstractView {
 
           <div class="myprofile__userinfocontainer">
             <img class="myprofile__userimage" src="https://ca.slack-edge.com/T0266FRGM-U015ZPLDZKQ-gf3696467c28-512" alt="default-user-img"/>
-            <p class="myprofile__username">${userName}</p>
-            <p class="myprofile__accountcreated"> Member Since: ${this.convertDate(account_created)}</p>
-            <p class="myprofile__name"> Name: ${firstName} ${lastName} </p>
-            <p class="myprofile__location"> Location: ${location}</p>
+            <p class="myprofile__username">@${userName}</p>
+            <p class="myprofile__accountcreated"> Author Since: ${this.convertDate(account_created)}</p>
+            <p class="myprofile__name"> ${firstName} ${lastName} </p>
+            <p class="myprofile__location"> ${location}</p>
 
           </div>
         </div>

@@ -1,25 +1,32 @@
 /* All Posts Cards */
 #posts-content {
   /* margin-left: 180px; */
-  margin-right: 20px;
-  margin-top: 50px;
+  /* margin-right: 20px; */
+  margin-top: 30px;
 
   /* margin-top: 100px; */
+}
+
+.other-posts-page-title {
+  margin-left: 40px;
+  margin-bottom: 40px;
+  border-bottom: rgb(237, 237, 237) 1px solid;
+  max-width: 600px
 }
 
 .other-posts-container {
   margin-top: 80px;
   display: grid;
-  width: 80%;
-  grid-template-columns: [first] 0px [posts] auto [rightNav] 10%;
+  width: 100%;
+  grid-template-columns: [leftNav] 220px [main] 790px [rightNav] 1fr;
   grid-template-areas:
-  ". posts rightNav";
+    ". posts rightNav"
 }
 
 .other-posts-posts {
   grid-area: posts;
-  margin-left: 280px;
-  margin-right: 180px;
+  margin-left: 30px;
+  /* margin-right: 180px; */
 }
 
 .other-posts-right-nav{
@@ -45,8 +52,9 @@
 
 #cards-container {
   display: grid;
+  max-width: 600px;
   justify-content: start;
-  grid-template-columns: [first] 200px [second] 40% [third] auto [fourth] auto [last] 10%;
+  grid-template-columns: [first] 200px [second] 200px [third] 100px [fourth] auto [last] 40px;
   grid-template-rows: auto;
   grid-auto-flow: row;
   border-bottom: rgb(237, 237, 237) 1px solid;
@@ -147,48 +155,65 @@
   width: 50px;
 }
 
-@media (max-width: 1400px) {
 
+@media (max-width: 1250px) {
+
+  #cards-container {
+    display: grid;
+    grid-template-columns: [first] 50% [second] 25% [third] 40%;
+    grid-template-areas:
+      "authorAndCreated authorAndCreated authorAndCreated"
+      "title title title"
+      "main main main"
+      "category minRead .";
+  }
+
+  #posts-content {
+    /* margin-left: 180px; */
+    /* margin-right: 20px; */
+    /* margin-left: 2%; */
+
+    /* margin-top: 100px; */
+  }
 }
 
-@media (max-width: 1200px) {
-  .post-image {
-    display: none;
+@media (max-width: 1170px) {
+
+  .other-posts-container {
+    grid-template-columns: [leftNav] 220px [main] auto;
+    grid-template-areas:
+      ". posts"
   }
 
   #cards-container {
     display: grid;
-    justify-content: start;
-    grid-template-columns: [first] 200px [second] 40% [third] auto [fourth] 40% [last] 20%;
-    grid-template-rows: auto;
-    grid-auto-flow: row;
+    grid-template-columns: [first] 50% [second] 25% [third] 60%;
     grid-template-areas:
-      "authorAndCreated authorAndCreated authorAndCreated . ."
-      "title title title title title"
-      "main main main main main"
-      "category minRead . . .";
+      "authorAndCreated authorAndCreated authorAndCreated"
+      "title title title"
+      "main main main"
+      "category minRead .";
   }
 
-  /* .article-content {
-    display: none;
-  } */
-}
-
-
-@media (max-width: 1000px) {
   .other-posts-right-nav {
     display: none;
   }
 }
 
 @media (max-width: 700px) {
+  .other-posts-container {
+    grid-template-columns: [space] 5% [main] 95%;
+    grid-template-areas:
+      ". posts"
+  }
 
   #cards-container {
-    grid-template-columns: [first] 200px [second] 100px [third] 40% [fourth] 40% [last] 20%;
+    display: grid;
+    grid-template-columns: [first] 60% [second] 50% [third] 100% [fourth] 20%;
     grid-template-areas:
-      "authorAndCreated authorAndCreated authorAndCreated . ."
-      "title title title title title"
-      "category minRead . . .";
+      "authorAndCreated authorAndCreated authorAndCreated . "
+      "title title title title"
+      "category minRead . .";
   }
 
   .other-posts-sidenav {
@@ -204,7 +229,17 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+
+  #cards-container {
+    display: grid;
+    grid-template-columns: [first] 150px [second] 100px [third] 40px [fourth] 40px;
+    grid-template-areas:
+      "authorAndCreated authorAndCreated authorAndCreated . "
+      "title title title title"
+      "category minRead . .";
+  }
+
   .article-title {
     grid-area: title;
     font-family: 'Libre Franklin', sans-serif;

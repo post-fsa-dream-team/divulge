@@ -10,10 +10,12 @@ const passport = require('passport')
 const initializePassport = require("../passportConfig");
 
 
-if(process.env.NODE_ENV !== "production") require('../secrets')
+// if(process.env.NODE_ENV !== "production") require('../secrets')
 // console.log('process.env', process.env)
 
 initializePassport(passport);
+
+require("dotenv").config();
 
 // passport registration
 passport.serializeUser((user, done) => { console.log("user", user); done(null, user.id)})

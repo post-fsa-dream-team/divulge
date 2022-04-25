@@ -1,5 +1,8 @@
 
-const PostsView = (posts) => {
+const PostsView = (posts, capitalCase, userid) => {
+
+  let isUserId = !!userid
+
   function convertDate(date) {
     let splitIndex = date.split("").indexOf("T")
     let dayOnly = date.slice(0, splitIndex)
@@ -31,7 +34,14 @@ const PostsView = (posts) => {
 
   return `
     <div id="posts-content">
+
+    ${isUserId === false && window.location.pathname !== "/home" ? `<p class="other-posts-page-title">${capitalCase} Posts<p>`: ""}
+
+      ${isUserId === true && window.location.pathname !== "/home" ? `<p class="other-posts-page-title">Other Author Posts<p>`: ""}
+
+
       <div class="post-card">
+
         ${posts.map((item) =>
         `
         <div class="each-box">

@@ -2,27 +2,31 @@
 
 #home-container {
   display: grid;
-  width: 80%;
-  grid-template-columns: [leftNav] 0px [main] 90% [rightNav] 10%;
+  width: 100%;
+  grid-template-columns: [leftNav] 220px [main] 790px [rightNav] 2fr;
   grid-template-areas:
     "leftNav main rightNav"
 }
+.home-recommended {
+  margin-left: 40px;
+  border-bottom: rgb(237, 237, 237) 1px solid;
+  max-width: 600px
+}
 
 .home-all-posts {
-  margin-left: 220px;
-  margin-right: 200px;
+  margin-left: 30px;
 }
 
 .home-main-content {
   grid-area: main;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .home-side-nav {
   grid-area: leftNav;
 }
 
-.right-nav-bar {
+.right-nav {
   grid-area: rightNav;
 }
 
@@ -61,7 +65,7 @@
   /* height: auto; */
   width: 100%;
   border-radius: 5px;
-  margin-left: 250px;
+  margin-left: 20px;
 }
 
 /* #title-line {
@@ -76,7 +80,7 @@
   /* color: white; */
   color: black;
   padding: 10px;
-  font-size: 8vh;
+  font-size: 6vh;
   margin: 0px;
   padding-top: 25px;
   padding-bottom: 20px;
@@ -116,24 +120,16 @@
 
 /* Medium devices (tablets, 800px and down) */
 
-@media (max-width: 1300px) {
-
-
-  .text-typing {
-    font-family: 'Libre Franklin', sans-serif;
-    /* color: white; */
-    color: black;
-    padding: 10px;
-    font-size: 55px;
-    margin: 0px;
-    padding-top: 25px;
-    padding-bottom: 20px;
-    padding-left: 10px
+@media (max-width: 1170px) {
+  #home-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: [leftNav] 220px [main] auto;
+    grid-template-areas:
+      "leftNav main"
   }
-}
 
-@media (max-width: 1000px) {
-  .right-nav-bar {
+  .right-nav {
     display: none;
   }
 
@@ -151,30 +147,70 @@
     margin: 0px;
     padding-top: 25px;
     padding-bottom: 20px;
-    padding-left: 10px
+    padding-left: 30px
+  }
+
+  .home-all-posts {
+    margin-left: 5%;
+  }
+
+}
+
+@media (max-width: 1050px) {
+  .post-image {
+    display: none;
+  }
+
+  #cards-container {
+    display: grid;
+    justify-content: start;
+    grid-template-columns: [first] 30% [second] 20% [third] 50% [fourth] 10%;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "authorAndCreated authorAndCreated authorAndCreated . "
+      "title title title title"
+      "main main main main"
+      "category minRead . .";
+  }
+
+  /* .article-content {
+    display: none;
+  } */
+}
+
+@media (max-width: 900px) {
+  .text-typing {
+    font-size: 5.5vh;
+  }
+}
+
+@media (max-width: 750px) {
+  .text-typing {
+    font-size: 4.8vh;
   }
 }
 
 @media (max-width: 700px) {
+  #home-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: [space] 5% [main] 95%;
+    grid-template-areas:
+      ". main"
+  }
+
   .console-container {
     /* margin: auto; */
     height: 150px;
     /* height: auto; */
     width: 100vw;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 2px;
   }
 
   .text-typing {
-    font-family: 'Libre Franklin', sans-serif;
-    /* color: white; */
-    color: black;
-    padding: 10px;
-    font-size: 30px;
-    margin: 0px;
-    padding-top: 25px;
-    padding-bottom: 20px;
-    /* padding-left: 10px */
+    font-size: 3.8vh;
   }
 
   @keyframes typing {
@@ -183,12 +219,12 @@
     }
 
     100% {
-      width: 70%
+      width: 78.5%
     }
   }
 
   .home-all-posts {
-    margin-left: -50px;
+    margin-left: -20px;
     padding: 0;
     width: 100vw
   }
