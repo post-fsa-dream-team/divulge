@@ -11,6 +11,8 @@ const initializePassport = require("../passportConfig");
 
 initializePassport(passport);
 
+require("dotenv").config();
+
 // passport registration
 passport.serializeUser((user, done) => { console.log("user", user); done(null, user.id)})
 
