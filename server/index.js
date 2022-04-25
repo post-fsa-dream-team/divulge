@@ -10,7 +10,7 @@ const passport = require('passport')
 const initializePassport = require("../passportConfig");
 
 
-if(process.env.NODE_ENV !== "production") require('../secrets')
+// if(process.env.NODE_ENV !== "production") require('../secrets')
 // console.log('process.env', process.env)
 
 initializePassport(passport);
