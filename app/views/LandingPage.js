@@ -7,28 +7,21 @@ export default class extends AbstractView {
     super(params);
     this.setTitle("Divulge | Home");
     this.getPosts = this.getPosts.bind(this)
-    // this.navScroll = this.navScroll.bind(this)
-  }
-  // navScroll() {
-  //   var myNav = document.getElementById("nav");
 
-  //   window.onscroll = function() {
-  //     "use strict";
-  //     if (document.body.scrollTop >= 280 || document.documentElement.scrollTop >= 280) {
-  //       myNav.classList.add("scroll");
-  //     } else {
-  //       myNav.classList.remove("scroll");
-  //     }
-  //   };
-  // }
+  }
+
   async getPosts() {
-    try {
-       const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-      const data = await response.json()
-      return data;
-    } catch (error) {
-      console.log('CANNOT SEE DATA', error)
-    }
+    const port = /localhost/.test(window.location.href)
+    ? "http://localhost:3000/api"
+    : "https://divulge-web-app.herokuapp.com/api";
+        try {
+            const allPosts = await fetch(`${port}/posts/landingpage`)
+            const data = await allPosts.json()
+            // console.log("data", data);
+            return data
+        } catch (error) {
+            console.log('CANNOT SEE MY POSTS :(', error);
+        }
   }
 
   async getHtml() {
@@ -37,7 +30,7 @@ export default class extends AbstractView {
     const userId = sessionStorage.getItem('id');
     const category = ["News", "Technology", "Politics", "Crime", "Entertainment", "Fashion", "Sports"]
     const helper = ["Help","Status", "Writers","Blog","Careers", "Privacy", "Terms", "About", "Knowable"]
-    // let scroll = this.navScroll();
+
     return `
     <div class="landingpage">
     <div class="landingpage__header">
@@ -64,9 +57,10 @@ export default class extends AbstractView {
         ${posts.map(post => (
           post !== undefined && `
         <h1>${post.title}</h1>
-        <p>${post.body.slice(0, 100)}...</p>
+        <p>@${post.by}</p>
+
         <div id="tags">
-          <span>Story</span>
+          <span>${post.type}</span>
           <span><a href="/signin">Save</a></span>
         </div>
 
@@ -108,13 +102,4 @@ export default class extends AbstractView {
 }
 
 
-{/* <div id="nav">
-<h2><a href="/home">Divulge</a></h2>
-<div id="nav__content">
-  <span><a href="/">Our Story</a></span>
-  <span><a>Membership</a></span>
-  <span><a href="/signin">Write</a></span>
-  <span><a href="/signin">Sign In</a></span>
-  <span><a href="/signup">Sign In</a></span>
-</div>
-</div> */}
+
