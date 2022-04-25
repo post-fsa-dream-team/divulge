@@ -1,6 +1,40 @@
 const router = require('express').Router();
 const { pool } = require('../db');
 const { userPostRelationship } = require('./gatekeeper');
+const fetch = require('node-fetch')
+
+router.get('/landingpage', async (req, res, next) => {
+    try {
+        const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Host': process.env.APIHOST,
+            'X-RapidAPI-Key': process.env.APIKEY
+          }
+        };
+
+        const delay = (t) => {
+           new Promise(resolve => setTimeout(resolve, t));
+      }
+        const response =
+        await fetch('https://community-hacker-news-v1.p.rapidapi.com/topstories.json?print=pretty', options)
+        var data = await response.json()
+        data = data.slice(0,20)
+        let results = []
+        for (let result of data) {
+        //   await delay(50);
+          await fetch(`https://community-hacker-news-v1.p.rapidapi.com/item/${result}.json?print=pretty`, options)
+         .then(res => res.json())
+         .then(res => {
+           results.push(res);
+          })
+          .catch(err => console.log(err))
+        }
+        res.status(200).json(results)
+      } catch (error) {
+        console.log('CANNOT SEE DATA', error)
+      }
+})
 
 
 router.get('/', async(req, res, next) => {
