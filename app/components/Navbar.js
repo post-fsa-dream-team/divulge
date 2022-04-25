@@ -3,11 +3,12 @@ const Navbar = () => {
 
   //SOME KIND OF ADMIN AUTHORIZATION
   let admin = sessionStorage.getItem("is_admin")
+
   let user = sessionStorage.getItem("id")
   const userId = sessionStorage.getItem('id');
+  console.log(!!admin && !!user)
 
-
-  if (admin !== true && user) {
+  if (!admin && !!user) {
     return `<nav class="nav-bar">
     <div class="title-container">
       <div id="site-title">
@@ -32,7 +33,7 @@ const Navbar = () => {
     </div>
   </nav>
   `
-  } else if (admin && user) {
+  } else if (!!admin && !!user) {
     return `<nav class="nav-bar">
     <div class="title-container">
       <div id="site-title">
@@ -41,10 +42,10 @@ const Navbar = () => {
     </div>
 
     <a href="#" class="hamburger-menu">
-      <span class="bar"><a href="/adminportal" id="admin-portal-link" class="nav-link" data-link>Admin Portal</a></span>
-      <span class="bar"><a href="/home" class="nav-link" data-link>Home</a></span>
-      <span class="bar"><a href="/profile" class="nav-link" data-link>Profile</a></span>
-      <span class="bar"><a href="/${userId}/createpost" class="nav-lnpmink" data-link>Create Post</a></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </a>
 
     <div class="nav-links">
